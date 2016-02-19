@@ -43,3 +43,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 
 //POSSIBLY ADD FACTORY LOGIC HERE
+
+app.controller('HomeController', ['$scope', '$http', function($scope, $http){
+  //DO STUFF
+}]);
