@@ -1,11 +1,14 @@
 module.exports = function(grunt) {
     // Project configuration.
+    var jsFiles = ['scripts/finalratingcontroller.js', 'scripts/goalscontroller.js', 'scripts/haircontroller.js', 'scripts/hairratingcontroller.js', 'scripts/mapcontroller.js', 'scripts/signaturecontroller.js', 'scripts/strengthsdevscontroller.js', 'scripts/main.js'];
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
         uglify: {
             build: {
-                src: "scripts/main.js",
-                dest: "server/public/scripts/main.min.js"
+                expand: true,
+                src: jsFiles,
+                dest: "server/public/",
+                ext: '.min.js'
             }
         },
         sass: {
@@ -24,7 +27,7 @@ module.exports = function(grunt) {
                 }
             },
       			scripts: {
-      				files: ["scripts/main.js"],
+      				files: jsFiles,
       				tasks: ["uglify"],
       				options: {
       					spawn: false
