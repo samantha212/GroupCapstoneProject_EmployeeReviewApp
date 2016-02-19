@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
     // Project configuration.
-    var jsFiles = ['scripts/finalratingcontroller.js', 'scripts/goalscontroller.js', 'scripts/haircontroller.js', 'scripts/hairratingcontroller.js', 'scripts/mapcontroller.js', 'scripts/signaturecontroller.js', 'scripts/strengthsdevscontroller.js', 'scripts/main.js'];
+    var jsFiles = ['scripts/finalratingcontroller.js', 'scripts/goalscontroller.js', 'scripts/haircontroller.js', 'scripts/hairratingcontroller.js', 'scripts/mapcontroller.js', 'scripts/signaturecontroller.js', 'scripts/strengthsdevscontroller.js', 'scripts/main.js', 'scripts/financescontroller.js'];
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
         uglify: {
