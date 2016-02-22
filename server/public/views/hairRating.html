@@ -1,0 +1,16 @@
+<h1 class="">HAIR Rating</h1>
+
+<div class="employeeInfo">
+    <p>Name:  {{}} <!--(Add a reference to Employee being reviewed)--></p>
+    <p>Regis ID:  {{}} <!--(Add a reference to Employee being reviewed)--></p>
+</div>
+
+<div ng-if="empOneTwo">
+  <select ng-model="thisEmpHairRating">
+      <!--Come back and make sure this value matches current subsection EmployeeGoalRating.-->
+      <option>3</option>
+      <option>2</option>
+      <option>1</option>
+      <option>0</option>
+  </select>
+</div>
