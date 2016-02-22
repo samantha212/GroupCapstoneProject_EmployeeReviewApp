@@ -89,3 +89,18 @@
     <button><a href="/signature">SIGN REVIEW</a></button>
     <!--This button should be active only in State 6.  Will bring to signature page.-->
 </div>
+
+<div ng-if="leaderThreeFour">
+    <button>SUBMIT & SEND TO EMPLOYEE</button>
+    <!--This button should be active only be active when all required sections are complete.  Will change to State 5.-->
+</div>
+
+<div ng-if="leaderFive">
+    <button>FINALIZE & GET SIGNATURES</button>
+    <!--This button should be active only in State 5.  Will change to State 6.-->
+</div>
+
+<div ng-if="leaderSix">
+    <button><a href="/signature">SIGN REVIEW</a></button>
+    <!--This button should be active only in State 6.  Will route to Signature page-->
+</div>
