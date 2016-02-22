@@ -1,32 +1,53 @@
-<div class="container-fluid .col-xs-12 .col-sm-6 .col-lg-8">
-
-<h1 class="title">Goal {{}} (Add scope variable for goal subsection id.)</h1>
+<div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
     <div class="employeeInfo">
-    <p>Name:  {{}} (Add a reference to Employee being reviewed)</p>
-    <p>Regis ID:  {{}} (Add a reference to Employee being reviewed)</p>
+      <h1 class="title">Goal {{}} (Add scope variable for goal subsection id.)</h1>
+    <h5>Name:  {{}} (Add a reference to Employee being reviewed)</h5>
+    <h5>Regis ID:  {{}} (Add a reference to Employee being reviewed)</h5>
     </div>
+
 
 <!--Employee View Divs-->
     <div ng-if="empOneTwo">
-    <p>Goal:</p>
-    <textarea ng-model="thisSubsection">(Come back and make sure the ng-model connects to the current subsection Goal string.</textarea>
-    <select ng-model="thisEmpRating">
-        <!--Come back and make sure this value matches current subsection EmployeeGoalRating.-->
+    <h4 class="goal">Goal:</h4>
+
+
+      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <textarea class="boxProperties well"
+        ng-model="thisSubsection">(Come BACK and make sure the ng-model connects to the current subsection Goal string.
+        </textarea>
+      </div>
+      <div class="clearfix"></div>
+
+      <div>
+        <select class="selectDrop well" ng-model="thisEmpRating">
+        <!--Come BACK and make sure this value matches current subsection EmployeeGoalRating.-->
         <option>3</option>
         <option>2</option>
         <option>1</option>
         <option>0</option>
-    </select>
-    <textarea ng-model="thisSubsectionEmployeeComments">(Come back and make sure the ng-model connects to the current subsection Employee Response string.</textarea>
-    <button ng-click="putAndGoMap()">Back</button>
+        </select>
+      </div>
+
+
+      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <textarea class="boxProperties well"
+        ng-model="thisSubsectionEmployeeComments">(Come BACK and make sure the ng-model connects to the current subsection Employee Response string.</textarea>
+      </div>
+
+
+        <div class="alignButton">
+    <button class="grey btn btn-secondary" ng-click="putAndGoMap()">
+      <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
     <!--Make sure this function name matches what is on scope.-->
-    <button ng-click="putCompleteAndGoNext()">Done</button>
+    <button class="orange btn btn-warning" ng-click="putCompleteAndGoNext()">
+      <span class="glyphicon glyphicon-ok"></span> DONE</button>
     <!--Make sure this function name matches what is on scope.-->
+        </div>
     </div>
 
     <div ng-if="empThreePlus">
-    <p>Goal:</p>
+    <h4 class="goal">Goal:</h4>
     <p>{{}}  Goal as stated by employee (pull from current subsection Goal string.</p>
     <p>Employee Rating:</p>
     <p>{{}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
@@ -39,33 +60,35 @@
 
     <div ng-if="empThreePlus">
     <p>Employee Comments:</p>
-    <p>{{}} Come back and make sure this connects to the current subsection EmployeeResponse string.</p>
+    <p>{{}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
     </div>
 
     <div ng-if="empFivePlus">
     <p>Leader Comments:</p>
-    <p>{{}} Come back and make sure this connects to the current subsection LeaderResponse string.</p>
+    <p>{{}} Come BACK and make sure this connects to the current subsection LeaderResponse string.</p>
     </div>
 
-    <div ng-if="empThreePlus">
-    <button ng-click="goMap()">Back</button>
+    <div class="alignButton" ng-if="empThreePlus">
+    <button class="grey btn btn-secondary" ng-click="goMap()">
+      <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
     <!--Make sure the name of this function matches what is on scope.-->
-    <button ng-click="goNext()">Done</button>
+    <button class="orange btn btn-warning" ng-click="goNext()">
+      <span class="glyphicon glyphicon-ok"></span> DONE</button>
     <!--Make sure the name of this function matches what is on scope.-->
     </div>
 
 
 <!--Leader View Divs-->
     <div ng-if="leaderThreePlus">
-    <p>Goal:</p>
+    <h4 class="goal">Goal:</h4>
     <p>{{}}  Goal as stated by employee (pull from current subsection Goal string.</p>
-    <p>Employee Rating:</p>
+    <h4 class="goal">Leader Rating:</h4>
     <p>{{}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
     </div>
 
     <div ng-if="leaderThreeFourFive">
-    <select ng-model="thisLeaderRating">
-        <!--Come back and make sure this value matches current subsection LeaderGoalRating.-->
+    <select class="selectDrop well" ng-model="thisLeaderRating">
+        <!--Come BACK and make sure this value matches current subsection LeaderGoalRating.-->
         <option>3</option>
         <option>2</option>
         <option>1</option>
@@ -74,34 +97,40 @@
     </div>
 
     <div ng-if="leaderSixPlus">
-    <p>Leader Rating: </p>
+    <h4 class="goal">Leader Rating: </h4>
     <p>{{}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
     </div>
 
     <div ng-if="leaderThreePlus">
     <p>Employee Comments:</p>
-    <p>{{}} Come back and make sure this connects to the current subsection EmployeeResponse string.</p>
+    <p>{{}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
     </div>
 
     <div ng-if="leaderThreeFourFive">
-    <textarea ng-model="thisGoalLeaderComments">Come back and make sure the ng-model connects to the current subsection LeaderResponse string.</textarea>
+      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <textarea class="well boxProperties" ng-model="thisGoalLeaderComments">Come BACK and make sure the ng-model connects to the current subsection LeaderResponse string.</textarea>
+      </div>
     </div>
 
     <div ng-if="leaderSixPlus">
-    <p>{{}} Come back and make sure the ng-model connects to the current subsection LeaderResponse string.</p>
+    <p>{{}} Come BACK and make sure the ng-model connects to the current subsection LeaderResponse string.</p>
     </div>
 
-    <div ng-if="leaderThreeFourFive">
-    <button ng-click="putAndGoMap()">Back</button>
+    <div class="alignButton" ng-if="leaderThreeFourFive">
+    <button type="button" class="grey btn btn-secondary" ng-click="putAndGoMap()">
+      <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
     <!--Make sure this function name matches what is on scope.-->
-    <button ng-click="putCompleteAndGoNext()">Done</button>
+    <button type="button" class="orange btn btn-warning" ng-click="putCompleteAndGoNext()">
+      <span class="glyphicon glyphicon-ok"></span> DONE</button>
     <!--Make sure this function name matches what is on scope.-->
     </div>
 
-    <div ng-if="leaderSixPlus">
-    <button ng-click="goMap()">Back</button>
+    <div class="alignButton" ng-if="leaderSixPlus">
+    <button type="button" class="grey btn btn-secondary" ng-click="goMap()">
+      <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
     <!--Make sure the name of this function matches what is on scope.-->
-    <button ng-click="goNext()">Done</button>
+    <button type="button" class="orange btn btn-warning" ng-click="goNext()">
+      <span class="glyphicon glyphicon-ok"></span> DONE</button>
     <!--Make sure the name of this function matches what is on scope.-->
     </div>
 
