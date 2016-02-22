@@ -1,0 +1,91 @@
+<h1>Employee Review Map</h1>
+<a href="/home">Return to Home Page</a>
+
+<div>
+    <p ng-show="financesComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/finances">Finances</a></p>
+    <p ng-hide="financesComplete"><img src="/assets/images/checkboxUnchecked.png">  <a href="/finances">Finances</a></p>
+</div>
+
+<div>
+    <p ng-show="goalOneComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/goals">Goal 1</a></p>
+    <p ng-hide="goalOneComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals">Goal 1</a></p>
+    <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
+</div>
+
+<div>
+    <p ng-show="goalTwoComplete"><img src="/assets/images/checkboxChecked.png"><a href="/goals">Goal 2</a></p>
+    <p ng-hide="goalTwoComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals">Goal 2</a></p>
+    <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
+</div>
+
+<div>
+    <p ng-show="goalThreeComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/goals">Goal 3</a></p>
+    <p ng-hide="goalThreeComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals">Goal 3</a></p>
+    <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
+</div>
+
+<div>
+    <p ng-show="goalFourComplete"><img src="/assets/images/checkboxChecked.png"><a href="/goals">Goal 4</a></p>
+    <p ng-hide="goalFourComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals">Goal 4</a></p>
+    <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
+</div>
+
+<div>
+    <p ng-show="goalFiveComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/goals">Goal 5</a></p>
+    <p ng-hide="goalFiveComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals">Goal 5</a></p>
+    <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
+</div>
+
+<div>
+    <p ng-show="hComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/hair">Honest</a></p>
+    <p ng-hide="hComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/hair">Honest</a></p>
+    <!--Add a function to take in HAIR designation, change "currentSubsection" to that goal, and reroute to goals.html.-->
+</div>
+
+<div>
+    <p ng-show="aComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/hair">Accountable</a></p>
+    <p ng-hide="aComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/hair">Accountable</a></p>
+    <!--Add a function to take in HAIR designation, change "currentSubsection" to that goal, and reroute to goals.html.-->
+</div>
+
+<div>
+    <p ng-show="iComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/hair">Inspiring</a></p>
+    <p ng-hide="iComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/hair">Inspiring</a></p>
+    <!--Add a function to take in HAIR designation, change "currentSubsection" to that goal, and reroute to goals.html.-->
+</div>
+
+<div>
+    <p ng-show="rComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/hair">Respectful</a></p>
+    <p ng-hide="rComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/hair">Respectful</a></p>
+    <!--Add a function to take in HAIR designation, change "currentSubsection" to that goal, and reroute to goals.html.-->
+</div>
+
+<div>
+    <p ng-show="hairRatingComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/hairRating">Hair Rating</a></p>
+    <p ng-hide="hairRatingComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/hairRating">Hair Rating</a></p>
+</div>
+
+<div>
+    <p ng-show="strengthsComplete"><img src="/assets/images/checkboxChecked.png"><a href="/strengthsDevs">Strengths</a></p>
+    <p ng-hide="strengthsComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/strengthsDevs">Strengths</a></p>
+</div>
+
+<div>
+    <p ng-show="developmentComplete"><img src="/assets/images/checkboxChecked.png"> <a href="/strengthsDevs">Development Opportunities</a></p>
+    <p ng-hide="developmentComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/strengthsDevs">Development Opportunities</a></p>
+</div>
+
+<div>
+    <p ng-show="finalRatingComplete"><img src="/assets/images/checkboxChecked.png"><a href="/finalRating">Final Comments and Rating</a></p>
+    <p ng-hide="finalRatingComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/finalRating">Final Comments and Rating</a></p>
+</div>
+
+<div ng-if="empOneTwo">
+    <button>SUBMIT</button>
+    <!--This button should only be active when all required sections are complete.  Will change to State 3.-->
+</div>
+
+<div ng-if="empSix">
+    <button><a href="/signature">SIGN REVIEW</a></button>
+    <!--This button should be active only in State 6.  Will bring to signature page.-->
+</div>
