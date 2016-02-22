@@ -1,0 +1,60 @@
+<h1 class="title">Financial Performance</h1>
+
+<div class="employeeInfo">
+    <p>Name:  {{}} </p>
+    <!--(Add a reference to Employee being reviewed)-->
+    <p>Regis ID:  {{}} </p>
+    <!--(Add a reference to Employee being reviewed)-->
+</div>
+
+<!--Employee View-->
+<div>
+    <!--These are the table headers. First column header is empty.-->
+    <p>  </p>
+    <p>Sales</p>
+    <p>Actual</p>
+    <p>Target</p>
+    <p>Variance +/-</p>
+    <p>% of Target</p>
+</div>
+
+<!--Each of these divs is a row.-->
+<div ng-if="emp">
+    <p>Service Sales $</p>
+    <p>{{serviceSalesActual}}</p>
+    <p>{{serviceTarget}}</p>
+    <p>{{serviceVariance}}</p>
+    <p>{{servicePercentOfTarget}}</p>
+</div>
+
+<div ng-if="emp">
+    <p>Retail Sales $</p>
+    <p>{{retailSalesActual}}</p>
+    <p>{{retailTarget}}</p>
+    <p>{{retailVariance}}</p>
+    <p>{{retailPercentOfTarget}}</p>
+</div>
+
+<div ng-if="emp">
+    <p>Total Sales $</p>
+    <p>{{totalSalesActual}}</p>
+    <p>{{totalTarget}}</p>
+    <p>{{totalVariance}}</p>
+    <p>{{totalPercentOfTarget}}</p>
+</div>
+
+<div ng-if="emp">
+    <p>Contribution $</p>
+    <p>{{contributionActual}}</p>
+    <p>{{contributionTarget}}</p>
+    <p>{{contributionVariance}}</p>
+    <p>{{contributionPercentOfTarget}}</p>
+</div>
+
+<div ng-if="emp">
+    <p>Service Guest Count</p>
+    <p>{{guestCountActual}}</p>
+    <p>{{guestCountTarget}}</p>
+    <p>{{guestCountVariance}}</p>
+    <p>{{guestCountPercentOfTarget}}</p>
+</div>
