@@ -1,7 +1,76 @@
+// //reset
+//
+// html, body, div, span, applet, object, iframe,
+// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+// a, abbr, acronym, address, big, cite, code,
+// del, dfn, em, img, ins, kbd, q, s, samp,
+// small, strike, strong, sub, sup, tt, var,
+// b, u, i, center,
+// dl, dt, dd, ol, ul, li,
+// fieldset, form, label, legend,
+// table, caption, tbody, tfoot, thead, tr, th, td,
+// article, aside, canvas, details, embed,
+// figure, figcaption, footer, header, hgroup,
+// menu, nav, output, ruby, section, summary,
+// time, mark, audio, video {
+// 	margin: 0;
+// 	padding: 0;
+// 	border: 0;
+// 	font-size: 100%;
+// 	font: inherit;
+// 	vertical-align: baseline;
+// }
+// /* HTML5 display-role reset for older browsers */
+// article, aside, details, figcaption, figure,
+// footer, header, hgroup, menu, nav, section {
+// 	display: block;
+// }
+// body {
+// 	line-height: 1;
+// }
+// ol, ul {
+// 	list-style: none;
+// }
+// blockquote, q {
+// 	quotes: none;
+// }
+// blockquote:before, blockquote:after,
+// q:before, q:after {
+// 	content: '';
+// 	content: none;
+// }
+// table {
+// 	border-collapse: collapse;
+// 	border-spacing: 0;
+// }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 body{
-  background-color: rgb(255,255,255);
+  font-family: Times, Verdana;
+  // background-color: rgb(255,255,255);
+  background-color:whitesmoke;
+  // background-color: rgb(136,136,136);
   padding-left: 2%;
 
+}
+
+// h tags
+h1 {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  font-size: 26px;
+  padding-bottom: 1%;
+}
+
+h4{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .page-header{
@@ -9,6 +78,111 @@ body{
 }
 
 .title{
+  padding-top: 0%;
+  margin-top: 0 auto;
   text-align: center;
+
+}
+
+.boxProperties{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 2% auto 2% auto;
+  width: 80%;
+  height: 300px;
+}
+
+.selectDrop{
+  background-color: rgb(255,255,255);
+  display: block;
+  width: 15%;
+  display: block;
+  margin: 0 auto;
+}
+
+// buttons
+.alignButton{
+  margin:1% auto;
+  text-align: center;
+  padding-bottom: 1%;
+
+}
+
+.orange{
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight:lighten;
+}
+  .grey {
+    font-size: 16px;
+    font-family: Helvetica;
+    font-weight:lighten;
+    color: #ffffff;
+    background-color: #999999;
+    border-color: #5C5454;
+  }
+
+  .grey:hover,
+  .grey:focus,
+  .grey:active,
+  .grey.active,
+  .open .dropdown-toggle.grey {
+    color: #ffffff;
+    background-color: #787474;
+    border-color: #5C5454;
+  }
+
+  .grey:active,
+  .grey.active,
+  .open .dropdown-toggle.grey {
+    background-image: none;
+  }
+
+  .grey.disabled,
+  .grey[disabled],
+  fieldset[disabled] .grey,
+  .grey.disabled:hover,
+  .grey[disabled]:hover,
+  fieldset[disabled] .grey:hover,
+  .grey.disabled:focus,
+  .grey[disabled]:focus,
+  fieldset[disabled] .grey:focus,
+  .grey.disabled:active,
+  .grey[disabled]:active,
+  fieldset[disabled] .grey:active,
+  .grey.disabled.active,
+  .grey[disabled].active,
+  fieldset[disabled] .grey.active {
+    background-color: #999999;
+    border-color: #5C5454;
+  }
+
+  .grey .badge {
+    color: #999999;
+    background-color: #ffffff;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//[][][][][][][]][][][][][][][][][][][][][][][][]][]]][][][][][][][][][][][][][][][][][]][][][][][][][]][][][][][][][][][][][][][]
+//[][][][][][][]][][][][][][][][][][][][][][][][]][]]][ MOBILE ][][][][][][][][][][][][][][][][]][][][][][][][]][][][][][][][][][]
+
+
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 24px;
+    color: red;
+  }
 
 }

@@ -1,8 +1,97 @@
 body {
-  background-color: white;
+  font-family: Times, Verdana;
+  background-color: whitesmoke;
   padding-left: 2%; }
 
+h1 {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  font-size: 26px;
+  padding-bottom: 1%; }
+
+h4 {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-weight: bold;
+  font-size: 20px; }
+
 .title {
+  padding-top: 0%;
+  margin-top: 0 auto;
   text-align: center; }
+
+.boxProperties {
+  background-color: white;
+  display: block;
+  margin: 2% auto 2% auto;
+  width: 80%;
+  height: 300px; }
+
+.selectDrop {
+  background-color: white;
+  display: block;
+  width: 15%;
+  display: block;
+  margin: 0 auto; }
+
+.alignButton {
+  margin: 1% auto;
+  text-align: center;
+  padding-bottom: 1%; }
+
+.orange {
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight: lighten; }
+
+.grey {
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight: lighten;
+  color: #ffffff;
+  background-color: #999999;
+  border-color: #5C5454; }
+
+.grey:hover,
+.grey:focus,
+.grey:active,
+.grey.active,
+.open .dropdown-toggle.grey {
+  color: #ffffff;
+  background-color: #787474;
+  border-color: #5C5454; }
+
+.grey:active,
+.grey.active,
+.open .dropdown-toggle.grey {
+  background-image: none; }
+
+.grey.disabled,
+.grey[disabled],
+fieldset[disabled] .grey,
+.grey.disabled:hover,
+.grey[disabled]:hover,
+fieldset[disabled] .grey:hover,
+.grey.disabled:focus,
+.grey[disabled]:focus,
+fieldset[disabled] .grey:focus,
+.grey.disabled:active,
+.grey[disabled]:active,
+fieldset[disabled] .grey:active,
+.grey.disabled.active,
+.grey[disabled].active,
+fieldset[disabled] .grey.active {
+  background-color: #999999;
+  border-color: #5C5454; }
+
+.grey .badge {
+  color: #999999;
+  background-color: #ffffff; }
+
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 24px;
+    color: red; } }
 
 /*# sourceMappingURL=stylesheet.css.map */
