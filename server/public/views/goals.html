@@ -1,6 +1,7 @@
 <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
     <div class="employeeInfo">
+
       <h1 class="title">Goal {{}} (Add scope variable for goal subsection id.)</h1>
     <h5>Name:  {{}} (Add a reference to Employee being reviewed)</h5>
     <h5>Regis ID:  {{}} (Add a reference to Employee being reviewed)</h5>
@@ -51,11 +52,12 @@
     <p>{{}}  Goal as stated by employee (pull from current subsection Goal string.</p>
     <p>Employee Rating:</p>
     <p>{{}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
+
     </div>
 
     <div ng-if="empFivePlus">
-    <p>Leader Rating: </p>
-    <p>{{}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
+        <p>Leader Rating: </p>
+        <p>{{}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
     </div>
 
     <div ng-if="empThreePlus">
