@@ -2,10 +2,15 @@
 <html lang="en" ng-app="regisreview">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=11">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Regis HR Review</title>
+
+  <!--styles-->
   <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="stylesheet" href="styles/stylesheet.css"/>
+
+  <!-- scripts  -->
   <script src="vendors/angular/angular.min.js"></script>
   <script src="vendors/angular-route/angular-route.min.js"></script>
   <script src="scripts/main.min.js"></script>
@@ -20,6 +25,11 @@
   <base href="/">
 </head>
 <body>
+
+  <div class="page-header">
+    <img src="assets/images/regisDraft_logo.gif">
+  </div>
+
   <div ng-view></div>
 </body>
 </html>
