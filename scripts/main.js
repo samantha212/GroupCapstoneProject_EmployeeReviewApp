@@ -28,7 +28,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     })
     .when('/strengthsDevs', {
       templateUrl: 'views/strengthsdevelopment.html',
-      controller: 'StrengsDevsController'
+      controller: 'StrengthsDevsController'
     })
     .when('/signature', {
       templateUrl: 'views/signature.html',
