@@ -1,0 +1,61 @@
+<img src="" alt=""/>
+<h1 class="">Main Description:</h1>
+<h2 class="">Secondary description<h2>
+
+<div class="employeeInfo">
+    <p>Name:  {{}} (Add a reference to Employee being reviewed)</p>
+    <p>Regis ID:  {{}} (Add a reference to Employee being reviewed)</p>
+</div>
+
+
+<!--Employee View divs-->
+<div ng-if="empOneTwo">
+  <p>Employee Comments:</p>
+  <textarea ng-model="thisHairCompetency">(Come back and make sure the ng-model connects to the current subsection HairCompetency string.)</textarea>
+  <button ng-click="putAndGoMap()">Back</button>
+  <!--Make sure this function name matches what is on scope.-->
+  <button ng-click="putCompleteAndGoNext()">Done</button>
+  <!--Make sure this function name matches what is on scope.-->
+</div>
+
+<div ng-if="empThreePlus">
+  <p>Employee Comments:</p>
+  <p>{{}} Comments from thisHairCompetency subsection.</p>
+</div>
+
+<div ng-if="empFivePlus">
+  <p>Leader Comments:</p>
+  <p>{{}} Make sure this connects to subsection of LeaderHairCompetency for this review</p>
+</div>
+
+<div ng-if="empThreePlus">
+  <button ng-click="goMap()">Back</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+  <button ng-click="goNext()">Done</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+</div>
+
+
+<!--Leader View divs-->
+<div ng-if="leaderThreePlus">
+  <p>Employee Comments:</p>
+  <p>{{}} Employee comments from the HairCompetency subsection for this review</p>
+</div>
+
+<div ng-if="leaderThreeFourFive">
+  <p>Leader Comments:</p>
+  <textarea ng-model="theHairCompLeaderComment"></textarea>
+  <button ng-click="putAndGoMap()">Back</button>
+  <!--Make sure this function name matches what is on scope.-->
+  <button ng-click="putCompleteAndGoNext()">Done</button>
+  <!--Make sure this function name matches what is on scope.-->
+</div>
+
+<div ng-if="leaderSixPlus">
+  <p>Leader Comments:</p>
+  <p>{{}} Leader comments from the HairCompLeaderComment subsection</p>
+  <button ng-click="goMap()">Back</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+  <button ng-click="goNext()">Done</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+</div>
