@@ -12,7 +12,7 @@ h1 {
 
 h4 {
   padding-top: 2%;
-  padding-bottom: 2%;
+  padding-bottom: 0%;
   font-weight: bold;
   font-size: 20px;
   text-align: center; }
@@ -29,12 +29,56 @@ h4 {
   width: 80%;
   height: 300px; }
 
+.employeeRatingBox {
+  background-color: white;
+  display: inline;
+  margin: 0 auto;
+  float: center;
+  width: 14%;
+  height: 10px;
+  padding-top: 2%; }
+
+.leaderRatingBox {
+  background-color: white;
+  text-align: center;
+  display: inline;
+  margin: 0 auto;
+  float: center;
+  width: 14%;
+  height: 10px;
+  padding-top: 2%; }
+
+.leaderRatingAlign {
+  text-align: center;
+  padding-bottom: 3%; }
+
+.leaderRatingAlignDrop {
+  float: center;
+  text-align: center;
+  padding-bottom: 3%; }
+
+.employeeRatingAlign {
+  text-align: center;
+  padding-bottom: 3%; }
+
+.pRating {
+  font-size: 5px; }
+
 .selectDrop {
   background-color: white;
   display: block;
-  width: 15%;
+  width: 14%;
+  height: 24px;
   display: block;
   margin: 0 auto; }
+
+.secondSelectDrop {
+  background-color: white;
+  display: block;
+  height: 24px;
+  display: block;
+  margin: 0 auto;
+  float: center; }
 
 .alignButton {
   margin: 1% auto;
