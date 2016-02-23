@@ -160,6 +160,18 @@ h4{
   float: center;
 }
 
+.initialBox{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 0 auto;
+  width: 8%;
+
+}
+
+.checkMe{
+  display: block;
+}
+
 
 // buttons
 .alignButton{
@@ -259,5 +271,11 @@ h4{
     font-size: 16px;
   }
 
+  .initialBox{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+}
 
 }

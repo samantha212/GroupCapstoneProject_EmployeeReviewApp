@@ -8,13 +8,13 @@
 
 <!--Employee View Divs-->
     <div ng-if="empOneTwo">
-    <h4>Goal:</h4>
-      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <textarea class="boxProperties well"
-        ng-model="thisSubsection">(Come BACK and make sure the ng-model connects to the current subsection Goal string.
-        </textarea>
-      </div>
-      <div class="clearfix"></div>
+      <h4>Goal:</h4>
+        <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <textarea class="boxProperties well"
+          ng-model="thisSubsection">(Come BACK and make sure the ng-model connects to the current subsection Goal string.
+          </textarea>
+        </div>
+          <div class="clearfix"></div>
 
       <div>
         <select class="selectDrop well" ng-model="thisEmpRating">
@@ -35,15 +35,14 @@
 
 
         <div class="alignButton">
-    <button class="grey btn btn-secondary" ng-click="putAndGoMap()">
-      <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-    <!--Make sure this function name matches what is on scope.-->
-    <button class="orange btn btn-warning" ng-click="putCompleteAndGoNext()">
-      <span class="glyphicon glyphicon-ok"></span> DONE</button>
-
-    <!--Make sure this function name matches what is on scope.-->
+          <button class="grey btn btn-secondary" ng-click="putAndGoMap()">
+            <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+          <!--Make sure this function name matches what is on scope.-->
+          <button class="orange btn btn-warning" ng-click="putCompleteAndGoNext()">
+            <span class="glyphicon glyphicon-ok"></span> DONE</button>
+            <!--Make sure this function name matches what is on scope.-->
         </div>
-    </div>
+      </div>
 
     <div ng-if="empThreePlus">
       <h4>Goal:</h4>
@@ -91,7 +90,6 @@
 
     <!--Make sure the name of this function matches what is on scope.-->
     </div>
-
 
 <!--Leader View Divs-->
     <div ng-if="leaderThreePlus">

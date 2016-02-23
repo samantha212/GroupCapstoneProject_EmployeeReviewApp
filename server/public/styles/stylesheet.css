@@ -80,6 +80,15 @@ h4 {
   margin: 0 auto;
   float: center; }
 
+.initialBox {
+  background-color: white;
+  display: block;
+  margin: 0 auto;
+  width: 8%; }
+
+.checkMe {
+  display: block; }
+
 .alignButton {
   margin: 1% auto;
   text-align: center;
@@ -145,6 +154,12 @@ fieldset[disabled] .grey.active {
     font-size: 16px; }
 
   .grey {
-    font-size: 16px; } }
+    font-size: 16px; }
+
+  .initialBox {
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+    width: 25%; } }
 
 /*# sourceMappingURL=stylesheet.css.map */

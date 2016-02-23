@@ -5,34 +5,44 @@
       <h5>Regis ID:  {{}} <!--(Add a reference to Employee being reviewed)--></h5>
   </div>
 
-<div class="alignButton" ng-if="empSix">
+<div ng-if="empSix">
   <h4>Employee Initials:</h4>
-  <textarea ng-model="empInitials">This will only hold empInitials</textarea>
-  <input type="checkbox" ng-model="checkedEmpSig">
+  <input type="text" class="initialBox form-control" placeholder="Initials"
+   ng-model="empInitials">This will only hold empInitials</input>
+  <input type="checkbox" class="checkMe well"
+  ng-model="checkedEmpSig">
   <p>This will hold some text about e-signatures, etc.  This will come from Regis Corporation Human Resources.</p>
-  <button type="button" class="grey btn btn-secondary"
-  ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span>BACK</button>
-  <!--Make sure this function name matches what is on scope.-->
-  <button type="button" class="orange btn btn-warning"
-   ng-click="putAndGoHome()">
-    <span class="glyphicon glyphicon-pencil"></span> SIGN</button>
-  <!--Make sure this function name matches what is on scope.-->
+
+
+  <div class="alignButton">
+    <button type="button" class="grey btn btn-secondary"
+    ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span>BACK</button>
+    <!--Make sure this function name matches what is on scope.-->
+    <button type="button" class="orange btn btn-warning"
+     ng-click="putAndGoHome()">
+      <span class="glyphicon glyphicon-pencil"></span> SIGN</button>
+    <!--Make sure this function name matches what is on scope.-->
+  </div>
 </div>
 
-<div class="alignButton" ng-if="leaderSix">
+<div ng-if="leaderSix">
   <h4>Leader Initials:</h4>
-  <textarea ng-model="leaderInitials">This will only hold empInitials</textarea>
-  <input type="checkbox" ng-model="checkedLeaderSig">
+  <input type="text" class="initialBox form-control" placeholder="Initials"
+  ng-model="leaderInitials">This will only hold empInitials</input>
+  <input type="checkbox" class="checkMe well"
+  ng-model="checkedLeaderSig">
   <p>This will hold some text about e-signatures, etc.  This will come from Regis Corporation Human Resources.</p>
 
-  <button type="button" class="grey btn btn-secondary"
-  ng-click="goMap()">
-    <span class="glyphicon glyphicon-step-backward"></span>BACK</button>
-  <!--Make sure this function name matches what is on scope.-->
-  <button type="button" class="orange btn btn-warning"
-  ng-click="putAndGoHome()">
-  <span class="glyphicon glyphicon-pencil"></span> SIGN</button>
-  <!--Make sure this function name matches what is on scope.-->
+  <div class="alignButton">
+      <button type="button" class="grey btn btn-secondary"
+      ng-click="goMap()">
+        <span class="glyphicon glyphicon-step-backward"></span>BACK</button>
+      <!--Make sure this function name matches what is on scope.-->
+      <button type="button" class="orange btn btn-warning"
+      ng-click="putAndGoHome()">
+      <span class="glyphicon glyphicon-pencil"></span> SIGN</button>
+      <!--Make sure this function name matches what is on scope.-->
+  </div>
 </div>
 
 <!-- container div -->
