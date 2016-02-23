@@ -92,7 +92,15 @@ fieldset[disabled] .grey.active {
 
 @media only screen and (max-width: 767px) {
   h1 {
-    font-size: 24px;
-    color: red; } }
+    font-size: 24px; }
+
+  h4 {
+    font-size: 18px; }
+
+  .orange {
+    font-size: 16px; }
+
+  .grey {
+    font-size: 16px; } }
 
 /*# sourceMappingURL=stylesheet.css.map */
