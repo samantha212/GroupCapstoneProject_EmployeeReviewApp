@@ -1,7 +1,6 @@
 app.controller('FinancesController', ['$scope', '$http', function($scope, $http){
     //All of these variables need to be tied back to the actual data we receive from API.
     //These are just placeholders for now.
-    $scope.emp = true;
 
     $scope.serviceSalesActual = 30000;
     $scope.serviceTarget = 28000;
@@ -28,8 +27,15 @@ app.controller('FinancesController', ['$scope', '$http', function($scope, $http)
     $scope.guestCountVariance = 15;
     $scope.guestCountPercentOfTarget = 105.0;
 
+    $scope.totalSalesRating = "3 - Exceeds Expectations";
+    $scope.contributionRating = "3 - ExceedsExpectations";
+    $scope.guestCountRating = "3 - Exceeds Expectations";
+    $scope.overallRating = "3 - Exceeds Expectations";
+
+    $scope.emp = true;
     $scope.empOneTwo = true;
     $scope.empThreePlus = true;
+    $scope.empOneToFive = true;
     $scope.empFivePlus = true;
     $scope.leaderThreePlus = true;
     $scope.leaderThreeFourFive = true;
