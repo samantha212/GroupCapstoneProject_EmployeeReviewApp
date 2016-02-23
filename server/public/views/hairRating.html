@@ -5,12 +5,67 @@
     <p>Regis ID:  {{}} <!--(Add a reference to Employee being reviewed)--></p>
 </div>
 
+<!--Employee View divs-->
 <div ng-if="empOneTwo">
-  <select ng-model="thisEmpHairRating">
-      <!--Come back and make sure this value matches current subsection EmployeeGoalRating.-->
+  <p>Employee HAIR Rating:</p>
+    <select ng-model="thisEmpHairRating">
+      <!--Come back and make sure this value matches current subsection thisEmpHairRating.-->
       <option>3</option>
       <option>2</option>
       <option>1</option>
       <option>0</option>
+    </select>
+
+  <button ng-click="putAndGoMap()">BACK</button>
+  <!--Make sure this function name matches what is on scope.-->
+  <button ng-click="putCompleteAndGoNext()">DONE</button>
+  <!--Make sure this function name matches what is on scope.-->
+</div>
+
+<div ng-if="empThreePlus">
+  <p>Employee HAIR Rating:</p>
+  <p>{{}} <!--This will just be a number from thisEmpHairRating--></p>
+</div>
+
+<div ng-if="empFivePlus">
+  <p>Leader HAIR Rating:</p>
+  <p>{{}} <!--This will just be a number from thisLeaderHairRating--></p>
+</div>
+
+<div ng-if="empThreePlus">
+  <button ng-click="goMap()">BACK</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+  <button ng-click="goNext()">DONE</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+</div>
+
+<!--Leader View divs-->
+<div ng-if="leaderThreePlus">
+  <p>Employee HAIR Rating:</p>
+  <p>{{}} <!--This will just be a number from thisEmpHairRating--></p>
+</div>
+
+<div ng-if="leaderThreeFourFive">
+  <p>Leader HAIR Rating:</p>
+  <select ng-model="thisLeaderHairRating">
+    <!--Come back and make sure this value matches current subsection thisLeaderHairRating.-->
+    <option>3</option>
+    <option>2</option>
+    <option>1</option>
+    <option>0</option>
   </select>
+
+  <button ng-click="putAndGoMap()">BACK</button>
+  <!--Make sure this function name matches what is on scope.-->
+  <button ng-click="putCompleteAndGoNext()">DONE</button>
+  <!--Make sure this function name matches what is on scope.-->
+</div>
+
+<div ng-if="leaderSixPlus">
+  <p>Leader HAIR Rating:</p>
+  <p>{{}} <!--This will be the number matching thisLeaderHairRating--></p>
+  <button ng-click="goMap()">BACK</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+  <button ng-click="goNext()">DONE</button>
+  <!--Make sure the name of this function matches what is on scope.-->
 </div>
