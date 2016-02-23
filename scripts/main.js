@@ -19,15 +19,15 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       controller: 'GoalsController'
     })
     .when('/hair', {
-      templateUrl: 'views/HAIR.html',
+      templateUrl: 'views/hair.html',
       controller: 'HairController'
     })
     .when('/hairRating', {
-      templateUrl: 'views/hairRating.html',
+      templateUrl: 'views/hair-rating.html',
       controller: 'HairRatingController'
     })
     .when('/strengthsDevs', {
-      templateUrl: 'views/strengthsDevelopment.html',
+      templateUrl: 'views/strengths-development.html',
       controller: 'StrengthsDevsController'
     })
     .when('/signature', {
@@ -35,7 +35,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       controller: 'SignatureController'
     })
     .when('/finalRating', {
-      templateUrl: '/views/finalRating.html',
+      templateUrl: '/views/final-rating.html',
       controller: 'FinalRatingController'
     })
     $locationProvider.html5Mode(true);
