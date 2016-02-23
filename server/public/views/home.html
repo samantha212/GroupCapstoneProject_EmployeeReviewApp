@@ -1,25 +1,35 @@
-<a href="/goals">Go to Goals</a>
-<br>
-<a href="/strengths-devs">Go to Strengths and Development</a>
-<br>
-<a href="/hair">Go to HAIR</a>
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
 <a href="/map">Go to Map Page</a>
+<p>Leaving this link for reference.  Eventually will remove once Home Page fully functional.</p>
 <br>
-<a href="/hair-rating">Go to HAIR Rating</a>
-<br>
-<a href="/final-rating">Go to Final Rating</a>
-<br>
-<a href="/signature">Go to Signature Page</a>
+
+<h1>Employee Review Home Page</h1>
+
+<h5>Name:  {{}} (Add a reference to Employee being reviewed)</h5>
+<h5 ng-if="typeSalon">Title:  {{}} (Add a reference to Employee being reviewed)</h5>
+<h5>Regis ID:  {{}} (Add a reference to Employee being reviewed)</h5>
+<h5 ng-if="typeField">Hire Date:  {{}} (Add a reference to Employee being reviewed)</h5>
+<h5>Leader:  {{}} (Add a reference to Employee being reviewed)</h5>
+<h5 ng-if="typeSalon">Department:  {{}} (Add a reference to Employee being reviewed)</h5>
+<h5>Review Period:  {{}} (Add a reference to Employee being reviewed)</h5>
+<h5 ng-if="typeField">Position/Region:  {{}} (Add a reference to Employee being reviewed)</h5>
+<h5 ng-if="typeField">Date in Position:  {{}} (Add a reference to Employee being reviewed)</h5>
+
+
+<button ng-if="empOneTwo">START</button>
+<button ng-if="empThreePlus">REVIEW</button>
+<button ng-if="empSixPlusAndNoEmpSignature">SIGN</button>
+<button ng-if="empSeven">EMAIL PDF</button>
+
+<hr>
+
+<div ng-if="leader">
+    <div ng-repeat="person in directReports">
+        <p>{{person.name}}</p>
+        <button ng-if="person.ReviewStatus == 'Emp Submit'">START</button>
+        <button ng-if="person.ReviewStatus == 'Leader Saved'">EDIT</button>
+        <button ng-if="person.ReviewStatus == 'Leader Submit'">REVIEW & UPDATE</button>
+        <button ng-if="person.ReviewStatus == 'Ready for Signature'">REVIEW & SIGN</button>
+        <button ng-if="person.ReviewStatus == 'Complete'">READ</button>
+    </div>
+</div>
+

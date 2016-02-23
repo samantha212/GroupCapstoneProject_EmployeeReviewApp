@@ -45,11 +45,25 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 //POSSIBLY ADD FACTORY LOGIC HERE
 
 app.controller('HomeController', ['$scope', '$http', function($scope, $http){
-  //DO STUFF
-  //$scope.empOneTwo = true;
-  //$scope.empThreePlus = true;
-  //$scope.empFivePlus = true;
-  //$scope.leaderThreePlus = true;
-  //$scope.leaderThreeFourFive = true;
-  //$scope.leaderSixPlus = true;
+  $scope.typeField = true;
+  $scope.typeSalon = true;
+
+  $scope.empOneTwo = true;
+  $scope.empThreePlus = true;
+  $scope.empFivePlus = true;
+  $scope.empSixPlusAndNoEmpSignature = true;
+  $scope.empSeven = true;
+  $scope.leaderThreePlus = true;
+  $scope.leaderThreeFourFive = true;
+  $scope.leaderSixPlus = true;
+
+  $scope.leader = true;
+
+  $scope.directReports = [
+    {name: "Joe Black", ReviewStatus: "Emp Submit"},
+    {name: "Susan Brown", ReviewStatus: "Leader Saved"},
+    {name: "William Oliver", ReviewStatus: "Leader Submit"},
+    {name: "Sarah Jones", ReviewStatus: "Ready for Signature"},
+    {name: "Roy Patiq", ReviewStatus: "Complete"}
+  ]
 }]);
