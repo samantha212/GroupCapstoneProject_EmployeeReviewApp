@@ -10,7 +10,7 @@
 
 <!--Employee View Divs-->
     <div ng-if="empOneTwo">
-    <h4 class="goal">Goal:</h4>
+    <h4>Goal:</h4>
 
 
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -48,26 +48,42 @@
     </div>
 
     <div ng-if="empThreePlus">
-    <h4 class="goal">Goal:</h4>
-    <p>{{}}  Goal as stated by employee (pull from current subsection Goal string.</p>
-    <p>Employee Rating:</p>
-    <p>{{}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
+    <h4>Goal:</h4>
+      <span class="boxProperties">
+        <p>{{}}  Goal as stated by employee (pull from current subsection Goal string.</p>
+        <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
+      </span>
+
+    <h4>Employee Rating:</h4>
+      <span class="boxProperties">
+          <p>{{}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
+          <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
+      </span>
 
     </div>
 
     <div ng-if="empFivePlus">
-        <p>Leader Rating: </p>
-        <p>{{}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
+    <h4>Leader Rating: </h4>
+      <span class="boxProperties">
+          <p>{{}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
+          <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
+      </span>
     </div>
 
     <div ng-if="empThreePlus">
-    <p>Employee Comments:</p>
-    <p>{{}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
+    <h4>Employee Comments:</h4>
+      <span class="boxProperties">
+        <p>{{}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
+          <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
+      </span>
     </div>
 
     <div ng-if="empFivePlus">
-    <p>Leader Comments:</p>
-    <p>{{}} Come BACK and make sure this connects to the current subsection LeaderResponse string.</p>
+    <h4>Leader Comments:</h4>
+      <span class="boxProperties">
+        <p>{{}} Come BACK and make sure this connects to the current subsection LeaderResponse string.</p>
+          <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
+      </span>
     </div>
 
     <div class="alignButton" ng-if="empThreePlus">
@@ -82,10 +98,17 @@
 
 <!--Leader View Divs-->
     <div ng-if="leaderThreePlus">
-    <h4 class="goal">Goal:</h4>
-    <p>{{}}  Goal as stated by employee (pull from current subsection Goal string.</p>
-    <h4 class="goal">Leader Rating:</h4>
-    <p>{{}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
+    <h4>Goal:</h4>
+        <span class="boxProperties">
+          <p>{{}}  Goal as stated by employee (pull from current subsection Goal string.</p>
+          <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
+        </span>
+
+    <h4>Leader Rating:</h4>
+        <span class="boxProperties">
+          <p>{{}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
+          <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
+        </span>
     </div>
 
     <div ng-if="leaderThreeFourFive">
@@ -99,24 +122,35 @@
     </div>
 
     <div ng-if="leaderSixPlus">
-    <h4 class="goal">Leader Rating: </h4>
-    <p>{{}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
+    <h4>Leader Rating:</h4>
+        <span class="boxProperties">
+          <p>{{}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
+            <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
+        </span>
     </div>
 
     <div ng-if="leaderThreePlus">
-    <p>Employee Comments:</p>
-    <p>{{}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
+    <h4>Employee Comments:</h4>
+        <span class="boxProperties">
+          <p>{{}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
+          <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
+        </span>
     </div>
 
     <div ng-if="leaderThreeFourFive">
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <textarea class="well boxProperties" ng-model="thisGoalLeaderComments">Come BACK and make sure the ng-model connects to the current subsection LeaderResponse string.</textarea>
+          <textarea class="well boxProperties" ng-model="thisGoalLeaderComments">Come BACK and make sure the ng-model connects to the current subsection LeaderResponse string.</textarea>
       </div>
     </div>
+    <br>
 
-    <div ng-if="leaderSixPlus">
-    <p>{{}} Come BACK and make sure the ng-model connects to the current subsection LeaderResponse string.</p>
-    </div>
+
+      <div ng-if="leaderSixPlus">
+          <span class="lastboxProperties">
+          <p>{{}} Come BACK and make sure the ng-model connects to the current subsection LeaderResponse string.</p>
+          </span>
+      </div>
+      <br>
 
     <div class="alignButton" ng-if="leaderThreeFourFive">
     <button type="button" class="grey btn btn-secondary" ng-click="putAndGoMap()">
