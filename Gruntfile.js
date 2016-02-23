@@ -14,13 +14,13 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 files: {
-                    'server/public/styles/stylesheet.css':'server/public/styles/main.scss'
+                    'server/public/styles/stylesheet.css':'sass/main.scss'
                 }
             }
         },
         watch: {
           css: {
-                files: 'server/public/styles/main.scss',
+                files: 'sass/main.scss',
                 tasks: ['sass'],
                 options: {
                     spawn: false
