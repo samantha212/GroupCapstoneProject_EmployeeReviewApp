@@ -10,7 +10,7 @@
 
 <!--Employee View Divs-->
 <div ng-if="empOneTwo">
-
+    <h4>Employee Comments:</h4>
     <textarea ng-model="thisSubsection">(Come back and make sure the ng-model connects to the current subsection Strengths or Development string.</textarea>
     <button ng-click="putAndGoMap()">BACK</button>
     <!--Make sure this function name matches what is on scope.-->
@@ -19,12 +19,12 @@
 </div>
 
 <div ng-if="empThreePlus">
-    <p>Employee Comments:</p>
+    <h4>Employee Comments:</h4>
     <p>{{}}  Comments as stated by employee.  (Pull from current subsection Strengths or Development string.)</p>
 </div>
 
 <div ng-if="empFivePlus">
-    <p>Leader Comments:</p>
+    <h4>Leader Comments:</h4>
     <p>{{}}  Comments as stated by leader.  (Pull from current subsection Strengths or Development string.)</p>
 </div>
 
@@ -38,7 +38,7 @@
 
 <!--Leader View Divs-->
 <div ng-if="leaderThreeFourFive">
-    <p>Employee Comments:</p>
+    <h4>Employee Comments:</h4>
     <textarea ng-model="thisSubsectionEmployeeComments">(Come back and make sure the ng-model connects to the current subsection Strengths or Development string. </textarea>
 
     <button ng-click="putAndGoMap()">BACK</button>
@@ -48,10 +48,10 @@
 </div>
 
 <div ng-if="leaderSixPlus">
-    <p>Employee Comments:</p>
+    <h4>Employee Comments:</h4>
     <p>{{}}  Comments as stated by employee.  (Pull from current subsection Strengths or Development string.)</p>
 
-    <p>Leader Comments:</p>
+    <h4>Leader Comments:</h4>
     <p>{{}}  Comments as stated by leader.  (Pull from current subsection Strengths or Development string.)</p>
 
     <button ng-click="goMap()">BACK</button>

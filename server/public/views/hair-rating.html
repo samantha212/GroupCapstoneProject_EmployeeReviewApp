@@ -7,7 +7,7 @@
 
 <!--Employee View divs-->
 <div ng-if="empOneTwo">
-  <p>Employee HAIR Rating:</p>
+  <h4>Employee HAIR Rating:</h4>
     <select ng-model="thisEmpHairRating">
       <!--Come back and make sure this value matches current subsection thisEmpHairRating.-->
       <option>3</option>
@@ -23,12 +23,12 @@
 </div>
 
 <div ng-if="empThreePlus">
-  <p>Employee HAIR Rating:</p>
+  <h4>Employee HAIR Rating:</h4>
   <p>{{}} <!--This will just be a number from thisEmpHairRating--></p>
 </div>
 
 <div ng-if="empFivePlus">
-  <p>Leader HAIR Rating:</p>
+  <h4>Leader HAIR Rating:</h4>
   <p>{{}} <!--This will just be a number from thisLeaderHairRating--></p>
 </div>
 
@@ -41,12 +41,12 @@
 
 <!--Leader View divs-->
 <div ng-if="leaderThreePlus">
-  <p>Employee HAIR Rating:</p>
+  <h4>Employee HAIR Rating:</h4>
   <p>{{}} <!--This will just be a number from thisEmpHairRating--></p>
 </div>
 
 <div ng-if="leaderThreeFourFive">
-  <p>Leader HAIR Rating:</p>
+  <h4>Leader HAIR Rating:</h4>
   <select ng-model="thisLeaderHairRating">
     <!--Come back and make sure this value matches current subsection thisLeaderHairRating.-->
     <option>3</option>
@@ -62,7 +62,7 @@
 </div>
 
 <div ng-if="leaderSixPlus">
-  <p>Leader HAIR Rating:</p>
+  <h4>Leader HAIR Rating:</h4>
   <p>{{}} <!--This will be the number matching thisLeaderHairRating--></p>
   <button ng-click="goMap()">BACK</button>
   <!--Make sure the name of this function matches what is on scope.-->

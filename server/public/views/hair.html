@@ -10,7 +10,7 @@
 
 <!--Employee View divs-->
 <div ng-if="empOneTwo">
-  <p>Employee Comments:</p>
+  <h4>Employee Comments:</h4>
   <textarea ng-model="thisHairCompetency">(Come back and make sure the ng-model connects to the current subsection EmpHairCompetency string.)</textarea>
   <button ng-click="putAndGoMap()">BACK</button>
   <!--Make sure this function name matches what is on scope.-->
@@ -19,12 +19,12 @@
 </div>
 
 <div ng-if="empThreePlus">
-  <p>Employee Comments:</p>
+  <h4>Employee Comments:</h4>
   <p>{{}} Comments from thisEmpHairCompetency subsection.</p>
 </div>
 
 <div ng-if="empFivePlus">
-  <p>Leader Comments:</p>
+  <h4>Leader Comments:</h4>
   <p>{{}} Make sure this connects to subsection of LeaderHairCompetencyComment for this review</p>
 </div>
 
@@ -38,12 +38,12 @@
 
 <!--Leader View divs-->
 <div ng-if="leaderThreePlus">
-  <p>Employee Comments:</p>
+  <h4>Employee Comments:</h4>
   <p>{{}} Employee comments from the EmpHairCompetency subsection for this review</p>
 </div>
 
 <div ng-if="leaderThreeFourFive">
-  <p>Leader Comments:</p>
+  <h4>Leader Comments:</h4>
   <textarea ng-model="theHairCompLeaderComment"></textarea>
   <button ng-click="putAndGoMap()">BACK</button>
   <!--Make sure this function name matches what is on scope.-->
@@ -52,7 +52,7 @@
 </div>
 
 <div ng-if="leaderSixPlus">
-  <p>Leader Comments:</p>
+  <h4>Leader Comments:</h4>
   <p>{{}} Leader comments from the LeaderHairCompetencyComment subsection</p>
   <button ng-click="goMap()">BACK</button>
   <!--Make sure the name of this function matches what is on scope.-->

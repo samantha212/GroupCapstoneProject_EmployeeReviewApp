@@ -1,0 +1,78 @@
+<h1 class="">Rating</h1>
+
+<div class="employeeInfo">
+    <p>Name:  {{}} <!--(Add a reference to Employee being reviewed)--></p>
+    <p>Regis ID:  {{}} <!--(Add a reference to Employee being reviewed)--></p>
+</div>
+
+<!--Employee View divs-->
+<div ng-if="empOneTwo">
+  <h4>Employee Rating:</h4>
+    <select ng-model="thisEmpFinalRating">
+      <!--Come back and make sure this value matches current subsection thisEmpFinalRating.-->
+      <option>3</option>
+      <option>2</option>
+      <option>1</option>
+      <option>0</option>
+    </select>
+  <h4>Employee Comments:</h4>
+    <textarea ng-model="thisEmpFinalComment">Come back and make sure this text links to EmpFinalComment.</textarea>
+    <button ng-click="putAndGoMap()">BACK</button>
+    <!--Make sure this function name matches what is on scope.-->
+    <button ng-click="putCompleteAndGoNext()">DONE</button>
+    <!--Make sure this function name matches what is on scope.-->
+</div>
+
+<div ng-ig="empThreePlus">
+  <h4>Employee Rating:</h4>
+  <p>{{}} <!--This will just be a number from EmpFinalRating--></p>
+  <h4>Employee Comments:</h4>
+  <p>{{}} This will be text from EmpFinalComments.</p>
+  <button ng-click="goMap()">BACK</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+  <button ng-click="goNext()">DONE</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+</div>
+
+<div ng-if="empFivePlus">
+  <h4>Leader Rating:</h4>
+  <p>{{}} <!--This will be a number from LeaderFinalRating--></p>
+  <h4>Leader Comments:</h4>
+  <p>{{}} This will be comments from LeaderFinalComments.</p>
+</div>
+
+<!--Leader View divs-->
+<div ng-if="leaderThreePlus">
+  <h4>Employee Rating:</h4>
+  <p>{{}} <!--This will be a number from EmpFinalRating--></p>
+  <h4>Employee Comments:</h4>
+  <p>{{}}  This will be a comment from EmpFinalComments.</p>
+</div>
+
+<div ng-if="leaderThreeFourFive">
+  <h4>Leader Rating:</h4>
+  <select class="selectDrop well" ng-model="thisLeaderFinalRating">
+      <!--Come BACK and make sure this value matches current subsection LeaderFinalRating.-->
+      <option>3</option>
+      <option>2</option>
+      <option>1</option>
+      <option>0</option>
+  </select>
+  <h4>Leader Comments:</h4>
+  <textarea ng-model="thisLeaderFinalComment">Makes sure this links to LeaderFinalComments.</textarea>
+  <button ng-click="putAndGoMap()">BACK</button>
+  <!--Make sure this function name matches what is on scope.-->
+  <button ng-click="putCompleteAndGoNext()">DONE</button>
+  <!--Make sure this function name matches what is on scope.-->
+</div>
+
+<div ng-if="leaderSixPlus">
+  <h4>Leader Rating:</h4>
+  <p>{{}} <!--This will be a number from LeaderFinalRating--></p>
+  <h4>Leader Comments:</h4>
+  <p>{{}}  this will display text from LeaderFinalComment.</p>
+  <button ng-click="goMap()">BACK</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+  <button ng-click="goNext()">DONE</button>
+  <!--Make sure the name of this function matches what is on scope.-->
+</div>
