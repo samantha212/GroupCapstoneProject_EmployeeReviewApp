@@ -22,11 +22,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       templateUrl: 'views/hair.html',
       controller: 'HairController'
     })
-    .when('/hairRating', {
+    .when('/hair-rating', {
       templateUrl: 'views/hair-rating.html',
       controller: 'HairRatingController'
     })
-    .when('/strengthsDevs', {
+    .when('/strengths-devs', {
       templateUrl: 'views/strengths-development.html',
       controller: 'StrengthsDevsController'
     })
@@ -34,7 +34,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       templateUrl: 'views/signature.html',
       controller: 'SignatureController'
     })
-    .when('/finalRating', {
+    .when('/final-rating', {
       templateUrl: '/views/final-rating.html',
       controller: 'FinalRatingController'
     })
