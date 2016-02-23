@@ -1,0 +1,28 @@
+<h1 class="">Signature Page</h1>
+
+<div class="employeeInfo">
+    <p>Name:  {{}} <!--(Add a reference to Employee being reviewed)--></p>
+    <p>Regis ID:  {{}} <!--(Add a reference to Employee being reviewed)--></p>
+</div>
+
+<div ng-if="empSix">
+  <h4>Employee Initials:</h4>
+  <textarea ng-model="empInitials">This will only hold empInitials</textarea>
+  <input type="checkbox" ng-model="checkedEmpSig">
+  <p>This will hold some text about e-signatures, etc.  This will come from Regis Corporation Human Resources.</p>
+  <button ng-click="goMap()">BACK</button>
+  <!--Make sure this function name matches what is on scope.-->
+  <button ng-click="putAndGoHome()">SIGN</button>
+  <!--Make sure this function name matches what is on scope.-->
+</div>
+
+<div ng-if="leaderSix">
+  <h4>Leader Initials:</h4>
+  <textarea ng-model="leaderInitials">This will only hold empInitials</textarea>
+  <input type="checkbox" ng-model="checkedLeaderSig">
+  <p>This will hold some text about e-signatures, etc.  This will come from Regis Corporation Human Resources.</p>
+  <button ng-click="goMap()">BACK</button>
+  <!--Make sure this function name matches what is on scope.-->
+  <button ng-click="putAndGoHome()">SIGN</button>
+  <!--Make sure this function name matches what is on scope.-->
+</div>
