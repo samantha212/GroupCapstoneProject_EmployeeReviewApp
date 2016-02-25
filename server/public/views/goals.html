@@ -35,10 +35,10 @@
 
 
         <div class="alignButton">
-          <button class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">
+          <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">
             <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
           <!--Make sure this function name matches what is on scope.-->
-          <button class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()">
+          <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()">
             <span class="glyphicon glyphicon-ok"></span> DONE</button>
             <!--Make sure this function name matches what is on scope.-->
         </div>
@@ -81,13 +81,14 @@
     </div>
 
 
-    <div class="alignButton" ng-if="empThreePlus">
-    <button class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
-      <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-    <!--Make sure the name of this function matches what is on scope.-->
-    <button class="orange btn btn-warning btn-responsive" ng-click="goNext()">
-      <span class="glyphicon glyphicon-ok"></span> DONE</button>
-
+    <div ng-if="empThreePlus">
+      <div class="alignButton">
+        <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
+          <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+        <!--Make sure the name of this function matches what is on scope.-->
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()">
+          <span class="glyphicon glyphicon-ok"></span> DONE</button>
+        </div>
     <!--Make sure the name of this function matches what is on scope.-->
     </div>
 
@@ -149,23 +150,27 @@
       </div>
       <br>
 
-    <div class="alignButton" ng-if="leaderThreeFourFive">
-    <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">
-      <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-    <!--Make sure this function name matches what is on scope.-->
-    <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()">
-      <span class="glyphicon glyphicon-ok"></span> DONE</button>
-    <!--Make sure this function name matches what is on scope.-->
+    <div ng-if="leaderThreeFourFive">
+      <div class="alignButton">
+        <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">
+          <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+        <!--Make sure this function name matches what is on scope.-->
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()">
+          <span class="glyphicon glyphicon-ok"></span> DONE</button>
+        <!--Make sure this function name matches what is on scope.-->
+      </div>
     </div>
 
-    <div class="alignButton" ng-if="leaderSixPlus">
-    <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
-      <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-    <!--Make sure the name of this function matches what is on scope.-->
-    <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()">
-      <span class="glyphicon glyphicon-ok"></span> DONE</button>
+    <div ng-if="leaderSixPlus">
+      <div class="alignButton">
+      <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
+        <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+      <!--Make sure the name of this function matches what is on scope.-->
+      <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()">
+        <span class="glyphicon glyphicon-ok"></span> DONE</button>
 
     <!--Make sure the name of this function matches what is on scope.-->
+      </div>
     </div>
 
     <!-- container div -->
