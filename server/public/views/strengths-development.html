@@ -12,10 +12,12 @@
 <div ng-if="empOneTwo">
     <h4>Employee Comments:</h4>
     <textarea ng-model="thisSubsection">(Come back and make sure the ng-model connects to the current subsection Strengths or Development string.</textarea>
-    <button ng-click="putAndGoMap()">BACK</button>
-    <!--Make sure this function name matches what is on scope.-->
-    <button ng-click="putCompleteAndGoNext()">DONE</button>
-    <!--Make sure this function name matches what is on scope.-->
+    <div class="alignButton">
+      <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+      <!--Make sure this function name matches what is on scope.-->
+      <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+      <!--Make sure this function name matches what is on scope.-->
+    </div>
 </div>
 
 <div ng-if="empThreePlus">
@@ -29,10 +31,12 @@
 </div>
 
 <div ng-if="empThreePlus">
-    <button ng-click="goMap()">BACK</button>
+  <div class="alignButton">
+    <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
     <!--Make sure the name of this function matches what is on scope.-->
-    <button ng-click="goNext()">DONE</button>
+    <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
     <!--Make sure the name of this function matches what is on scope.-->
+  </div>
 </div>
 
 
@@ -40,11 +44,12 @@
 <div ng-if="leaderThreeFourFive">
     <h4>Employee Comments:</h4>
     <textarea ng-model="thisSubsectionEmployeeComments">(Come back and make sure the ng-model connects to the current subsection Strengths or Development string. </textarea>
-
-    <button ng-click="putAndGoMap()">BACK</button>
-    <!--Make sure this function name matches what is on scope.-->
-    <button ng-click="putCompleteAndGoNext()">DONE</button>
-    <!--Make sure this function name matches what is on scope.-->
+    <div class="alignButton">
+      <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+      <!--Make sure this function name matches what is on scope.-->
+      <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+      <!--Make sure this function name matches what is on scope.-->
+   </div>
 </div>
 
 <div ng-if="leaderSixPlus">
@@ -53,9 +58,10 @@
 
     <h4>Leader Comments:</h4>
     <p>{{}}  Comments as stated by leader.  (Pull from current subsection Strengths or Development string.)</p>
-
-    <button ng-click="goMap()">BACK</button>
-    <!--Make sure the name of this function matches what is on scope.-->
-    <button ng-click="goNext()">DONE</button>
-    <!--Make sure the name of this function matches what is on scope.-->
+     <div class="alignButton">
+        <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+        <!--Make sure the name of this function matches what is on scope.-->
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+        <!--Make sure the name of this function matches what is on scope.-->
+      </div>
 </div>

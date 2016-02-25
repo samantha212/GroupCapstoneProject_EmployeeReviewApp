@@ -8,18 +8,19 @@
 <!--Employee View divs-->
 <div ng-if="empOneTwo">
   <h4>Employee HAIR Rating:</h4>
-    <select ng-model="thisEmpHairRating">
+    <select class="selectDrop well" ng-model="thisEmpHairRating">
       <!--Come back and make sure this value matches current subsection thisEmpHairRating.-->
       <option>3</option>
       <option>2</option>
       <option>1</option>
       <option>0</option>
     </select>
-
-  <button ng-click="putAndGoMap()">BACK</button>
-  <!--Make sure this function name matches what is on scope.-->
-  <button ng-click="putCompleteAndGoNext()">DONE</button>
-  <!--Make sure this function name matches what is on scope.-->
+  <div class="alignButton">
+    <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+    <!--Make sure this function name matches what is on scope.-->
+    <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()">  <span class="glyphicon glyphicon-ok"></span> DONE</button>
+    <!--Make sure this function name matches what is on scope.-->
+  </div>
 </div>
 
 <div ng-if="empThreePlus">
@@ -33,10 +34,12 @@
 </div>
 
 <div ng-if="empThreePlus">
-  <button ng-click="goMap()">BACK</button>
-  <!--Make sure the name of this function matches what is on scope.-->
-  <button ng-click="goNext()">DONE</button>
-  <!--Make sure the name of this function matches what is on scope.-->
+    <div class="alignButton">
+      <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+      <!--Make sure the name of this function matches what is on scope.-->
+      <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+      <!--Make sure the name of this function matches what is on scope.-->
+   </div>
 </div>
 
 <!--Leader View divs-->
@@ -47,25 +50,28 @@
 
 <div ng-if="leaderThreeFourFive">
   <h4>Leader HAIR Rating:</h4>
-  <select ng-model="thisLeaderHairRating">
+  <select class="selectDrop well" ng-model="thisLeaderHairRating">
     <!--Come back and make sure this value matches current subsection thisLeaderHairRating.-->
     <option>3</option>
     <option>2</option>
     <option>1</option>
     <option>0</option>
   </select>
-
-  <button ng-click="putAndGoMap()">BACK</button>
-  <!--Make sure this function name matches what is on scope.-->
-  <button ng-click="putCompleteAndGoNext()">DONE</button>
-  <!--Make sure this function name matches what is on scope.-->
+    <div class="alignButton">
+      <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">  <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+      <!--Make sure this function name matches what is on scope.-->
+      <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+      <!--Make sure this function name matches what is on scope.-->
+    </div>
 </div>
 
 <div ng-if="leaderSixPlus">
   <h4>Leader HAIR Rating:</h4>
-  <p>{{}} <!--This will be the number matching thisLeaderHairRating--></p>
-  <button ng-click="goMap()">BACK</button>
-  <!--Make sure the name of this function matches what is on scope.-->
-  <button ng-click="goNext()">DONE</button>
-  <!--Make sure the name of this function matches what is on scope.-->
+  <p>{{}}</p> <!--This will be the number matching thisLeaderHairRating-->
+    <div class="alignButton">
+      <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+      <!--Make sure the name of this function matches what is on scope.-->
+      <buttontype="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()">  <span class="glyphicon glyphicon-ok"></span> DONE</button>
+      <!--Make sure the name of this function matches what is on scope.-->
+    </div>
 </div>
