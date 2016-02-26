@@ -6,4 +6,9 @@ app.controller('HairController', ['$scope', '$http', function($scope, $http){
   $scope.leaderThreePlus = true;
   $scope.leaderThreeFourFive = true;
   $scope.leaderSixPlus = true;
+
+  $scope.hairSubsectionH = true;
+  $scope.hairSubsectionA = false;
+  $scope.hairSubsectionI = false;
+  $scope.hairSubsectionR = false;
 }]);
