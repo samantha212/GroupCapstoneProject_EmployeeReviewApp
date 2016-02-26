@@ -72,7 +72,7 @@ h4 {
   display: block;
   margin: 0 auto; }
 
-.secondSelectDrop {
+.secondGoalSelectDrop {
   background-color: white;
   display: block;
   width: 28%;
@@ -80,10 +80,25 @@ h4 {
   display: block;
   margin: 0 auto 0 8%; }
 
-.initialBox {
+.FinancesSelectDrop {
+  background-color: white;
+  width: 24%;
+  height: 24px; }
+
+.lastFinancesSelectDrop {
+  background-color: white;
+  width: 14%;
+  height: 24px; }
+
+.initialInput {
   background-color: white;
   display: block;
   margin: 0 auto;
+  width: 8%; }
+
+.financialInput {
+  background-color: white;
+  display: inline-block;
   width: 8%; }
 
 .checkMe {
@@ -142,6 +157,16 @@ fieldset[disabled] .grey.active {
 .grey .badge {
   color: #999999;
   background-color: #ffffff; }
+
+.green {
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight: lighten; }
+
+.review {
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight: lighten; }
 
 @media only screen and (max-width: 767px) {
   h1 {

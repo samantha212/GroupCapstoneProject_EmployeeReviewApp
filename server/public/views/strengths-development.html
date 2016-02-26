@@ -12,8 +12,11 @@
 
   <!--Employee View Divs-->
   <div ng-if="empOneTwo">
-      <h4>Employee Comments:</h4>
-      <textarea ng-model="thisSubsection">(Come back and make sure the ng-model connects to the current subsection Strengths or Development string.</textarea>
+    <h4>Employee Comments:</h4>
+    <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <textarea class="boxProperties well" ng-model="thisSubsection">(Come back and make sure the ng-model connects to the current subsection Strengths or Development string.</textarea>
+    </div>
+
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure this function name matches what is on scope.-->
@@ -45,7 +48,10 @@
   <!--Leader View Divs-->
   <div ng-if="leaderThreeFourFive">
       <h4>Employee Comments:</h4>
-      <textarea ng-model="thisSubsectionEmployeeComments">(Come back and make sure the ng-model connects to the current subsection Strengths or Development string. </textarea>
+      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <textarea class="boxProperties well" ng-model="thisSubsectionEmployeeComments">(Come back and make sure the ng-model connects to the current subsection Strengths or Development string.</textarea>
+      </div>
+
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure this function name matches what is on scope.-->

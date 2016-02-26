@@ -9,7 +9,7 @@
   <!--Employee View divs-->
   <div ng-if="empOneTwo">
     <h4>Employee Rating:</h4>
-      <select ng-model="thisEmpFinalRating">
+      <select class="selectDrop well" ng-model="thisEmpFinalRating">
         <!--Come back and make sure this value matches current subsection thisEmpFinalRating.-->
         <option>3</option>
         <option>2</option>
@@ -17,7 +17,9 @@
         <option>0</option>
       </select>
     <h4>Employee Comments:</h4>
-      <textarea ng-model="thisEmpFinalComment">Come back and make sure this text links to EmpFinalComment.</textarea>
+    <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <textarea class="boxProperties well" ng-model="thisEmpFinalComment">Come back and make sure this text links to EmpFinalComment.</textarea>
+    </div>
 
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
@@ -66,7 +68,10 @@
         <option>0</option>
     </select>
     <h4>Leader Comments:</h4>
-    <textarea ng-model="thisLeaderFinalComment">Makes sure this links to LeaderFinalComments.</textarea>
+    <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <textarea class="boxProperties well" ng-model="thisLeaderFinalComment">Makes sure this links to LeaderFinalComments.</textarea>
+    </div>
+
       <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
       <!--Make sure this function name matches what is on scope.-->

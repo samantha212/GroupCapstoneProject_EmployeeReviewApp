@@ -94,10 +94,10 @@
   <!--Each of these divs is a row.-->
   <div ng-if="leaderThreeFourFive">
       <p>Service Sales $</p>
-      <input type="text" ng-model="serviceSalesActual">
-      <input type="text" ng-model="serviceTarget">
-      <input type="text" ng-model="serviceVariance">
-      <input type="text" ng-model="servicePercentOfTarget">
+      <input type="text" class="financialInput form-control" ng-model="serviceSalesActual">
+      <input type="text" class="financialInput form-control" ng-model="serviceTarget">
+      <input type="text" class="financialInput form-control" ng-model="serviceVariance">
+      <input type="text" class="financialInput form-control" ng-model="servicePercentOfTarget">
       <p> </p>
       <!--No rating for Service Sales - empty-->
   </div>
@@ -114,10 +114,10 @@
 
   <div ng-if="leaderThreeFourFive">
       <p>Retail Sales $</p>
-      <input type="text" ng-model="retailSalesActual">
-      <input type="text" ng-model="retailTarget">
-      <input type="text" ng-model="retailVariance">
-      <input type="text" ng-model="retailPercentOfTarget">
+      <input type="text" class="financialInput form-control" ng-model="retailSalesActual">
+      <input type="text" class="financialInput form-control" ng-model="retailTarget">
+      <input type="text" class="financialInput form-control" ng-model="retailVariance">
+      <input type="text" class="financialInput form-control" ng-model="retailPercentOfTarget">
       <p> </p>
       <!--No rating for Retail Sales - empty-->
   </div>
@@ -134,11 +134,11 @@
 
   <div ng-if="leaderThreeFourFive">
       <p>Total Sales $</p>
-      <input type="text" ng-model="totalSalesActual">
-      <input type="text" ng-model="totalTarget">
-      <input type="text" ng-model="totalVariance">
-      <input type="text" ng-model="totalPercentOfTarget">
-      <select>
+      <input type="text" class="financialInput form-control" ng-model="totalSalesActual">
+      <input type="text" class="financialInput form-control" ng-model="totalTarget">
+      <input type="text" class="financialInput form-control" ng-model="totalVariance">
+      <input type="text" class="financialInput form-control" ng-model="totalPercentOfTarget">
+      <select class="FinancesSelectDrop well">
           <option value="3 - Exceeds Expectations">3 - Exceeds Expectations = 101.5% and Above</option>
           <option value="2 - Meets Expectations">2 - Meets Expectations = 98.5% - 101.4%</option>
           <option value="1 - Does Not Meet Expectations">1 - Does Not Meet Expectations = Below 98.5%</option>
@@ -156,11 +156,11 @@
 
   <div ng-if="leaderThreeFourFive">
       <p>Contribution $</p>
-      <input type="text" ng-model="contributionActual">
-      <input type="text" ng-model="contributionTarget">
-      <input type="text" ng-model="contributionVariance">
-      <input type="text" ng-model="contributionPercentOfTarget">
-      <select>
+      <input type="text" class="financialInput form-control" ng-model="contributionActual">
+      <input type="text" class="financialInput form-control" ng-model="contributionTarget">
+      <input type="text" class="financialInput form-control" ng-model="contributionVariance">
+      <input type="text" class="financialInput form-control" ng-model="contributionPercentOfTarget">
+      <select class="FinancesSelectDrop well">
           <option value="3 - Exceeds Expectations">3 - Exceeds Expectations = 101.5% and Above</option>
           <option value="2 - Meets Expectations">2 - Meets Expectations = 98.5% - 101.4%</option>
           <option value="1 - Does Not Meet Expectations">1 - Does Not Meet Expectations = Below 98.5%</option>
@@ -178,11 +178,11 @@
 
   <div ng-if="leaderThreeFourFive">
       <p>Service Guest Count</p>
-      <input type="text" ng-model="guestCountActual">
-      <input type="text" ng-model="guestCountTarget">
-      <input type="text" ng-model="guestCountVariance">
-      <input type="text" ng-model="guestCountPercentOfTarget">
-      <select>
+      <input type="text" class="financialInput form-control" ng-model="guestCountActual">
+      <input type="text" class="financialInput form-control" ng-model="guestCountTarget">
+      <input type="text" class="financialInput form-control" ng-model="guestCountVariance">
+      <input type="text" class="financialInput form-control" ng-model="guestCountPercentOfTarget">
+      <select class="FinancesSelectDrop well">
           <option value="3 - Exceeds Expectations">3 - Exceeds Expectations = 101.5% and Above</option>
           <option value="2 - Meets Expectations">2 - Meets Expectations = 98.5% - 101.4%</option>
           <option value="1 - Does Not Meet Expectations">1 - Does Not Meet Expectations = Below 98.5%</option>
@@ -200,7 +200,7 @@
 
   <div ng-if="leaderThreeFourFive">
       <p>Overall Financial Performance Rating:</p>
-      <select>
+      <select class="lastFinancesSelectDrop well">
           <option value="3 - Exceeds Expectations">3 - Exceeds Expectations</option>
           <option value="2 - Meets Expectations">2 - Meets Expectations</option>
           <option value="1 - Does Not Meet Expectations">1 - Does Not Meet Expectations</option>
