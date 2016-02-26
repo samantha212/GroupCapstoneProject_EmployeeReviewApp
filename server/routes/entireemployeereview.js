@@ -1,0 +1,73 @@
+var express = require('express');
+var router = express.Router();
+var bodyParser = require('body-parser');
+var pg = require('pg');
+
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/regiscorp';
+
+router.post('/', function(request, response){
+  var regisId = request.body.regisId;
+  var employeeBaseData = [];
+
+  pg.connect(connectionString, function(err, client, done){
+    var query;
+    query = client.query('SELECT * FROM "employeeData" WHERE "RegisId" = $1', [regisId]);
+
+    query.on('row', function(row){
+      employeeBaseData.push(row);
+    });
+
+    query.on('end', function(){
+      var clientReviewQuery;
+      var employeeId = employeeBaseData[0].Id;
+      var employeeReviewData = [];
+      clientReviewQuery = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1', [employeeId]);
+
+      clientReviewQuery.on('row', function(row){
+        employeeReviewData.push(row);
+      });
+
+      clientReviewQuery.on('end', function(){
+        client.end();
+        var sendBaseAndReview = [];
+        sendBaseAndReview.push(employeeBaseData);
+        if(employeeBaseData[0].ReviewType == 'SS'){
+          for(var i = 0; i < employeeReviewData.length; i++){
+            delete employeeReviewData[i].C_Actual;
+            delete employeeReviewData[i].SS_Actual;
+            delete employeeReviewData[i].SGC_Actual;
+            delete employeeReviewData[i].C_Rating;
+            delete employeeReviewData[i].C_Target;
+            delete employeeReviewData[i].RS_Actual;
+            delete employeeReviewData[i].RS_Target;
+            delete employeeReviewData[i].SGC_Rating;
+            delete employeeReviewData[i].SGC_Target;
+            delete employeeReviewData[i].SS_Target;
+            delete employeeReviewData[i].TS_Actual;
+            delete employeeReviewData[i].TS_Rating;
+            delete employeeReviewData[i].TS_Target;
+          }
+        }else{
+          for(var i = 0; i < employeeReviewData.length; i++){
+            delete employeeReviewData[i].EmployeeGoalRating;
+            delete employeeReviewData[i].LeaderGoalRating;
+            delete employeeReviewData[i].Goal;
+          }
+        }
+        sendBaseAndReview.push(employeeReviewData);
+        response.send(sendBaseAndReview);
+      });
+    });
+
+    if(err){
+      response.send('error on server side');
+    }
+  });
+});
+
+router.post('/leaderReviews', function(request, response){
+  var employeeId = request.body.employeeId;
+
+});
+
+module.exports = router;

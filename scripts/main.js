@@ -59,6 +59,19 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
 
   $scope.leader = true;
 
+  var employeeName;
+  $http.get('token/1').then(function(response){
+    console.log(response.data);
+    employeeName = {regisId: response.data.regisId};
+
+    $http.post('/employeeData', employeeName).then(function(response){
+      var employeeData = response.data;
+      console.log(response.data);
+    });
+
+  });
+
+
   $scope.directReports = [
     {name: "Joe Black", ReviewStatus: "Emp Submit"},
     {name: "Susan Brown", ReviewStatus: "Leader Saved"},

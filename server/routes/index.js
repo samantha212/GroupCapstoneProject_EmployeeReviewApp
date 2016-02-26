@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var token = require('../routes/tokencall');
+var employeeReview = require('../routes/entireemployeereview.js');
 
 router.use('/', express.static(path.join(__dirname, '../public')));
 router.get('/', function(request, response){
@@ -10,5 +11,6 @@ router.get('/', function(request, response){
 
 //link the token module
 router.use('/token', token);
+router.use('/employeeData', employeeReview);
 
 module.exports = router;
