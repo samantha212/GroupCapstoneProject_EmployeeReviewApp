@@ -41,9 +41,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $locationProvider.html5Mode(true);
 }]);
 
-
-
-app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+app.controller('MainController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
 
   $scope.typeField = true;
   $scope.typeSalon = true;
@@ -65,14 +63,18 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
   $scope.leader = true;
   $scope.emp = false;
 
-  //$scope.getMyReview = ReviewService.getMyReview;
+  $scope.currentGoal = 1;
+
+  $scope.setCurrentGoal = function(number) {
+    $scope.currentGoal = number;
+  };
+
+}]);
+
+
+app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+
   $scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
-  //$scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
-
-
-
-});
-
 
   $scope.directReports = [
     {name: "Joe Black", ReviewStatus: "Emp Submit"},
@@ -80,9 +82,9 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
     {name: "William Oliver", ReviewStatus: "Leader Submit"},
     {name: "Sarah Jones", ReviewStatus: "Ready for Signature"},
     {name: "Roy Patiq", ReviewStatus: "Complete"}
-  ]
+  ];
 
-  }]);
+}]);
 
 
 
@@ -155,78 +157,78 @@ app.factory('ReviewService', ['$http', function($http) {
       // PUT print;
       // PUT sign;
 
-      var updateViewStatuses = function() {
-        if (leader==true) {
-          empOneTwo = false;
-          empOneToFive = false;
-          empThreePlus = false;
-          empFivePlus = false;
-          empSix = false;
-          empSixAndNoEmpSignature = false;
-          empSeven = false;
-          if (currentReview.ReviewStatus==3 || currentReview.ReviewStatus==4) {
-            leaderThreePlus = true;
-            leaderThreeFour = true;
-            leaderThreeFourFive = true;
-          } else if (currentReview.ReviewStatus==5) {
-            leaderThreePlus = true;
-            leaderThreeFourFive = true;
-            leaderFive = true;
-          } else if (currentReview.ReviewStatus==6) {
-            leaderThreePlus = true;
-            leaderSix = true;
-            leaderSixPlus = true;
-          } else if (currentReview.ReviewStatus==7) {
-            leaderThreePlus = true;
-            leaderSixPlus = true;
-          } else {
-            leaderThreePlus = false;
-            leaderThreeFour = false;
-            leaderThreeFourFive = false;
-            leaderFive = false;
-            leaderSix = false;
-            leaderSixPlus = false;
-          }
-        } else {
-          leaderThreePlus = false;
-          leaderThreeFour = false;
-          leaderThreeFourFive = false;
-          leaderFive = false;
-          leaderSix = false;
-          leaderSixPlus = false;
-          if (currentReview.ReviewStatus==1 || currentReview.ReviewStatus==2) {
-            empOneTwo = true;
-            empOneToFive = true;
-          } else if (currentReview.ReviewStatus==3 || currentReview.ReviewStatus==4) {
-            empOneToFive = true;
-            empThreePlus = true;
-          } else if (currentReview.ReviewStatus==5) {
-            empOneToFive = true;
-            empThreePlus = true;
-            empFivePlus = true;
-          } else if (currentReview.ReviewStatus==6) {
-            empThreePlus = true;
-            empFivePlus = true;
-            empSix = true;
-            if (currentReview.ReviewStatus==6 && currentReview.EmployeeSignature==null) {
-              empSixAndNoEmpSignature = false;
-            } else {
-              empSixAndNoEmpSignature = true;
-            }
-          } else if (currentReview.ReviewStatus==7) {
-            empThreePlus = true;
-            empFivePlus = true;
-            empSeven = true;
-          } else {
-            empOneTwo = true;
-            empOneToFive = true;
-            empThreePlus = true;
-            empFivePlus = true;
-            empSix = true;
-            empSixAndNoEmpSignature = true;
-            empSeven = true;
-          }
-        }
-      };
+      //var updateViewStatuses = function() {
+      //  if (leader==true) {
+      //    empOneTwo = false;
+      //    empOneToFive = false;
+      //    empThreePlus = false;
+      //    empFivePlus = false;
+      //    empSix = false;
+      //    empSixAndNoEmpSignature = false;
+      //    empSeven = false;
+      //    if (currentReview.ReviewStatus==3 || currentReview.ReviewStatus==4) {
+      //      leaderThreePlus = true;
+      //      leaderThreeFour = true;
+      //      leaderThreeFourFive = true;
+      //    } else if (currentReview.ReviewStatus==5) {
+      //      leaderThreePlus = true;
+      //      leaderThreeFourFive = true;
+      //      leaderFive = true;
+      //    } else if (currentReview.ReviewStatus==6) {
+      //      leaderThreePlus = true;
+      //      leaderSix = true;
+      //      leaderSixPlus = true;
+      //    } else if (currentReview.ReviewStatus==7) {
+      //      leaderThreePlus = true;
+      //      leaderSixPlus = true;
+      //    } else {
+      //      leaderThreePlus = false;
+      //      leaderThreeFour = false;
+      //      leaderThreeFourFive = false;
+      //      leaderFive = false;
+      //      leaderSix = false;
+      //      leaderSixPlus = false;
+      //    }
+      //  } else {
+      //    leaderThreePlus = false;
+      //    leaderThreeFour = false;
+      //    leaderThreeFourFive = false;
+      //    leaderFive = false;
+      //    leaderSix = false;
+      //    leaderSixPlus = false;
+      //    if (currentReview.ReviewStatus==1 || currentReview.ReviewStatus==2) {
+      //      empOneTwo = true;
+      //      empOneToFive = true;
+      //    } else if (currentReview.ReviewStatus==3 || currentReview.ReviewStatus==4) {
+      //      empOneToFive = true;
+      //      empThreePlus = true;
+      //    } else if (currentReview.ReviewStatus==5) {
+      //      empOneToFive = true;
+      //      empThreePlus = true;
+      //      empFivePlus = true;
+      //    } else if (currentReview.ReviewStatus==6) {
+      //      empThreePlus = true;
+      //      empFivePlus = true;
+      //      empSix = true;
+      //      if (currentReview.ReviewStatus==6 && currentReview.EmployeeSignature==null) {
+      //        empSixAndNoEmpSignature = false;
+      //      } else {
+      //        empSixAndNoEmpSignature = true;
+      //      }
+      //    } else if (currentReview.ReviewStatus==7) {
+      //      empThreePlus = true;
+      //      empFivePlus = true;
+      //      empSeven = true;
+      //    } else {
+      //      empOneTwo = true;
+      //      empOneToFive = true;
+      //      empThreePlus = true;
+      //      empFivePlus = true;
+      //      empSix = true;
+      //      empSixAndNoEmpSignature = true;
+      //      empSeven = true;
+      //    }
+      //  }
+      //};
 }]);
 
