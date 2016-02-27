@@ -46,6 +46,21 @@ router.post('/', function(request, response){
             delete employeeReviewData[i].TS_Actual;
             delete employeeReviewData[i].TS_Rating;
             delete employeeReviewData[i].TS_Target;
+
+            if(employeeReviewData[i].SectionId != 2){
+              delete employeeReviewData[i].EmployeeGoalRating;
+              delete employeeReviewData[i].Goal;
+              delete employeeReviewData[i].LeaderGoalRating;
+            }
+            if(employeeReviewData[i].SectionId != 6){
+              delete employeeReviewData[i].OverallRating;
+              delete employeeReviewData[i].EmployeeFinalRating;
+              delete employeeReviewData[i].LeaderFinalRating;
+            }
+            if(employeeReviewData[i].Section != 4){
+              delete employeeReviewData[i].EmployeeHairRating;
+              delete employeeReviewData[i].LeaderHairRating;
+            }
           }
         }else{
           for(var i = 0; i < employeeReviewData.length; i++){
@@ -66,8 +81,33 @@ router.post('/', function(request, response){
 });
 
 router.post('/leaderReviews', function(request, response){
-  var employeeId = request.body.employeeId;
+  var regisId = request.body.regisId;
+  pg.connect(connectionString, function(err, client, done){
+    var findReviewsId;
+    var reviewerIds = [];
 
+    findReviewsId = client.query('SELECT * FROM "employeeData" WHERE "LeaderRegisId" = $1', [regisId]);
+    findReviewsId.on('row', function(row){
+      reviewerIds.push(row.Id);
+    });
+
+    findReviewsId.on('end', function(){
+      var giveReviewsQuery;
+      var reviewResults = [];
+      for(var i = 0; i < reviewerIds.length; i++){
+        giveReviewsQuery = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1', [reviewerIds[i]]);
+      }
+
+      giveReviewsQuery.on('row', function(row){
+        reviewResults.push(row);
+      });
+
+      giveReviewsQuery.on('end', function(){
+        response.send(reviewResults);
+      });
+    });
+    if(err){response.send('server leaderreview error')};
+  });
 });
 
 module.exports = router;
