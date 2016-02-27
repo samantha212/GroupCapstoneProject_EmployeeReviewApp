@@ -37,7 +37,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     .when('/final-rating', {
       templateUrl: '/views/final-rating.html',
       controller: 'FinalRatingController'
-    })
+    });
     $locationProvider.html5Mode(true);
 }]);
 
@@ -67,21 +67,26 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
 
   var employeeId;
   //gets the users token, change the number from 1-5 to get different users
+  //Revisit this to make it dynamic.
+  //Move this to factory and connect with thisUser instead of employeeId.
+  //Happens on home page load.
   $http.get('token/1').then(function(response){
     console.log(response.data);
     employeeId = {regisId: response.data.regisId};
 
     //gives you the clients own review and information
+    //Happens on page load after we get the token.
+    //Used both to load the home page (myReview) and also as the "currentReview"
     $http.post('/employeeData', employeeId).then(function(response){
       var employeeData = response.data;
-      console.log(response.data, 'client information and review');
+      console.log('This Employee Review', response.data);
     });
 
     //gives you all of the reviews the leader needs to review
     //Currently you will be given wayyyyy too much properties but we haven't removed those properties before sending them up yet, but you will still be able to work with this data the same.
     $http.post('/employeeData/leaderReviews', employeeId).then(function(response){
       //we still need to send up the employees information object, but that isnt an immediate need.  If you're confused about what employee you want to target look in the database and compare the Id column in the employeeData table with the EmployeeId column in the Subsection table.
-      console.log(response.data, 'clients employees reviews');
+      console.log('This employee\'s direct report\'s reviews', response.data);
 
       //This is the map view call, put this where you need it
       //In an object send down the employeeId of the employee you would like to get the current map view information of.

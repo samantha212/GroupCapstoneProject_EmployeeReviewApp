@@ -80,20 +80,22 @@ router.post('/', function(request, response){
   });
 });
 
+//We adjusted this call to send back the employee info to the client as well as the subsection info.
 router.post('/leaderReviews', function(request, response){
   var regisId = request.body.regisId;
   pg.connect(connectionString, function(err, client, done){
     var findReviewsId;
     var reviewerIds = [];
+    var reviewResults = [];
 
     findReviewsId = client.query('SELECT * FROM "employeeData" WHERE "LeaderRegisId" = $1', [regisId]);
     findReviewsId.on('row', function(row){
+      reviewResults.push(row);
       reviewerIds.push(row.Id);
     });
 
     findReviewsId.on('end', function(){
       var giveReviewsQuery;
-      var reviewResults = [];
       for(var i = 0; i < reviewerIds.length; i++){
         giveReviewsQuery = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1', [reviewerIds[i]]);
       }
