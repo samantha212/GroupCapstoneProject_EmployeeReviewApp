@@ -66,26 +66,20 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
   $scope.emp = false;
 
   //$scope.getMyReview = ReviewService.getMyReview;
-  $scope.getToken = ReviewService.getToken;
+  $scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
   //$scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
 
-    //gives you all of the reviews the leader needs to review
-    //Currently you will be given wayyyyy too much properties but we haven't removed those properties before sending them up yet, but you will still be able to work with this data the same.
-    //$http.post('/employeeData/leaderReviews', employeeId).then(function(response){
-      //we still need to send up the employees information object, but that isnt an immediate need.  If you're confused about what employee you want to target look in the database and compare the Id column in the employeeData table with the EmployeeId column in the Subsection table.
-      //console.log('This employee\'s direct report\'s reviews', response.data);
 
       //***** We need the back end team to update this query to take in the employee's RegisId instead of the plain id. *****
       //We are going to leave this for now, but will need to come back and update the data sent in the POST call.
-      //This is the map view call, put this where you need it
       //In an object send down the employeeId of the employee you would like to get the current map view information of.
       //Id in the employee information object is the same Id as EmployeeId in the other objects, match the two to know who you are dealing with
       //The 2 in this object is the employee review with the id of 2, once you start getting the client logic running you will want this objects id value to be dynamic to which review you click on, but for now we decided to hard code the employee with the id of 2
-    //  var giveMeThisEmployeesMapView = {Id: 2};
-    //  $http.post('/getmapview', giveMeThisEmployeesMapView).then(function(response){
-    //    console.log(response, 'map view logic');
-    //  });
-    //});
+      var giveMeThisEmployeesMapView = {Id: 2};
+$http.post('/getmapview', giveMeThisEmployeesMapView).then(function(response){
+  console.log(response, 'map view logic');
+});
+});
 
 
   $scope.directReports = [
@@ -130,43 +124,38 @@ app.factory('ReviewService', ['$http', function($http) {
   var leaderSix = true;
   var leaderSixPlus = true;
 
-  //var loadHomePageInfo = function(){
-  //  getToken().then(function(getMyReview()));
-  //};
-  //gets the users token, change the number from 1-5 to get different users
-  //TO DO *** Revisit this to make it dynamic.
   //Happens on home page load.
-  var getToken = function(){
+  var loadHomePageInfo = function(){
+    //gets the users token, change the number from 1-5 to get different users
+    //TO DO *** Revisit this to make it dynamic.
     $http.get('token/1').then(function(response) {
       console.log(response.data);
       thisUser = {regisId: response.data.regisId};
       getMyReview({regisId: response.data.regisId});
+      getTeamReviews({regisId: response.data.regisId});
     });
   };
 
     //gives you the clients own review and information
-    //Happens on page load after we get the token.
     //Used both to load the home page (myReview) and also as the "currentReview"
   var getMyReview = function(user) {
-    console.log('GetMyReview is being hit');
     $http.post('/employeeData', user).then(function (response) {
       myReview = response.data;
       console.log('My Review', response.data);
     });
   };
 
-  return {
-    getMyReview: getMyReview,
-    getToken: getToken
-    //loadHomePageInfo: loadHomePageInfo
+  var getTeamReviews = function(user){
+    $http.post('/employeeData/leaderReviews', user).then(function(response) {
+      console.log('My team\'s reviews:', response);
+    });
   };
 
-  //var getMyReview = function() {
-  //  $http.post('/employeeData', employeeId).then(function (response) {
-  //    myReview = response.data;
-  //    console.log('This Employee Review', response.data);
-  //  });
-  //};
+  return {
+    loadHomePageInfo: loadHomePageInfo
+  };
+
+
 
       // GET entire review;
       // GET leader reviews;
