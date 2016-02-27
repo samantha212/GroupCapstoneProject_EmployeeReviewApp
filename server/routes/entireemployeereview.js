@@ -85,29 +85,35 @@ router.post('/leaderReviews', function(request, response){
   var regisId = request.body.regisId;
   pg.connect(connectionString, function(err, client, done){
     var findReviewsId;
-    var reviewerIds = [];
+    //var reviewerIds = [];
     var reviewResults = [];
 
     findReviewsId = client.query('SELECT * FROM "employeeData" WHERE "LeaderRegisId" = $1', [regisId]);
     findReviewsId.on('row', function(row){
       reviewResults.push(row);
-      reviewerIds.push(row.Id);
+      //reviewerIds.push(row.Id);
     });
 
     findReviewsId.on('end', function(){
-      var giveReviewsQuery;
-      for(var i = 0; i < reviewerIds.length; i++){
-        giveReviewsQuery = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1', [reviewerIds[i]]);
-      }
-
-      giveReviewsQuery.on('row', function(row){
-        reviewResults.push(row);
-      });
-
-      giveReviewsQuery.on('end', function(){
-        response.send(reviewResults);
-      });
+      response.send(reviewResults);
     });
+
+    //We think this is unnecessary, but just commenting out for now, in case.
+    //The query above should get us all the information that we need.
+    //findReviewsId.on('end', function(){
+    //  var giveReviewsQuery;
+    //  for(var i = 0; i < reviewerIds.length; i++){
+    //    giveReviewsQuery = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1', [reviewerIds[i]]);
+    //  }
+    //
+    //  giveReviewsQuery.on('row', function(row){
+    //    reviewResults.push(row);
+    //  });
+
+      //giveReviewsQuery.on('end', function(){
+      //  response.send(reviewResults);
+      //});
+    //});
     if(err){response.send('server leaderreview error')};
   });
 });
