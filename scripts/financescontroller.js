@@ -32,13 +32,4 @@ app.controller('FinancesController', ['$scope', '$http', function($scope, $http)
     $scope.guestCountRating = "3 - Exceeds Expectations";
     $scope.overallRating = "3 - Exceeds Expectations";
 
-    $scope.emp = true;
-    $scope.empOneTwo = true;
-    $scope.empThreePlus = true;
-    $scope.empOneToFive = true;
-    $scope.empFivePlus = true;
-    $scope.leaderThreePlus = true;
-    $scope.leaderThreeFourFive = true;
-    $scope.leaderSixPlus = true;
-
 }]);

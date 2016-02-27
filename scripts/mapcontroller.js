@@ -19,15 +19,4 @@ app.controller('MapController', ['$scope', '$http', function($scope, $http){
     $scope.developmentComplete = false;
     $scope.finalRatingComplete = false;
 
-    $scope.empOneTwo = true;
-    $scope.empThreePlus = true;
-    $scope.empFivePlus = true;
-    $scope.empSix = true;
-    $scope.leaderThreePlus = true;
-    $scope.leaderThreeFour = true;
-    $scope.leaderThreeFourFive = true;
-    $scope.leaderFive = true;
-    $scope.leaderSix = true;
-    $scope.leaderSixPlus = true;
 }]);
-
