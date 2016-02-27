@@ -6,7 +6,9 @@ var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/regiscorp';
 
 router.post('/', function(request, response){
+  console.log("post route hit");
   var regisId = request.body.regisId;
+  console.log("regis id", regisId);
   var employeeBaseData = [];
 
   pg.connect(connectionString, function(err, client, done){
