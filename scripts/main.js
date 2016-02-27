@@ -64,10 +64,22 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
   $scope.emp = false;
 
   $scope.currentGoal = 1;
-
   $scope.setCurrentGoal = function(number) {
     $scope.currentGoal = number;
+    console.log('Current HAIR is', $scope.currentGoal);
   };
+
+  $scope.currentHAIR = 1;
+  $scope.setCurrentHAIR = function(number) {
+    $scope.currentHAIR = number;
+    console.log('Current HAIR is', $scope.currentHAIR);
+  };
+
+  $scope.currentStrengthDev = 1;
+  $scope.setCurrentStrengthDev = function(number) {
+    $scope.currentStrengthDev = number;
+    console.log('Current strength/dev is', $scope.currentStrengthDev);
+  }
 
 }]);
 
@@ -93,6 +105,7 @@ app.factory('ReviewService', ['$http', function($http) {
   var thisUser = {};
   var myReview = {};
   var teamReviews =[];
+  //***** Need to come back and make this dynamic.
   var currentReview = {};
 
   //default all these vars to false\\
@@ -133,7 +146,7 @@ app.factory('ReviewService', ['$http', function($http) {
   var getMyReview = function(user) {
     $http.post('/employeeData', user).then(function (response) {
       myReview = response.data;
-      console.log('My Review', response.data);
+      console.log('My Review', myReview);
     });
   };
 
@@ -143,9 +156,23 @@ app.factory('ReviewService', ['$http', function($http) {
     });
   };
 
+  var fetchMyReview = function(){
+    return myReview;
+  };
+
+  var fetchThisUser = function(){
+    return thisUser;
+  };
+
+  var fetchCurrentReview = function(){
+    return currentReview;
+  }
+
   return {
     loadHomePageInfo: loadHomePageInfo,
-    thisUser: thisUser
+    thisUser: fetchThisUser,
+    myReview: fetchMyReview,
+    currentReview: fetchCurrentReview
   };
 
 

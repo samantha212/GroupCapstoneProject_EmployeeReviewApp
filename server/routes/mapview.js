@@ -10,6 +10,7 @@ router.post('/', function(request, response){
 
   var results = [];
   pg.connect(connectionString, function(err, client, done){
+    //*** Add an ORDER BY to this query to enure that the sections/subsections come back in proper order.
     var query = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1', [reviewMapId]);
 
     query.on('row', function(row){
