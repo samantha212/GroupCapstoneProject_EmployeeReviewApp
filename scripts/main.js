@@ -66,7 +66,7 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
   $scope.currentGoal = 1;
   $scope.setCurrentGoal = function(number) {
     $scope.currentGoal = number;
-    console.log('Current HAIR is', $scope.currentGoal);
+    console.log('Current goal is', $scope.currentGoal);
   };
 
   $scope.currentHAIR = 1;
@@ -146,7 +146,7 @@ app.factory('ReviewService', ['$http', function($http) {
   var getMyReview = function(user) {
     $http.post('/employeeData', user).then(function (response) {
       myReview = response.data;
-      console.log('My Review', myReview);
+      console.log('My Review', myReview);//[0][0].EmployeeName - I was using this for testing.
     });
   };
 
@@ -258,4 +258,3 @@ app.factory('ReviewService', ['$http', function($http) {
       //  }
       //};
 }]);
-

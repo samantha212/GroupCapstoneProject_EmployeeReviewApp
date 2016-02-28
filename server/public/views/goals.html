@@ -1,8 +1,8 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="employeeInfo">
     <h1 class="title">Goal {{currentGoal}}</h1>
-    <h5>Name:  {{}} (Add a reference to Employee being reviewed)</h5>
-    <h5>Regis ID:  {{}} (Add a reference to Employee being reviewed)</h5>
+    <h5>Name:  {{currentReviewName}} (Add a reference to Employee being reviewed)</h5>
+    <h5>Regis ID:  {{currentReviewRegisId}} (Add a reference to Employee being reviewed)</h5>
   </div>
 
 
@@ -47,27 +47,27 @@
     <div ng-if="empThreePlus">
       <h4>Goal:</h4>
         <span class="boxProperties well">
-          <p>{{}}  Goal as stated by employee (pull from current subsection Goal string.</p>
+          <p>{{empGoal}}  Goal as stated by employee (pull from current subsection Goal string.</p>
           <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
         </span>
 
 
       <div class="employeeRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6">
         <h4>Employee Rating:</h4>
-          <p class="pRating employeeRatingBox well">{{}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
+          <p class="pRating employeeRatingBox well">{{empRating}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
       </div>
     </div>
 
     <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="empFivePlus">
       <h4>Leader Rating:</h4>
-      <p class="pRating leaderRatingBox well">{{}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
+      <p class="pRating leaderRatingBox well">{{leaderRating}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
     </div>
     <div class="clearfix"></div>
 
     <div ng-if="empThreePlus">
     <h4>Employee Comments:</h4>
       <span class="boxProperties well">
-        <p>{{}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
+        <p>{{empComment}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
           <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
       </span>
     </div>
@@ -75,7 +75,7 @@
     <div ng-if="empFivePlus">
     <h4>Leader Comments:</h4>
       <span class="boxProperties well">
-        <p>{{}} Come BACK and make sure this connects to the current subsection LeaderResponse string.</p>
+        <p>{{leaderComment}} Come BACK and make sure this connects to the current subsection LeaderResponse string.</p>
           <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
       </span>
     </div>
@@ -96,14 +96,14 @@
     <div ng-if="leaderThreePlus">
       <h4>Goal:</h4>
         <span class="boxProperties well">
-          <p>{{}}  Goal as stated by employee (pull from current subsection Goal string.</p>
+          <p>{{empGoal}}  Goal as stated by employee (pull from current subsection Goal string.</p>
           <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
         </span>
      </div>
 
         <div class="employeeRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <h4>Employee Rating:</h4>
-          <p class="pRating employeeRatingBox well">{{}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
+          <p class="pRating employeeRatingBox well">{{empRating}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
         </div>
 
 
@@ -122,14 +122,14 @@
 
     <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="leaderSixPlus">
          <h4>Leader Rating:</h4>
-          <p class="pRating leaderRatingBox well">{{}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
+          <p class="pRating leaderRatingBox well">{{leaderRating}}  Leader rating as stated by leader (pull from current subsection LeaderGoalRating).</p>
     </div>
     <div class="clearfix"></div>
 
     <div ng-if="leaderThreePlus">
     <h4>Employee Comments:</h4>
         <span class="boxProperties well">
-          <p>{{}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
+          <p>{{empComment}} Come BACK and make sure this connects to the current subsection EmployeeResponse string.</p>
           <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
         </span>
     </div>
@@ -144,7 +144,7 @@
       <div ng-if="leaderSixPlus">
         <h4>Leader Comments:</h4>
           <span class="boxProperties well">
-          <p>{{}} Come BACK and make sure the ng-model connects to the current subsection LeaderResponse string.</p>
+          <p>{{leaderComment}} Come BACK and make sure the ng-model connects to the current subsection LeaderResponse string.</p>
           <h1>I'M READ ONLY DELETE ME AFTERWARDS</h1>
           </span>
       </div>
