@@ -12,6 +12,11 @@ var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/re
 
 app.use('/', index);
 
+// Leave this alone untill project is completed 
+app.get('/*', function(request, response){
+	response.sendFile(path.join(__dirname, '../server/public/views/index.html'));
+});
+
 app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function(){
