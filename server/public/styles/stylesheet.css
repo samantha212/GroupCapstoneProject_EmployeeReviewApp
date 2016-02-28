@@ -1,10 +1,13 @@
 body {
-  font-family: Times, Verdana;
+  font-family: Helvetica Neue, Verdana;
   background-color: whitesmoke;
-  padding-left: 2%; }
+  padding-left: 9%; }
+
+.container {
+  padding-bottom: 2%; }
 
 h1 {
-  margin: 0 auto;
+  margin: 1% auto;
   display: block;
   text-align: center;
   font-size: 26px;
@@ -16,6 +19,11 @@ h4 {
   font-weight: bold;
   font-size: 20px;
   text-align: center; }
+
+.page-header {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin: 0 auto 0 1%; }
 
 .title {
   padding-top: 0%;
@@ -104,6 +112,17 @@ h4 {
 .checkMe {
   display: block;
   font-size: 24px; }
+
+.sidebar {
+  margin-left: -250px;
+  left: 250px;
+  width: 8%;
+  background: #888888;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s; }
 
 .alignButton {
   margin: 1% auto;
