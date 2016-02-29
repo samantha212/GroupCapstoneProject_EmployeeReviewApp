@@ -23,54 +23,32 @@ router.post('/', function(request, response){
       var clientReviewQuery;
       var employeeId = employeeBaseData[0].Id;
       var employeeReviewData = [];
-      clientReviewQuery = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1', [employeeId]);
+      clientReviewQuery = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1 ORDER BY "SectionId" ASC, "SubsectionId"', [employeeId]);
 
       clientReviewQuery.on('row', function(row){
-        employeeReviewData.push(row);
+        var employeeObject = {};
+
+        if(employeeBaseData[0].ReviewType == 'SS'){
+          if(row.SectionId == 2){
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, Goal: row.Goal, EmployeeGoalRating: row.EmployeeGoalRating, EmployeeResponse: row.EmployeeResponse, LeaderGoalRating: row.LeaderGoalRating, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
+            employeeReviewData.push(employeeObject);
+          }else if(row.SectionId == 6){
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted, EmployeeFinalRating: row.EmployeeFinalRating, OverallRating: row.OverallRating};
+            employeeReviewData.push(employeeObject);
+          }else{
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
+            employeeReviewData.push(employeeObject);
+          }
+        }else{
+          employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted, C_Actual: row.C_Actual, SS_Actual: row.SS_Actual, SGC_Actual: row.SGC_Actual, C_Rating: row.C_Rating, C_Target: row.C_Target, RS_Actual: row.RS_Actual, RS_Target: row.RS_Target, SGC_Rating: row.SGC_Rating, SGC_Target: row.SGC_Target, SS_Target: row.SS_Target, TS_Actual: row.TS_Actual, TS_Rating: row.TS_Rating, TS_Target: row.TS_Target};
+          employeeReviewData.push(employeeObject);
+        }
       });
 
       clientReviewQuery.on('end', function(){
         client.end();
         var sendBaseAndReview = [];
         sendBaseAndReview.push(employeeBaseData);
-        if(employeeBaseData[0].ReviewType == 'SS'){
-          for(var i = 0; i < employeeReviewData.length; i++){
-            delete employeeReviewData[i].C_Actual;
-            delete employeeReviewData[i].SS_Actual;
-            delete employeeReviewData[i].SGC_Actual;
-            delete employeeReviewData[i].C_Rating;
-            delete employeeReviewData[i].C_Target;
-            delete employeeReviewData[i].RS_Actual;
-            delete employeeReviewData[i].RS_Target;
-            delete employeeReviewData[i].SGC_Rating;
-            delete employeeReviewData[i].SGC_Target;
-            delete employeeReviewData[i].SS_Target;
-            delete employeeReviewData[i].TS_Actual;
-            delete employeeReviewData[i].TS_Rating;
-            delete employeeReviewData[i].TS_Target;
-
-            if(employeeReviewData[i].SectionId != 2){
-              delete employeeReviewData[i].EmployeeGoalRating;
-              delete employeeReviewData[i].Goal;
-              delete employeeReviewData[i].LeaderGoalRating;
-            }
-            if(employeeReviewData[i].SectionId != 6){
-              delete employeeReviewData[i].OverallRating;
-              delete employeeReviewData[i].EmployeeFinalRating;
-              delete employeeReviewData[i].LeaderFinalRating;
-            }
-            if(employeeReviewData[i].Section != 4){
-              delete employeeReviewData[i].EmployeeHairRating;
-              delete employeeReviewData[i].LeaderHairRating;
-            }
-          }
-        }else{
-          for(var i = 0; i < employeeReviewData.length; i++){
-            delete employeeReviewData[i].EmployeeGoalRating;
-            delete employeeReviewData[i].LeaderGoalRating;
-            delete employeeReviewData[i].Goal;
-          }
-        }
         sendBaseAndReview.push(employeeReviewData);
         response.send(sendBaseAndReview);
       });
@@ -82,40 +60,20 @@ router.post('/', function(request, response){
   });
 });
 
-//We adjusted this call to send back the employee info to the client as well as the subsection info.
 router.post('/leaderReviews', function(request, response){
   var regisId = request.body.regisId;
   pg.connect(connectionString, function(err, client, done){
     var findReviewsId;
-    //var reviewerIds = [];
     var reviewResults = [];
 
     findReviewsId = client.query('SELECT * FROM "employeeData" WHERE "LeaderRegisId" = $1', [regisId]);
     findReviewsId.on('row', function(row){
       reviewResults.push(row);
-      //reviewerIds.push(row.Id);
     });
 
     findReviewsId.on('end', function(){
       response.send(reviewResults);
     });
-
-    //We think this is unnecessary, but just commenting out for now, in case.
-    //The query above should get us all the information that we need.
-    //findReviewsId.on('end', function(){
-    //  var giveReviewsQuery;
-    //  for(var i = 0; i < reviewerIds.length; i++){
-    //    giveReviewsQuery = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1', [reviewerIds[i]]);
-    //  }
-    //
-    //  giveReviewsQuery.on('row', function(row){
-    //    reviewResults.push(row);
-    //  });
-
-      //giveReviewsQuery.on('end', function(){
-      //  response.send(reviewResults);
-      //});
-    //});
     if(err){response.send('server leaderreview error')};
   });
 });
