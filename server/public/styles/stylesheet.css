@@ -178,6 +178,11 @@ fieldset[disabled] .grey.active {
   font-family: Helvetica;
   font-weight: lighten; }
 
+.darkBlue {
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight: lighten; }
+
 .review {
   font-size: 16px;
   font-family: Helvetica;
@@ -210,6 +215,9 @@ fieldset[disabled] .grey.active {
     font-size: 75%; }
 
   .green {
+    font-size: 75%; }
+
+  .darkBlue {
     font-size: 75%; }
 
   .review {

@@ -86,7 +86,7 @@
 
   <div ng-if="statuses.empOneTwo">
   <!--<div ng-if="2 < 0">-->
-      <button type="button" class="grey btn btn-secondary btn-responsive">SUBMIT</button>
+      <button type="button" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT</button>
       <!--This button should only be active when all required sections are complete.  Will change to State 3.-->
   </div>
 
@@ -96,12 +96,12 @@
   </div>
 
   <div ng-if="statuses.leaderThreeFour">
-      <button type="button" class="grey btn btn-secondary btn-responsive">SUBMIT & SEND TO EMPLOYEE</button>
+      <button type="button" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT & SEND TO EMPLOYEE</button>
       <!--This button should be active only be active when all required sections are complete.  Will change to State 5.-->
   </div>
 
   <div ng-if="statuses.leaderFive">
-      <button type="button" class="grey btn btn-secondary btn-responsive">FINALIZE & GET SIGNATURES</button>
+      <button type="button" class="green btn btn-success btn-responsive"><span class="glyphicon glyphicon-ok"></span> FINALIZE & GET SIGNATURES</button>
       <!--This button should be active only in State 5.  Will change to State 6.-->
   </div>
 
