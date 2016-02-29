@@ -77,27 +77,12 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
 app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
   $scope.ReviewService = ReviewService;
   $scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
-  //$scope.directReports = ReviewService.reviews.teamReviews.data;
-
-  //$scope.directReports = [
-  //  {name: "Joe Black", ReviewStatus: "Emp Submit"},
-  //  {name: "Susan Brown", ReviewStatus: "Leader Saved"},
-  //  {name: "William Oliver", ReviewStatus: "Leader Submit"},
-  //  {name: "Sarah Jones", ReviewStatus: "Ready for Signature"},
-  //  {name: "Roy Patiq", ReviewStatus: "Complete"}
-  //];
 
 }]);
 
 
 
 app.factory('ReviewService', ['$http', function($http) {
-
-  //var thisUser = {};
-  //var myReview = {};
-  //var teamReviews = {};
-  ////***** Need to come back and make this dynamic.
-  //var currentReview = {};
 
   var reviews = {
     thisUser: {},
@@ -106,11 +91,11 @@ app.factory('ReviewService', ['$http', function($http) {
     currentReview: {}
   };
 
-
-  //default all these vars to false\\
+  //These are currently set all to true for view/stying purposes.
+  //default all these vars to false before deploying\\
   var role = {
-    leader: false,
-    emp: false
+    leader: true,
+    emp: true
   };
 
   var type = {
@@ -146,15 +131,22 @@ app.factory('ReviewService', ['$http', function($http) {
     });
   };
 
-    //gives you the clients own review and information
-    //Used both to load the home page (myReview) and also as the "currentReview"
+    //gives you the user's own review and information
+    //Used both to load the home page
   var getMyReview = function(user) {
     $http.post('/employeeData', user).then(function (response) {
-      //myReview = response.data;
       reviews.myReview = response.data;
-      //***Need to come back and delete this.  Current review should be set on button click to the Map page, depending on review selected.
-      reviews.currentReview = response.data;
       console.log('My Review', reviews.myReview);//[0][0].EmployeeName - I was using this for testing.
+    });
+  };
+
+  var getReview = function(employee){
+    var thisEmployee = {regisId: employee};
+    //console.log("getReview hit");
+    $http.post('/employeeData', thisEmployee).then(function (response) {
+      //console.log("response", response);
+      reviews.currentReview = response.data;
+      //console.log('Current Review', reviews.currentReview);
     });
   };
 
@@ -166,28 +158,9 @@ app.factory('ReviewService', ['$http', function($http) {
     });
   };
 
-  //var fetchMyReview = function(){
-  //  return myReview;
-  //};
-  //
-  //var fetchThisUser = function(){
-  //  return thisUser;
-  //};
-  //
-  //var fetchCurrentReview = function(){
-  //  return currentReview;
-  //};
-  //
-  //var fetchMyTeam = function(){
-  //  return teamReviews;
-  //};
-
   return {
     loadHomePageInfo: loadHomePageInfo,
-    //thisUser: thisUser,
-    //myReview: myReview,
-    //currentReview: currentReview,
-    //teamReviews: teamReviews,
+    getReview: getReview,
     reviews: reviews,
     statuses: statuses,
     role: role,
@@ -195,11 +168,7 @@ app.factory('ReviewService', ['$http', function($http) {
   };
 
 
-
-      // GET entire review;
-      // GET leader reviews;
-      // GET mapArray;
-      // PUT subsection;
+  // PUT subsection;
       // PUT print;
       // PUT sign;
 

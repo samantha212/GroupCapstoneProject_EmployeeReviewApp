@@ -1,5 +1,5 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-init="loadHomePageInfo()">
-  <a href="/map">Go to Map Page</a>
+  <a href="/map" ng-click="ReviewService.getReview('JASTA1')">Go to Map Page</a>
   <p>Leaving this link for reference.  Eventually will remove once Home Page fully functional.</p>
   <br>
   <div class="employeeInfo">
@@ -26,11 +26,11 @@
   <div ng-if="leader">
       <div ng-repeat="person in ReviewService.reviews.teamReviews.data">
           <p>{{person.EmployeeName}}</p>
-          <button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="person.ReviewStatus == 1"><span class="glyphicon glyphicon-play"></span> START</button>
-          <button class="orange btn btn-warning btn-responsive" ng-if="person.ReviewStatus == 4"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
-          <button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 5"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button>
-          <button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 6"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button>
-          <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="person.ReviewStatus == 7"><span class="glyphicon glyphicon-eye-open"></span> READ</button>
+          <button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="person.ReviewStatus == 1" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button>
+          <button class="orange btn btn-warning btn-responsive" ng-if="person.ReviewStatus == 4"><span class="glyphicon glyphicon-pencil" ng-click="ReviewService.getReview(person.RegisId)"></span> EDIT</button>
+          <button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 5" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button>
+          <button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 6" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button>
+          <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="person.ReviewStatus == 7" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> READ</button>
       </div>
   </div>
 <!-- container div -->
