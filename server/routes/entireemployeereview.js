@@ -40,8 +40,19 @@ router.post('/', function(request, response){
             employeeReviewData.push(employeeObject);
           }
         }else{
-          employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted, C_Actual: row.C_Actual, SS_Actual: row.SS_Actual, SGC_Actual: row.SGC_Actual, C_Rating: row.C_Rating, C_Target: row.C_Target, RS_Actual: row.RS_Actual, RS_Target: row.RS_Target, SGC_Rating: row.SGC_Rating, SGC_Target: row.SGC_Target, SS_Target: row.SS_Target, TS_Actual: row.TS_Actual, TS_Rating: row.TS_Rating, TS_Target: row.TS_Target};
-          employeeReviewData.push(employeeObject);
+          if(row.SectionId == 1){
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted, C_Actual: row.C_Actual, SS_Actual: row.SS_Actual, SGC_Actual: row.SGC_Actual, C_Rating: row.C_Rating, C_Target: row.C_Target, RS_Actual: row.RS_Actual, RS_Target: row.RS_Target, SGC_Rating: row.SGC_Rating, SGC_Target: row.SGC_Target, SS_Target: row.SS_Target, TS_Actual: row.TS_Actual, TS_Rating: row.TS_Rating, TS_Target: row.TS_Target};
+            employeeReviewData.push(employeeObject);
+          }else if(row.SectionId == 2){
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, Goal: row.Goal, EmployeeGoalRating: row.EmployeeGoalRating, EmployeeResponse: row.EmployeeResponse, LeaderGoalRating: row.LeaderGoalRating, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
+            employeeReviewData.push(employeeObject);
+          }else if(row.SectionId == 6){
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted, EmployeeFinalRating: row.EmployeeFinalRating, OverallRating: row.OverallRating};
+            employeeReviewData.push(employeeObject);
+          }else{
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
+            employeeReviewData.push(employeeObject);
+          }
         }
       });
 
