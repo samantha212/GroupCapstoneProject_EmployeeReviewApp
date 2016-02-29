@@ -8,7 +8,7 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
     $scope.getMapArray = getMapView;
     console.log("team reviews", ReviewService.reviews.teamReviews);
 
-    $scope.dataTest = ReviewService;
+    $scope.ReviewService = ReviewService;
 
     $scope.typeField = true;
     $scope.typeSalon = true;
@@ -51,8 +51,9 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
     };
 
     var updateCheckboxes = function(){
-        var reviewInfo = ReviewService.reviews.currentReview[0];
-        var subsectionInfo = ReviewService.reviews.currentReview[1];
+        var reviewInfo = ReviewService.reviews.currentReview;
+        console.log("review info", reviewInfo);
+        var subsectionInfo = ReviewService.reviews.currentReview[1][0].isCompleted;
         var userView;
 
         if (reviewInfo[0].reviewType == "SS") {
