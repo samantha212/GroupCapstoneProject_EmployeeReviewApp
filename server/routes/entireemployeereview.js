@@ -73,6 +73,7 @@ router.post('/leaderReviews', function(request, response){
 
     findReviewsId.on('end', function(){
       response.send(reviewResults);
+      client.end();
     });
     if(err){response.send('server leaderreview error')};
   });
