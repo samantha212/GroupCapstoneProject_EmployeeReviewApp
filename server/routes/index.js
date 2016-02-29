@@ -5,6 +5,7 @@ var token = require('../routes/tokencall');
 var employeeReview = require('../routes/entireemployeereview.js');
 var mapView = require('../routes/mapview.js');
 var updateData = require('../routes/putsection.js');
+var sign = require('../routes/putsign.js');
 
 router.use('/', express.static(path.join(__dirname, '../public')));
 router.get('/', function(request, response){
@@ -15,5 +16,6 @@ router.use('/token', token);
 router.use('/employeeData', employeeReview);
 router.use('/getmapview', mapView)
 router.use('/updateData', updateData);
+router.use('/sign', sign);
 
 module.exports = router;
