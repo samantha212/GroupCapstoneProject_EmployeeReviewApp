@@ -1,4 +1,4 @@
-app.controller('HairController', ['$scope', '$http', function($scope, $http){
+app.controller('HairController', ['$scope', '$http', 'ReviewService',function($scope, $http, ReviewService){
   $scope.hairSubsectionH = false;
   $scope.hairSubsectionA = false;
   $scope.hairSubsectionI = false;

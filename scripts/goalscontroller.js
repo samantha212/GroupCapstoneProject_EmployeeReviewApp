@@ -34,7 +34,4 @@ app.controller('GoalsController', ['$scope', '$http', 'ReviewService', function(
    $scope.leaderComment = "Positive attitude but doesn't follow directions.";
  }
 
-
-
-
 }]);
