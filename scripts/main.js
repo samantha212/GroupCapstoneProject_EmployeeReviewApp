@@ -153,6 +153,8 @@ app.factory('ReviewService', ['$http', function($http) {
     $http.post('/employeeData', user).then(function (response) {
       //myReview = response.data;
       reviews.myReview = response.data;
+      //***Need to come back and delete this.  Current review should be set on button click to the Map page, depending on review selected.
+      reviews.currentReview = response.data;
       console.log('My Review', reviews.myReview);//[0][0].EmployeeName - I was using this for testing.
     });
   };

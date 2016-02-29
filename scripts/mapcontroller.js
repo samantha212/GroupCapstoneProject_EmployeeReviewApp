@@ -3,7 +3,7 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
     //var thisUser = {regisId: "MIMIL1"};
     var myReview = ReviewService.reviews.myReview;
     //*** Need to come back and update currentReview based on which button is clicked.
-    var currentReview = ReviewService.reviews.myReview;
+    //var currentReview = ReviewService.reviews.myReview;
     var mapArray = [];
     $scope.getMapArray = getMapView;
     console.log("team reviews", ReviewService.reviews.teamReviews);
@@ -16,9 +16,9 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
     $scope.financesComplete = true;
     $scope.goalOneComplete = true;
     $scope.goalTwoComplete = true;
-    $scope.goalThreeComplete = false;
-    $scope.goalFourComplete = false;
-    $scope.goalFiveComplete = false;
+    $scope.goalThreeComplete = true;
+    $scope.goalFourComplete = true;
+    $scope.goalFiveComplete = true;
 
     $scope.hComplete = true;
     $scope.aComplete = true;
@@ -45,14 +45,14 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
             console.log('mapArray', mapArray);
             console.log('This user', thisUser);
             console.log('myReview', myReview);
-            console.log('currentReview', currentReview);
+            console.log('currentReview', ReviewService.reviews.currentReview);
             updateCheckboxes();
         });
     };
 
     var updateCheckboxes = function(){
-        var reviewInfo = currentReview[0];
-        var subsectionInfo = currentReview[1];
+        var reviewInfo = ReviewService.reviews.currentReview[0];
+        var subsectionInfo = ReviewService.reviews.currentReview[1];
         var userView;
 
         if (reviewInfo[0].reviewType == "SS") {
@@ -62,10 +62,10 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
         }
 
         if (thisUser.regisId == reviewInfo[0].RegisId) {
-            console.log("employee")
+            console.log("employee");
             userView = "employee";
         } else if (thisUser.regisId == reviewInfo[0].LeaderRegisId){
-            console.log("leader")
+            console.log("leader");
             userView = "leader";
         } else {
             console.log("neither employee nor leader")
