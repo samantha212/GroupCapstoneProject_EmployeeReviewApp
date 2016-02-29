@@ -11,13 +11,14 @@ router.post('/', function(request, response){
   var results = [];
   pg.connect(connectionString, function(err, client, done){
     //*** Add an ORDER BY to this query to enure that the sections/subsections come back in proper order.
-    var query = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1', [reviewMapId]);
+    var query = client.query('SELECT * FROM "Subsection" WHERE "EmployeeId" = $1 ORDER BY "SectionId" ASC', [reviewMapId]);
 
     query.on('row', function(row){
       var mapObject = {SectionId: row.SectionId, SubsectionId: row.SubsectionId, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
       results.push(mapObject);
     });
     query.on('end', function(){
+      console.log(results);
       response.send(results);
     });
   });
