@@ -42,23 +42,41 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 }]);
 
 app.controller('MainController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+  //$scope.statuses = ReviewService.statuses;
+  //$scope.statuses = "This is the scope.statuses";
+  //console.log("Statuses", statuses);
+  $scope.statuses = ReviewService.statuses;
 
   $scope.typeField = ReviewService.typeField;
   $scope.typeSalon = ReviewService.typeSalon;
 
-  $scope.empOneTwo = ReviewService.empOneTwo;
-  $scope.empOneToFive = ReviewService.empOneToFive;
-  $scope.empThreePlus = ReviewService.empThreePlus;
-  $scope.empFivePlus = ReviewService.empFivePlus;
-  $scope.empSix = ReviewService.empSix;
-  $scope.empSixAndNoEmpSignature = ReviewService.empSixAndNoEmpSignature;
-  $scope.empSeven = ReviewService.empSeven;
-  $scope.leaderThreePlus = ReviewService.leaderThreePlus;
-  $scope.leaderThreeFour = ReviewService.leaderThreeFour;
-  $scope.leaderThreeFourFive = ReviewService.leaderThreeFourFive;
-  $scope.leaderFive = ReviewService.leaderFive;
-  $scope.leaderSix = ReviewService.leaderSix;
-  $scope.leaderSixPlus = ReviewService.leaderSixPlus;
+  //$scope.empOneTwo = ReviewService.empOneTwo;
+  //$scope.empOneToFive = ReviewService.empOneToFive;
+  //$scope.empThreePlus = ReviewService.empThreePlus;
+  //$scope.empFivePlus = ReviewService.empFivePlus;
+  //$scope.empSix = ReviewService.empSix;
+  //$scope.empSixAndNoEmpSignature = ReviewService.empSixAndNoEmpSignature;
+  //$scope.empSeven = ReviewService.empSeven;
+  //$scope.leaderThreePlus = ReviewService.leaderThreePlus;
+  //$scope.leaderThreeFour = ReviewService.leaderThreeFour;
+  //$scope.leaderThreeFourFive = ReviewService.leaderThreeFourFive;
+  //$scope.leaderFive = ReviewService.leaderFive;
+  //$scope.leaderSix = ReviewService.leaderSix;
+  //$scope.leaderSixPlus = ReviewService.leaderSixPlus;
+  //
+  //$scope.empOneTwo = statuses.empOneTwo;
+  //$scope.empOneToFive = statuses.empOneToFive;
+  //$scope.empThreePlus = statuses.empThreePlus;
+  //$scope.empFivePlus = statuses.empFivePlus;
+  //$scope.empSix = statuses.empSix;
+  //$scope.empSixAndNoEmpSignature = statuses.empSixAndNoEmpSignature;
+  //$scope.empSeven = statuses.empSeven;
+  //$scope.leaderThreePlus = statuses.leaderThreePlus;
+  //$scope.leaderThreeFour = statuses.leaderThreeFour;
+  //$scope.leaderThreeFourFive = leaderThreeFourFive;
+  //$scope.leaderFive = statuses.leaderFive;
+  //$scope.leaderSix = statuses.leaderSix;
+  //$scope.leaderSixPlus = statuses.leaderSixPlus;
 
   $scope.leader = true;
   $scope.emp = false;
@@ -117,19 +135,21 @@ app.factory('ReviewService', ['$http', function($http) {
   var typeField = true;
   var typeSalon = true;
 
-  var empOneTwo = true;
-  var empOneToFive = true;
-  var empThreePlus = true;
-  var empFivePlus = true;
-  var empSix = true;
-  var empSixAndNoEmpSignature = true;
-  var empSeven = true;
-  var leaderThreePlus = true;
-  var leaderThreeFour = true;
-  var leaderThreeFourFive = true;
-  var leaderFive = true;
-  var leaderSix = true;
-  var leaderSixPlus = true;
+  var statuses = {
+    empOneTwo: true,
+    empOneToFive: true,
+    empThreePlus: true,
+    empFivePlus: true,
+    empSix: true,
+    empSixAndNoEmpSignature: true,
+    empSeven: true,
+    leaderThreePlus: true,
+    leaderThreeFour: true,
+    leaderThreeFourFive: true,
+    leaderFive: true,
+    leaderSix: true,
+    leaderSixPlus: true
+  };
 
   //Happens on home page load.
   var loadHomePageInfo = function(){
@@ -180,24 +200,13 @@ app.factory('ReviewService', ['$http', function($http) {
     thisUser: fetchThisUser,
     myReview: fetchMyReview,
     currentReview: fetchCurrentReview,
+    statuses: statuses,
+    //statuses: true,
     teamReviews: teamReviews,
     leader: leader,
     emp: emp,
     typeField: typeField,
     typeSalon: typeSalon,
-    empOneTwo: empOneTwo,
-    empOneToFive: empOneToFive,
-    empThreePlus: empThreePlus,
-    empFivePlus: empFivePlus,
-    empSix: empSix,
-    empSixAndNoEmpSignature: empSixAndNoEmpSignature,
-    empSeven: empSeven,
-    leaderThreePlus: leaderThreePlus,
-    leaderThreeFour: leaderThreeFour,
-    leaderThreeFourFive: leaderThreeFourFive,
-    leaderFive: leaderFive,
-    leaderSix: leaderSix,
-    leaderSixPlus: leaderSixPlus,
     teamReviews: teamReviews
   };
 

@@ -81,27 +81,28 @@
       <p ng-hide="finalRatingComplete"><img src="/assets/images/checkboxUnchecked.png"> <a href="/final-rating">Final Comments and Rating</a></p>
   </div>
 
-  <div ng-if="empOneTwo">
+  <div ng-if="statuses.empOneTwo">
+  <!--<div ng-if="2 < 0">-->
       <button>SUBMIT</button>
       <!--This button should only be active when all required sections are complete.  Will change to State 3.-->
   </div>
 
-  <div ng-if="empSix">
+  <div ng-if="statuses.empSix">
       <button><a href="/signature">SIGN REVIEW</a></button>
       <!--This button should be active only in State 6.  Will bring to signature page.-->
   </div>
 
-  <div ng-if="leaderThreeFour">
+  <div ng-if="statuses.leaderThreeFour">
       <button>SUBMIT & SEND TO EMPLOYEE</button>
       <!--This button should be active only be active when all required sections are complete.  Will change to State 5.-->
   </div>
 
-  <div ng-if="leaderFive">
+  <div ng-if="statuses.leaderFive">
       <button>FINALIZE & GET SIGNATURES</button>
       <!--This button should be active only in State 5.  Will change to State 6.-->
   </div>
 
-  <div ng-if="leaderSix">
+  <div ng-if="statuses.leaderSix">
       <button><a href="/signature">SIGN REVIEW</a></button>
       <!--This button should be active only in State 6.  Will route to Signature page-->
   </div>

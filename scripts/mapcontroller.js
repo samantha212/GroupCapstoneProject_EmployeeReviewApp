@@ -6,7 +6,7 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
     var currentReview = ReviewService.myReview();
     var mapArray = [];
     $scope.getMapArray = getMapView;
-
+    console.log("team reviews", ReviewService.teamReviews);
 
     $scope.typeField = true;
     $scope.typeSalon = true;
