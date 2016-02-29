@@ -75,10 +75,9 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
 
 
 app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
-
+  $scope.ReviewService = ReviewService;
   $scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
-
-  $scope.directReports = ReviewService.reviews.teamReviews.data;
+  //$scope.directReports = ReviewService.reviews.teamReviews.data;
 
   //$scope.directReports = [
   //  {name: "Joe Black", ReviewStatus: "Emp Submit"},

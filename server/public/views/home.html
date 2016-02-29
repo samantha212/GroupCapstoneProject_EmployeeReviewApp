@@ -5,15 +5,15 @@
   <div class="employeeInfo">
     <h1 class="title">Employee Review Home Page</h1>
 
-    <h5>Name:  {{}} (Add a reference to Employee being reviewed)</h5>
-    <h5 ng-if="typeSalon">Title:  {{}} (Add a reference to Employee being reviewed)</h5>
-    <h5>Regis ID:  {{}} (Add a reference to Employee being reviewed)</h5>
-    <h5 ng-if="typeField">Hire Date:  {{}} (Add a reference to Employee being reviewed)</h5>
-    <h5>Leader:  {{}} (Add a reference to Employee being reviewed)</h5>
-    <h5 ng-if="typeSalon">Department:  {{}} (Add a reference to Employee being reviewed)</h5>
-    <h5>Review Period:  {{}} (Add a reference to Employee being reviewed)</h5>
-    <h5 ng-if="typeField">Position/Region:  {{}} (Add a reference to Employee being reviewed)</h5>
-    <h5 ng-if="typeField">Date in Position:  {{}} (Add a reference to Employee being reviewed)</h5>
+    <h5>Name:  {{ReviewService.reviews.myReview[0][0].EmployeeName}}</h5>
+    <h5 ng-if="typeSalon">Title:  {{ReviewService.reviews.myReview[0][0].Title}}</h5>
+    <h5>Regis ID:  {{ReviewService.reviews.myReview[0][0].RegisId}}</h5>
+    <h5 ng-if="typeField">Hire Date:  {{ReviewService.reviews.myReview[0][0].HireDate}}</h5>
+    <h5>Leader:  {{ReviewService.reviews.myReview[0][0].LeaderName}}</h5>
+    <h5 ng-if="typeSalon">Department:  {{ReviewService.reviews.myReview[0][0].Department}}</h5>
+    <h5>Review Period:  {{ReviewService.reviews.myReview[0][0].ReviewPeriod}}</h5>
+    <h5 ng-if="typeField">Position/Region:  {{}} (Looks like we are missing this in the DB.)</h5>
+    <h5 ng-if="typeField">Date in Position:  {{ReviewService.reviews.myReview[0][0].DateInPosition}}</h5>
   </div>
 
   <button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="empOneTwo"><span class="glyphicon glyphicon-play"></span> START</button>
@@ -24,7 +24,7 @@
   <hr>
 
   <div ng-if="leader">
-      <div ng-repeat="person in directReports">
+      <div ng-repeat="person in ReviewService.reviews.teamReviews.data">
           <p>{{person.EmployeeName}}</p>
           <button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="person.ReviewStatus == 1"><span class="glyphicon glyphicon-play"></span> START</button>
           <button class="orange btn btn-warning btn-responsive" ng-if="person.ReviewStatus == 4"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
