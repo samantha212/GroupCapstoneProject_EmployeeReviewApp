@@ -43,22 +43,22 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 app.controller('MainController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
 
-  $scope.typeField = true;
-  $scope.typeSalon = true;
+  $scope.typeField = ReviewService.typeField;
+  $scope.typeSalon = ReviewService.typeSalon;
 
-  $scope.empOneTwo = true;
-  $scope.empOneToFive = true;
-  $scope.empThreePlus = true;
-  $scope.empFivePlus = true;
-  $scope.empSix = true;
-  $scope.empSixAndNoEmpSignature = true;
-  $scope.empSeven = true;
-  $scope.leaderThreePlus = true;
-  $scope.leaderThreeFour = true;
-  $scope.leaderThreeFourFive = true;
-  $scope.leaderFive = true;
-  $scope.leaderSix = true;
-  $scope.leaderSixPlus = true;
+  $scope.empOneTwo = ReviewService.empOneTwo;
+  $scope.empOneToFive = ReviewService.empOneToFive;
+  $scope.empThreePlus = ReviewService.empThreePlus;
+  $scope.empFivePlus = ReviewService.empFivePlus;
+  $scope.empSix = ReviewService.empSix;
+  $scope.empSixAndNoEmpSignature = ReviewService.empSixAndNoEmpSignature;
+  $scope.empSeven = ReviewService.empSeven;
+  $scope.leaderThreePlus = ReviewService.leaderThreePlus;
+  $scope.leaderThreeFour = ReviewService.leaderThreeFour;
+  $scope.leaderThreeFourFive = ReviewService.leaderThreeFourFive;
+  $scope.leaderFive = ReviewService.leaderFive;
+  $scope.leaderSix = ReviewService.leaderSix;
+  $scope.leaderSixPlus = ReviewService.leaderSixPlus;
 
   $scope.leader = true;
   $scope.emp = false;
@@ -88,13 +88,15 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
 
   $scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
 
-  $scope.directReports = [
-    {name: "Joe Black", ReviewStatus: "Emp Submit"},
-    {name: "Susan Brown", ReviewStatus: "Leader Saved"},
-    {name: "William Oliver", ReviewStatus: "Leader Submit"},
-    {name: "Sarah Jones", ReviewStatus: "Ready for Signature"},
-    {name: "Roy Patiq", ReviewStatus: "Complete"}
-  ];
+  $scope.directReports = ReviewService.teamReviews.data;
+
+  //$scope.directReports = [
+  //  {name: "Joe Black", ReviewStatus: "Emp Submit"},
+  //  {name: "Susan Brown", ReviewStatus: "Leader Saved"},
+  //  {name: "William Oliver", ReviewStatus: "Leader Submit"},
+  //  {name: "Sarah Jones", ReviewStatus: "Ready for Signature"},
+  //  {name: "Roy Patiq", ReviewStatus: "Complete"}
+  //];
 
 }]);
 
@@ -104,7 +106,7 @@ app.factory('ReviewService', ['$http', function($http) {
 
   var thisUser = {};
   var myReview = {};
-  var teamReviews =[];
+  var teamReviews = {};
   //***** Need to come back and make this dynamic.
   var currentReview = {};
 
@@ -153,6 +155,7 @@ app.factory('ReviewService', ['$http', function($http) {
   var getTeamReviews = function(user){
     $http.post('/employeeData/leaderReviews', user).then(function(response) {
       console.log('My team\'s reviews:', response);
+      teamReviews.data = response.data;
     });
   };
 
@@ -166,13 +169,36 @@ app.factory('ReviewService', ['$http', function($http) {
 
   var fetchCurrentReview = function(){
     return currentReview;
-  }
+  };
+
+  var fetchMyTeam = function(){
+    return teamReviews;
+  };
 
   return {
     loadHomePageInfo: loadHomePageInfo,
     thisUser: fetchThisUser,
     myReview: fetchMyReview,
-    currentReview: fetchCurrentReview
+    currentReview: fetchCurrentReview,
+    teamReviews: teamReviews,
+    leader: leader,
+    emp: emp,
+    typeField: typeField,
+    typeSalon: typeSalon,
+    empOneTwo: empOneTwo,
+    empOneToFive: empOneToFive,
+    empThreePlus: empThreePlus,
+    empFivePlus: empFivePlus,
+    empSix: empSix,
+    empSixAndNoEmpSignature: empSixAndNoEmpSignature,
+    empSeven: empSeven,
+    leaderThreePlus: leaderThreePlus,
+    leaderThreeFour: leaderThreeFour,
+    leaderThreeFourFive: leaderThreeFourFive,
+    leaderFive: leaderFive,
+    leaderSix: leaderSix,
+    leaderSixPlus: leaderSixPlus,
+    teamReviews: teamReviews
   };
 
 

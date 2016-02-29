@@ -25,12 +25,12 @@
 
   <div ng-if="leader">
       <div ng-repeat="person in directReports">
-          <p>{{person.name}}</p>
-          <button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="person.ReviewStatus == 'Emp Submit'"><span class="glyphicon glyphicon-play"></span> START</button>
-          <button class="orange btn btn-warning btn-responsive" ng-if="person.ReviewStatus == 'Leader Saved'"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
-          <button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 'Leader Submit'"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button>
-          <button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 'Ready for Signature'"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button>
-          <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="person.ReviewStatus == 'Complete'"><span class="glyphicon glyphicon-eye-open"></span> READ</button>
+          <p>{{person.EmployeeName}}</p>
+          <button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="person.ReviewStatus == 1"><span class="glyphicon glyphicon-play"></span> START</button>
+          <button class="orange btn btn-warning btn-responsive" ng-if="person.ReviewStatus == 4"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
+          <button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 5"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button>
+          <button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 6"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button>
+          <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="person.ReviewStatus == 7"><span class="glyphicon glyphicon-eye-open"></span> READ</button>
       </div>
   </div>
 <!-- container div -->
