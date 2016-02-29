@@ -1,12 +1,14 @@
 app.controller('MapController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
-    var thisUser = ReviewService.thisUser();
+    var thisUser = ReviewService.reviews.thisUser;
     //var thisUser = {regisId: "MIMIL1"};
-    var myReview = ReviewService.myReview();
+    var myReview = ReviewService.reviews.myReview;
     //*** Need to come back and update currentReview based on which button is clicked.
-    var currentReview = ReviewService.myReview();
+    //var currentReview = ReviewService.reviews.myReview;
     var mapArray = [];
     $scope.getMapArray = getMapView;
-    console.log("team reviews", ReviewService.teamReviews);
+    console.log("team reviews", ReviewService.reviews.teamReviews);
+
+    $scope.dataTest = ReviewService;
 
     $scope.typeField = true;
     $scope.typeSalon = true;
@@ -14,9 +16,9 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
     $scope.financesComplete = true;
     $scope.goalOneComplete = true;
     $scope.goalTwoComplete = true;
-    $scope.goalThreeComplete = false;
-    $scope.goalFourComplete = false;
-    $scope.goalFiveComplete = false;
+    $scope.goalThreeComplete = true;
+    $scope.goalFourComplete = true;
+    $scope.goalFiveComplete = true;
 
     $scope.hComplete = true;
     $scope.aComplete = true;
@@ -33,22 +35,24 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
     //In an object send down the employeeId of the employee you would like to get the current map view information of.
     //Id in the employee information object is the same Id as EmployeeId in the other objects, match the two to know who you are dealing with
     //The 2 in this object is the employee review with the id of 2, once you start getting the client logic running you will want this objects id value to be dynamic to which review you click on, but for now we decided to hard code the employee with the id of 2
-    var getThisEmployeesMap = {Id: 2};
-    function getMapView(getThisEmployeesMap) {
-        $http.post('/getmapview', getThisEmployeesMap).then(function(response){
+    //var getThisEmployeesMap = {Id: 2};
+    //var user = ReviewService.reviews.thisUser;
+    function getMapView() {
+        console.log("user", ReviewService.reviews.thisUser);
+        $http.post('/getmapview', ReviewService.reviews.thisUser).then(function(response){
             console.log('Map view info', response);
             mapArray = response.data;
             console.log('mapArray', mapArray);
             console.log('This user', thisUser);
             console.log('myReview', myReview);
-            console.log('currentReview', currentReview);
+            console.log('currentReview', ReviewService.reviews.currentReview);
             updateCheckboxes();
         });
     };
 
     var updateCheckboxes = function(){
-        var reviewInfo = currentReview[0];
-        var subsectionInfo = currentReview[1];
+        var reviewInfo = ReviewService.reviews.currentReview[0];
+        var subsectionInfo = ReviewService.reviews.currentReview[1];
         var userView;
 
         if (reviewInfo[0].reviewType == "SS") {
@@ -58,10 +62,10 @@ app.controller('MapController', ['$scope', '$http', 'ReviewService', function($s
         }
 
         if (thisUser.regisId == reviewInfo[0].RegisId) {
-            console.log("employee")
+            console.log("employee");
             userView = "employee";
         } else if (thisUser.regisId == reviewInfo[0].LeaderRegisId){
-            console.log("leader")
+            console.log("leader");
             userView = "leader";
         } else {
             console.log("neither employee nor leader")

@@ -47,36 +47,8 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
   //console.log("Statuses", statuses);
   $scope.statuses = ReviewService.statuses;
 
-  $scope.typeField = ReviewService.typeField;
-  $scope.typeSalon = ReviewService.typeSalon;
-
-  //$scope.empOneTwo = ReviewService.empOneTwo;
-  //$scope.empOneToFive = ReviewService.empOneToFive;
-  //$scope.empThreePlus = ReviewService.empThreePlus;
-  //$scope.empFivePlus = ReviewService.empFivePlus;
-  //$scope.empSix = ReviewService.empSix;
-  //$scope.empSixAndNoEmpSignature = ReviewService.empSixAndNoEmpSignature;
-  //$scope.empSeven = ReviewService.empSeven;
-  //$scope.leaderThreePlus = ReviewService.leaderThreePlus;
-  //$scope.leaderThreeFour = ReviewService.leaderThreeFour;
-  //$scope.leaderThreeFourFive = ReviewService.leaderThreeFourFive;
-  //$scope.leaderFive = ReviewService.leaderFive;
-  //$scope.leaderSix = ReviewService.leaderSix;
-  //$scope.leaderSixPlus = ReviewService.leaderSixPlus;
-  //
-  //$scope.empOneTwo = statuses.empOneTwo;
-  //$scope.empOneToFive = statuses.empOneToFive;
-  //$scope.empThreePlus = statuses.empThreePlus;
-  //$scope.empFivePlus = statuses.empFivePlus;
-  //$scope.empSix = statuses.empSix;
-  //$scope.empSixAndNoEmpSignature = statuses.empSixAndNoEmpSignature;
-  //$scope.empSeven = statuses.empSeven;
-  //$scope.leaderThreePlus = statuses.leaderThreePlus;
-  //$scope.leaderThreeFour = statuses.leaderThreeFour;
-  //$scope.leaderThreeFourFive = leaderThreeFourFive;
-  //$scope.leaderFive = statuses.leaderFive;
-  //$scope.leaderSix = statuses.leaderSix;
-  //$scope.leaderSixPlus = statuses.leaderSixPlus;
+  $scope.typeField = ReviewService.type.typeField;
+  $scope.typeSalon = ReviewService.type.typeSalon;
 
   $scope.leader = true;
   $scope.emp = false;
@@ -103,10 +75,9 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
 
 
 app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
-
+  $scope.ReviewService = ReviewService;
   $scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
-
-  $scope.directReports = ReviewService.teamReviews.data;
+  //$scope.directReports = ReviewService.reviews.teamReviews.data;
 
   //$scope.directReports = [
   //  {name: "Joe Black", ReviewStatus: "Emp Submit"},
@@ -122,18 +93,30 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
 
 app.factory('ReviewService', ['$http', function($http) {
 
-  var thisUser = {};
-  var myReview = {};
-  var teamReviews = {};
-  //***** Need to come back and make this dynamic.
-  var currentReview = {};
+  //var thisUser = {};
+  //var myReview = {};
+  //var teamReviews = {};
+  ////***** Need to come back and make this dynamic.
+  //var currentReview = {};
+
+  var reviews = {
+    thisUser: {},
+    myReview: {},
+    teamReviews: {},
+    currentReview: {}
+  };
+
 
   //default all these vars to false\\
-  var leader = false;
-  var emp = false;
+  var role = {
+    leader: false,
+    emp: false
+  };
 
-  var typeField = true;
-  var typeSalon = true;
+  var type = {
+    typeField: true,
+    typeSalon: true
+  };
 
   var statuses = {
     empOneTwo: true,
@@ -157,7 +140,7 @@ app.factory('ReviewService', ['$http', function($http) {
     //TO DO *** Revisit this to make it dynamic.
     $http.get('token/1').then(function(response) {
       console.log(response.data);
-      thisUser = {regisId: response.data.regisId};
+      reviews.thisUser = {regisId: response.data.regisId};
       getMyReview({regisId: response.data.regisId});
       getTeamReviews({regisId: response.data.regisId});
     });
@@ -167,47 +150,48 @@ app.factory('ReviewService', ['$http', function($http) {
     //Used both to load the home page (myReview) and also as the "currentReview"
   var getMyReview = function(user) {
     $http.post('/employeeData', user).then(function (response) {
-      myReview = response.data;
-      console.log('My Review', myReview);//[0][0].EmployeeName - I was using this for testing.
+      //myReview = response.data;
+      reviews.myReview = response.data;
+      //***Need to come back and delete this.  Current review should be set on button click to the Map page, depending on review selected.
+      reviews.currentReview = response.data;
+      console.log('My Review', reviews.myReview);//[0][0].EmployeeName - I was using this for testing.
     });
   };
 
   var getTeamReviews = function(user){
     $http.post('/employeeData/leaderReviews', user).then(function(response) {
       console.log('My team\'s reviews:', response);
-      teamReviews.data = response.data;
+      //teamReviews.data = response.data;
+      reviews.teamReviews.data = response.data;
     });
   };
 
-  var fetchMyReview = function(){
-    return myReview;
-  };
-
-  var fetchThisUser = function(){
-    return thisUser;
-  };
-
-  var fetchCurrentReview = function(){
-    return currentReview;
-  };
-
-  var fetchMyTeam = function(){
-    return teamReviews;
-  };
+  //var fetchMyReview = function(){
+  //  return myReview;
+  //};
+  //
+  //var fetchThisUser = function(){
+  //  return thisUser;
+  //};
+  //
+  //var fetchCurrentReview = function(){
+  //  return currentReview;
+  //};
+  //
+  //var fetchMyTeam = function(){
+  //  return teamReviews;
+  //};
 
   return {
     loadHomePageInfo: loadHomePageInfo,
-    thisUser: fetchThisUser,
-    myReview: fetchMyReview,
-    currentReview: fetchCurrentReview,
+    //thisUser: thisUser,
+    //myReview: myReview,
+    //currentReview: currentReview,
+    //teamReviews: teamReviews,
+    reviews: reviews,
     statuses: statuses,
-    //statuses: true,
-    teamReviews: teamReviews,
-    leader: leader,
-    emp: emp,
-    typeField: typeField,
-    typeSalon: typeSalon,
-    teamReviews: teamReviews
+    role: role,
+    type: type
   };
 
 
