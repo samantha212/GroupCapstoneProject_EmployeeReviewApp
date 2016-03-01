@@ -45,7 +45,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 }]);
 
 app.controller('MainController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
-  //$scope.statuses = ReviewService.statuses;
+  $scope.statuses = ReviewService.statuses;
   //$scope.statuses = "This is the scope.statuses";
   //console.log("Statuses", statuses);
   $scope.ReviewService = ReviewService;
@@ -171,6 +171,9 @@ app.factory('ReviewService', ['$http', function($http) {
     });
   };
 
+  var goToMySignaturePage = function(){
+    getReview
+  }
   return {
     loadHomePageInfo: loadHomePageInfo,
     getReview: getReview,
