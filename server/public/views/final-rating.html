@@ -2,14 +2,14 @@
   <h1 class="">Rating</h1>
 
   <div class="employeeInfo">
-    <h5>Review for:  {{ReviewService.reviews.currentReview[0][0].EmployeeName}}</h5>
-    <h5>Regis ID:  {{ReviewService.reviews.currentReview[0][0].RegisId}}</h5>
+      <h5>Review for:  {{currentReviewEmpInfo.EmployeeName}}</h5>
+      <h5>Regis ID:  {{currentReviewEmpInfo.RegisId}}</h5>
   </div>
 
   <!--Employee View divs-->
-  <div ng-if="ReviewService.statuses.empOneTwo">
+  <div ng-if="statuses.empOneTwo">
     <h4>Employee Rating:</h4>
-      <select class="selectDrop well" ng-model="ReviewService.reviews.currentReview[1][13].EmployeeFinalRating">
+      <select class="selectDrop well" ng-model="finalData.EmployeeFinalRating">
         <!--Come back and make sure this value matches current subsection thisEmpFinalRating.-->
         <option>3</option>
         <option>2</option>
@@ -18,7 +18,7 @@
       </select>
     <h4>Employee Comments:</h4>
     <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][13].EmployeeResponse">Come back and make sure this text links to EmpFinalComment.</textarea>
+      <textarea class="boxProperties well" ng-model="finalData.EmployeeResponse">Come back and make sure this text links to EmpFinalComment.</textarea>
     </div>
 
       <div class="alignButton">
@@ -29,21 +29,21 @@
       </div>
   </div>
 
-  <div ng-if="ReviewService.statuses.empThreePlus">
+  <div ng-if="statuses.empThreePlus">
     <h4>Employee Rating:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][13].EmployeeFinalRating}}</p>
+    <p>{{finalData.EmployeeFinalRating}}</p>
     <h4>Employee Comments:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][13].EmployeeResponse}}</p>
+    <p>{{finalData.EmployeeResponse}}</p>
   </div>
 
-    <div ng-if="ReviewService.statuses.empFivePlus">
+    <div ng-if="statuses.empFivePlus">
         <h4>Leader Rating:</h4>
-        <p>{{ReviewService.reviews.currentReview[1][13].LeaderFinalRating}} <!--Make sure object contains this after Charlie updates.--></p>
+        <p>{{finalData.LeaderFinalRating}} <!--Make sure object contains this after Charlie updates.--></p>
         <h4>Leader Comments:</h4>
-        <p>{{ReviewService.reviews.currentReview[1][13].LeaderResponse}}</p>
+        <p>{{finalData.LeaderResponse}}</p>
     </div>
 
-    <div ng-if="ReviewService.statuses.empThreePlus">
+    <div ng-if="statuses.empThreePlus">
 
     <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
@@ -55,16 +55,16 @@
   </div>
 
   <!--Leader View divs-->
-  <div ng-if="ReviewService.statuses.leaderThreePlus">
+  <div ng-if="statuses.leaderThreePlus">
     <h4>Employee Rating:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][13].EmployeeFinalRating}}</p>
+    <p>{{finalData.EmployeeFinalRating}}</p>
     <h4>Employee Comments:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][13].EmployeeResponse}}  This will be a comment from EmpFinalComments.</p>
+    <p>{{finalData.EmployeeResponse}}  This will be a comment from EmpFinalComments.</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+  <div ng-if="statuses.leaderThreeFourFive">
     <h4>Leader Rating:</h4>
-    <select class="selectDrop well" ng-model="ReviewService.reviews.currentReview[1][13].LeaderFinalRating">
+    <select class="selectDrop well" ng-model="finalData.LeaderFinalRating">
         <!--Come BACK and make sure this value matches current subsection LeaderFinalRating.-->
         <option>3</option>
         <option>2</option>
@@ -73,7 +73,7 @@
     </select>
     <h4>Leader Comments:</h4>
     <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][13].LeaderResponse"></textarea>
+      <textarea class="boxProperties well" ng-model="finalData.LeaderResponse"></textarea>
     </div>
 
       <div class="alignButton">
@@ -84,11 +84,11 @@
       </div>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+  <div ng-if="statuses.leaderSixPlus">
     <h4>Leader Rating:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][13].LeaderFinalRating}} <!--Make sure object contains this after Charlie updates.--></p>
+    <p>{{finalData.LeaderFinalRating}} <!--Make sure object contains this after Charlie updates.--></p>
     <h4>Leader Comments:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][13].LeaderResponse}}</p>
+    <p>{{finalData.LeaderResponse}}</p>
 
       <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
