@@ -69,10 +69,19 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
   };
 
   $scope.currentStrengthDev = 10;
+  $scope.strengths = false;
+  $scope.development = false;
   $scope.setCurrentStrengthDev = function(number) {
     //This sets the currentStrengthDev number to the correct index in the subsections array.
     $scope.currentStrengthDev = number + 10;
     console.log('Current strength/dev is', $scope.currentStrengthDev);
+    if(number == 1) {
+      $scope.strengths = true;
+      $scope.development = false;
+    } else {
+      $scope.strengths = false;
+      $scope.development = true;
+    }
   }
 
 }]);
