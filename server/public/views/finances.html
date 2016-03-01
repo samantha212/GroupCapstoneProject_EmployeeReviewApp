@@ -21,8 +21,8 @@
   <!--Each of these divs is a row.-->
   <div ng-if="ReviewService.role.emp">
       <p>Service Sales $</p>
-      <p>{{serviceSalesActual | currency}}</p>
-      <p>{{serviceTarget | currency}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].SS_Actual | currency}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].SS_Target | currency}}</p>
       <p>{{serviceVariance | currency}}</p>
       <p>{{servicePercentOfTarget}}%</p>
       <p ng-if="empFivePlus"> </p>
@@ -30,8 +30,8 @@
 
   <div ng-if="ReviewService.role.emp">
       <p>Retail Sales $</p>
-      <p>{{retailSalesActual | currency}}</p>
-      <p>{{retailTarget | currency}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].RS_Actual | currency}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].RS_Target | currency}}</p>
       <p>{{retailVariance | currency}}</p>
       <p>{{retailPercentOfTarget | currency}}%</p>
       <p ng-if="empFivePlus"> </p>
@@ -39,31 +39,32 @@
 
   <div ng-if="ReviewService.role.emp">
       <p>Total Sales $</p>
-      <p>{{totalSalesActual | currency}}</p>
-      <p>{{totalTarget | currency}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].TS_Actual | currency}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].TS_Target | currency}}</p>
       <p>{{totalVariance | currency}}</p>
       <p>{{totalPercentOfTarget}}%</p>
-      <p ng-if="ReviewService.statuses.empFivePlus">{{totalSalesRating}}</p>
+      <p ng-if="ReviewService.statuses.empFivePlus">{{ReviewService.reviews.currentReview[1][0].TS_Rating}}</p>
   </div>
 
   <div ng-if="ReviewService.role.emp">
       <p>Contribution $</p>
-      <p>{{contributionActual | currency}}</p>
-      <p>{{contributionTarget | currency}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].C_Actual | currency}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].C_Target | currency}}</p>
       <p>{{contributionVariance | currency}}</p>
       <p>{{contributionPercentOfTarget}}%</p>
-      <p ng-if="ReviewService.statuses.empFivePlus">{{contributionRating}} </p>
+      <p ng-if="ReviewService.statuses.empFivePlus">{{ReviewService.reviews.currentReview[1][0].C_Rating}} </p>
   </div>
 
   <div ng-if="ReviewService.role.emp">
       <p>Service Guest Count</p>
-      <p>{{guestCountActual}}</p>
-      <p>{{guestCountTarget}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].SGC_Actual}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].SGC_Target}}</p>
       <p>{{guestCountVariance}}</p>
       <p>{{guestCountPercentOfTarget}}%</p>
-      <p ng-if="ReviewService.statuses.empFivePlus">{{guestCountRating}}</p>
+      <p ng-if="ReviewService.statuses.empFivePlus">{{ReviewService.reviews.currentReview[1][0].SGC_Rating}}</p>
   </div>
 
+    <!--Need to update this rating -- not in the returned object yet. -->
   <div ng-if="ReviewService.statuses.empFivePlus">
       <p>Overall Financial Performance Rating:</p>
       <p>{{overallRating}}</p>
@@ -92,8 +93,8 @@
   <!--Each of these divs is a row.-->
   <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Service Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="serviceSalesActual">
-      <input type="text" class="financialInput form-control" ng-model="serviceTarget">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].SS_Actual">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].SS_Target">
       <p>{{serviceVariance}}</p>
       <p>{{servicePercentOfTarget}}</p>
       <p> </p>
@@ -102,8 +103,8 @@
 
   <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Service Sales $</p>
-      <p>{{serviceSalesActual}}</p>
-      <p>{{serviceTarget}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].SS_Actual}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].SS_Target}}</p>
       <p>{{serviceVariance}}</p>
       <p>{{servicePercentOfTarget}}%</p>
       <p> </p>
@@ -112,8 +113,8 @@
 
   <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Retail Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="retailSalesActual">
-      <input type="text" class="financialInput form-control" ng-model="retailTarget">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].RS_Actual">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].RS_Target">
       <p>{{retailVariance}}</p>
       <p>{{retailPercentOfTarget}}</p>
       <p> </p>
@@ -122,8 +123,8 @@
 
   <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Retail Sales $</p>
-      <p>{{retailSalesActual}}</p>
-      <p>{{retailTarget}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].RS_Actual}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].RS_Target}}</p>
       <p>{{retailVariance}}</p>
       <p>{{retailPercentOfTarget}}%</p>
       <p> </p>
@@ -132,82 +133,92 @@
 
   <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Total Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="totalSalesActual">
-      <input type="text" class="financialInput form-control" ng-model="totalTarget">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].TS_Actual">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].TS_Target">
       <p>{{totalVariance}}</p>
       <p>{{totalPercentOfTarget}}</p>
+      <!--<select class="FinancesSelectDrop well" ng-model="ReviewService.reviews.currentReview[1][0].TS_Rating">-->
       <select class="FinancesSelectDrop well">
-          <option value="3 - Exceeds Expectations">3 - Exceeds Expectations = 101.5% and Above</option>
-          <option value="2 - Meets Expectations">2 - Meets Expectations = 98.5% - 101.4%</option>
-          <option value="1 - Does Not Meet Expectations">1 - Does Not Meet Expectations = Below 98.5%</option>
+          <option value="">--- Please Select A Rating ---</option>
+          <option value="3">3 - Exceeds Expectations = 101.5% and Above</option>
+          <option value="2">2 - Meets Expectations = 98.5% - 101.4%</option>
+          <option value="1">1 - Does Not Meet Expectations = Below 98.5%</option>
       </select>
   </div>
 
   <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Total Sales $</p>
-      <p>{{totalSalesActual}}</p>
-      <p>{{totalTarget}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].TS_Actual}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].TS_Target}}</p>
       <p>{{totalVariance}}</p>
       <p>{{totalPercentOfTarget}}%</p>
-      <p>{{totalSalesRating}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].TS_Rating}}</p>
   </div>
 
   <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Contribution $</p>
-      <input type="text" class="financialInput form-control" ng-model="contributionActual">
-      <input type="text" class="financialInput form-control" ng-model="contributionTarget">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].C_Actual">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].C_Target">
       <p>{{contributionVariance}}</p>
       <p>{{contributionPercentOfTarget}}</p>
+      <!--<select class="FinancesSelectDrop well" ng-model="ReviewService.reviews.currentReview[1][0].C_Rating">-->
       <select class="FinancesSelectDrop well">
-          <option value="3 - Exceeds Expectations">3 - Exceeds Expectations = 101.5% and Above</option>
-          <option value="2 - Meets Expectations">2 - Meets Expectations = 98.5% - 101.4%</option>
-          <option value="1 - Does Not Meet Expectations">1 - Does Not Meet Expectations = Below 98.5%</option>
+          <option value="">--- Please Select A Rating ---</option>
+          <option value="3">3 - Exceeds Expectations = 101.5% and Above</option>
+          <option value="2">2 - Meets Expectations = 98.5% - 101.4%</option>
+          <option value="1">1 - Does Not Meet Expectations = Below 98.5%</option>
       </select>
   </div>
 
   <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Contribution $</p>
-      <p>{{contributionActual}}</p>
-      <p>{{contributionTarget}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].C_Actual}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].C_Target}}</p>
       <p>{{contributionVariance}}</p>
       <p>{{contributionPercentOfTarget}}%</p>
-      <p>{{contributionRating}} </p>
+      <p>{{ReviewService.reviews.currentReview[1][0].C_Rating}}</p>
   </div>
 
   <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Service Guest Count</p>
-      <input type="text" class="financialInput form-control" ng-model="guestCountActual">
-      <input type="text" class="financialInput form-control" ng-model="guestCountTarget">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].SGC_Actual">
+      <input type="text" class="financialInput form-control" ng-model="ReviewService.reviews.currentReview[1][0].SGC_Actual">
+      <p>This is the test of the SCG Rating {{ReviewService.reviews.currentReview[1][0].SGC_Rating}}</p>
       <p>{{guestCountVariance}}</p>
       <p>{{guestCountPercentOfTarget}}</p>
+      <!--<select class="FinancesSelectDrop well" ng-model="ReviewService.reviews.currentReview[1][0].SGC_Rating">-->
       <select class="FinancesSelectDrop well">
-          <option value="3 - Exceeds Expectations">3 - Exceeds Expectations = 101.5% and Above</option>
-          <option value="2 - Meets Expectations">2 - Meets Expectations = 98.5% - 101.4%</option>
-          <option value="1 - Does Not Meet Expectations">1 - Does Not Meet Expectations = Below 98.5%</option>
+          <option value="">--- Please Select A Rating ---</option>
+          <option value="3">3 - Exceeds Expectations = 101.5% and Above</option>
+          <option value="2">2 - Meets Expectations = 98.5% - 101.4%</option>
+          <option value="1">1 - Does Not Meet Expectations = Below 98.5%</option>
       </select>
   </div>
 
   <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Service Guest Count</p>
-      <p>{{guestCountActual}}</p>
-      <p>{{guestCountTarget}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].SGC_Actual}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].SGC_Target}}</p>
       <p>{{guestCountVariance}}</p>
       <p>{{guestCountPercentOfTarget}}%</p>
-      <p ng-if="ReviewService.statuses.empFivePlus">{{guestCountRating}}</p>
+      <p ng-if="ReviewService.statuses.empFivePlus">{{ReviewService.reviews.currentReview[1][0].SGC_Rating}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+    <!--Need to update this rating -- not in the returned object yet. -->
+    <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Overall Financial Performance Rating:</p>
       <select class="lastFinancesSelectDrop well">
-          <option value="3 - Exceeds Expectations">3 - Exceeds Expectations</option>
-          <option value="2 - Meets Expectations">2 - Meets Expectations</option>
-          <option value="1 - Does Not Meet Expectations">1 - Does Not Meet Expectations</option>
+          <option value="">--- Please Select A Rating ---</option>
+          <option value="3">3 - Exceeds Expectations</option>
+          <option value="2">2 - Meets Expectations</option>
+          <option value="1">1 - Does Not Meet Expectations</option>
       </select>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+    <!--Need to update this rating -- not in the returned object yet. -->
+    <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Overall Financial Performance Rating:</p>
-      <p>{{overallRating}}</p>
+      <p>{{ReviewService.reviews.currentReview[1][0].OverallRating}}</p>
   </div>
 
   <div ng-if="ReviewService.statuses.leaderThreeFourFive">

@@ -1,13 +1,15 @@
-app.controller('FinancesController', ['$scope', '$http', function($scope, $http){
+app.controller('FinancesController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
 
-    //$scope.ReviewService = ReviewService
+    var ReviewService = ReviewService;
     //All of these variables need to be tied back to the actual data we receive from API.
     //These are just placeholders for now.
 
-    $scope.serviceSalesActual = 30000;
+    $scope.TestRating = 3;
+
+    //$scope.serviceSalesActual = ReviewService.;
     $scope.serviceTarget = 28000;
-    $scope.serviceVariance = $scope.serviceSalesActual - $scope.serviceTarget;
-    $scope.servicePercentOfTarget = (($scope.serviceSalesActual / $scope.serviceTarget) * 100).toFixed(1);
+    $scope.serviceVariance = ReviewService.reviews.currentReview[1][0].SS_Actual  - ReviewService.reviews.currentReview[1][0].SS_Target ;
+    $scope.servicePercentOfTarget = ((ReviewService.reviews.currentReview[1][0].SS_Actual  / ReviewService.reviews.currentReview[1][0].SS_Target ) * 100).toFixed(1);
 
     $scope.retailSalesActual = 4700;
     $scope.retailTarget = 5000;
@@ -29,9 +31,9 @@ app.controller('FinancesController', ['$scope', '$http', function($scope, $http)
     $scope.guestCountVariance = $scope.guestCountActual - $scope.guestCountTarget;
     $scope.guestCountPercentOfTarget = (($scope.guestCountActual / $scope.guestCountTarget) * 100).toFixed(1);
 
-    $scope.totalSalesRating = "3 - Exceeds Expectations";
-    $scope.contributionRating = "3 - ExceedsExpectations";
-    $scope.guestCountRating = "3 - Exceeds Expectations";
-    $scope.overallRating = "3 - Exceeds Expectations";
+    //$scope.totalSalesRating = "3 - Exceeds Expectations";
+    //$scope.contributionRating = "3 - ExceedsExpectations";
+    //$scope.guestCountRating = "3 - Exceeds Expectations";
+    //$scope.overallRating = "3 - Exceeds Expectations";
 
 }]);
