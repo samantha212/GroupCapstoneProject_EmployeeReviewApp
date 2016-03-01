@@ -65,10 +65,9 @@ h1 {
   margin: 3% auto;
   display: block;
   text-align: center;
-  font-size: 22px;
+  font-size: 28px;
   line-height: 40px;
   padding-bottom: 1%;
-  text-decoration: underline;
   color: rgb(86,86,91);
 }
 
@@ -82,7 +81,7 @@ h4{
     color: rgb(86,86,91);
 }
 
-h5{
+.h5{
   font-size: 18px;
   color: rgb(86,86,91);
 }
@@ -105,27 +104,22 @@ a{
   text-decoration: none;
   color: rgb(86,86,91);
   font-size: 14px;
-}
-a .orange{
-  color: white;
-}
-a:active {
-  text-decoration: none;
-}
-
-a:hover{
-  color: orange;
-  text-decoration: none;
-
+  &.orange{
+    color: white;
+  }
+  &:active{
+    text-decoration: none;
+  }
+  &:hover{
+    color: orange;
+    text-decoration: none;
+  }
 }
 
-
-// .title{
-//   padding-top: 0%;
-//   margin-top: 0 auto;
-//   text-align: center;
-// }
-
+.homepageNames{
+  padding-left:0;
+  padding-bottom: 4%;
+}
 
 .boxProperties{
   background-color: rgb(255,255,255);
