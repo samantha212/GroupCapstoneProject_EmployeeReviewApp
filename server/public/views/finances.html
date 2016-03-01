@@ -2,12 +2,10 @@
   <h1 class="title">Financial Performance</h1>
 
   <div class="employeeInfo">
-      <p>Name:  {{}} </p>
-      <!--(Add a reference to Employee being reviewed)-->
-      <p>Regis ID:  {{}} </p>
-      <!--(Add a reference to Employee being reviewed)-->
+      <h5>Review for:  {{ReviewService.reviews.currentReview[0][0].EmployeeName}}</h5>
+      <h5>Regis ID:  {{ReviewService.reviews.currentReview[0][0].RegisId}}</h5>
   </div>
-
+    <hr>
   <div>
       <!--These are the table headers. First column header is empty.-->
       <p>  </p>
@@ -15,63 +13,63 @@
       <p>Target</p>
       <p>Variance +/-</p>
       <p>% of Target</p>
-      <p ng-if="empFivePlus">Leader Rating</p>
+      <p ng-if="ReviewService.statuses.empFivePlus">Leader Rating</p>
   </div>
 
   <!-- ** Employee View ** -->
 
   <!--Each of these divs is a row.-->
-  <div ng-if="emp">
+  <div ng-if="ReviewService.role.emp">
       <p>Service Sales $</p>
-      <p>{{serviceSalesActual}}</p>
-      <p>{{serviceTarget}}</p>
-      <p>{{serviceVariance}}</p>
-      <p>{{servicePercentOfTarget}}</p>
+      <p>{{serviceSalesActual | currency}}</p>
+      <p>{{serviceTarget | currency}}</p>
+      <p>{{serviceVariance | currency}}</p>
+      <p>{{servicePercentOfTarget}}%</p>
       <p ng-if="empFivePlus"> </p>
   </div>
 
-  <div ng-if="emp">
+  <div ng-if="ReviewService.role.emp">
       <p>Retail Sales $</p>
-      <p>{{retailSalesActual}}</p>
-      <p>{{retailTarget}}</p>
-      <p>{{retailVariance}}</p>
-      <p>{{retailPercentOfTarget}}</p>
+      <p>{{retailSalesActual | currency}}</p>
+      <p>{{retailTarget | currency}}</p>
+      <p>{{retailVariance | currency}}</p>
+      <p>{{retailPercentOfTarget | currency}}%</p>
       <p ng-if="empFivePlus"> </p>
   </div>
 
-  <div ng-if="emp">
+  <div ng-if="ReviewService.role.emp">
       <p>Total Sales $</p>
-      <p>{{totalSalesActual}}</p>
-      <p>{{totalTarget}}</p>
-      <p>{{totalVariance}}</p>
-      <p>{{totalPercentOfTarget}}</p>
-      <p ng-if="empFivePlus">{{totalSalesRating}}</p>
+      <p>{{totalSalesActual | currency}}</p>
+      <p>{{totalTarget | currency}}</p>
+      <p>{{totalVariance | currency}}</p>
+      <p>{{totalPercentOfTarget}}%</p>
+      <p ng-if="ReviewService.statuses.empFivePlus">{{totalSalesRating}}</p>
   </div>
 
-  <div ng-if="emp">
+  <div ng-if="ReviewService.role.emp">
       <p>Contribution $</p>
-      <p>{{contributionActual}}</p>
-      <p>{{contributionTarget}}</p>
-      <p>{{contributionVariance}}</p>
-      <p>{{contributionPercentOfTarget}}</p>
-      <p ng-if="empFivePlus">{{contributionRating}} </p>
+      <p>{{contributionActual | currency}}</p>
+      <p>{{contributionTarget | currency}}</p>
+      <p>{{contributionVariance | currency}}</p>
+      <p>{{contributionPercentOfTarget}}%</p>
+      <p ng-if="ReviewService.statuses.empFivePlus">{{contributionRating}} </p>
   </div>
 
-  <div ng-if="emp">
+  <div ng-if="ReviewService.role.emp">
       <p>Service Guest Count</p>
       <p>{{guestCountActual}}</p>
       <p>{{guestCountTarget}}</p>
       <p>{{guestCountVariance}}</p>
-      <p>{{guestCountPercentOfTarget}}</p>
-      <p ng-if="empFivePlus">{{guestCountRating}}</p>
+      <p>{{guestCountPercentOfTarget}}%</p>
+      <p ng-if="ReviewService.statuses.empFivePlus">{{guestCountRating}}</p>
   </div>
 
-  <div ng-if="empFivePlus">
+  <div ng-if="ReviewService.statuses.empFivePlus">
       <p>Overall Financial Performance Rating:</p>
       <p>{{overallRating}}</p>
   </div>
 
-  <div ng-if="empOneTwo">
+  <div ng-if="ReviewService.statuses.empOneTwo">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure this function name matches what is on scope.-->
@@ -80,7 +78,7 @@
       </div>
   </div>
 
-  <div ng-if="empThreePlus">
+  <div ng-if="ReviewService.statuses.empThreePlus">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure the name of this function matches what is on scope.-->
@@ -92,52 +90,52 @@
   <!-- ** Leader Views ** -->
 
   <!--Each of these divs is a row.-->
-  <div ng-if="leaderThreeFourFive">
+  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Service Sales $</p>
       <input type="text" class="financialInput form-control" ng-model="serviceSalesActual">
       <input type="text" class="financialInput form-control" ng-model="serviceTarget">
-      <input type="text" class="financialInput form-control" ng-model="serviceVariance">
-      <input type="text" class="financialInput form-control" ng-model="servicePercentOfTarget">
-      <p> </p>
-      <!--No rating for Service Sales - empty-->
-  </div>
-
-  <div ng-if="leaderSixPlus">
-      <p>Service Sales $</p>
-      <p>{{serviceSalesActual}}</p>
-      <p>{{serviceTarget}}</p>
       <p>{{serviceVariance}}</p>
       <p>{{servicePercentOfTarget}}</p>
       <p> </p>
       <!--No rating for Service Sales - empty-->
   </div>
 
-  <div ng-if="leaderThreeFourFive">
-      <p>Retail Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="retailSalesActual">
-      <input type="text" class="financialInput form-control" ng-model="retailTarget">
-      <input type="text" class="financialInput form-control" ng-model="retailVariance">
-      <input type="text" class="financialInput form-control" ng-model="retailPercentOfTarget">
-      <p> </p>
-      <!--No rating for Retail Sales - empty-->
-  </div>
-
-  <div ng-if="leaderSixPlus">
-      <p>Retail Sales $</p>
-      <p>{{retailSalesActual}}</p>
-      <p>{{retailTarget}}</p>
-      <p>{{retailVariance}}</p>
-      <p>{{retailPercentOfTarget}}</p>
+  <div ng-if="ReviewService.statuses.leaderSixPlus">
+      <p>Service Sales $</p>
+      <p>{{serviceSalesActual}}</p>
+      <p>{{serviceTarget}}</p>
+      <p>{{serviceVariance}}</p>
+      <p>{{servicePercentOfTarget}}%</p>
       <p> </p>
       <!--No rating for Service Sales - empty-->
   </div>
 
-  <div ng-if="leaderThreeFourFive">
+  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+      <p>Retail Sales $</p>
+      <input type="text" class="financialInput form-control" ng-model="retailSalesActual">
+      <input type="text" class="financialInput form-control" ng-model="retailTarget">
+      <p>{{retailVariance}}</p>
+      <p>{{retailPercentOfTarget}}</p>
+      <p> </p>
+      <!--No rating for Retail Sales - empty-->
+  </div>
+
+  <div ng-if="ReviewService.statuses.leaderSixPlus">
+      <p>Retail Sales $</p>
+      <p>{{retailSalesActual}}</p>
+      <p>{{retailTarget}}</p>
+      <p>{{retailVariance}}</p>
+      <p>{{retailPercentOfTarget}}%</p>
+      <p> </p>
+      <!--No rating for Service Sales - empty-->
+  </div>
+
+  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Total Sales $</p>
       <input type="text" class="financialInput form-control" ng-model="totalSalesActual">
       <input type="text" class="financialInput form-control" ng-model="totalTarget">
-      <input type="text" class="financialInput form-control" ng-model="totalVariance">
-      <input type="text" class="financialInput form-control" ng-model="totalPercentOfTarget">
+      <p>{{totalVariance}}</p>
+      <p>{{totalPercentOfTarget}}</p>
       <select class="FinancesSelectDrop well">
           <option value="3 - Exceeds Expectations">3 - Exceeds Expectations = 101.5% and Above</option>
           <option value="2 - Meets Expectations">2 - Meets Expectations = 98.5% - 101.4%</option>
@@ -145,21 +143,21 @@
       </select>
   </div>
 
-  <div ng-if="leaderSixPlus">
+  <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Total Sales $</p>
       <p>{{totalSalesActual}}</p>
       <p>{{totalTarget}}</p>
       <p>{{totalVariance}}</p>
-      <p>{{totalPercentOfTarget}}</p>
+      <p>{{totalPercentOfTarget}}%</p>
       <p>{{totalSalesRating}}</p>
   </div>
 
-  <div ng-if="leaderThreeFourFive">
+  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Contribution $</p>
       <input type="text" class="financialInput form-control" ng-model="contributionActual">
       <input type="text" class="financialInput form-control" ng-model="contributionTarget">
-      <input type="text" class="financialInput form-control" ng-model="contributionVariance">
-      <input type="text" class="financialInput form-control" ng-model="contributionPercentOfTarget">
+      <p>{{contributionVariance}}</p>
+      <p>{{contributionPercentOfTarget}}</p>
       <select class="FinancesSelectDrop well">
           <option value="3 - Exceeds Expectations">3 - Exceeds Expectations = 101.5% and Above</option>
           <option value="2 - Meets Expectations">2 - Meets Expectations = 98.5% - 101.4%</option>
@@ -167,21 +165,21 @@
       </select>
   </div>
 
-  <div ng-if="leaderSixPlus">
+  <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Contribution $</p>
       <p>{{contributionActual}}</p>
       <p>{{contributionTarget}}</p>
       <p>{{contributionVariance}}</p>
-      <p>{{contributionPercentOfTarget}}</p>
+      <p>{{contributionPercentOfTarget}}%</p>
       <p>{{contributionRating}} </p>
   </div>
 
-  <div ng-if="leaderThreeFourFive">
+  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Service Guest Count</p>
       <input type="text" class="financialInput form-control" ng-model="guestCountActual">
       <input type="text" class="financialInput form-control" ng-model="guestCountTarget">
-      <input type="text" class="financialInput form-control" ng-model="guestCountVariance">
-      <input type="text" class="financialInput form-control" ng-model="guestCountPercentOfTarget">
+      <p>{{guestCountVariance}}</p>
+      <p>{{guestCountPercentOfTarget}}</p>
       <select class="FinancesSelectDrop well">
           <option value="3 - Exceeds Expectations">3 - Exceeds Expectations = 101.5% and Above</option>
           <option value="2 - Meets Expectations">2 - Meets Expectations = 98.5% - 101.4%</option>
@@ -189,16 +187,16 @@
       </select>
   </div>
 
-  <div ng-if="leaderSixPlus">
+  <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Service Guest Count</p>
       <p>{{guestCountActual}}</p>
       <p>{{guestCountTarget}}</p>
       <p>{{guestCountVariance}}</p>
-      <p>{{guestCountPercentOfTarget}}</p>
-      <p ng-if="empFivePlus">{{guestCountRating}}</p>
+      <p>{{guestCountPercentOfTarget}}%</p>
+      <p ng-if="ReviewService.statuses.empFivePlus">{{guestCountRating}}</p>
   </div>
 
-  <div ng-if="leaderThreeFourFive">
+  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <p>Overall Financial Performance Rating:</p>
       <select class="lastFinancesSelectDrop well">
           <option value="3 - Exceeds Expectations">3 - Exceeds Expectations</option>
@@ -207,12 +205,12 @@
       </select>
   </div>
 
-  <div ng-if="leaderSixPlus">
+  <div ng-if="ReviewService.statuses.leaderSixPlus">
       <p>Overall Financial Performance Rating:</p>
       <p>{{overallRating}}</p>
   </div>
 
-  <div ng-if="leaderThreeFourFive">
+  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">
             <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
@@ -223,7 +221,7 @@
       </div>
   </div>
 
-  <div ng-if="leaderSixPlus">
+  <div ng-if="ReviewService.statuses.leaderSixPlus">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
             <span class="glyphicon glyphicon-step-backward"></span> BACK</button>

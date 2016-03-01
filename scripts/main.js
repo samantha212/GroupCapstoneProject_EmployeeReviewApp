@@ -48,7 +48,7 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
   //$scope.statuses = ReviewService.statuses;
   //$scope.statuses = "This is the scope.statuses";
   //console.log("Statuses", statuses);
-  $scope.statuses = ReviewService.statuses;
+  $scope.ReviewService = ReviewService;
 
   //$scope.typeField = ReviewService.type.typeField;
   //$scope.typeSalon = ReviewService.type.typeSalon;
@@ -150,7 +150,7 @@ app.factory('ReviewService', ['$http', function($http) {
     $http.post('/employeeData', thisEmployee).then(function (response) {
       //console.log("response", response);
       reviews.currentReview = response.data;
-      //console.log('Current Review', reviews.currentReview);
+      console.log('Current Review', reviews.currentReview);
     });
   };
 
