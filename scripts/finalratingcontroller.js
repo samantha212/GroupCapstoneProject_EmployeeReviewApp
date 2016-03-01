@@ -1,4 +1,5 @@
-app.controller('FinalRatingController', ['$scope', '$http', function($scope, $http){
-  //DO STUFF
+app.controller('FinalRatingController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+    $scope.finalData = ReviewService.reviews.currentReview[1][13];
+    $scope.currentReviewEmpInfo = ReviewService.reviews.currentReview[0][0];
 
 }]);

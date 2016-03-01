@@ -1,25 +1,26 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="employeeInfo">
     <h1 class="title">Goal {{currentGoal}}</h1>
-    <h5>Review for:  {{ReviewService.reviews.currentReview[0][0].EmployeeName}}</h5>
-    <h5>Regis ID:  {{ReviewService.reviews.currentReview[0][0].RegisId}}</h5>
+    <h5>Review for:  {{currentReviewEmpInfo.EmployeeName}}</h5>
+    <h5>Regis ID:  {{currentReviewEmpInfo.RegisId}}</h5>
   </div>
 
 
 <!--Employee View Divs-->
-    <div ng-if="ReviewService.statuses.empOneTwo">
+    <div ng-if="statuses.empOneTwo">
       <h4>Goal:</h4>
         <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <textarea class="boxProperties well"
-          ng-model="ReviewService.reviews.currentReview[1][currentGoal].Goal">
+                    ng-model="goalData.Goal">
           </textarea>
+          <p>{{goalData.Goal}}</p>
         </div>
           <div class="clearfix"></div>
 
       <div>
         <h4>Employee Rating:</h4>
         <!--Come BACK and make sure this dropdown displays what is already in the DB.-->
-        <select class="selectDrop well" ng-model="ReviewService.reviews.currentReview[1][currentGoal].EmployeeGoalRating">
+        <select class="selectDrop well" ng-model="goalData.EmployeeGoalRating">
           <option>3</option>
           <option>2</option>
           <option>1</option>
@@ -31,7 +32,7 @@
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h4>Employee Comments:</h4>
         <textarea class="boxProperties well"
-        ng-model="ReviewService.reviews.currentReview[1][currentGoal].EmployeeResponse"></textarea>
+        ng-model="goalData.EmployeeResponse"></textarea>
       </div>
 
 
@@ -45,41 +46,41 @@
         </div>
       </div>
 
-    <div ng-if="ReviewService.statuses.empThreePlus">
+    <div ng-if="statuses.empThreePlus">
       <h4>Goal:</h4>
         <span class="boxProperties well">
-          <p>{{ReviewService.reviews.currentReview[1][currentGoal].Goal}}</p>
+          <p>{{goalData.Goal}}</p>
         </span>
 
 
       <div class="employeeRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6">
         <h4>Employee Rating:</h4>
-          <p class="pRating employeeRatingBox well">{{ReviewService.reviews.currentReview[1][currentGoal].EmployeeGoalRating}}</p>
+          <p class="pRating employeeRatingBox well">{{goalData.EmployeeGoalRating}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
       </div>
     </div>
 
-    <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="ReviewService.statuses.empFivePlus">
+    <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="statuses.empFivePlus">
       <h4>Leader Rating:</h4>
-      <p class="pRating leaderRatingBox well">{{ReviewService.reviews.currentReview[1][currentGoal].LeaderGoalRating}}</p>
+      <p class="pRating leaderRatingBox well">{{goalData.LeaderGoalRating}}</p>
     </div>
     <div class="clearfix"></div>
 
-    <div ng-if="ReviewService.statuses.empThreePlus">
+    <div ng-if="statuses.empThreePlus">
     <h4>Employee Comments:</h4>
       <span class="boxProperties well">
-        <p>{{ReviewService.reviews.currentReview[1][currentGoal].EmployeeResponse}}</p>
+        <p>{{goalData.EmployeeResponse}}</p>
       </span>
     </div>
 
-    <div ng-if="ReviewService.statuses.empFivePlus">
+    <div ng-if="statuses.empFivePlus">
     <h4>Leader Comments:</h4>
       <span class="boxProperties well">
-        <p>{{ReviewService.reviews.currentReview[1][currentGoal].LeaderResponse}}</p>
+        <p>{{goalData.LeaderResponse}}</p>
       </span>
     </div>
 
 
-    <div ng-if="ReviewService.statuses.empThreePlus">
+    <div ng-if="statuses.empThreePlus">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
           <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
@@ -91,23 +92,23 @@
     </div>
 
 <!--Leader View Divs-->
-    <div ng-if="ReviewService.statuses.leaderThreePlus">
+    <div ng-if="statuses.leaderThreePlus">
       <h4>Goal:</h4>
         <span class="boxProperties well">
-          <p>{{ReviewService.reviews.currentReview[1][currentGoal].Goal}}</p>
+          <p>{{goalData.Goal}}</p>
         </span>
      </div>
 
         <div class="employeeRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <h4>Employee Rating:</h4>
-          <p class="pRating employeeRatingBox well">{{ReviewService.reviews.currentReview[1][currentGoal].EmployeeResponse}}</p>
+          <p class="pRating employeeRatingBox well">{{goalData.EmployeeResponse}}</p>
         </div>
 
 
-    <div class="leaderRatingAlignDrop row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="ReviewService.statuses.leaderThreeFourFive">
+    <div class="leaderRatingAlignDrop row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="statuses.leaderThreeFourFive">
       <h4>Leader Rating:</h4>
       <div class="row col-xs-5 col-sm-5 col-md-4 col-lg-4"></div>
-      <select class="secondGoalSelectDrop well row col-xs-2 col-sm-2 col-md-4 col-lg-4" ng-model="ReviewService.reviews.currentReview[1][currentGoal].LeaderGoalRating">
+      <select class="secondGoalSelectDrop well row col-xs-2 col-sm-2 col-md-4 col-lg-4" ng-model="goalData.LeaderGoalRating">
           <!--Come BACK and make sure this value matches current subsection LeaderGoalRating.-->
           <option>3</option>
           <option>2</option>
@@ -117,36 +118,36 @@
     </div>
     <div class="clearfix"></div>
 
-    <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="ReviewService.statuses.leaderSixPlus">
+    <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="statuses.leaderSixPlus">
          <h4>Leader Rating:</h4>
-          <p class="pRating leaderRatingBox well">{{ReviewService.reviews.currentReview[1][currentGoal].LeaderGoalRating}}</p>
+          <p class="pRating leaderRatingBox well">{{goalData.LeaderGoalRating}}</p>
     </div>
     <div class="clearfix"></div>
 
-    <div ng-if="ReviewService.statuses.leaderThreePlus">
+    <div ng-if="statuses.leaderThreePlus">
     <h4>Employee Comments:</h4>
         <span class="boxProperties well">
-          <p>{{ReviewService.reviews.currentReview[1][currentGoal].EmployeeResponse}}</p>
+          <p>{{goalData.EmployeeResponse}}</p>
         </span>
     </div>
 
-    <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+    <div ng-if="statuses.leaderThreeFourFive">
       <h4>Leader Comments:</h4>
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][currentGoal].LeaderResponse"></textarea>
+          <textarea class="boxProperties well" ng-model="goalData.LeaderResponse"></textarea>
       </div>
     </div>
     <br>
 
-      <div ng-if="ReviewService.statuses.leaderSixPlus">
+      <div ng-if="statuses.leaderSixPlus">
         <h4>Leader Comments:</h4>
           <span class="boxProperties well">
-          <p>{{ReviewService.reviews.currentReview[1][currentGoal].LeaderResponse}}</p>
+          <p>{{goalData.LeaderResponse}}</p>
           </span>
       </div>
       <br>
 
-    <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+    <div ng-if="statuses.leaderThreeFourFive">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">
           <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
@@ -157,7 +158,7 @@
       </div>
     </div>
 
-    <div ng-if="ReviewService.statuses.leaderSixPlus">
+    <div ng-if="statuses.leaderSixPlus">
       <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
         <span class="glyphicon glyphicon-step-backward"></span> BACK</button>

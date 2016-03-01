@@ -26,8 +26,8 @@
   </div>
      <div class="clearfix"></div>
       <div class="homePageLeadButtons">
-        <a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="ReviewService.statuses.empOneTwo" ng-click="ReviewService.getReview(ReviewService.reviews.myReview[0][0].RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
-        <a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive"  ng-if="ReviewService.statuses.empThreePlus" ng-click="ReviewService.getReview(ReviewService.reviews.myReview[0][0].RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW</button></a>
+        <a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="ReviewService.statuses.empOneTwo" ng-click="ReviewService.getReview(ReviewService.reviews.thisUser.regisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
+        <a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive"  ng-if="ReviewService.statuses.empThreePlus" ng-click="ReviewService.getReview(ReviewService.reviews.thisUser.regisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW</button></a>
         <button type="button" class="orange btn btn-warning btn-responsive" ng-if="ReviewService.statuses.empSixAndNoEmpSignature" >  <span class="glyphicon glyphicon-pencil"></span> SIGN</button></a>
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="ReviewService.statuses.empSeven"><span class="glyphicon glyphicon-send"></span> EMAIL PDF</button></a>
         <hr>
