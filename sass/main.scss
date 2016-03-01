@@ -52,7 +52,9 @@ body{
   font-family: Helvetica Neue, Verdana;
   background-color:whitesmoke;
   padding-left: 9%;
+  padding-bottom: 4%;
 }
+
 
 .container{
   padding-bottom: 2%;
@@ -60,11 +62,14 @@ body{
 
 // h tags
 h1 {
-  margin: 1% auto;
+  margin: 3% auto;
   display: block;
   text-align: center;
-  font-size: 26px;
+  font-size: 22px;
+  line-height: 40px;
   padding-bottom: 1%;
+  text-decoration: underline;
+  color: rgb(86,86,91);
 }
 
 
@@ -74,6 +79,12 @@ h4{
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    color: rgb(86,86,91);
+}
+
+h5{
+  font-size: 18px;
+  color: rgb(86,86,91);
 }
 
 .logo{
@@ -85,6 +96,27 @@ h4{
 padding-top: 2%;
 padding-bottom:2%;
 margin:0 auto 0 1%;
+border-bottom:none;
+}
+
+a{
+  font-family: Helvetica Neue, Verdana;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(86,86,91);
+  font-size: 14px;
+}
+a .orange{
+  color: white;
+}
+a:active {
+  text-decoration: none;
+}
+
+a:hover{
+  color: orange;
+  text-decoration: none;
+
 }
 
 
@@ -229,6 +261,11 @@ margin:0 auto 0 1%;
   font-weight:lighten;
 }
 
+.homeOrange{
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight:lighten;
+  }
 
   .grey {
     font-size: 16px;
@@ -274,10 +311,10 @@ margin:0 auto 0 1%;
     border-color: #5C5454;
   }
 
-  .grey .badge {
-    color: #999999;
-    background-color: #ffffff;
-  }
+.grey .badge {
+  color: #999999;
+  background-color: #ffffff;
+}
 
 .green{
   font-size: 16px;
@@ -312,7 +349,7 @@ margin:0 auto 0 1%;
   body{
     font-family: Helvetica Neue, Verdana;
     background-color:whitesmoke;
-    padding-left: 12%;
+    padding-left: 15%;
   }
 
   .logo{
@@ -338,23 +375,27 @@ margin:0 auto 0 1%;
   }
 
   .orange{
-    font-size: 75%;
+    font-size: 100%;
+  }
+
+  .homeOrange{
+    font-size: 100%;
   }
 
   .grey{
-    font-size: 75%;
+    font-size: 100%;
   }
 
   .green{
-    font-size: 75%;
+    font-size: 100%;
   }
 
   .darkBlue{
-    font-size: 75%;
+    font-size: 100%;
   }
 
   .review{
-    font-size: 75%;
+    font-size: 100%;
   }
 
   .hairmages{
@@ -362,10 +403,10 @@ margin:0 auto 0 1%;
     max-width: 15%;
   }
 
-
   .sidebar{
   width: 12%;
   }
+
   .initialBox{
     background-color: rgb(255,255,255);
     display: block;
@@ -393,7 +434,7 @@ margin:0 auto 0 1%;
   body{
     font-family: Helvetica Neue, Verdana;
     background-color:whitesmoke;
-    padding-left: 12%;
+    padding-left: 14%;
   }
 
   .logo{
@@ -410,16 +451,32 @@ margin:0 auto 0 1%;
     padding-bottom: 4%;
   }
 
+  .boxProperties{
+    margin: 1% 4% 8% auto;
+    text-align: center;
+
+  }
+
   h1 {
-    font-size: 24px;
+    font-size: 16px;
   }
 
   h4{
-    font-size: 18px;
+    font-size: 14px;
+  }
+
+  h5{
+    font-size: 12px;
+    color: rgb(86,86,91);
   }
 
   .orange{
     font-size: 75%;
+  }
+
+  .homeOrange{
+    font-size: 45%;
+    margin-top: 1%;
   }
 
   .grey{
