@@ -62,9 +62,9 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
     console.log('Current goal is', $scope.currentGoal);
   };
 
-  $scope.currentHAIR = 1;
+  $scope.currentHAIR = 5;
   $scope.setCurrentHAIR = function(number) {
-    $scope.currentHAIR = number;
+    $scope.currentHAIR = number + 5;
     console.log('Current HAIR is', $scope.currentHAIR);
   };
 

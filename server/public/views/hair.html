@@ -1,63 +1,47 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-  <!-- <img src="" alt=""/> -->
   <!--HAIR images-->
-<div ng-if="hairSubsectionH">
-  <img class="hairmages" src="assets/images/H2.png" alt="H honest"/>
-  <div class="employeeInfo">
-      <h1 class="title">Instill Trust:</h1>
-      <h1 class="title">Action match words. Acts with integrity.</h1>
+  <!-- ***** STYLING NOTE *****  I copied the H1 tags into the ng-ifs below, so they show up conditionally depending on the subsection.-->
+  <div ng-if="hairSubsectionH">
+    <img class="hairmages" src="assets/images/H2.png" alt="H honest"/>
+    <div class="employeeInfo">
+        <h1 class="title">Honest: Instill Trust</h1>
+        <h1 class="title">Action match words. Acts with integrity.</h1>
+    </div>
   </div>
-</div>
-<div ng-if="hairSubsectionA">
-  <img class="hairmages" src="assets/images/A1.png" alt="A accountable"/>
-  <div class="employeeInfo">
-      <h1 class="title">Drive Engagement & Deliver Results:</h1>
-      <h1 class="title">Prioritizes and acts with urgency. Accomplishes goals. Focuses on the guest experience.</h1>
+  <div ng-if="hairSubsectionA">
+    <img class="hairmages" src="assets/images/A1.png" alt="A accountable"/>
+    <div class="employeeInfo">
+        <h1 class="title">Accountable: Drive Engagement & Deliver Results</h1>
+        <h1 class="title">Prioritizes and acts with urgency. Accomplishes goals. Focuses on the guest experience.</h1>
+    </div>
   </div>
-</div>
-<div ng-if="hairSubsectionI">
-  <img class="hairmages" src="assets/images/I1.png" alt="I inspiring"/>
-  <div class="employeeInfo">
-      <h1 class="title">Attract Top Talent & Develop our People:</h1>
-      <h1 class="title">Stays current with trends. Lives the Regis vision. To be the best place where stylists have successful and satisfying careers. Staffs and retains team for growth.</h1>
+  <div ng-if="hairSubsectionI">
+    <img class="hairmages" src="assets/images/I1.png" alt="I inspiring"/>
+    <div class="employeeInfo">
+        <h1 class="title">Inspiring: Attract Top Talent & Develop Our People</h1>
+        <h1 class="title">Stays current with trends. Lives the Regis vision. To be the best place where stylists have successful and satisfying careers. Staffs and retains team for growth.</h1>
+    </div>
   </div>
-</div>
-<div ng-if="hairSubsectionR">
-  <img class="hairmages" src="assets/images/R1.png" alt="R respectful"/>
-  <div class="employeeInfo">
-      <h1 class="title">Collaborate and Partner & Gratitude and Appreciation:</h1>
-      <h1 class="title">Works cooperatively. Gains trust and support of others. Listens and voices opinions thoughtfully. Values the uniqueness of others.</h1>
+  <div ng-if="hairSubsectionR">
+    <img class="hairmages" src="assets/images/R1.png" alt="R respectful"/>
+    <div class="employeeInfo">
+        <h1 class="title">Respectful: Collaborate and Partner & Gratitude and Appreciation</h1>
+        <h1 class="title">Works cooperatively. Gains trust and support of others. Listens and voices opinions thoughtfully. Values the uniqueness of others.</h1>
+    </div>
   </div>
-</div>
 
-  <!-- <img src="" alt=""/> -->
-  <!--((((((((((((((((((((((((((((((()))))))))))))))))))))))))))))))-->
-  <!--(((((    1. See the following comment for styling info     )))-->
-  <!--((((((((((((((((((((((((((((((()))))))))))))))))))))))))))))))-->
-  <!--I copied the following div into each of the ng-ifs above.  We will very likely have to change some of the tags for styling.-->
-
-<!-- <div class="employeeInfo">
-    <h1 class="title">Main Description:</h1>
-    <h1 class="title">Secondary description</h1> -->
-
-  <!--((((((((((((((((((((((((((((((()))))))))))))))))))))))))))))))-->
-  <!--(((((((((((          End of the comment 1.            ))))))))-->
-  <!--((((((((((((((((((((((((((((((()))))))))))))))))))))))))))))))-->
-
-
+  <!--Review Info:-->
   <div class="employeeInfo">
-      <h5>Name:{{currentReviewName}}</h5> <!--(Add a reference to Employee being reviewed)-->
-      <h5>Regis ID:{{currentReviewRegisId}}</h5> <!--(Add a reference to Employee being reviewed)-->
+    <h5>Review for:  {{ReviewService.reviews.currentReview[0][0].EmployeeName}}</h5>
+    <h5>Regis ID:  {{ReviewService.reviews.currentReview[0][0].RegisId}}</h5>
   </div>
-<!-- </div> -->
 
-
-  <!--Employee View divs-->
-  <div ng-if="empOneTwo">
+  <!--Employee View:-->
+  <div ng-if="ReviewService.statuses.empOneTwo">
     <h4>Employee Comments:</h4>
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <textarea class="boxProperties well" ng-model="thisHairCompetency">(Come back and make sure the ng-model connects to the current subsection EmpHairCompetency string.)</textarea>
+        <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][currentHAIR].EmployeeResponse">(Come back and make sure the ng-model connects to the current subsection EmpHairCompetency string.)</textarea>
       </div>
     <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">  <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
@@ -67,17 +51,17 @@
     </div>
   </div>
 
-  <div ng-if="empThreePlus">
+  <div ng-if="ReviewService.statuses.empThreePlus">
     <h4>Employee Comments:</h4>
-    <p>{{empComment}} Comments from thisEmpHairCompetency subsection.</p>
+    <p>{{ReviewService.reviews.currentReview[1][currentHAIR].EmployeeResponse}}</p>
   </div>
 
-  <div ng-if="empFivePlus">
+  <div ng-if="ReviewService.statuses.empFivePlus">
     <h4>Leader Comments:</h4>
-    <p>{{leaderComment}} Make sure this connects to subsection of LeaderHairCompetencyComment for this review</p>
+    <p>{{ReviewService.reviews.currentReview[1][currentHAIR].LeaderResponse}}</p>
   </div>
 
-  <div ng-if="empThreePlus">
+  <div ng-if="ReviewService.statuses.empThreePlus">
     <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
       <!--Make sure the name of this function matches what is on scope.-->
@@ -88,15 +72,15 @@
 
 
   <!--Leader View divs-->
-  <div ng-if="leaderThreePlus">
+  <div ng-if="ReviewService.statuses.leaderThreePlus">
     <h4>Employee Comments:</h4>
-    <p>{{empComment}} Employee comments from the EmpHairCompetency subsection for this review</p>
+    <p>{{ReviewService.reviews.currentReview[1][currentHAIR].EmployeeResponse}}</p>
   </div>
 
-  <div ng-if="leaderThreeFourFive">
+  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
     <h4>Leader Comments:</h4>
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <textarea class="boxProperties well" ng-model="theHairCompLeaderComment"></textarea>
+        <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][currentHAIR].LeaderResponse"></textarea>
       </div>
 
       <div class="alignButton">
@@ -107,11 +91,12 @@
       </div>
   </div>
 
-  <div ng-if="leaderSixPlus">
+  <div ng-if="ReviewService.statuses.leaderSixPlus">
     <h4>Leader Comments:</h4>
-    <p>{{leaderComment}} Leader comments from the LeaderHairCompetencyComment subsection</p>
+    <p>{{ReviewService.reviews.currentReview[1][currentHAIR].LeaderResponse}}</p>
+
     <div class="alignButton">
-        <button type="button" class="grey btn btn-secondary btn-responsive"  ng-click="goMap()">    <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
+        <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure the name of this function matches what is on scope.-->
         <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
         <!--Make sure the name of this function matches what is on scope.-->
