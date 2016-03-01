@@ -279,8 +279,6 @@ margin:0 auto 0 1%;
     background-color: #ffffff;
   }
 
-//HOME PAGE CUSTOM BUTTONS
-
 .green{
   font-size: 16px;
   font-family: Helvetica;
@@ -299,10 +297,83 @@ margin:0 auto 0 1%;
   font-weight:lighten;
 }
 
+// HAIR IMAGES LOGOS
+
+.hairmages{
+  margin-top: 1%;
+  max-width: 7%;
+}
 
 
+//[][][][][][][]][][][][][][][][][][][][][][][][]][]]][][][][][][][][][][][][][][][][][]][][][][][][][]][][][][][][][][][][][][][]
+//[][][][][][][]][][][][][][][][][][][][][][][][]][]]][ TABLET ][][][][][][][][][][][][][][][][]][][][][][][][]][][][][][][][][][]
+
+@media only screen and (max-width: 900px) {
+  body{
+    font-family: Helvetica Neue, Verdana;
+    background-color:whitesmoke;
+    padding-left: 12%;
+  }
+
+  .logo{
+    max-width: 95%;
+  }
+
+  .page-header{
+  padding-top: 5%;
+  padding-bottom:3%;
+  margin:0 auto 0 1%;
+  }
+
+  .container{
+    padding-bottom: 4%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h4{
+    font-size: 18px;
+  }
+
+  .orange{
+    font-size: 75%;
+  }
+
+  .grey{
+    font-size: 75%;
+  }
+
+  .green{
+    font-size: 75%;
+  }
+
+  .darkBlue{
+    font-size: 75%;
+  }
+
+  .review{
+    font-size: 75%;
+  }
+
+  .hairmages{
+    margin-top: 1%;
+    max-width: 15%;
+  }
 
 
+  .sidebar{
+  width: 12%;
+  }
+  .initialBox{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+  }
+
+}
 
 
 
@@ -366,6 +437,12 @@ margin:0 auto 0 1%;
   .review{
     font-size: 75%;
   }
+
+  .hairmages{
+    margin-top: 1%;
+    max-width: 15%;
+  }
+
 
 .sidebar{
   width: 12%;
