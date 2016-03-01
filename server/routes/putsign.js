@@ -9,9 +9,9 @@ router.post('/', function(request, response){
   var empId = [];
 
   pg.connect(connectionString, function(err, client, done){
-    var signData = {isLeader: request.body.isLeader, regisId: request.body.regisId, signature: request.body.EmployeeSignature};
+    var signData = {isLeader: request.body.isLeader, regisId: request.body.regisId, EmployeeSignature: request.body.EmployeeSignature};
 
-    var findEmpId = client.query('SELECT "Id" FROM "employeeData" WHERE "RegisId" = $1', [employeeUpdate.regisId]);
+    var findEmpId = client.query('SELECT "Id" FROM "employeeData" WHERE "RegisId" = $1', [signData.regisId]);
 
     findEmpId.on('row', function(row){
       empId.push(row);
@@ -20,15 +20,34 @@ router.post('/', function(request, response){
     findEmpId.on('end', function(){
       var query
       if(signData.isLeader == true){
-        query = client.query('UPDATE "employeeData" SET "LeaderSignature" = $1, WHERE "Id" = $2', [signData.signature, empId[0].Id]);
+        query = client.query('UPDATE "employeeData" SET "LeaderSignature" = $1 WHERE "Id" = $2', [signData.EmployeeSignature, empId[0].Id]);
       }else{
-          query = client.query('UPDATE "employeeData" SET "EmployeeSignature" = $1, WHERE "Id" = $2', [signData.signature, empId[0].Id]);
+        query = client.query('UPDATE "employeeData" SET "EmployeeSignature" = $1 WHERE "Id" = $2', [signData.EmployeeSignature, empId[0].Id]);
       }
-      client.end();
-      //might need to send a response
-    });
 
-    var updateSignature = client.query('');
+      query.on('end', function(){
+        var compareData = [];
+        var checkIfDone = client.query('SELECT "EmployeeSignature", "LeaderSignature" FROM "employeeData" WHERE "Id" = $1', [empId[0].Id]);
+
+        checkIfDone.on('row', function(row){
+            compareData.push(row);
+        });
+
+        checkIfDone.on('end', function(){
+          if(compareData[0].EmployeeSignature && compareData[0].LeaderSignature != null){
+            response.send(true);
+            var updateStage =client.query('UPDATE "employeeData" SET "ReviewStatus" = 7 WHERE "Id" = $1', [empId[0].Id]);
+          }else{
+            response.send(false);
+            client.end();
+          }
+
+          updateStage.on('end', function(){
+            client.end();
+          });
+        });
+      });
+    });
 
     if(err){response.send('error on server')};
   });
