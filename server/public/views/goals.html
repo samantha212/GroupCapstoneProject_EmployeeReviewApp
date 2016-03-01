@@ -1,8 +1,8 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="employeeInfo">
     <h1 class="title">Goal {{currentGoal}}</h1>
-    <h5>Review for:  {{ReviewService.reviews.currentReview[0][0].EmployeeName}}</h5>
-    <h5>Regis ID:  {{ReviewService.reviews.currentReview[0][0].RegisId}}</h5>
+    <h5>Review for:  {{currentReviewEmpInfo.EmployeeName}}</h5>
+    <h5>Regis ID:  {{currentReviewEmpInfo.RegisId}}</h5>
   </div>
 
 
@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="ReviewService.statuses.empFivePlus">
+    <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="statuses.empFivePlus">
       <h4>Leader Rating:</h4>
       <p class="pRating leaderRatingBox well">{{goalData.LeaderGoalRating}}</p>
     </div>
