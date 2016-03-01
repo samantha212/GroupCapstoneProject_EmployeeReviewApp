@@ -68,9 +68,10 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
     console.log('Current HAIR is', $scope.currentHAIR);
   };
 
-  $scope.currentStrengthDev = 1;
+  $scope.currentStrengthDev = 10;
   $scope.setCurrentStrengthDev = function(number) {
-    $scope.currentStrengthDev = number;
+    //This sets the currentStrengthDev number to the correct index in the subsections array.
+    $scope.currentStrengthDev = number + 10;
     console.log('Current strength/dev is', $scope.currentStrengthDev);
   }
 

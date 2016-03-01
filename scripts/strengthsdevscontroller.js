@@ -1,3 +1,3 @@
-app.controller('StrengthsDevsController', ['$scope', '$http', function($scope, $http){
-  //DO STUFF
+app.controller('StrengthsDevsController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+    $scope.ReviewService = ReviewService;
 }]);
