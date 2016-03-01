@@ -1,4 +1,4 @@
-<div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-init="getMapArray()">
+<div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div>
     <a href="/"><button type="button" class="orange pull-right btn btn-warning btn-responsive"><span class="glyphicon glyphicon-home"></span> HOME PAGE</button></a>
   </div>
@@ -7,7 +7,9 @@
     <h1>Employee Review Map</h1>
   </div>
 
-
+    <h5>Review for:  {{ReviewService.reviews.currentReview[0][0].EmployeeName}}</h5>
+    <h5>Regis ID:  {{ReviewService.reviews.currentReview[0][0].RegisId}}</h5>
+    <hr>
     <!--Employee View-->
     <div ng-if="ReviewService.role.leader">
         <div>
@@ -39,7 +41,7 @@
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
         </div>
 
-        <div>
+        <!--<div>-->
             <p ng-show="ReviewService.reviews.currentReview[1][5].isCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/goals" ng-click="setCurrentGoal(5)">Goal 5</a></p>
             <p ng-hide="ReviewService.reviews.currentReview[1][5].isCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(5)">Goal 5</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->

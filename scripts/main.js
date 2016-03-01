@@ -8,7 +8,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     })
     .when('/map', {
       templateUrl: 'views/map.html',
-      controller: 'MapController'
+      controller: 'MapController',
+      //resolve: {
+      //  currentReview: ReviewService.reviews.currentReview
+      //}
     })
     .when('/finances', {
       templateUrl: 'views/finances.html',
@@ -47,8 +50,8 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
   //console.log("Statuses", statuses);
   $scope.statuses = ReviewService.statuses;
 
-  $scope.typeField = ReviewService.type.typeField;
-  $scope.typeSalon = ReviewService.type.typeSalon;
+  //$scope.typeField = ReviewService.type.typeField;
+  //$scope.typeSalon = ReviewService.type.typeSalon;
 
   $scope.leader = true;
   $scope.emp = false;
