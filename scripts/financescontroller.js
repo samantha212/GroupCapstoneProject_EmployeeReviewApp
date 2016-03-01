@@ -1,30 +1,24 @@
 app.controller('FinancesController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
     var rs = ReviewService.reviews.currentReview[1][0];
 
-    $scope.serverSalesActual = rs.SS_Actual;
-    $scope.serviceTarget = rs.SS_Target;
+    function makePercentage(firstValue, secondValue){
+      return ((firstValue / secondValue) * 100).toFixed(1);
+    }
+    
     $scope.serviceVariance = rs.SS_Actual  - rs.SS_Target;
-    $scope.servicePercentOfTarget = ((rs.SS_Actual  / rs.SS_Target ) * 100).toFixed(1);
+    $scope.servicePercentOfTarget = makePercentage(rs.SS_Actual, rs.SS_Target);
 
-    $scope.retailSalesActual = rs.RS_Actual;
-    $scope.retailTarget = rs.RS_Target;
-    $scope.retailVariance = $scope.retailSalesActual - $scope.retailTarget;
-    $scope.retailPercentOfTarget = (($scope.retailSalesActual / $scope.retailTarget) * 100).toFixed(1);
+    $scope.retailVariance = rs.RS_Actual - rs.RS_Target;
+    $scope.retailPercentOfTarget = makePercentage(rs.RS_Actual, rs.RS_Target);
 
-    $scope.totalSalesActual = rs.TS_Actual;
-    $scope.totalTarget = rs.TS_Target;
-    $scope.totalVariance = $scope.totalSalesActual - $scope.totalTarget;
-    $scope.totalPercentOfTarget = (($scope.totalSalesActual / $scope.totalTarget) * 100).toFixed(1);
+    $scope.totalVariance = rs.TS_Actual - rs.TS_Target;
+    $scope.totalPercentOfTarget = makePercentage(rs.TS_Actual, rs.TS_Target);
 
-    $scope.contributionActual = rs.C_Actual;
-    $scope.contributionTarget = rs.C_Target;
-    $scope.contributionVariance = $scope.contributionActual - $scope.contributionTarget;
-    $scope.contributionPercentOfTarget = (($scope.contributionActual / $scope.contributionTarget) * 100).toFixed(1);
+    $scope.contributionVariance = rs.C_Actual - rs.C_Target;
+    $scope.contributionPercentOfTarget = makePercentage(rs.C_Actual, rs.C_Target);
 
-    $scope.guestCountActual = rs.SGC_Actual;
-    $scope.guestCountTarget = rs.SGC_Target;
-    $scope.guestCountVariance = $scope.guestCountActual - $scope.guestCountTarget;
-    $scope.guestCountPercentOfTarget = (($scope.guestCountActual / $scope.guestCountTarget) * 100).toFixed(1);
+    $scope.guestCountVariance = rs.SGC_Actual - rs.SGC_Target;
+    $scope.guestCountPercentOfTarget = makePercentage(rs.SGC_Actual, rs.SGC_Target);
 
     //create dropdown inputs
     $scope.dropDownOption = [
