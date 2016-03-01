@@ -2,14 +2,14 @@
   <span class="h1">HAIR Rating</span>
 
   <div class="ratingpageSubs">
-    <span class="h5">Review for:</span>  <span class="pageNames">{{ReviewService.reviews.currentReview[0][0].EmployeeName}}</span><br/>
-    <span class="h5">Regis ID:</span>  <span class="pageNames ">{{ReviewService.reviews.currentReview[0][0].RegisId}}</span>
+    <h5>Review for:  {{currentReviewEmpInfo.EmployeeName}}</h5>
+    <h5>Regis ID:  {{currentReviewEmpInfo.RegisId}}</h5>
   </div>
 
   <!--Employee View divs-->
-  <div ng-if="ReviewService.statuses.empOneTwo">
+  <div ng-if="statuses.empOneTwo">
     <h4>Employee Overall HAIR Rating:</h4>
-      <select class="selectDrop well" ng-model="ReviewService.reviews.currentReview[1][10].EmployeeHairRating">
+      <select class="selectDrop well" ng-model="hairRatingData.EmployeeHairRating">
         <!--Come back and make sure this value matches current subsection thisEmpHairRating.-->
         <option>3</option>
         <option>2</option>
@@ -24,17 +24,17 @@
     </div>
   </div>
 
-  <div ng-if="ReviewService.statuses.empThreePlus">
+  <div ng-if="statuses.empThreePlus">
     <h4>Employee Overall HAIR Rating:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][10].EmployeeHairRating}}</p>
+    <p>{{hairRatingData.EmployeeHairRating}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.empFivePlus">
+  <div ng-if="statuses.empFivePlus">
     <h4>Leader Overall HAIR Rating:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][10].LeaderHairRating}} <!--This will just be a number from thisLeaderHairRating--></p>
+    <p>{{hairRatingData.LeaderHairRating}} <!--This will just be a number from thisLeaderHairRating--></p>
   </div>
 
-  <div ng-if="ReviewService.statuses.empThreePlus">
+  <div ng-if="statuses.empThreePlus">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure the name of this function matches what is on scope.-->
@@ -44,14 +44,14 @@
   </div>
 
   <!--Leader View divs-->
-  <div ng-if="ReviewService.statuses.leaderThreePlus">
+  <div ng-if="statuses.leaderThreePlus">
     <h4>Employee Overall HAIR Rating:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][10].EmployeeHairRating}} <!--This will just be a number from thisEmpHairRating--></p>
+    <p>{{hairRatingData.EmployeeHairRating}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+  <div ng-if="statuses.leaderThreeFourFive">
     <h4>Leader Overall HAIR Rating:</h4>
-    <select class="selectDrop well" ng-model="ReviewService.reviews.currentReview[1][10].LeaderHairRating">
+    <select class="selectDrop well" ng-model="hairRatingData.LeaderHairRating">
       <!--Come back and make sure this value matches current subsection thisLeaderHairRating.-->
       <option>3</option>
       <option>2</option>
@@ -66,9 +66,9 @@
       </div>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+  <div ng-if="statuses.leaderSixPlus">
     <h4>Leader Overall HAIR Rating:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][10].LeaderHairRating}}</p> <!--This will be the number matching thisLeaderHairRating-->
+    <p>{{hairRatingData.LeaderHairRating}}</p> <!--This will be the number matching thisLeaderHairRating-->
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure the name of this function matches what is on scope.-->
