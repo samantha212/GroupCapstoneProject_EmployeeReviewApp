@@ -32,8 +32,11 @@ router.post('/', function(request, response){
           if(row.SectionId == 2){
             employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, Goal: row.Goal, EmployeeGoalRating: row.EmployeeGoalRating, EmployeeResponse: row.EmployeeResponse, LeaderGoalRating: row.LeaderGoalRating, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
             employeeReviewData.push(employeeObject);
+          }else if(row.SectionId == 4){
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeHairRating: row.EmployeeHairRating, LeaderHairRating: row.LeaderHairRating, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
+            employeeReviewData.push(employeeObject);
           }else if(row.SectionId == 6){
-            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted, EmployeeFinalRating: row.EmployeeFinalRating, OverallRating: row.OverallRating};
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted, EmployeeFinalRating: row.EmployeeFinalRating, LeaderFinalRating: row.LeaderFinalRating, OverallRating: row.OverallRating};
             employeeReviewData.push(employeeObject);
           }else{
             employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
@@ -46,8 +49,11 @@ router.post('/', function(request, response){
           }else if(row.SectionId == 2){
             employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, Goal: row.Goal, EmployeeGoalRating: row.EmployeeGoalRating, EmployeeResponse: row.EmployeeResponse, LeaderGoalRating: row.LeaderGoalRating, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
             employeeReviewData.push(employeeObject);
+          }else if(row.SectionId == 4){
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeHairRating: row.EmployeeHairRating, LeaderHairRating: row.LeaderHairRating, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
+            employeeReviewData.push(employeeObject);
           }else if(row.SectionId == 6){
-            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted, EmployeeFinalRating: row.EmployeeFinalRating, OverallRating: row.OverallRating};
+            employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted, EmployeeFinalRating: row.EmployeeFinalRating, LeaderFinalRating: row.LeaderFinalRating, OverallRating: row.OverallRating};
             employeeReviewData.push(employeeObject);
           }else{
             employeeObject = {Id: row.Id, SectionId: row.SectionId, SubsectionId: row.SubsectionId, EmployeeResponse: row.EmployeeResponse, LeaderResponse: row.LeaderResponse, isCompleted: row.isCompleted, isLeaderCompleted: row.isLeaderCompleted};
