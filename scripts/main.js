@@ -62,17 +62,26 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
     console.log('Current goal is', $scope.currentGoal);
   };
 
-  $scope.currentHAIR = 1;
+  $scope.currentHAIR = 5;
   $scope.setCurrentHAIR = function(number) {
-    $scope.currentHAIR = number;
+    $scope.currentHAIR = number + 5;
     console.log('Current HAIR is', $scope.currentHAIR);
   };
 
   $scope.currentStrengthDev = 10;
+  $scope.strengths = false;
+  $scope.development = false;
   $scope.setCurrentStrengthDev = function(number) {
     //This sets the currentStrengthDev number to the correct index in the subsections array.
     $scope.currentStrengthDev = number + 10;
     console.log('Current strength/dev is', $scope.currentStrengthDev);
+    if(number == 1) {
+      $scope.strengths = true;
+      $scope.development = false;
+    } else {
+      $scope.strengths = false;
+      $scope.development = true;
+    }
   }
 
 }]);
