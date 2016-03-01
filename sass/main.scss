@@ -62,13 +62,22 @@ body{
 }
 
 // h tags
+.h1Home {
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  line-height: 40px;
+  padding-bottom: 1%;
+  margin:7% auto 8% auto;
+}
+
 .h1 {
   display: block;
   text-align: center;
   font-size: 28px;
   line-height: 40px;
   padding-bottom: 1%;
-  margin:7% auto 10% auto;
+  margin:7% auto 1% auto;
 }
 
 
@@ -90,7 +99,13 @@ h4{
   padding-top: 2%;
   padding-bottom: 5%;
   color: black;
+}
 
+.ratingpageSubs{
+  padding-left:0;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  color: black;
 }
 
 .pageNames{
@@ -99,10 +114,14 @@ h4{
 
 .empName{
   font-size: 18px;
-  margin-top: 7%;
+  margin-top: 1%;
 }
 
-.homePageButtons{
+.homePageLeadButtons{
+  margin-bottom: 7%;
+}
+
+.homePageEmpButtons{
   margin-top: 1%;
 }
 
@@ -350,7 +369,7 @@ a{
 // HAIR IMAGES LOGOS
 
 .hairmages{
-  margin-top: 1%;
+  margin-top: 4%;
   max-width: 7%;
 }
 

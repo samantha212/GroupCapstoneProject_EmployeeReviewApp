@@ -33,15 +33,15 @@
 
   <!--Review Info:-->
   <div class="employeeInfo">
-    <h5>Review for:  {{ReviewService.reviews.currentReview[0][0].EmployeeName}}</h5>
-    <h5>Regis ID:  {{ReviewService.reviews.currentReview[0][0].RegisId}}</h5>
+    <span class="h5">Review for:</span>  <span class="pageNames ">{{currentReviewEmpInfo.EmployeeName}}</span><br/>
+    <span class="h5">Regis ID:</span>  <span class="pageNames ">{{currentReviewEmpInfo.RegisId}}</span>
   </div>
 
   <!--Employee View:-->
-  <div ng-if="ReviewService.statuses.empOneTwo">
+  <div ng-if="statuses.empOneTwo">
     <h4>Employee Comments:</h4>
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][currentHAIR].EmployeeResponse">(Come back and make sure the ng-model connects to the current subsection EmpHairCompetency string.)</textarea>
+        <textarea class="boxProperties well" ng-model="hairData.EmployeeResponse"></textarea>
       </div>
     <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">  <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
@@ -51,17 +51,17 @@
     </div>
   </div>
 
-  <div ng-if="ReviewService.statuses.empThreePlus">
+  <div ng-if="statuses.empThreePlus">
     <h4>Employee Comments:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][currentHAIR].EmployeeResponse}}</p>
+    <p>{{hairData.EmployeeResponse}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.empFivePlus">
+  <div ng-if="statuses.empFivePlus">
     <h4>Leader Comments:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][currentHAIR].LeaderResponse}}</p>
+    <p>{{hairData.LeaderResponse}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.empThreePlus">
+  <div ng-if="statuses.empThreePlus">
     <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
       <!--Make sure the name of this function matches what is on scope.-->
@@ -72,15 +72,15 @@
 
 
   <!--Leader View divs-->
-  <div ng-if="ReviewService.statuses.leaderThreePlus">
+  <div ng-if="statuses.leaderThreePlus">
     <h4>Employee Comments:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][currentHAIR].EmployeeResponse}}</p>
+    <p>{{hairData.EmployeeResponse}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+  <div ng-if="statuses.leaderThreeFourFive">
     <h4>Leader Comments:</h4>
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][currentHAIR].LeaderResponse"></textarea>
+        <textarea class="boxProperties well" ng-model="hairData.LeaderResponse"></textarea>
       </div>
 
       <div class="alignButton">
@@ -91,9 +91,9 @@
       </div>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+  <div ng-if="statuses.leaderSixPlus">
     <h4>Leader Comments:</h4>
-    <p>{{ReviewService.reviews.currentReview[1][currentHAIR].LeaderResponse}}</p>
+    <p>{{hairData.LeaderResponse}}</p>
 
     <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
