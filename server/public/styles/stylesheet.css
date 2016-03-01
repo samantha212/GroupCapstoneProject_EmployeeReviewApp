@@ -43,7 +43,7 @@ h4 {
 
 .ratingpageSubs {
   padding-left: 0;
-  padding-top: 2%;
+  padding-top: 1%;
   padding-bottom: 5%;
   color: black; }
 
@@ -90,6 +90,15 @@ a {
   width: 80%;
   height: 300px; }
 
+.hairRatingbox {
+  background-color: white;
+  display: block;
+  margin: 3% auto 2% auto;
+  width: 10%;
+  height: 30px;
+  padding-top: 4px;
+  padding-left: 8px; }
+
 .employeeRatingBox {
   background-color: white;
   display: inline;
@@ -131,7 +140,7 @@ a {
   width: 12%;
   height: 24px;
   display: block;
-  margin: 0 auto; }
+  margin: 3% auto 10% auto; }
 
 .secondGoalSelectDrop {
   background-color: white;
@@ -166,7 +175,7 @@ a {
   display: block;
   font-size: 24px; }
 
-.sidebar {
+.sidebarLeft {
   margin-left: -250px;
   left: 250px;
   width: 8%;
@@ -174,8 +183,17 @@ a {
   position: fixed;
   height: 100%;
   overflow-y: auto;
-  z-index: 1000;
-  transition: all 0.4s ease 0s; }
+  z-index: 1000; }
+
+.sidebarRight {
+  margin-right: -250px;
+  right: 250px;
+  width: 8%;
+  background: #56565b;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000; }
 
 .alignButton {
   margin: 1% auto;
@@ -276,6 +294,23 @@ fieldset[disabled] .grey.active {
     font-size: 18px;
     margin-top: 15%; }
 
+  .hairRatingbox {
+    background-color: white;
+    display: block;
+    margin: 3% auto 2% auto;
+    width: 20%;
+    height: 30px;
+    padding-top: 4px;
+    padding-left: 8px; }
+
+  .selectDrop {
+    background-color: white;
+    display: block;
+    width: 50%;
+    height: 24px;
+    display: block;
+    margin: 12% auto 15% auto; }
+
   .h1 {
     font-size: 23px; }
 
@@ -329,9 +364,32 @@ fieldset[disabled] .grey.active {
   .container {
     padding-bottom: 4%; }
 
+  .homePageLeadButtons {
+    margin-bottom: 7%; }
+
+  .homePageEmpButtons {
+    margin-top: 1%; }
+
   .boxProperties {
     margin: 1% 4% 8% auto;
     text-align: center; }
+
+  .hairRatingbox {
+    background-color: white;
+    display: block;
+    margin: 12% auto 10% auto;
+    width: 30%;
+    height: 30px;
+    padding-top: 4px;
+    padding-left: 8px; }
+
+  .selectDrop {
+    background-color: white;
+    display: block;
+    width: 30%;
+    height: 24px;
+    display: block;
+    margin: 12% auto 15% auto; }
 
   .h1 {
     font-size: 16px; }
