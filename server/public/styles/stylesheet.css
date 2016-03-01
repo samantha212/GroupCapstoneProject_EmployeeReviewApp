@@ -277,7 +277,7 @@ fieldset[disabled] .grey.active {
   body {
     font-family: Helvetica Neue, Verdana;
     background-color: whitesmoke;
-    padding-left: 15%; }
+    padding-left: 4%; }
 
   .logo {
     max-width: 95%; }
@@ -292,7 +292,7 @@ fieldset[disabled] .grey.active {
 
   .empName {
     font-size: 18px;
-    margin-top: 15%; }
+    margin-top: 0; }
 
   .hairRatingbox {
     background-color: white;
@@ -339,8 +339,11 @@ fieldset[disabled] .grey.active {
     margin-top: 1%;
     max-width: 15%; }
 
-  .sidebar {
-    width: 12%; }
+  .sidebarRight {
+    display: none; }
+
+  .sidebarLeft {
+    display: none; }
 
   .initialBox {
     background-color: white;
@@ -351,7 +354,7 @@ fieldset[disabled] .grey.active {
   body {
     font-family: Helvetica Neue, Verdana;
     background-color: whitesmoke;
-    padding-left: 14%; }
+    padding-left: 4%; }
 
   .logo {
     max-width: 95%; }
@@ -391,6 +394,15 @@ fieldset[disabled] .grey.active {
     display: block;
     margin: 12% auto 15% auto; }
 
+  .h1Home {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 40px;
+    padding-bottom: 1%;
+    margin: 7% auto 8% auto; }
+
   .h1 {
     font-size: 16px; }
 
@@ -406,7 +418,8 @@ fieldset[disabled] .grey.active {
     color: black; }
 
   .empName {
-    font-size: 12px; }
+    font-size: 12px;
+    margin-top: 0; }
 
   .orange {
     font-size: 75%; }
@@ -431,8 +444,11 @@ fieldset[disabled] .grey.active {
     margin-top: 1%;
     max-width: 15%; }
 
-  .sidebar {
-    width: 12%; }
+  .sidebarRight {
+    display: none; }
+
+  .sidebarLeft {
+    display: none; }
 
   .initialBox {
     background-color: white;

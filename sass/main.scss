@@ -185,11 +185,6 @@ a{
 
 }
 
-// .h1{
-//   margin:6% auto 10% auto;
-// }
-
-
 .leaderRatingBox {
   background-color: rgb(255,255,255);
   text-align: center;
@@ -401,7 +396,7 @@ a{
   body{
     font-family: Helvetica Neue, Verdana;
     background-color:whitesmoke;
-    padding-left: 15%;
+    padding-left: 4%;
   }
 
   .logo{
@@ -420,7 +415,7 @@ a{
 
   .empName{
     font-size: 18px;
-    margin-top: 15%;
+    margin-top:0;
   }
 
   .hairRatingbox{
@@ -479,8 +474,12 @@ a{
     max-width: 15%;
   }
 
-  .sidebar{
-  width: 12%;
+  .sidebarRight{
+    display: none;
+  }
+
+  .sidebarLeft{
+    display: none;
   }
 
   .initialBox{
@@ -510,7 +509,7 @@ a{
   body{
     font-family: Helvetica Neue, Verdana;
     background-color:whitesmoke;
-    padding-left: 14%;
+    padding-left: 4%;
   }
 
   .logo{
@@ -559,6 +558,16 @@ a{
     margin: 12% auto 15% auto;
   }
 
+  .h1Home {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 40px;
+    padding-bottom: 1%;
+    margin:7% auto 8% auto;
+  }
+
   .h1 {
     font-size: 16px;
   }
@@ -579,6 +588,7 @@ a{
 
   .empName{
     font-size: 12px;
+    margin-top: 0;
   }
 
   .orange{
@@ -611,9 +621,12 @@ a{
     max-width: 15%;
   }
 
+.sidebarRight{
+  display: none;
+}
 
-.sidebar{
-  width: 12%;
+.sidebarLeft{
+display: none;
 }
   .initialBox{
     background-color: rgb(255,255,255);
