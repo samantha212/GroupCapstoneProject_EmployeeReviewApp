@@ -44,11 +44,12 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $locationProvider.html5Mode(true);
 }]);
 
-app.controller('MainController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
   $scope.statuses = ReviewService.statuses;
   //$scope.statuses = "This is the scope.statuses";
   //console.log("Statuses", statuses);
   $scope.ReviewService = ReviewService;
+  $scope.putAndGoMap = ReviewService.putAndGoMap;
 
   //$scope.typeField = ReviewService.type.typeField;
   //$scope.typeSalon = ReviewService.type.typeSalon;
@@ -56,34 +57,48 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
   $scope.leader = true;
   $scope.emp = false;
 
-  $scope.currentGoal = 1;
+  //$scope.currentGoal = 1;
   $scope.setCurrentGoal = function(number) {
-    $scope.currentGoal = number;
-    console.log('Current goal is', $scope.currentGoal);
+    ReviewService.subsections.currentGoal = number;
+    console.log('Current goal is', ReviewService.subsections.currentGoal);
   };
 
-  $scope.currentHAIR = 5;
+  //$scope.currentHAIR = 5;
   $scope.setCurrentHAIR = function(number) {
-    $scope.currentHAIR = number + 5;
-    console.log('Current HAIR is', $scope.currentHAIR);
+    ReviewService.subsections.currentHAIR = number + 5;
+    console.log('Current HAIR is', ReviewService.subsections.currentHAIR);
   };
 
-  $scope.currentStrengthDev = 10;
+  //$scope.currentStrengthDev = 10;
   $scope.strengths = false;
   $scope.development = false;
   $scope.setCurrentStrengthDev = function(number) {
     //This sets the currentStrengthDev number to the correct index in the subsections array.
-    $scope.currentStrengthDev = number + 10;
-    console.log('Current strength/dev is', $scope.currentStrengthDev);
-    if(number == 1) {
-      $scope.strengths = true;
-      $scope.development = false;
-    } else {
-      $scope.strengths = false;
-      $scope.development = true;
-    }
-  }
+      ReviewService.subsections.currentStrengthDev = number + 10;
+      console.log('Current strength/dev is', ReviewService.subsections.currentStrengthDev);
+      if(number == 1) {
+          $scope.strengths = true;
+          $scope.development = false;
+      } else {
+          $scope.strengths = false;
+          $scope.development = true;
+      }
+  };
 
+    $scope.putCompleteAndGoNextGoal = function() {
+        console.log('putAndGoNext function hit');
+        //put that subsection to the DB;
+        //need to add resolve for setting new goal and/or page reload
+        if (ReviewService.subsections.currentGoal < 5) {
+            console.log('current goal', ReviewService.subsections.currentGoal);
+            var newGoal = ReviewService.subsections.currentGoal + 1;
+            console.log('new goal should be', newGoal);
+            $scope.setCurrentGoal(newGoal);
+            $location.path('/goals');
+        } else {
+            console.log("else");
+        }
+    }
 }]);
 
 
@@ -95,7 +110,7 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
 
 
 
-app.factory('ReviewService', ['$http', function($http) {
+app.factory('ReviewService', ['$http', '$location', function($http, $location) {
 
   var reviews = {
     thisUser: {},
@@ -103,6 +118,12 @@ app.factory('ReviewService', ['$http', function($http) {
     teamReviews: {},
     currentReview: {}
   };
+
+    var subsections = {
+        currentGoal: 1,
+        currentHAIR: 5,
+        currentStrengthDev: 10
+    };
 
   //These are currently set all to true for view/stying purposes.
   //default all these vars to false before deploying\\
@@ -131,6 +152,16 @@ app.factory('ReviewService', ['$http', function($http) {
     leaderSix: true,
     leaderSixPlus: true
   };
+
+    var checkStatus = {
+        empChecked: false,
+        leaderChecked: true
+    };
+
+    var submitStatus = {
+        empCannotSubmit: (checkStatus.empChecked == false),
+        leaderCannotSubmit: (checkStatus.leaderChecked == false)
+    };
 
   //Happens on home page load.
   var loadHomePageInfo = function(){
@@ -171,16 +202,33 @@ app.factory('ReviewService', ['$http', function($http) {
     });
   };
 
-  var goToMySignaturePage = function(){
-    getReview
-  }
+  //var goToMySignaturePage = function(){
+    //Will need to getReview;
+    //Then re-route to signature page.
+  //};
+
+    //var emailPDF = function() {
+    //    PUT call to API;
+    //};
+
+    var putAndGoMap = function(){
+        console.log('putAndGoMap function hit');
+        //put that subsection to the DB;
+        $location.path('/map');
+    };
+
+
   return {
-    loadHomePageInfo: loadHomePageInfo,
-    getReview: getReview,
-    reviews: reviews,
-    statuses: statuses,
-    role: role,
-    type: type
+      loadHomePageInfo: loadHomePageInfo,
+      getReview: getReview,
+      reviews: reviews,
+      subsections: subsections,
+      statuses: statuses,
+      role: role,
+      type: type,
+      checkStatus: checkStatus,
+      submitStatus: submitStatus,
+      putAndGoMap: putAndGoMap
   };
 
 

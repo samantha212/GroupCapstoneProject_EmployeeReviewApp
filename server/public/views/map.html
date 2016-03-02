@@ -4,11 +4,11 @@
   </div>
 
   </div>
-    <h1>Employee Review Map</h1>
+    <span class="h1">Employee Review Map</span>
   </div>
 
-    <h5>Review for:  {{ReviewService.reviews.currentReview[0][0].EmployeeName}}</h5>
-    <h5>Regis ID:  {{ReviewService.reviews.currentReview[0][0].RegisId}}</h5>
+    <span class="h5">Review for:</span>  <span class="pageNames">{{ReviewService.reviews.currentReview[0][0].EmployeeName}}</span><br/>
+    <span class="h5">Regis ID:</span>  <span class="pageNames">{{ReviewService.reviews.currentReview[0][0].RegisId}}</span>
     <hr>
     <!--Employee View-->
     <div ng-if="ReviewService.role.leader">
@@ -91,17 +91,19 @@
             <p ng-hide="ReviewService.reviews.currentReview[1][13].isCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/final-rating">Final Comments and Rating</a></p>
         </div>
 
-        <div ng-if="statuses.empOneTwo">
+
             <!--<div ng-if="2 < 0">-->
-            <button type="button" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT</button>
-            <!--This button should only be active when all required sections are complete.  Will change to State 3.-->
+        <div class="Mapbuttons">
+            <div ng-if="statuses.empOneTwo">
+              <button type="button" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT</button>
+              <!--This button should only be active when all required sections are complete.  Will change to State 3.-->
+            </div>
+             <div ng-if="statuses.empSix">
+              <a href="/signature"><button type="button" class="orange btn btn-warning btn-responsive"><span class="glyphicon glyphicon-pencil"></span> SIGN REVIEW</button></a>
+              <!--This button should be active only in State 6.  Will bring to signature page.-->
+            </div>
         </div>
 
-        <div ng-if="statuses.empSix">
-            <a href="/signature"><button type="button" class="orange btn btn-warning btn-responsive"><span class="glyphicon glyphicon-pencil"></span> SIGN REVIEW</button></a>
-            <!--This button should be active only in State 6.  Will bring to signature page.-->
-        </div>
-    </div>
 
     <!--Leader View-->
     <div ng-if="ReviewService.role.emp">
@@ -183,7 +185,7 @@
             <p ng-show="ReviewService.reviews.currentReview[1][13].isLeaderCompleted"><img src="/assets/images/checkboxChecked.png"><a href="/final-rating">Final Comments and Rating</a></p>
             <p ng-hide="ReviewService.reviews.currentReview[1][13].isLeaderCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/final-rating">Final Comments and Rating</a></p>
         </div>
-
+      <div class="Mapbuttons">
         <div ng-if="statuses.leaderThreeFour">
             <button type="button" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT & SEND TO EMPLOYEE</button>
             <!--This button should be active only be active when all required sections are complete.  Will change to State 5.-->
@@ -198,7 +200,7 @@
             <a href="/signature"><button type="button" class="orange btn btn-warning btn-responsive"><span class="glyphicon glyphicon-pencil"></span> SIGN REVIEW</button></a>
             <!--This button should be active only in State 6.  Will route to Signature page-->
         </div>
-
+      </div>
     </div>
 
 

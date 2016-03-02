@@ -1,53 +1,3 @@
-// //reset
-//
-// html, body, div, span, applet, object, iframe,
-// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-// a, abbr, acronym, address, big, cite, code,
-// del, dfn, em, img, ins, kbd, q, s, samp,
-// small, strike, strong, sub, sup, tt, var,
-// b, u, i, center,
-// dl, dt, dd, ol, ul, li,
-// fieldset, form, label, legend,
-// table, caption, tbody, tfoot, thead, tr, th, td,
-// article, aside, canvas, details, embed,
-// figure, figcaption, footer, header, hgroup,
-// menu, nav, output, ruby, section, summary,
-// time, mark, audio, video {
-// 	margin: 0;
-// 	padding: 0;
-// 	border: 0;
-// 	font-size: 100%;
-// 	font: inherit;
-// 	vertical-align: baseline;
-// }
-// /* HTML5 display-role reset for older browsers */
-// article, aside, details, figcaption, figure,
-// footer, header, hgroup, menu, nav, section {
-// 	display: block;
-// }
-// body {
-// 	line-height: 1;
-// }
-// ol, ul {
-// 	list-style: none;
-// }
-// blockquote, q {
-// 	quotes: none;
-// }
-// blockquote:before, blockquote:after,
-// q:before, q:after {
-// 	content: '';
-// 	content: none;
-// }
-// table {
-// 	border-collapse: collapse;
-// 	border-spacing: 0;
-// }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 body{
   font-family: Helvetica Neue, Verdana;
   background-color:whitesmoke;
@@ -68,6 +18,7 @@ body{
   font-size: 28px;
   line-height: 40px;
   padding-bottom: 1%;
+  padding-right: 9%;
   margin:7% auto 8% auto;
 }
 
@@ -77,19 +28,41 @@ body{
   font-size: 28px;
   line-height: 40px;
   padding-bottom: 1%;
+  padding-right: 9%;
   margin:7% auto 1% auto;
+}
+
+.h1Hair{
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 40px
+}
+
+.hairDescription{
+  display: block;
+  margin:-5% auto 8% 9%;
+}
+.h2{
+  font-size: 22px;
+  line-height: 40px;
 }
 
 
 h4{
     padding-top: 2%;
     padding-bottom: 0%;
+    padding-right: 9%;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
 }
 
 .h5{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.h5Hair{
   font-size: 18px;
   font-weight: bold;
 }
@@ -101,7 +74,7 @@ h4{
   color: black;
 }
 
-.ratingpageSubs{
+.remainingpageSubs{
   padding-left:0;
   padding-top: 1%;
   padding-bottom: 5%;
@@ -158,7 +131,15 @@ a{
 .boxProperties{
   background-color: rgb(255,255,255);
   display: block;
-  margin: 0 auto 2% auto;
+  margin: 4% auto 8% 6%;
+  width: 80%;
+  height: 300px;
+}
+
+.ReadboxProperties{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 4% auto 8% 5%;
   width: 80%;
   height: 300px;
 }
@@ -166,8 +147,8 @@ a{
 .hairRatingbox{
   background-color: rgb(255,255,255);
   display: block;
-  margin: 3% auto 2% auto;
-  width: 10%;
+  margin: 5% 49% 8% auto;
+  width: 11%;
   height: 30px;
   padding-top: 4px;
   padding-left: 8px;
@@ -223,10 +204,10 @@ a{
 .selectDrop{
   background-color: rgb(255,255,255);
   display: block;
-  width: 12%;
+  width: 15%;
   height: 24px;
   display: block;
-  margin: 3% auto 10% auto;
+  margin: 4% 47% 10% auto;
 }
 
 .secondGoalSelectDrop{
@@ -295,8 +276,11 @@ a{
 
 
 // buttons
+.Mapbuttons{
+  margin-top: 3%;
+}
 .alignButton{
-  margin:1% auto;
+  margin:1% 9% 0 auto;
   text-align: center;
   padding-bottom: 1%;
 }
@@ -312,6 +296,7 @@ a{
   font-size: 16px;
   font-family: Helvetica;
   font-weight:lighten;
+  margin-right: 10%;
   }
 
   .grey {
@@ -383,7 +368,7 @@ a{
 
 // HAIR IMAGES LOGOS
 
-.hairmages{
+.hairImages{
   margin-top: 4%;
   max-width: 7%;
 }
@@ -418,20 +403,45 @@ a{
     margin-top:0;
   }
 
+  .boxProperties{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 8% 7%;
+    width: 86%;
+    height: 300px;
+  }
+
+  .ReadboxProperties{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 8% 7%;
+    width: 84%;
+    height: 300px;
+  }
+
   .hairRatingbox{
     background-color: rgb(255,255,255);
     display: block;
-    margin: 3% auto 2% auto;
+    margin: 8% auto 10% auto;
     width: 20%;
     height: 30px;
     padding-top: 4px;
     padding-left: 8px;
   }
 
+  .hairDescription{
+    display: block;
+    margin:-9% auto 13% 18%;
+  }
+  .h1Hair{
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 40px
+  }
   .selectDrop{
     background-color: rgb(255,255,255);
     display: block;
-    width: 50%;
+    width: 40%;
     height: 24px;
     display: block;
     margin: 12% auto 15% auto;
@@ -439,10 +449,26 @@ a{
 
   .h1 {
     font-size: 23px;
+    padding-right:0;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .h1Home {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    line-height: 40px;
+    padding-bottom: 1%;
+    padding-right: 0;
+    margin:7% auto 8% auto;
   }
 
   h4{
     font-size: 18px;
+    margin: 0 auto;
+    text-align: center;
+    padding-right: 0;
   }
 
   .orange{
@@ -451,6 +477,7 @@ a{
 
   .homeOrange{
     font-size: 100%;
+    margin-right: 0;
   }
 
   .grey{
@@ -469,8 +496,8 @@ a{
     font-size: 100%;
   }
 
-  .hairmages{
-    margin-top: 1%;
+  .hairImages{
+    margin-top: 8%;
     max-width: 15%;
   }
 
@@ -488,6 +515,13 @@ a{
     margin: 0 auto;
     width: 25%;
   }
+
+  .alignButton{
+    margin: 1% 0 0 auto;
+    text-align: center;
+    padding-bottom: 1%;
+  }
+
 
 }
 
@@ -535,8 +569,13 @@ a{
   }
 
   .boxProperties{
-    margin: 1% 4% 8% auto;
-    text-align: center;
+    margin: 8% 0 16% auto;
+    width: 106%;
+  }
+
+  .ReadboxProperties{
+    margin: 8% 1% 18% -2%;
+    width: 100%;
   }
 
   .hairRatingbox{
@@ -549,10 +588,26 @@ a{
     padding-left: 8px;
   }
 
+  .hairDescription{
+      display: block;
+      margin: 1% auto 11% 0;
+    }
+
+    .h1Hair{
+      font-size: 11px;
+      font-weight: bold;
+
+    }
+
+    .h5Hair{
+      font-size: 11px;
+      font-weight: bold;
+    }
+
   .selectDrop{
     background-color: rgb(255,255,255);
     display: block;
-    width: 30%;
+    width: 40%;
     height: 24px;
     display: block;
     margin: 12% auto 15% auto;
@@ -570,15 +625,21 @@ a{
 
   .h1 {
     font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    padding-right:0;
   }
 
   h4{
+    margin: 0 auto;
+    text-align: center;
     font-size: 14px;
+    padding-right: 0;
   }
 
   .h5{
     font-size: 12px;
-    color: rgb(86,86,91);
+    color:black;
   }
 
   .pageNames{
@@ -596,8 +657,9 @@ a{
   }
 
   .homeOrange{
-    font-size: 45%;
+    font-size: 50%;
     margin-top: 1%;
+    margin-right: 0;
   }
 
   .grey{
@@ -616,9 +678,9 @@ a{
     font-size: 75%;
   }
 
-  .hairmages{
-    margin-top: 1%;
-    max-width: 15%;
+  .hairImages{
+    margin-top: 8%;
+    max-width: 18%;
   }
 
 .sidebarRight{
@@ -633,6 +695,12 @@ display: none;
     display: block;
     margin: 0 auto;
     width: 25%;
+}
+
+.alignButton{
+  margin: 1% 0 0 auto;
+  text-align: center;
+  padding-bottom: 1%;
 }
 
 }

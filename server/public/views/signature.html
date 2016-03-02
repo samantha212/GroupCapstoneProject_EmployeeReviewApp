@@ -4,47 +4,36 @@
            <div class="clearfix"></div>
   <div class="employeeInfo">
       <h1 class="title">Signature Page</h1>
-      <h5>Name:  {{}} <!--(Add a reference to Employee being reviewed)--></h5>
-      <h5>Regis ID:  {{}} <!--(Add a reference to Employee being reviewed)--></h5>
+      <h5>Review for:  {{currentReviewEmpInfo.EmployeeName}}</h5>
+      <h5>Regis ID:  {{currentReviewEmpInfo.RegisId}}</h5>
+      <!--<p>{{currentReviewEmpInfo}}</p>-->
   </div>
 
-<div ng-if="empSix">
+<div ng-if="statuses.empSix">
   <h4>Employee Initials:</h4>
-  <input type="text" class="initialInput form-control" placeholder="Initials"
-   ng-model="empInitials">This will only hold empInitials</input>
-  <input type="checkbox" class="checkMe well"
-  ng-model="checkedEmpSig">
-  <p>This will hold some text about e-signatures, etc.  This will come from Regis Corporation Human Resources.</p>
-
+  <input type="text" class="initialInput form-control" placeholder="Initial Here" ng-model="employeeSignature"></input>
+  <input type="checkbox" class="checkMe well" ng-model="checkStatus.empChecked">
+  <p>I understand my electronic signature has the same validity as my handwritten signature, and it confirms I have been advised of my performance status and I was given an opportunity to respond to the Performance Review.</p>
 
   <div class="alignButton">
-    <button type="button" class="grey btn btn-secondary btn-responsive"
-    ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span>BACK</button>
+    <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span>BACK</button>
     <!--Make sure this function name matches what is on scope.-->
-    <button type="button" class="orange btn btn-warning btn-responsive"
-     ng-click="putAndGoHome()">
-      <span class="glyphicon glyphicon-pencil"></span> SIGN</button>
+    <button type="button" class="orange btn btn-warning btn-responsive" ng-disabled="submitStatus.empCannotSubmit" ng-click="putAndGoHome()"><span class="glyphicon glyphicon-pencil"></span> SIGN</button>
     <!--Make sure this function name matches what is on scope.-->
   </div>
 </div>
 
-<div ng-if="leaderSix">
+<div ng-if="statuses.leaderSix">
   <h4>Leader Initials:</h4>
-  <input type="text" class="initialInput form-control" placeholder="Initials"
-  ng-model="leaderInitials">This will only hold empInitials</input>
-  <input type="checkbox" class="checkMe well"
-  ng-model="checkedLeaderSig">
+  <input type="text" class="initialInput form-control" placeholder="Initials" ng-model="leaderSignature"></input>
+  <input type="checkbox" class="checkMe well" ng-model="checkStatus.leaderChecked">
 
-  <p>This will hold some text about e-signatures, etc.  This will come from Regis Corporation Human Resources.</p>
-
+  <p>I understand my electronic signature has the same validity as my handwritten signature, and it confirms I have been advised of my performance status and I was given an opportunity to respond to the Performance Review.</p>
   <div class="alignButton">
-      <button type="button" class="grey btn btn-secondary btn-responsive"
-      ng-click="goMap()">
+      <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
         <span class="glyphicon glyphicon-step-backward"></span>BACK</button>
       <!--Make sure this function name matches what is on scope.-->
-      <button type="button" class="orange btn btn-warning btn-responsive"
-      ng-click="putAndGoHome()">
-      <span class="glyphicon glyphicon-pencil"></span> SIGN</button>
+      <button type="button" class="orange btn btn-warning btn-responsive" ng-disabled="submitStatus.leaderCannotSubmit" ng-click="putAndGoHome()"><span class="glyphicon glyphicon-pencil"></span> SIGN</button>
       <!--Make sure this function name matches what is on scope.-->
   </div>
 </div>
