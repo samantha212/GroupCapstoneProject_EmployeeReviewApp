@@ -46,8 +46,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
   $scope.statuses = ReviewService.statuses;
-  //$scope.statuses = "This is the scope.statuses";
-  //console.log("Statuses", statuses);
   $scope.ReviewService = ReviewService;
   $scope.putAndGoMap = ReviewService.putAndGoMap;
 
@@ -85,23 +83,30 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
       }
   };
 
-    $scope.goToHair = ($scope.currentGoal == 5);
-    $scope.goToGoal = ($scope.currentGoal < 5);
-
     $scope.putCompleteAndGoNextGoal = function() {
-        console.log('putAndGoNext function hit');
+        console.log('putAndGoNextGoal function hit');
         //put that subsection to the DB;
         if (ReviewService.subsections.currentGoal < 5) {
-            //console.log('current goal', ReviewService.subsections.currentGoal);
             var newGoal = ReviewService.subsections.currentGoal + 1;
-            //console.log('new goal should be', newGoal);
             $scope.setCurrentGoal(newGoal);
         } else {
             console.log('current goal', ReviewService.subsections.currentGoal);
             $scope.setCurrentHAIR(1);
             $location.path('/hair');
         }
-    }
+    };
+
+    $scope.putCompleteAndGoNextHAIR = function() {
+        console.log('putAndGoNextHAIR function hit');
+        //put that subsection to the DB;
+        if (ReviewService.subsections.currentHAIR < 9) {
+            var newHAIR = ReviewService.subsections.currentHAIR + 1;
+            ReviewService.subsections.currentHAIR += 1;
+        } else {
+            $location.path('/hair-rating');
+        }
+    };
+
 }]);
 
 
