@@ -93,10 +93,10 @@
   <!--Each of these divs is a row.-->
   <div ng-if="statuses.leaderThreeFourFive">
       <p>Service Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="financeData.SS_Actual">
-      <input type="text" class="financialInput form-control" ng-model="financeData.SS_Target">
-      <p>{{serviceVariance}}</p>
-      <p>{{servicePercentOfTarget}}</p>
+      <input type="number" class="financialInput form-control" ng-model="financeData.SS_Actual">
+      <input type="number" class="financialInput form-control" ng-model="financeData.SS_Target">
+      <p>{{makeVariance(financeData.SS_Actual, financeData.SS_Target)}}</p>
+      <p>{{makePercentage(financeData.SS_Actual, financeData.SS_Target)}}%</p>
       <p> </p>
       <!--No rating for Service Sales - empty-->
   </div>
@@ -105,18 +105,17 @@
       <p>Service Sales $</p>
       <p>{{financeData.SS_Actual}}</p>
       <p>{{financeData.SS_Target}}</p>
-      <p>{{serviceVariance}}</p>
-      <p>{{servicePercentOfTarget}}%</p>
+      <p>{{makeVariance(financeData.SS_Actual, financeData.SS_Target)}}</p>
+      <p>{{makePercentage(financeData.SS_Actual, financeData.SS_Target)}}%</p>
       <p> </p>
-      <!--No rating for Service Sales - empty-->
   </div>
 
   <div ng-if="statuses.leaderThreeFourFive">
       <p>Retail Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="financeData.RS_Actual">
-      <input type="text" class="financialInput form-control" ng-model="financeData.RS_Target">
-      <p>{{retailVariance}}</p>
-      <p>{{retailPercentOfTarget}}</p>
+      <input type="number" class="financialInput form-control" ng-model="financeData.RS_Actual">
+      <input type="number" class="financialInput form-control" ng-model="financeData.RS_Target">
+      <p>{{makeVariance(financeData.RS_Actual, financeData.RS_Target)}}</p>
+      <p>{{makePercentage(financeData.RS_Actual, financeData.RS_Target)}}</p>
       <p> </p>
       <!--No rating for Retail Sales - empty-->
   </div>
@@ -125,20 +124,23 @@
       <p>Retail Sales $</p>
       <p>{{financeData.RS_Actual}}</p>
       <p>{{financeData.RS_Target}}</p>
-      <p>{{retailVariance}}</p>
-      <p>{{retailPercentOfTarget}}%</p>
+      <p>{{makeVariance(financeData.RS_Actual, financeData.RS_Target)}}</p>
+      <p>{{makePercentage(financeData.RS_Actual, financeData.RS_Target)}}%</p>
       <p> </p>
       <!--No rating for Service Sales - empty-->
   </div>
 
   <div ng-if="statuses.leaderThreeFourFive">
       <p>Total Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="financeData.TS_Actual">
-      <input type="text" class="financialInput form-control" ng-model="financeData.TS_Target">
-      <p>{{totalVariance}}</p>
-      <p>{{totalPercentOfTarget}}</p>
-      <!--<select class="FinancesSelectDrop well" ng-model="rs.TS_Rating">-->
-      <select class="" ng-options="o.name for o in dropDownOption track by o.id" ng-model="tsRating">
+      <input type="number" class="financialInput form-control"  ng-model="financeData.TS_Actual">
+      <input type="number" class="financialInput form-control" ng-model="financeData.TS_Target">
+      <p>{{makeVariance(financeData.TS_Actual, financeData.TS_Target)}}</p>
+      <p>{{makePercentage(financeData.TS_Actual, financeData.TS_Target)}}</p>
+      <select class="well" ng-model="financeData.TS_Rating">
+        <option value="0">--- Please Select A Rating ---</option>
+        <option value="3">Exceeds Expectations = 101.5% and Above</option>
+        <option value="2">Meets Expectations = 98.5% - 101.4%</option>
+        <option value="1">Does Not Meet Expectations = Below 98.5%</option>
       </select>
   </div>
 
@@ -146,18 +148,22 @@
       <p>Total Sales $</p>
       <p>{{financeData.TS_Actual}}</p>
       <p>{{financeData.TS_Target}}</p>
-      <p>{{totalVariance}}</p>
-      <p>{{totalPercentOfTarget}}%</p>
+      <p>{{makeVariance(financeData.TS_Actual, financeData.TS_Target)}}</p>
+      <p>{{makePercentage(financeData.TS_Actual, financeData.TS_Target)}}%</p>
       <p>{{financeData.TS_Rating}}</p>
   </div>
 
   <div ng-if="statuses.leaderThreeFourFive">
       <p>Contribution $</p>
-      <input type="text" class="financialInput form-control" ng-model="financeData.C_Actual">
-      <input type="text" class="financialInput form-control" ng-model="financeData.C_Target">
-      <p>{{contributionVariance}}</p>
-      <p>{{contributionPercentOfTarget}}</p>
-      <select class="" ng-options="o.name for o in dropDownOption track by o.id" ng-model="cRating">
+      <input type="number" class="financialInput form-control" ng-model="financeData.C_Actual">
+      <input type="number" class="financialInput form-control" ng-model="financeData.C_Target">
+      <p>{{makeVariance(financeData.C_Actual, financeData.C_Target)}}</p>
+      <p>{{makePercentage(financeData.C_Actual, financeData.C_Target)}}</p>
+      <select class="well" ng-model="financeData.C_Rating">
+        <option value="0">--- Please Select A Rating ---</option>
+        <option value="3">Exceeds Expectations = 101.5% and Above</option>
+        <option value="2">Meets Expectations = 98.5% - 101.4%</option>
+        <option value="1">Does Not Meet Expectations = Below 98.5%</option>
       </select>
   </div>
 
@@ -165,20 +171,23 @@
       <p>Contribution $</p>
       <p>{{financeData.C_Actual}}</p>
       <p>{{financeData.C_Target}}</p>
-      <p>{{contributionVariance}}</p>
-      <p>{{contributionPercentOfTarget}}%</p>
+      <p>{{makeVariance(financeData.C_Actual, financeData.C_Target)}}</p>
+      <p>{{makePercentage(financeData.C_Actual, financeData.C_Target)}}%</p>
       <p>{{financeData.C_Rating}}</p>
   </div>
 
   <div ng-if="statuses.leaderThreeFourFive">
       <p>Service Guest Count</p>
-      <input type="text" class="financialInput form-control" ng-model="financeData.SGC_Actual">
-      <input type="text" class="financialInput form-control" ng-model="financeData.SGC_Actual">
+      <input type="number" class="financialInput form-control" ng-model="financeData.SGC_Actual">
+      <input type="number" class="financialInput form-control" ng-model="financeData.SGC_Actual">
       <p>This is the test of the SCG Rating {{financeData.SGC_Rating}}</p>
-      <p>{{guestCountVariance}}</p>
-      <p>{{guestCountPercentOfTarget}}</p>
-      <!--<select class="FinancesSelectDrop well" ng-model="rs.SGC_Rating">-->
-      <select class="" ng-options="o.name for o in dropDownOption track by o.id" ng-model="sgcRating">
+      <p>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target)}}</p>
+      <p>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target)}}</p>
+      <select class="well" ng-model="financeData.SGC_Rating">
+        <option value="0">--- Please Select A Rating ---</option>
+        <option value="3">Exceeds Expectations = 101.5% and Above</option>
+        <option value="2">Meets Expectations = 98.5% - 101.4%</option>
+        <option value="1">Does Not Meet Expectations = Below 98.5%</option>
       </select>
   </div>
 
@@ -186,19 +195,21 @@
       <p>Service Guest Count</p>
       <p>{{financeData.SGC_Actual}}</p>
       <p>{{financeData.SGC_Target}}</p>
-      <p>{{guestCountVariance}}</p>
-      <p>{{guestCountPercentOfTarget}}%</p>
+      <p>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target)}}</p>
+      <p>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target)}}%</p>
       <p ng-if="statuses.empFivePlus">{{financeData.SGC_Rating}}</p>
   </div>
 
-    <!--Need to update this rating -- not in the returned object yet. -->
     <div ng-if="statuses.leaderThreeFourFive">
       <p>Overall Financial Performance Rating:</p>
-      <select class="" ng-options="o.name for o in dropDownOption track by o.id" ng-model="overallRating">
+      <select class="well" ng-model="financeData.OverallRating">
+        <option value="0">--- Please Select A Rating ---</option>
+        <option value="3">Exceeds Expectations = 101.5% and Above</option>
+        <option value="2">Meets Expectations = 98.5% - 101.4%</option>
+        <option value="1">Does Not Meet Expectations = Below 98.5%</option>
       </select>
   </div>
 
-    <!--Need to update this rating -- not in the returned object yet. -->
     <div ng-if="statuses.leaderSixPlus">
       <p>Overall Financial Performance Rating:</p>
       <p>{{financeData.OverallRating}}</p>
