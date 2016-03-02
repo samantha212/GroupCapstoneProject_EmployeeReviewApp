@@ -14,6 +14,7 @@ body {
   font-size: 28px;
   line-height: 40px;
   padding-bottom: 1%;
+  padding-right: 9%;
   margin: 7% auto 8% auto; }
 
 .h1 {
@@ -22,11 +23,13 @@ body {
   font-size: 28px;
   line-height: 40px;
   padding-bottom: 1%;
+  padding-right: 9%;
   margin: 7% auto 1% auto; }
 
 h4 {
   padding-top: 2%;
   padding-bottom: 0%;
+  padding-right: 9%;
   font-weight: bold;
   font-size: 20px;
   text-align: center; }
@@ -93,7 +96,7 @@ a {
 .hairRatingbox {
   background-color: white;
   display: block;
-  margin: 3% auto 2% auto;
+  margin: 3% 49% 2% auto;
   width: 10%;
   height: 30px;
   padding-top: 4px;
@@ -137,10 +140,10 @@ a {
 .selectDrop {
   background-color: white;
   display: block;
-  width: 12%;
+  width: 15%;
   height: 24px;
   display: block;
-  margin: 3% auto 10% auto; }
+  margin: 4% 47% 10% auto; }
 
 .secondGoalSelectDrop {
   background-color: white;
@@ -196,7 +199,7 @@ a {
   z-index: 1000; }
 
 .alignButton {
-  margin: 1% auto;
+  margin: 1% 9% 0 auto;
   text-align: center;
   padding-bottom: 1%; }
 
@@ -297,7 +300,7 @@ fieldset[disabled] .grey.active {
   .hairRatingbox {
     background-color: white;
     display: block;
-    margin: 3% auto 2% auto;
+    margin: 8% auto 2% auto;
     width: 20%;
     height: 30px;
     padding-top: 4px;
@@ -306,16 +309,31 @@ fieldset[disabled] .grey.active {
   .selectDrop {
     background-color: white;
     display: block;
-    width: 50%;
+    width: 40%;
     height: 24px;
     display: block;
     margin: 12% auto 15% auto; }
 
   .h1 {
-    font-size: 23px; }
+    font-size: 23px;
+    padding-right: 0;
+    margin: 0 auto;
+    text-align: center; }
+
+  .h1Home {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    line-height: 40px;
+    padding-bottom: 1%;
+    padding-right: 0;
+    margin: 7% auto 8% auto; }
 
   h4 {
-    font-size: 18px; }
+    font-size: 18px;
+    margin: 0 auto;
+    text-align: center;
+    padding-right: 0; }
 
   .orange {
     font-size: 100%; }
@@ -349,7 +367,12 @@ fieldset[disabled] .grey.active {
     background-color: white;
     display: block;
     margin: 0 auto;
-    width: 25%; } }
+    width: 25%; }
+
+  .alignButton {
+    margin: 1% 0 0 auto;
+    text-align: center;
+    padding-bottom: 1%; } }
 @media only screen and (max-width: 767px) {
   body {
     font-family: Helvetica Neue, Verdana;
@@ -389,7 +412,7 @@ fieldset[disabled] .grey.active {
   .selectDrop {
     background-color: white;
     display: block;
-    width: 30%;
+    width: 40%;
     height: 24px;
     display: block;
     margin: 12% auto 15% auto; }
@@ -404,10 +427,16 @@ fieldset[disabled] .grey.active {
     margin: 7% auto 8% auto; }
 
   .h1 {
-    font-size: 16px; }
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    padding-right: 0; }
 
   h4 {
-    font-size: 14px; }
+    margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+    padding-right: 0; }
 
   .h5 {
     font-size: 12px;
@@ -454,6 +483,11 @@ fieldset[disabled] .grey.active {
     background-color: white;
     display: block;
     margin: 0 auto;
-    width: 25%; } }
+    width: 25%; }
+
+  .alignButton {
+    margin: 1% 0 0 auto;
+    text-align: center;
+    padding-bottom: 1%; } }
 
 /*# sourceMappingURL=stylesheet.css.map */
