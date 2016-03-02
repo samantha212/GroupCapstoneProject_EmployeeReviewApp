@@ -28,8 +28,7 @@ body {
 
 .h1Hair {
   font-size: 24px;
-  font-weight: bold;
-  line-height: 40px; }
+  font-weight: bold; }
 
 .hairDescription {
   display: block;
@@ -53,7 +52,7 @@ h4 {
 
 .h5Hair {
   font-size: 18px;
-  font-weight: bold; }
+  font-weight: normal; }
 
 .homepageSubs {
   padding-left: 0;
@@ -354,8 +353,7 @@ fieldset[disabled] .grey.active {
 
   .h1Hair {
     font-size: 24px;
-    font-weight: bold;
-    line-height: 40px; }
+    font-weight: bold; }
 
   .selectDrop {
     background-color: white;
@@ -475,7 +473,7 @@ fieldset[disabled] .grey.active {
 
   .h5Hair {
     font-size: 11px;
-    font-weight: bold; }
+    font-weight: normal; }
 
   .selectDrop {
     background-color: white;
