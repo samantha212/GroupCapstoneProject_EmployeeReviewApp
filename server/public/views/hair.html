@@ -41,7 +41,7 @@
   <div ng-if="statuses.empOneTwo">
     <h4>Employee Comments:</h4>
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentHAIR].EmployeeResponse"></textarea>
+        <textarea class="boxProperties well" ng-model="hairData[subsections.currentHAIR].EmployeeResponse"></textarea>
       </div>
     <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">  <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
@@ -53,12 +53,12 @@
 
   <div ng-if="statuses.empThreePlus">
     <h4>Employee Comments:</h4>
-    <span class="ReadboxProperties">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentHAIR].EmployeeResponse}}</span>
+    <span class="ReadboxProperties">{{hairData[subsections.currentHAIR].EmployeeResponse}}</span>
   </div>
 
   <div ng-if="statuses.empFivePlus">
     <h4>Leader Comments:</h4>
-    <span class="ReadboxProperties">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentHAIR].LeaderResponse}}</span>
+    <span class="ReadboxProperties">{{hairData[subsections.currentHAIR].LeaderResponse}}</span>
   </div>
 
   <div ng-if="statuses.empThreePlus">
@@ -74,13 +74,13 @@
   <!--Leader View divs-->
   <div ng-if="statuses.leaderThreePlus">
     <h4>Employee Comments:</h4>
-    <span class="ReadboxProperties">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentHAIR].EmployeeResponse}}</span>
+    <span class="ReadboxProperties">{{hairData[subsections.currentHAIR].EmployeeResponse}}</span>
   </div>
 
   <div ng-if="statuses.leaderThreeFourFive">
     <h4>Leader Comments:</h4>
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentHAIR].LeaderResponse"></textarea>
+        <textarea class="boxProperties well" ng-model="hairData[subsections.currentHAIR].LeaderResponse"></textarea>
       </div>
 
       <div class="alignButton">
@@ -93,7 +93,7 @@
 
   <div ng-if="statuses.leaderSixPlus">
     <h4>Leader Comments:</h4>
-    <span class="ReadboxProperties">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentHAIR].LeaderResponse}}</span>
+    <span class="ReadboxProperties">{{hairData[subsections.currentHAIR].LeaderResponse}}</span>
 
     <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>

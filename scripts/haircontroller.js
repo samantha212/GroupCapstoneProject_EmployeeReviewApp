@@ -1,6 +1,7 @@
 app.controller('HairController', ['$scope', '$http', 'ReviewService',function($scope, $http, ReviewService){
-  //$scope.hairData = ReviewService.reviews.currentReview[1][$scope.currentHAIR];
-  $scope.currentReviewEmpInfo = ReviewService.reviews.currentReview[0][0];
+  $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
+  $scope.hairData = ReviewService.currentReview.subsections;
+  $scope.subsections = ReviewService.subsections;
 
   $scope.hairSubsectionH = ReviewService.subsections.currentHAIR == 6;
   $scope.hairSubsectionA = ReviewService.subsections.currentHAIR == 7;
