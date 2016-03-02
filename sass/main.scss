@@ -1,53 +1,3 @@
-// //reset
-//
-// html, body, div, span, applet, object, iframe,
-// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-// a, abbr, acronym, address, big, cite, code,
-// del, dfn, em, img, ins, kbd, q, s, samp,
-// small, strike, strong, sub, sup, tt, var,
-// b, u, i, center,
-// dl, dt, dd, ol, ul, li,
-// fieldset, form, label, legend,
-// table, caption, tbody, tfoot, thead, tr, th, td,
-// article, aside, canvas, details, embed,
-// figure, figcaption, footer, header, hgroup,
-// menu, nav, output, ruby, section, summary,
-// time, mark, audio, video {
-// 	margin: 0;
-// 	padding: 0;
-// 	border: 0;
-// 	font-size: 100%;
-// 	font: inherit;
-// 	vertical-align: baseline;
-// }
-// /* HTML5 display-role reset for older browsers */
-// article, aside, details, figcaption, figure,
-// footer, header, hgroup, menu, nav, section {
-// 	display: block;
-// }
-// body {
-// 	line-height: 1;
-// }
-// ol, ul {
-// 	list-style: none;
-// }
-// blockquote, q {
-// 	quotes: none;
-// }
-// blockquote:before, blockquote:after,
-// q:before, q:after {
-// 	content: '';
-// 	content: none;
-// }
-// table {
-// 	border-collapse: collapse;
-// 	border-spacing: 0;
-// }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 body{
   font-family: Helvetica Neue, Verdana;
   background-color:whitesmoke;
@@ -104,7 +54,7 @@ h4{
   color: black;
 }
 
-.ratingpageSubs{
+.remainingpageSubs{
   padding-left:0;
   padding-top: 1%;
   padding-bottom: 5%;
@@ -161,7 +111,15 @@ a{
 .boxProperties{
   background-color: rgb(255,255,255);
   display: block;
-  margin: 0 auto 2% auto;
+  margin: 4% auto 8% 6%;
+  width: 80%;
+  height: 300px;
+}
+
+.ReadboxProperties{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 4% auto 8% 5%;
   width: 80%;
   height: 300px;
 }
@@ -421,6 +379,22 @@ a{
     margin-top:0;
   }
 
+  .boxProperties{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 8% 7%;
+    width: 86%;
+    height: 300px;
+  }
+
+  .ReadboxProperties{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 8% 7%;
+    width: 84%;
+    height: 300px;
+  }
+
   .hairRatingbox{
     background-color: rgb(255,255,255);
     display: block;
@@ -561,8 +535,13 @@ a{
   }
 
   .boxProperties{
-    margin: 1% 4% 8% auto;
-    text-align: center;
+    margin: 8% 0 16% auto;
+    width: 106%;
+  }
+
+  .ReadboxProperties{
+    margin: 8% 1% 18% -2%;
+    width: 100%;
   }
 
   .hairRatingbox{

@@ -44,7 +44,7 @@ h4 {
   padding-bottom: 5%;
   color: black; }
 
-.ratingpageSubs {
+.remainingpageSubs {
   padding-left: 0;
   padding-top: 1%;
   padding-bottom: 5%;
@@ -89,7 +89,14 @@ a {
 .boxProperties {
   background-color: white;
   display: block;
-  margin: 0 auto 2% auto;
+  margin: 4% auto 8% 6%;
+  width: 80%;
+  height: 300px; }
+
+.ReadboxProperties {
+  background-color: white;
+  display: block;
+  margin: 4% auto 8% 5%;
   width: 80%;
   height: 300px; }
 
@@ -297,6 +304,20 @@ fieldset[disabled] .grey.active {
     font-size: 18px;
     margin-top: 0; }
 
+  .boxProperties {
+    background-color: white;
+    display: block;
+    margin: 4% auto 8% 7%;
+    width: 86%;
+    height: 300px; }
+
+  .ReadboxProperties {
+    background-color: white;
+    display: block;
+    margin: 4% auto 8% 7%;
+    width: 84%;
+    height: 300px; }
+
   .hairRatingbox {
     background-color: white;
     display: block;
@@ -397,8 +418,12 @@ fieldset[disabled] .grey.active {
     margin-top: 1%; }
 
   .boxProperties {
-    margin: 1% 4% 8% auto;
-    text-align: center; }
+    margin: 8% 0 16% auto;
+    width: 106%; }
+
+  .ReadboxProperties {
+    margin: 8% 1% 18% -2%;
+    width: 100%; }
 
   .hairRatingbox {
     background-color: white;

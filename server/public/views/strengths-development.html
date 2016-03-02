@@ -1,12 +1,12 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-  <h1 ng-if="strengths">Strengths</h1>
-  <h1 ng-if="development">Development Opportunities</h1>
+  <span class="h1" ng-if="strengths">Strengths</span>
+  <span class="h1"  ng-if="development">Development Opportunities</span>
   <!--(Add ng-model reference to the Strengths or Development Header)-->
 
-  <div class="employeeInfo">
-      <h5>Review for:  {{currentReviewEmpInfo.EmployeeName}}</h5>
-      <h5>Regis ID:  {{currentReviewEmpInfo.RegisId}}</h5>
+  <div class="remainingpageSubs">
+      <span class="h5">Review for:</span>  <span class="pageNames"> {{currentReviewEmpInfo.EmployeeName}}</span><br/>
+      <span class="h5">Regis ID:</span>  <span class="pageNames">{{currentReviewEmpInfo.RegisId}}</span>
   </div>
 
   <!--Employee View Divs-->
@@ -26,12 +26,12 @@
 
   <div ng-if="statuses.empThreePlus">
       <h4>Employee Comments:</h4>
-      <p>{{strengthDevData.EmployeeResponse}}</p>
+      <span class="ReadboxProperties well">{{strengthDevData.EmployeeResponse}}</span>
   </div>
 
   <div ng-if="statuses.empFivePlus">
       <h4>Leader Comments:</h4>
-      <p>{{strengthDevData.LeaderResponse}}</p>
+      <span class="ReadboxProperties well">{{strengthDevData.LeaderResponse}}</span>
   </div>
 
   <div ng-if="statuses.empThreePlus">
@@ -66,10 +66,10 @@
 
   <div ng-if="statuses.leaderSixPlus">
       <h4>Employee Comments:</h4>
-      <p>{{strengthDevData.EmployeeResponse}}</p>
+      <span class="ReadboxProperties well">{{strengthDevData.EmployeeResponse}}</span>
 
       <h4>Leader Comments:</h4>
-      <p>{{strengthDevData.LeaderResponse}}</p>
+      <span class="ReadboxProperties well">{{strengthDevData.LeaderResponse}}</span>
        <div class="alignButton">
           <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
           <!--Make sure the name of this function matches what is on scope.-->
