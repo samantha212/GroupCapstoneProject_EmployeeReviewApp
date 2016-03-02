@@ -1,6 +1,7 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="employeeInfo">
-    <h1 class="title">Goal {{currentGoal}}</h1>
+    <!--<h1 class="title">Goal {{currentGoal}}</h1>-->
+    <h1 class="title">Goal {{ReviewService.subsections.currentGoal}}</h1>
     <h5>Review for:  {{currentReviewEmpInfo.EmployeeName}}</h5>
     <h5>Regis ID:  {{currentReviewEmpInfo.RegisId}}</h5>
   </div>
@@ -10,8 +11,7 @@
     <div ng-if="statuses.empOneTwo">
       <h4>Goal:</h4>
         <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <textarea class="boxProperties well"
-                    ng-model="goalData.Goal">
+          <textarea class="boxProperties well" ng-model="goalData.Goal">
           </textarea>
         </div>
           <div class="clearfix"></div>
