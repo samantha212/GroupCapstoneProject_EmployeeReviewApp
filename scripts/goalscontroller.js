@@ -1,6 +1,6 @@
 app.controller('GoalsController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
-    $scope.reviewData = ReviewService.reviews;
-    $scope.currentReviewEmpInfo = ReviewService.reviews.currentReview[0][0];
+    $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
+    $scope.goalData = ReviewService.currentReview.subsections;
 
     $scope.subsections = ReviewService.subsections;
 }]);
