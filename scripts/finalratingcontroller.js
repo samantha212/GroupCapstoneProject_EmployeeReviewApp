@@ -1,5 +1,6 @@
 app.controller('FinalRatingController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
-    $scope.finalData = ReviewService.reviews.currentReview[1][13];
-    $scope.currentReviewEmpInfo = ReviewService.reviews.currentReview[0][0];
+    $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
+    $scope.finalData = ReviewService.currentReview.subsections;
+    $scope.subsections = ReviewService.subsections;
 
 }]);
