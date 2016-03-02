@@ -84,13 +84,18 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
   };
 
     $scope.putCompleteAndGoNextGoal = function() {
-        console.log('putAndGoNextGoal function hit');
+        console.log('putCompleteAndGoNextGoal function hit');
         //put that subsection to the DB;
+        //Mark subsection as complete.
+        $scope.GoNextGoal();
+    };
+
+    $scope.GoNextGoal = function() {
         if (ReviewService.subsections.currentGoal < 5) {
             var newGoal = ReviewService.subsections.currentGoal + 1;
             $scope.setCurrentGoal(newGoal);
         } else {
-            console.log('current goal', ReviewService.subsections.currentGoal);
+            console.log('current goal', ReviewService.subsectinpmons.currentGoal);
             $scope.setCurrentHAIR(1);
             $location.path('/hair');
         }
@@ -100,7 +105,6 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
         console.log('putAndGoNextHAIR function hit');
         //put that subsection to the DB;
         if (ReviewService.subsections.currentHAIR < 9) {
-            var newHAIR = ReviewService.subsections.currentHAIR + 1;
             ReviewService.subsections.currentHAIR += 1;
         } else {
             $location.path('/hair-rating');
@@ -111,21 +115,29 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
 
 
 app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
-  $scope.ReviewService = ReviewService;
-  $scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
-
+    $scope.myReview = ReviewService.myReview;
+    $scope.teamReviews = ReviewService.teamReviews;
+    $scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
+    $scope.type = ReviewService.type;
+    $scope.getReview = ReviewService.getReview;
+    $scope.thisUser = ReviewService.thisUser;
 }]);
 
 
 
 app.factory('ReviewService', ['$http', '$location', function($http, $location) {
 
-  var reviews = {
-    thisUser: {},
-    myReview: {},
-    teamReviews: {},
-    currentReview: {}
-  };
+  //var reviews = {
+  //  thisUser: {},
+  //  myReview: {},
+  //  teamReviews: {},
+  //  currentReview: {}
+  //};
+
+    var thisUser = {};
+    var myReview = {};
+    var teamReviews = {};
+    var currentReview = {};
 
     var subsections = {
         currentGoal: 1,
@@ -177,7 +189,9 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     //TO DO *** Revisit this to make it dynamic.
     $http.get('token/1').then(function(response) {
       console.log(response.data);
-      reviews.thisUser = {regisId: response.data.regisId};
+      //reviews.thisUser = {regisId: response.data.regisId};
+      thisUser = {regisId: response.data.regisId};
+        console.log('thisUser', thisUser);
       getMyReview({regisId: response.data.regisId});
       getTeamReviews({regisId: response.data.regisId});
     });
@@ -187,18 +201,24 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     //Used both to load the home page
   var getMyReview = function(user) {
     $http.post('/employeeData', user).then(function (response) {
-      reviews.myReview = response.data;
-      console.log('My Review', reviews.myReview);//[0][0].EmployeeName - I was using this for testing.
+        console.log(response.data);
+      //reviews.myReview = response.data;
+        myReview.empInfo = response.data[0][0];
+        myReview.subsections = response.data[1];
+      console.log('My Review', myReview);
     });
   };
 
   var getReview = function(employee){
+      console.log("employee being passed in", employee);
     var thisEmployee = {regisId: employee};
-    //console.log("getReview hit");
+    console.log("getReview hit, using thisEmployee:", thisEmployee);
     $http.post('/employeeData', thisEmployee).then(function (response) {
       //console.log("response", response);
-      reviews.currentReview = response.data;
-      console.log('Current Review', reviews.currentReview);
+      //reviews.currentReview = response.data;
+      currentReview.empInfo = response.data[0][0];
+      currentReview.subsections = response.data[1];
+      console.log('Current Review', currentReview);
     });
   };
 
@@ -206,7 +226,8 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     $http.post('/employeeData/leaderReviews', user).then(function(response) {
       console.log('My team\'s reviews:', response);
       //teamReviews.data = response.data;
-      reviews.teamReviews.data = response.data;
+      //reviews.teamReviews.data = response.data;
+      teamReviews.data = response.data;
     });
   };
 
@@ -229,7 +250,11 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
   return {
       loadHomePageInfo: loadHomePageInfo,
       getReview: getReview,
-      reviews: reviews,
+      //reviews: reviews,
+      myReview: myReview,
+      currentReview: currentReview,
+      teamReviews: teamReviews,
+      thisUser: thisUser,
       subsections: subsections,
       statuses: statuses,
       role: role,

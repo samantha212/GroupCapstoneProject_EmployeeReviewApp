@@ -2,8 +2,8 @@
   <h1 class="title">Financial Performance</h1>
 
   <div class="employeeInfo">
-      <h5>Review for:  {{ReviewService.reviews.currentReview[0][0].EmployeeName}}</h5>
-      <h5>Regis ID:  {{ReviewService.reviews.currentReview[0][0].RegisId}}</h5>
+      <h5>Review for:  {{currentReview.empInfo.EmployeeName}}</h5>
+      <h5>Regis ID:  {{currentReview.empInfo.RegisId}}</h5>
   </div>
     <hr>
   <div>
@@ -13,7 +13,7 @@
       <p>Target</p>
       <p>Variance +/-</p>
       <p>% of Target</p>
-      <p ng-if="ReviewService.statuses.empFivePlus">Leader Rating</p>
+      <p ng-if="statuses.empFivePlus">Leader Rating</p>
   </div>
 
   <!-- ** Employee View ** -->
@@ -21,56 +21,56 @@
   <!--Each of these divs is a row.-->
   <div ng-if="ReviewService.role.emp">
       <p>Service Sales $</p>
-      <p>{{rs.SS_Actual | currency}}</p>
-      <p>{{rs.SS_Target | currency}}</p>
+      <p>{{financeData.SS_Actual | currency}}</p>
+      <p>{{financeData.SS_Target | currency}}</p>
       <p>{{serviceVariance | currency}}</p>
       <p>{{servicePercentOfTarget}}%</p>
-      <p ng-if="empFivePlus"> </p>
+      <p ng-if="statuses.empFivePlus"> </p>
   </div>
 
   <div ng-if="ReviewService.role.emp">
       <p>Retail Sales $</p>
-      <p>{{rs.RS_Actual | currency}}</p>
-      <p>{{rs.RS_Target | currency}}</p>
+      <p>{{financeData.RS_Actual | currency}}</p>
+      <p>{{financeData.RS_Target | currency}}</p>
       <p>{{retailVariance | currency}}</p>
       <p>{{retailPercentOfTarget | currency}}%</p>
-      <p ng-if="empFivePlus"> </p>
+      <p ng-if="statuses.empFivePlus"> </p>
   </div>
 
   <div ng-if="ReviewService.role.emp">
       <p>Total Sales $</p>
-      <p>{{rs.TS_Actual | currency}}</p>
-      <p>{{rs.TS_Target | currency}}</p>
+      <p>{{financeData.TS_Actual | currency}}</p>
+      <p>{{financeData.TS_Target | currency}}</p>
       <p>{{totalVariance | currency}}</p>
       <p>{{totalPercentOfTarget}}%</p>
-      <p ng-if="ReviewService.statuses.empFivePlus">{{rs.TS_Rating}}</p>
+      <p ng-if="statuses.empFivePlus">{{rs.TS_Rating}}</p>
   </div>
 
   <div ng-if="ReviewService.role.emp">
       <p>Contribution $</p>
-      <p>{{rs.C_Actual | currency}}</p>
-      <p>{{rs.C_Target | currency}}</p>
+      <p>{{financeData.C_Actual | currency}}</p>
+      <p>{{financeData.C_Target | currency}}</p>
       <p>{{contributionVariance | currency}}</p>
       <p>{{contributionPercentOfTarget}}%</p>
-      <p ng-if="ReviewService.statuses.empFivePlus">{{rs.C_Rating}} </p>
+      <p ng-if="statuses.empFivePlus">{{rs.C_Rating}} </p>
   </div>
 
   <div ng-if="ReviewService.role.emp">
       <p>Service Guest Count</p>
-      <p>{{rs.SGC_Actual}}</p>
-      <p>{{rs.SGC_Target}}</p>
+      <p>{{financeData.SGC_Actual}}</p>
+      <p>{{financeData.SGC_Target}}</p>
       <p>{{guestCountVariance}}</p>
       <p>{{guestCountPercentOfTarget}}%</p>
-      <p ng-if="ReviewService.statuses.empFivePlus">{{rs.SGC_Rating}}</p>
+      <p ng-if="statuses.empFivePlus">{{rs.SGC_Rating}}</p>
   </div>
 
     <!--Need to update this rating -- not in the returned object yet. -->
-  <div ng-if="ReviewService.statuses.empFivePlus">
+  <div ng-if="statuses.empFivePlus">
       <p>Overall Financial Performance Rating:</p>
-      <p>{{rs.OverallRating}}</p>
+      <p>{{financeData.OverallRating}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.empOneTwo">
+  <div ng-if="statuses.empOneTwo">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure this function name matches what is on scope.-->
@@ -79,7 +79,7 @@
       </div>
   </div>
 
-  <div ng-if="ReviewService.statuses.empThreePlus">
+  <div ng-if="statuses.empThreePlus">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure the name of this function matches what is on scope.-->
@@ -91,50 +91,50 @@
   <!-- ** Leader Views ** -->
 
   <!--Each of these divs is a row.-->
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+  <div ng-if="statuses.leaderThreeFourFive">
       <p>Service Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="rs.SS_Actual">
-      <input type="text" class="financialInput form-control" ng-model="rs.SS_Target">
+      <input type="text" class="financialInput form-control" ng-model="financeData.SS_Actual">
+      <input type="text" class="financialInput form-control" ng-model="financeData.SS_Target">
       <p>{{serviceVariance}}</p>
       <p>{{servicePercentOfTarget}}</p>
       <p> </p>
       <!--No rating for Service Sales - empty-->
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+  <div ng-if="statuses.leaderSixPlus">
       <p>Service Sales $</p>
-      <p>{{rs.SS_Actual}}</p>
-      <p>{{rs.SS_Target}}</p>
+      <p>{{financeData.SS_Actual}}</p>
+      <p>{{financeData.SS_Target}}</p>
       <p>{{serviceVariance}}</p>
       <p>{{servicePercentOfTarget}}%</p>
       <p> </p>
       <!--No rating for Service Sales - empty-->
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+  <div ng-if="statuses.leaderThreeFourFive">
       <p>Retail Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="rs.RS_Actual">
-      <input type="text" class="financialInput form-control" ng-model="rs.RS_Target">
+      <input type="text" class="financialInput form-control" ng-model="financeData.RS_Actual">
+      <input type="text" class="financialInput form-control" ng-model="financeData.RS_Target">
       <p>{{retailVariance}}</p>
       <p>{{retailPercentOfTarget}}</p>
       <p> </p>
       <!--No rating for Retail Sales - empty-->
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+  <div ng-if="statuses.leaderSixPlus">
       <p>Retail Sales $</p>
-      <p>{{rs.RS_Actual}}</p>
-      <p>{{rs.RS_Target}}</p>
+      <p>{{financeData.RS_Actual}}</p>
+      <p>{{financeData.RS_Target}}</p>
       <p>{{retailVariance}}</p>
       <p>{{retailPercentOfTarget}}%</p>
       <p> </p>
       <!--No rating for Service Sales - empty-->
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+  <div ng-if="statuses.leaderThreeFourFive">
       <p>Total Sales $</p>
-      <input type="text" class="financialInput form-control" ng-model="rs.TS_Actual">
-      <input type="text" class="financialInput form-control" ng-model="rs.TS_Target">
+      <input type="text" class="financialInput form-control" ng-model="financeData.TS_Actual">
+      <input type="text" class="financialInput form-control" ng-model="financeData.TS_Target">
       <p>{{totalVariance}}</p>
       <p>{{totalPercentOfTarget}}</p>
       <!--<select class="FinancesSelectDrop well" ng-model="rs.TS_Rating">-->
@@ -142,39 +142,39 @@
       </select>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+  <div ng-if="statuses.leaderSixPlus">
       <p>Total Sales $</p>
-      <p>{{rs.TS_Actual}}</p>
-      <p>{{rs.TS_Target}}</p>
+      <p>{{financeData.TS_Actual}}</p>
+      <p>{{financeData.TS_Target}}</p>
       <p>{{totalVariance}}</p>
       <p>{{totalPercentOfTarget}}%</p>
-      <p>{{rs.TS_Rating}}</p>
+      <p>{{financeData.TS_Rating}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+  <div ng-if="statuses.leaderThreeFourFive">
       <p>Contribution $</p>
-      <input type="text" class="financialInput form-control" ng-model="rs.C_Actual">
-      <input type="text" class="financialInput form-control" ng-model="rs.C_Target">
+      <input type="text" class="financialInput form-control" ng-model="financeData.C_Actual">
+      <input type="text" class="financialInput form-control" ng-model="financeData.C_Target">
       <p>{{contributionVariance}}</p>
       <p>{{contributionPercentOfTarget}}</p>
       <select class="" ng-options="o.name for o in dropDownOption track by o.id" ng-model="cRating">
       </select>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+  <div ng-if="statuses.leaderSixPlus">
       <p>Contribution $</p>
-      <p>{{rs.C_Actual}}</p>
-      <p>{{rs.C_Target}}</p>
+      <p>{{financeData.C_Actual}}</p>
+      <p>{{financeData.C_Target}}</p>
       <p>{{contributionVariance}}</p>
       <p>{{contributionPercentOfTarget}}%</p>
-      <p>{{rs.C_Rating}}</p>
+      <p>{{financeData.C_Rating}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+  <div ng-if="statuses.leaderThreeFourFive">
       <p>Service Guest Count</p>
-      <input type="text" class="financialInput form-control" ng-model="rs.SGC_Actual">
-      <input type="text" class="financialInput form-control" ng-model="rs.SGC_Actual">
-      <p>This is the test of the SCG Rating {{rs.SGC_Rating}}</p>
+      <input type="text" class="financialInput form-control" ng-model="financeData.SGC_Actual">
+      <input type="text" class="financialInput form-control" ng-model="financeData.SGC_Actual">
+      <p>This is the test of the SCG Rating {{financeData.SGC_Rating}}</p>
       <p>{{guestCountVariance}}</p>
       <p>{{guestCountPercentOfTarget}}</p>
       <!--<select class="FinancesSelectDrop well" ng-model="rs.SGC_Rating">-->
@@ -182,29 +182,29 @@
       </select>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+  <div ng-if="statuses.leaderSixPlus">
       <p>Service Guest Count</p>
-      <p>{{rs.SGC_Actual}}</p>
-      <p>{{rs.SGC_Target}}</p>
+      <p>{{financeData.SGC_Actual}}</p>
+      <p>{{financeData.SGC_Target}}</p>
       <p>{{guestCountVariance}}</p>
       <p>{{guestCountPercentOfTarget}}%</p>
-      <p ng-if="ReviewService.statuses.empFivePlus">{{rs.SGC_Rating}}</p>
+      <p ng-if="statuses.empFivePlus">{{financeData.SGC_Rating}}</p>
   </div>
 
     <!--Need to update this rating -- not in the returned object yet. -->
-    <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+    <div ng-if="statuses.leaderThreeFourFive">
       <p>Overall Financial Performance Rating:</p>
       <select class="" ng-options="o.name for o in dropDownOption track by o.id" ng-model="overallRating">
       </select>
   </div>
 
     <!--Need to update this rating -- not in the returned object yet. -->
-    <div ng-if="ReviewService.statuses.leaderSixPlus">
+    <div ng-if="statuses.leaderSixPlus">
       <p>Overall Financial Performance Rating:</p>
-      <p>{{rs.OverallRating}}</p>
+      <p>{{financeData.OverallRating}}</p>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderThreeFourFive">
+  <div ng-if="statuses.leaderThreeFourFive">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">
             <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
@@ -215,7 +215,7 @@
       </div>
   </div>
 
-  <div ng-if="ReviewService.statuses.leaderSixPlus">
+  <div ng-if="statuses.leaderSixPlus">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
             <span class="glyphicon glyphicon-step-backward"></span> BACK</button>

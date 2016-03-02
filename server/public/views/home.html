@@ -1,46 +1,50 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-init="loadHomePageInfo()">
-  <a href="/map" ng-click="ReviewService.getReview('JASTA1')">Go to Map Page</a>
-  <p>Leaving this link for reference.  Eventually will remove once Home Page fully functional.</p>
-  <br>
+  <!--<a href="/map" ng-click="ReviewService.getReview('JASTA1')">Go to Map Page</a>-->
+  <!--<p>Leaving this link for reference.  Eventually will remove once Home Page fully functional.</p>-->
+  <!--<br>-->
 
   <div class="h1Home">
   <span>Employee Review Home Page</span>
   </div>
 
   <div class="homepageSubs col-lg-4">
-    <span class="h5">Name:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].EmployeeName}}</span><br/>
-    <span class="h5" ng-if="ReviewService.type.typeField">Title:</span>  <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].Title}}</span><br/>
-    <span class="h5">Regis ID:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].RegisId}}</span><br/>
+    <span class="h5">Name:</span> <span class="pageNames ">{{myReview.empInfo.EmployeeName}}</span><br/>
+    <span class="h5" ng-if="type.typeField">Title:</span>  <span class="pageNames ">{{myReview.empInfo.Title}}</span><br/>
+    <span class="h5">Regis ID:</span> <span class="pageNames ">{{myReview.empInfo.RegisId}}</span><br/>
   </div>
 
   <div class="homepageSubs col-lg-4">
-    <span class="h5" ng-if="ReviewService.type.typeField">Hire Date:</span>  <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].HireDate}}</span><br/>
-    <span class="h5">Leader:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].LeaderName}}</span><br/>
-    <span class="h5" ng-if="ReviewService.type.typeSalon">Department:</span>  <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].Department}}</span><br/>
+    <span class="h5" ng-if="type.typeField">Hire Date:</span>  <span class="pageNames ">{{myReview.empInfo.HireDate}}</span><br/>
+    <span class="h5">Leader:</span> <span class="pageNames ">{{myReview.empInfo.LeaderName}}</span><br/>
+    <span class="h5" ng-if="type.typeSalon">Department:</span>  <span class="pageNames ">{{myReview.empInfo.Department}}</span><br/>
   </div>
 
   <div class="homepageSubs col-lg-4">
-    <span class="h5">Review Period:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].ReviewPeriod}}</span><br/>
-    <span class="h5" ng-if="ReviewService.type.typeField">Position/Region:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].PositionRegion}}</span><br/>
-    <span class="h5" ng-if="ReviewService.type.typeField">Date in Position:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].DateInPosition}}</span>
+    <span class="h5">Review Period:</span> <span class="pageNames ">{{myReview.empInfo.ReviewPeriod}}</span><br/>
+    <span class="h5" ng-if="type.typeField">Position/Region:</span> <span class="pageNames ">{{myReview.empInfo.PositionRegion}}</span><br/>
+    <span class="h5" ng-if="type.typeField">Date in Position:</span> <span class="pageNames ">{{myReview.empInfo.DateInPosition}}</span>
   </div>
-     <div class="clearfix"></div>
-      <div class="homePageLeadButtons">
-        <a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="ReviewService.statuses.empOneTwo" ng-click="ReviewService.getReview(ReviewService.reviews.thisUser.regisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
-        <a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive"  ng-if="ReviewService.statuses.empThreePlus" ng-click="ReviewService.getReview(ReviewService.reviews.thisUser.regisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW</button></a>
-        <button type="button" class="orange btn btn-warning btn-responsive" ng-if="ReviewService.statuses.empSixAndNoEmpSignature" >  <span class="glyphicon glyphicon-pencil"></span> SIGN</button></a>
-        <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="ReviewService.statuses.empSeven"><span class="glyphicon glyphicon-send"></span> EMAIL PDF</button></a>
-        <hr>
-      </div>
+
+  <div class="clearfix"></div>
+
+  <div class="homePageLeadButtons">
+    <a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="statuses.empOneTwo" ng-click="getReview(myReview.empInfo.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
+    <a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive"  ng-if="statuses.empThreePlus" ng-click="getReview(myReview.empInfo.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW</button></a>
+    <button type="button" class="orange btn btn-warning btn-responsive" ng-if="statuses.empSixAndNoEmpSignature" >  <span class="glyphicon glyphicon-pencil"></span> SIGN</button></a>
+    <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="statuses.empSeven"><span class="glyphicon glyphicon-send"></span> EMAIL PDF</button></a>
+    <hr>
+  </div>
 
 
 
 
   <div ng-if="leader">
-    <div ng-repeat="person in ReviewService.reviews.teamReviews.data">
-        <div class="empName">
-          <span>{{person.EmployeeName}}</span>
-        </div>
+    <div ng-repeat="person in teamReviews.data">
+
+      <div class="empName">
+        <span>{{person.EmployeeName}}</span>
+      </div>
+
       <div class="homePageEmpButtons">
         <a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="person.ReviewStatus == 1" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
         <a href="/map"><button class="orange btn btn-warning btn-responsive" ng-if="person.ReviewStatus == 4"><span class="glyphicon glyphicon-pencil" ng-click="ReviewService.getReview(person.RegisId)"></span> EDIT</button></a>
@@ -51,5 +55,52 @@
 
     </div>
   </div>
+   container div
+
+
+  <!--<div class="homepageSubs col-lg-4">-->
+    <!--<span class="h5">Name:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].EmployeeName}}</span><br/>-->
+    <!--<span class="h5" ng-if="ReviewService.type.typeField">Title:</span>  <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].Title}}</span><br/>-->
+    <!--<span class="h5">Regis ID:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].RegisId}}</span><br/>-->
+  <!--</div>-->
+
+  <!--<div class="homepageSubs col-lg-4">-->
+    <!--<span class="h5" ng-if="ReviewService.type.typeField">Hire Date:</span>  <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].HireDate}}</span><br/>-->
+    <!--<span class="h5">Leader:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].LeaderName}}</span><br/>-->
+    <!--<span class="h5" ng-if="ReviewService.type.typeSalon">Department:</span>  <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].Department}}</span><br/>-->
+  <!--</div>-->
+
+  <!--<div class="homepageSubs col-lg-4">-->
+    <!--<span class="h5">Review Period:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].ReviewPeriod}}</span><br/>-->
+    <!--<span class="h5" ng-if="ReviewService.type.typeField">Position/Region:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].PositionRegion}}</span><br/>-->
+    <!--<span class="h5" ng-if="ReviewService.type.typeField">Date in Position:</span> <span class="pageNames ">{{ReviewService.reviews.myReview[0][0].DateInPosition}}</span>-->
+  <!--</div>-->
+     <!--<div class="clearfix"></div>-->
+      <!--<div class="homePageLeadButtons">-->
+        <!--<a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="ReviewService.statuses.empOneTwo" ng-click="ReviewService.getReview(ReviewService.reviews.thisUser.regisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>-->
+        <!--<a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive"  ng-if="ReviewService.statuses.empThreePlus" ng-click="ReviewService.getReview(ReviewService.reviews.thisUser.regisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW</button></a>-->
+        <!--<button type="button" class="orange btn btn-warning btn-responsive" ng-if="ReviewService.statuses.empSixAndNoEmpSignature" >  <span class="glyphicon glyphicon-pencil"></span> SIGN</button></a>-->
+        <!--<button type="button" class="grey btn btn-secondary btn-responsive" ng-if="ReviewService.statuses.empSeven"><span class="glyphicon glyphicon-send"></span> EMAIL PDF</button></a>-->
+        <!--<hr>-->
+      <!--</div>-->
+
+
+
+
+  <!--<div ng-if="leader">-->
+    <!--<div ng-repeat="person in ReviewService.reviews.teamReviews.data">-->
+        <!--<div class="empName">-->
+          <!--<span>{{person.EmployeeName}}</span>-->
+        <!--</div>-->
+      <!--<div class="homePageEmpButtons">-->
+        <!--<a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="person.ReviewStatus == 1" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>-->
+        <!--<a href="/map"><button class="orange btn btn-warning btn-responsive" ng-if="person.ReviewStatus == 4"><span class="glyphicon glyphicon-pencil" ng-click="ReviewService.getReview(person.RegisId)"></span> EDIT</button></a>-->
+        <!--<a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 5" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button></a>-->
+        <!--<a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 6" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button></a>-->
+        <!--<a href="/map"><button type="button" class="grey btn btn-secondary btn-responsive" ng-if="person.ReviewStatus == 7" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> READ</button></a>-->
+      <!--</div>-->
+
+    <!--</div>-->
+  <!--</div>-->
 <!-- container div -->
 </div>
