@@ -57,40 +57,42 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
   $scope.leader = true;
   $scope.emp = false;
 
-  $scope.currentGoal = 1;
+  //$scope.currentGoal = 1;
   $scope.setCurrentGoal = function(number) {
-    $scope.currentGoal = number;
-    console.log('Current goal is', $scope.currentGoal);
+    ReviewService.subsections.currentGoal = number;
+    console.log('Current goal is', ReviewService.subsections.currentGoal);
   };
 
-  $scope.currentHAIR = 5;
+  //$scope.currentHAIR = 5;
   $scope.setCurrentHAIR = function(number) {
-    $scope.currentHAIR = number + 5;
-    console.log('Current HAIR is', $scope.currentHAIR);
+    ReviewService.subsections.currentHAIR = number + 5;
+    console.log('Current HAIR is', ReviewService.subsections.currentHAIR);
   };
 
-  $scope.currentStrengthDev = 10;
+  //$scope.currentStrengthDev = 10;
   $scope.strengths = false;
   $scope.development = false;
   $scope.setCurrentStrengthDev = function(number) {
     //This sets the currentStrengthDev number to the correct index in the subsections array.
-    $scope.currentStrengthDev = number + 10;
-    console.log('Current strength/dev is', $scope.currentStrengthDev);
-    if(number == 1) {
-      $scope.strengths = true;
-      $scope.development = false;
-    } else {
-      $scope.strengths = false;
-      $scope.development = true;
-    }
-  }
+      ReviewService.subsections.currentStrengthDev = number + 10;
+      console.log('Current strength/dev is', ReviewService.subsections.currentStrengthDev);
+      if(number == 1) {
+          $scope.strengths = true;
+          $scope.development = false;
+      } else {
+          $scope.strengths = false;
+          $scope.development = true;
+      }
+  };
 
     $scope.putCompleteAndGoNextGoal = function() {
         console.log('putAndGoNext function hit');
         //put that subsection to the DB;
         //need to add resolve for setting new goal and/or page reload
-        if ($scope.currentGoal < 5) {
-            var newGoal = $scope.currentGoal + 1;
+        if (ReviewService.subsections.currentGoal < 5) {
+            console.log('current goal', ReviewService.subsections.currentGoal);
+            var newGoal = ReviewService.subsections.currentGoal + 1;
+            console.log('new goal should be', newGoal);
             $scope.setCurrentGoal(newGoal);
             $location.path('/goals');
         } else {
@@ -116,6 +118,12 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     teamReviews: {},
     currentReview: {}
   };
+
+    var subsections = {
+        currentGoal: 1,
+        currentHAIR: 5,
+        currentStrengthDev: 10
+    };
 
   //These are currently set all to true for view/stying purposes.
   //default all these vars to false before deploying\\
@@ -211,12 +219,13 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
 
 
   return {
-    loadHomePageInfo: loadHomePageInfo,
-    getReview: getReview,
-    reviews: reviews,
-    statuses: statuses,
-    role: role,
-    type: type,
+      loadHomePageInfo: loadHomePageInfo,
+      getReview: getReview,
+      reviews: reviews,
+      subsections: subsections,
+      statuses: statuses,
+      role: role,
+      type: type,
       checkStatus: checkStatus,
       submitStatus: submitStatus,
       putAndGoMap: putAndGoMap
