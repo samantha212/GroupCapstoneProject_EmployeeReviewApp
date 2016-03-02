@@ -1,9 +1,9 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="employeeInfo">
     <!--<h1 class="title">Goal {{currentGoal}}</h1>-->
-    <h1 class="title">Goal {{ReviewService.subsections.currentGoal}}</h1>
-    <h5>Review for:  {{currentReviewEmpInfo.EmployeeName}}</h5>
-    <h5>Regis ID:  {{currentReviewEmpInfo.RegisId}}</h5>
+      <span class="h1">Goal {{ReviewService.subsections.currentGoal}}</span>
+    <span class="h5">Review for:</span>  <span class="pageNames ">{{currentReviewEmpInfo.EmployeeName}}</span></br>
+    <span class="h5">Regis ID:</span>  <span class="pageNames ">{{currentReviewEmpInfo.RegisId}}</span>
   </div>
 
 
@@ -11,14 +11,14 @@
     <div ng-if="statuses.empOneTwo">
       <h4>Goal:</h4>
         <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].Goal"></textarea>
+          <textarea class="textAreaboxProperties well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].Goal"></textarea>
         </div>
           <div class="clearfix"></div>
 
       <div>
         <h4>Employee Rating:</h4>
         <!--Come BACK and make sure this dropdown displays what is already in the DB.-->
-        <select class="selectDrop well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeGoalRating">
+        <select class="goalselectDrop well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeGoalRating">
           <option>3</option>
           <option>2</option>
           <option>1</option>
@@ -29,7 +29,7 @@
 
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h4>Employee Comments:</h4>
-        <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeResponse"></textarea>
+        <textarea class="textAreaboxProperties well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeResponse"></textarea>
       </div>
 
 
@@ -41,33 +41,33 @@
 
     <div ng-if="statuses.empThreePlus">
       <h4>Goal:</h4>
-        <span class="boxProperties well">
+        <span class="goalboxProperties well">
           <p>{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].Goal}}</p>
         </span>
 
 
       <div class="employeeRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6">
         <h4>Employee Rating:</h4>
-          <p class="pRating employeeRatingBox well">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeGoalRating}}  Employee rating as stated by employee (pull from current subsection Employee Response string).</p>
+          <span class="goalemployeeRatingBox well">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeGoalRating}}</span>
       </div>
     </div>
 
     <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="statuses.empFivePlus">
       <h4>Leader Rating:</h4>
-      <p class="pRating leaderRatingBox well">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].LeaderGoalRating}}</p>
+      <span class="leaderRatingBox well">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].LeaderGoalRating}}</span>
     </div>
     <div class="clearfix"></div>
 
     <div ng-if="statuses.empThreePlus">
     <h4>Employee Comments:</h4>
-      <span class="boxProperties well">
+      <span class="goalboxProperties well">
         <p>{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeResponse}}</p>
       </span>
     </div>
 
     <div ng-if="statuses.empFivePlus">
     <h4>Leader Comments:</h4>
-      <span class="boxProperties well">
+      <span class="goalboxProperties well">
         <p>{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].LeaderResponse}}</p>
       </span>
     </div>
@@ -87,14 +87,14 @@
 <!--Leader View Divs-->
     <div ng-if="statuses.leaderThreePlus">
       <h4>Goal:</h4>
-        <span class="boxProperties well">
+        <span class="goalboxProperties well">
           <p>{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].Goal}}</p>
         </span>
      </div>
 
         <div class="employeeRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <h4>Employee Rating:</h4>
-          <p class="pRating employeeRatingBox well">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeResponse}}</p>
+          <span class="goalemployeeRatingBox well">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeResponse}}</span>
         </div>
 
 
@@ -113,13 +113,13 @@
 
     <div class="leaderRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="statuses.leaderSixPlus">
          <h4>Leader Rating:</h4>
-          <p class="pRating leaderRatingBox well">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].LeaderGoalRating}}</p>
+          <span class="secondleaderRatingBox well">{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].LeaderGoalRating}}</span>
     </div>
     <div class="clearfix"></div>
 
     <div ng-if="statuses.leaderThreePlus">
     <h4>Employee Comments:</h4>
-        <span class="boxProperties well">
+        <span class="goalboxProperties well">
           <p>{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].EmployeeResponse}}</p>
         </span>
     </div>
@@ -127,14 +127,14 @@
     <div ng-if="statuses.leaderThreeFourFive">
       <h4>Leader Comments:</h4>
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <textarea class="boxProperties well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].LeaderResponse"></textarea>
+          <textarea class="textAreaboxProperties well" ng-model="ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].LeaderResponse"></textarea>
       </div>
     </div>
     <br>
 
       <div ng-if="statuses.leaderSixPlus">
         <h4>Leader Comments:</h4>
-          <span class="boxProperties well">
+          <span class="goalboxProperties well">
           <p>{{ReviewService.reviews.currentReview[1][ReviewService.subsections.currentGoal].LeaderResponse}}</p>
           </span>
       </div>

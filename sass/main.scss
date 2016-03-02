@@ -6,6 +6,9 @@ body{
   color: black;
 }
 
+textarea {
+   resize: none;
+}
 
 .container{
   padding-bottom: 2%;
@@ -135,6 +138,23 @@ a{
   height: 300px;
 }
 
+.goalboxProperties{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 4% auto 8% 6%;
+  width: 80%;
+  height: 300px;
+}
+
+.textAreaboxProperties{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 4% auto 8% 5%;
+  width: 80%;
+  height: 300px;
+}
+
+
 .ReadboxProperties{
   background-color: rgb(255,255,255);
   display: block;
@@ -156,24 +176,40 @@ a{
 
 .employeeRatingBox {
   background-color: rgb(255,255,255);
-  display: inline;
-  margin: 0 auto;
-  float:center;
-  width: 14%;
-  height: 10px;
-  padding-top: 2%;
+  display:block;
+  margin: 2.5% 0 0 26%;
+  width: 41%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+
+}
+
+.goalemployeeRatingBox {
+  background-color: rgb(255,255,255);
+  display:block;
+  margin: 2.5% 0 0 26%;
+  width: 41%;
+  padding-top: 1%;
+  padding-bottom: 1%;
 
 }
 
 .leaderRatingBox {
   background-color: rgb(255,255,255);
-  text-align: center;
-  display: inline;
-  margin: 0 auto;
-  float:center;
-  width: 14%;
-  height: 10px;
-  padding-top: 2%;
+  display: block;
+  margin: 3% 0 0 27%;
+  width: 41%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.secondleaderRatingBox{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 3% 0 0 26%;
+  width: 41%;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 
@@ -195,11 +231,6 @@ a{
 }
 
 
-.pRating{
-  font-size: 5px;
-}
-
-
 .selectDrop{
   background-color: rgb(255,255,255);
   display: block;
@@ -209,14 +240,22 @@ a{
   margin: 4% 47% 10% auto;
 }
 
+.goalselectDrop{
+  background-color: rgb(255,255,255);
+  display: block;
+  width: 15%;
+  height: 24px;
+  display: block;
+  margin: 4% 47% 10% auto;
+}
+
+
 .secondGoalSelectDrop{
   background-color: rgb(255,255,255);
   display: block;
-  width: 28%;
-  height: 24px;
+  width: 30%;
   display: block;
-  margin:0 auto 0 8%;
-  // float: center;
+  margin:1% auto 0 3%;
 }
 
 .FinancesSelectDrop{
@@ -410,6 +449,23 @@ a{
     height: 300px;
   }
 
+  .goalboxProperties{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 8% 6%;
+    width: 86%;
+    height: 300px;
+  }
+
+  .textAreaboxProperties{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 8% 5%;
+    width: 90%;
+    height: 300px;
+  }
+
+
   .ReadboxProperties{
     background-color: rgb(255,255,255);
     display: block;
@@ -428,6 +484,34 @@ a{
     padding-left: 8px;
   }
 
+  .leaderRatingBox {
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 3% 0 0 29%;
+    width: 41%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+
+  .secondleaderRatingBox{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 3% 0 0 29%;
+    width: 41%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+
+  .goalemployeeRatingBox {
+    background-color: rgb(255,255,255);
+    display:block;
+    margin: 2.5% 0 0 29%;
+    width: 41%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+
+  }
+
   .hairDescription{
     display: block;
     margin:-9% auto 13% 18%;
@@ -440,9 +524,26 @@ a{
     background-color: rgb(255,255,255);
     display: block;
     width: 40%;
+    display: block;
+    margin: 3% auto 15% auto;
+  }
+
+  .goalselectDrop{
+    background-color: rgb(255,255,255);
+    display: block;
+    width: 22%;
     height: 24px;
     display: block;
-    margin: 12% auto 15% auto;
+    margin: 4% 39% 10% auto;
+  }
+
+
+  .secondGoalSelectDrop{
+    background-color: rgb(255,255,255);
+    display: block;
+    width: 30%;
+    display: block;
+    margin:3% auto 0 -2%;
   }
 
   .h1 {
@@ -567,8 +668,24 @@ a{
   }
 
   .boxProperties{
-    margin: 8% 0 16% auto;
+    margin: 8% 0 16% -1%;
     width: 106%;
+  }
+
+  .goalboxProperties{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 8% 0;
+    width: 97%;
+    height: 300px;
+  }
+
+  .textAreaboxProperties{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 8% 0;
+    width: 105%;
+    height: 300px;
   }
 
   .ReadboxProperties{
@@ -609,6 +726,24 @@ a{
     height: 24px;
     display: block;
     margin: 12% auto 15% auto;
+  }
+
+  .goalselectDrop{
+    background-color: rgb(255,255,255);
+    display: block;
+    width: 53%;
+    height: 24px;
+    display: block;
+    margin: 4% 23% 10% auto;
+  }
+
+  .secondGoalSelectDrop{
+    background-color: rgb(255,255,255);
+    display: block;
+    width: 53%;
+    height: 24px;
+    display: block;
+    margin: 4% 2% 10% -5%;
   }
 
   .h1Home {
