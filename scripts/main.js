@@ -44,11 +44,12 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $locationProvider.html5Mode(true);
 }]);
 
-app.controller('MainController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
   $scope.statuses = ReviewService.statuses;
   //$scope.statuses = "This is the scope.statuses";
   //console.log("Statuses", statuses);
   $scope.ReviewService = ReviewService;
+  $scope.putAndGoMap = ReviewService.putAndGoMap;
 
   //$scope.typeField = ReviewService.type.typeField;
   //$scope.typeSalon = ReviewService.type.typeSalon;
@@ -84,6 +85,18 @@ app.controller('MainController', ['$scope', '$http', 'ReviewService', function($
     }
   }
 
+    $scope.putCompleteAndGoNextGoal = function() {
+        console.log('putAndGoNext function hit');
+        //put that subsection to the DB;
+        //need to add resolve for setting new goal and/or page reload
+        if ($scope.currentGoal < 5) {
+            var newGoal = $scope.currentGoal + 1;
+            $scope.setCurrentGoal(newGoal);
+            $location.path('/goals');
+        } else {
+            console.log("else");
+        }
+    }
 }]);
 
 
@@ -95,7 +108,7 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
 
 
 
-app.factory('ReviewService', ['$http', function($http) {
+app.factory('ReviewService', ['$http', '$location', function($http, $location) {
 
   var reviews = {
     thisUser: {},
@@ -131,6 +144,16 @@ app.factory('ReviewService', ['$http', function($http) {
     leaderSix: true,
     leaderSixPlus: true
   };
+
+    var checkStatus = {
+        empChecked: false,
+        leaderChecked: true
+    };
+
+    var submitStatus = {
+        empCannotSubmit: (checkStatus.empChecked == false),
+        leaderCannotSubmit: (checkStatus.leaderChecked == false)
+    };
 
   //Happens on home page load.
   var loadHomePageInfo = function(){
@@ -171,16 +194,32 @@ app.factory('ReviewService', ['$http', function($http) {
     });
   };
 
-  var goToMySignaturePage = function(){
-    getReview
-  }
+  //var goToMySignaturePage = function(){
+    //Will need to getReview;
+    //Then re-route to signature page.
+  //};
+
+    //var emailPDF = function() {
+    //    PUT call to API;
+    //};
+
+    var putAndGoMap = function(){
+        console.log('putAndGoMap function hit');
+        //put that subsection to the DB;
+        $location.path('/map');
+    };
+
+
   return {
     loadHomePageInfo: loadHomePageInfo,
     getReview: getReview,
     reviews: reviews,
     statuses: statuses,
     role: role,
-    type: type
+    type: type,
+      checkStatus: checkStatus,
+      submitStatus: submitStatus,
+      putAndGoMap: putAndGoMap
   };
 
 
