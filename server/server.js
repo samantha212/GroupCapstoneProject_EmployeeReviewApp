@@ -8,7 +8,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/regiscorp';
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/regis-reviews';
 
 app.use('/', index);
 
