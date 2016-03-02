@@ -85,18 +85,21 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
       }
   };
 
+    $scope.goToHair = ($scope.currentGoal == 5);
+    $scope.goToGoal = ($scope.currentGoal < 5);
+
     $scope.putCompleteAndGoNextGoal = function() {
         console.log('putAndGoNext function hit');
         //put that subsection to the DB;
-        //need to add resolve for setting new goal and/or page reload
         if (ReviewService.subsections.currentGoal < 5) {
-            console.log('current goal', ReviewService.subsections.currentGoal);
+            //console.log('current goal', ReviewService.subsections.currentGoal);
             var newGoal = ReviewService.subsections.currentGoal + 1;
-            console.log('new goal should be', newGoal);
+            //console.log('new goal should be', newGoal);
             $scope.setCurrentGoal(newGoal);
-            $location.path('/goals');
         } else {
-            console.log("else");
+            console.log('current goal', ReviewService.subsections.currentGoal);
+            $scope.setCurrentHAIR(1);
+            $location.path('/hair');
         }
     }
 }]);
