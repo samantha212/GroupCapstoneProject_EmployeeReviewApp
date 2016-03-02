@@ -174,12 +174,12 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
   };
 
     var checkStatus = {
-        empChecked: false,
-        leaderChecked: true
+        empChecked: true,
+        leaderChecked: true,
     };
 
     var submitStatus = {
-        empCannotSubmit: (checkStatus.empChecked == false),
+        empCannotSubmit: !checkStatus.empChecked,
         leaderCannotSubmit: (checkStatus.leaderChecked == false)
     };
 
