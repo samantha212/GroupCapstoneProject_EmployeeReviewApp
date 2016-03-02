@@ -205,6 +205,9 @@ a {
   overflow-y: auto;
   z-index: 1000; }
 
+.Mapbuttons {
+  margin-top: 3%; }
+
 .alignButton {
   margin: 1% 9% 0 auto;
   text-align: center;
@@ -218,7 +221,8 @@ a {
 .homeOrange {
   font-size: 16px;
   font-family: Helvetica;
-  font-weight: lighten; }
+  font-weight: lighten;
+  margin-right: 10%; }
 
 .grey {
   font-size: 16px;
@@ -360,7 +364,8 @@ fieldset[disabled] .grey.active {
     font-size: 100%; }
 
   .homeOrange {
-    font-size: 100%; }
+    font-size: 100%;
+    margin-right: 0; }
 
   .grey {
     font-size: 100%; }
@@ -479,8 +484,9 @@ fieldset[disabled] .grey.active {
     font-size: 75%; }
 
   .homeOrange {
-    font-size: 45%;
-    margin-top: 1%; }
+    font-size: 50%;
+    margin-top: 1%;
+    margin-right: 0; }
 
   .grey {
     font-size: 75%; }
