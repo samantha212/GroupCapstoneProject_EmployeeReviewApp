@@ -4,8 +4,8 @@ app.controller('FinancesController', ['$scope', '$http', 'ReviewService', functi
     function makePercentage(firstValue, secondValue){
       return ((firstValue / secondValue) * 100).toFixed(1);
     }
-    
-    $scope.serviceVariance = rs.SS_Actual  - rs.SS_Target;
+
+    $scope.serviceVariance = rs.SS_Actual - rs.SS_Target;
     $scope.servicePercentOfTarget = makePercentage(rs.SS_Actual, rs.SS_Target);
 
     $scope.retailVariance = rs.RS_Actual - rs.RS_Target;
@@ -28,20 +28,20 @@ app.controller('FinancesController', ['$scope', '$http', 'ReviewService', functi
         {id: '1', name: 'Does Not Meet Expectations = Below 98.5%'}
       ];
 
-    $scope.tsRating = giveOption(rs.TS_Rating);
-    $scope.cRating = giveOption(rs.C_Rating);
-    $scope.sgcRating = giveOption(rs.SGC_Rating);
-    $scope.overallRating = giveOption(rs.OverallRating);
+    $scope.tsRating = giveOption(rs.TS_Rating, $scope.dropDownOption);
+    $scope.cRating = giveOption(rs.C_Rating, $scope.dropDownOption);
+    $scope.sgcRating = giveOption(rs.SGC_Rating, $scope.dropDownOption);
+    $scope.overallRating = giveOption(rs.OverallRating, $scope.dropDownOption);
 
-    function giveOption(theRating){
+    function giveOption(theRating, theDropDown){
       if(theRating == 1){
-        return $scope.dropDownOption[3];
+        return theDropDown[3];
       }else if(theRating == 2){
-        return $scope.dropDownOption[2];
+        return theDropDown[2];
       }else if(theRating == 3){
-        return $scope.dropDownOption[1];
+        return theDropDown[1];
       }else{
-        return $scope.dropDownOption[0];
+        return theDropDown[0];
       }
     }
 }]);
