@@ -32,6 +32,21 @@ body{
   margin:7% auto 1% auto;
 }
 
+.h1Hair{
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 40px
+}
+
+.hairDescription{
+  display: block;
+  margin:-5% auto 8% 9%;
+}
+.h2{
+  font-size: 22px;
+  line-height: 40px;
+}
+
 
 h4{
     padding-top: 2%;
@@ -348,7 +363,7 @@ a{
 
 // HAIR IMAGES LOGOS
 
-.hairmages{
+.hairImages{
   margin-top: 4%;
   max-width: 7%;
 }
@@ -409,6 +424,15 @@ a{
     padding-left: 8px;
   }
 
+  .hairDescription{
+    display: block;
+    margin:-9% auto 13% 18%;
+  }
+  .h1Hair{
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 40px
+  }
   .selectDrop{
     background-color: rgb(255,255,255);
     display: block;
@@ -467,8 +491,8 @@ a{
     font-size: 100%;
   }
 
-  .hairmages{
-    margin-top: 1%;
+  .hairImages{
+    margin-top: 8%;
     max-width: 15%;
   }
 
@@ -559,6 +583,17 @@ a{
     padding-left: 8px;
   }
 
+  .hairDescription{
+      display: block;
+      margin:-19% auto 11% 23%;
+    }
+
+    .h1Hair{
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 40px
+    }
+
   .selectDrop{
     background-color: rgb(255,255,255);
     display: block;
@@ -594,7 +629,7 @@ a{
 
   .h5{
     font-size: 12px;
-    color: rgb(86,86,91);
+    color:black;
   }
 
   .pageNames{
@@ -633,9 +668,9 @@ a{
     font-size: 75%;
   }
 
-  .hairmages{
-    margin-top: 1%;
-    max-width: 15%;
+  .hairImages{
+    margin-top: 8%;
+    max-width: 18%;
   }
 
 .sidebarRight{
