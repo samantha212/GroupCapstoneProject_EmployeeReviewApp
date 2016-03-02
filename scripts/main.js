@@ -132,6 +132,16 @@ app.factory('ReviewService', ['$http', function($http) {
     leaderSixPlus: true
   };
 
+    var checkStatus = {
+        empChecked: false,
+        leaderChecked: true
+    };
+
+    var submitStatus = {
+        empCannotSubmit: (checkStatus.empChecked == false),
+        leaderCannotSubmit: (checkStatus.leaderChecked == false)
+    };
+
   //Happens on home page load.
   var loadHomePageInfo = function(){
     //gets the users token, change the number from 1-5 to get different users
@@ -172,15 +182,17 @@ app.factory('ReviewService', ['$http', function($http) {
   };
 
   var goToMySignaturePage = function(){
-    getReview
-  }
+    //getReview
+  };
   return {
     loadHomePageInfo: loadHomePageInfo,
     getReview: getReview,
     reviews: reviews,
     statuses: statuses,
     role: role,
-    type: type
+    type: type,
+      checkStatus: checkStatus,
+      submitStatus: submitStatus
   };
 
 
