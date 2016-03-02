@@ -26,6 +26,19 @@ body {
   padding-right: 9%;
   margin: 7% auto 1% auto; }
 
+.h1Hair {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 40px; }
+
+.hairDescription {
+  display: block;
+  margin: -5% auto 8% 9%; }
+
+.h2 {
+  font-size: 22px;
+  line-height: 40px; }
+
 h4 {
   padding-top: 2%;
   padding-bottom: 0%;
@@ -283,7 +296,7 @@ fieldset[disabled] .grey.active {
   font-family: Helvetica;
   font-weight: lighten; }
 
-.hairmages {
+.hairImages {
   margin-top: 4%;
   max-width: 7%; }
 
@@ -330,6 +343,15 @@ fieldset[disabled] .grey.active {
     height: 30px;
     padding-top: 4px;
     padding-left: 8px; }
+
+  .hairDescription {
+    display: block;
+    margin: -9% auto 13% 18%; }
+
+  .h1Hair {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 40px; }
 
   .selectDrop {
     background-color: white;
@@ -379,8 +401,8 @@ fieldset[disabled] .grey.active {
   .review {
     font-size: 100%; }
 
-  .hairmages {
-    margin-top: 1%;
+  .hairImages {
+    margin-top: 8%;
     max-width: 15%; }
 
   .sidebarRight {
@@ -439,6 +461,15 @@ fieldset[disabled] .grey.active {
     padding-top: 4px;
     padding-left: 8px; }
 
+  .hairDescription {
+    display: block;
+    margin: -19% auto 11% 23%; }
+
+  .h1Hair {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 40px; }
+
   .selectDrop {
     background-color: white;
     display: block;
@@ -470,7 +501,7 @@ fieldset[disabled] .grey.active {
 
   .h5 {
     font-size: 12px;
-    color: #56565b; }
+    color: black; }
 
   .pageNames {
     font-size: 12px;
@@ -500,9 +531,9 @@ fieldset[disabled] .grey.active {
   .review {
     font-size: 75%; }
 
-  .hairmages {
-    margin-top: 1%;
-    max-width: 15%; }
+  .hairImages {
+    margin-top: 8%;
+    max-width: 18%; }
 
   .sidebarRight {
     display: none; }
