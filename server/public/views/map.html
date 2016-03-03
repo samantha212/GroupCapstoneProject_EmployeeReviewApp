@@ -11,7 +11,7 @@
     <span class="h5">Regis ID:</span>  <span class="pageNames">{{currentReview.empInfo.RegisId}}</span>
     <hr>
     <!--Employee View-->
-    <div ng-if="ReviewService.role.leader">
+    <div ng-if="ReviewService.role.emp">
         <div>
             <p ng-show="currentReview.subsections[0].isCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/finances">Finances</a></p>
             <p ng-hide="currentReview.subsections[0].isCompleted;"><img src="/assets/images/checkboxUnchecked.png">  <a href="/finances">Finances</a></p>
@@ -106,7 +106,7 @@
       </div>
 
     <!--Leader View-->
-    <div ng-if="ReviewService.role.emp">
+    <div ng-if="ReviewService.role.leader">
         <div>
             <p ng-show="currentReview.subsections[0].isLeaderCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/finances">Finances</a></p>
             <p ng-hide="currentReview.subsections[0].isLeaderCompleted;"><img src="/assets/images/checkboxUnchecked.png">  <a href="/finances">Finances</a></p>
