@@ -3,4 +3,12 @@ app.controller('FinalRatingController', ['$scope', '$http', 'ReviewService', fun
     $scope.finalData = ReviewService.currentReview.subsections;
     $scope.subsections = ReviewService.subsections;
 
+    $scope.putCompleteAndGoMap = function() {
+        console.log('putAndGoMap function hit');
+        //put that subsection to the DB;
+        //Mark subsection as complete.
+        $scope.goMap();
+    };
+
+
 }]);
