@@ -24,9 +24,16 @@ app.controller('HairController', ['$scope', '$http', '$location', 'ReviewService
         $scope.goNextHAIR();
       }
     });
+  };
 
-    //put that subsection to the DB;
-    $scope.goNextHAIR();
+  $scope.putAndGoMap = function() {
+    var contentToSend = {regisId: $scope.currentReviewEmpInfo.RegisId, SectionId: 3, SubsectionId: ReviewService.subsections.currentHAIR-5, data: {EmployeeResponse: $scope.hairData[ReviewService.subsections.currentHAIR].EmployeeResponse, LeaderResponse: $scope.hairData[ReviewService.subsections.currentHAIR].LeaderResponse}};
+    $http.post('/updateData', contentToSend).then(function(response){
+      if(response.status == 200){
+        ReviewService.getReview($scope.currentReviewEmpInfo.RegisId);
+        $location.path('/map');
+      }
+    });
   };
 
   $scope.goNextHAIR = function() {

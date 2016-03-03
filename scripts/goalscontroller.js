@@ -24,18 +24,11 @@ app.controller('GoalsController', ['$scope', '$http', '$location', 'ReviewServic
     };
 
     $scope.putAndGoMap = function(){
-      var leaderIsComp = false;
-      var empIsComp = false;
-
-      if(role.leader == true){
-        leaderIsComp = true;
-      }else{
-        empIsComp = true;
-      }
-      var contentToSend = {regisId: $scope.currentReviewEmpInfo.RegisId, SectionId: 2, SubsectionId: ReviewService.subsections.currentGoal, data: {Goal: $scope.goalData[ReviewService.subsections.currentGoal].Goal, EmployeeResponse: $scope.goalData[ReviewService.subsections.currentGoal].EmployeeResponse, LeaderResponse: $scope.goalData[ReviewService.subsections.currentGoal].LeaderResponse, EmployeeGoalRating: $scope.goalData[ReviewService.subsections.currentGoal].EmployeeGoalRating, LeaderGoalRating: $scope.goalData[ReviewService.subsections.currentGoal].LeaderGoalRating, isCompleted: empIsComp, isLeaderCompleted: leaderIsComp}};
+      var contentToSend = {regisId: $scope.currentReviewEmpInfo.RegisId, SectionId: 2, SubsectionId: ReviewService.subsections.currentGoal, data: {Goal: $scope.goalData[ReviewService.subsections.currentGoal].Goal, EmployeeResponse: $scope.goalData[ReviewService.subsections.currentGoal].EmployeeResponse, LeaderResponse: $scope.goalData[ReviewService.subsections.currentGoal].LeaderResponse, EmployeeGoalRating: $scope.goalData[ReviewService.subsections.currentGoal].EmployeeGoalRating, LeaderGoalRating: $scope.goalData[ReviewService.subsections.currentGoal].LeaderGoalRating}};
 
       $http.post('/updateData', contentToSend).then(function(response){
         if(response.status == 200){
+          ReviewService.getReview($scope.currentReviewEmpInfo.RegisId);
           $location.path('/map');
         }
       });
