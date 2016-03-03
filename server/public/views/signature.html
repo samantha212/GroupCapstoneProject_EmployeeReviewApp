@@ -1,7 +1,7 @@
 
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="clearfix"></div>
 
-           <div class="clearfix"></div>
   <div class="employeeInfo">
       <h1 class="title">Signature Page</h1>
       <h5>Review for:  {{currentReviewEmpInfo.EmployeeName}}</h5>
@@ -11,24 +11,28 @@
 
 <div ng-if="statuses.empSix">
   <h4>Employee Initials:</h4>
-  <input type="text" class="initialInput form-control" placeholder="Initial Here" ng-model="employeeSignature"></input>
+  <input type="text" class="initialInput form-control" placeholder="Initial Here" ng-model="currentReviewEmpInfo.EmployeeSignature"></input>
   <input type="checkbox" class="checkMe well" ng-model="checkStatus.empChecked">
+    <!--Keep the lines below for testing.-->
+    <!--<p>Checkbox status {{checkStatus.empChecked}}</p>-->
+    <!--<p>Submit status {{submitStatus.empCannotSubmit}}</p>-->
   <p>I understand my electronic signature has the same validity as my handwritten signature, and it confirms I have been advised of my performance status and I was given an opportunity to respond to the Performance Review.</p>
 
   <div class="alignButton">
     <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span>BACK</button>
     <!--Make sure this function name matches what is on scope.-->
-    <button type="button" class="orange btn btn-warning btn-responsive" ng-disabled="submitStatus.empCannotSubmit" ng-click="putAndGoHome()"><span class="glyphicon glyphicon-pencil"></span> SIGN</button>
+    <button type="button" class="orange btn btn-warning btn-responsive" ng-disabled="submitStatus.empSubmitStatus" ng-click="putAndGoHome()"><span class="glyphicon glyphicon-pencil"></span> SIGN</button>
+    <!--<button type="button" class="orange btn btn-warning btn-responsive" ng-disabled="empSubmitStatus" ng-click="putAndGoHome()"><span class="glyphicon glyphicon-pencil"></span> SIGN</button>-->
     <!--Make sure this function name matches what is on scope.-->
   </div>
 </div>
 
 <div ng-if="statuses.leaderSix">
   <h4>Leader Initials:</h4>
-  <input type="text" class="initialInput form-control" placeholder="Initials" ng-model="leaderSignature"></input>
+  <input type="text" class="initialInput form-control" placeholder="Initials" ng-model="currentReviewEmpInfo.LeaderSignature"></input>
   <input type="checkbox" class="checkMe well" ng-model="checkStatus.leaderChecked">
 
-  <p>I understand my electronic signature has the same validity as my handwritten signature, and it confirms I have been advised of my performance status and I was given an opportunity to respond to the Performance Review.</p>
+  <p>I understand an electronic signature has the same validity as a handwritten signature, and it confirms Employee was advised of his/her performance status and given an opportunity to respond to the Performance Review.</p>
   <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
         <span class="glyphicon glyphicon-step-backward"></span>BACK</button>
@@ -38,5 +42,5 @@
   </div>
 </div>
 
-<!-- container div -->
+    <!-- container div -->
 </div>
