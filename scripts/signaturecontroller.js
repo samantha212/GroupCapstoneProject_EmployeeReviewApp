@@ -5,10 +5,6 @@ app.controller('SignatureController', ['$scope', '$http', 'ReviewService', funct
     $scope.finalData = ReviewService.currentReview.subsections;
     $scope.subsections = ReviewService.subsections;
 
-    //*** Need to revisit to make this dynamic.
-    $scope.checkStatus = ReviewService.checkStatus;
-    $scope.submitStatus = ReviewService.submitStatus;
-
     $scope.putAndGoHome = function(){
         console.log("sign Button clicked!")
     };
