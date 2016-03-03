@@ -93,6 +93,10 @@ h4{
   font-size: 20px;
 }
 
+.FinapageNames{
+  font-weight: lighter;
+}
+
 .empName{
   font-size: 20px;
   margin-top: 1%;
@@ -263,6 +267,13 @@ a{
   margin: 4% 47% 10% auto;
 }
 
+.EmpRev{
+  font-size: 28px;
+  padding-right:0;
+  text-align: center;
+  display: block;
+  margin: 11% 11% 3% auto;
+}
 
 .secondGoalSelectDrop{
   background-color: rgb(255,255,255);
@@ -595,12 +606,12 @@ a{
     margin:7% auto 8% auto;
   }
 
-  .h1EmpRev{
+  .EmpRev{
     font-size: 28px;
     padding-right:0;
-    margin: 11% auto 3% auto;;
     text-align: center;
-  }
+    display: block;
+    margin: 11% auto 3% auto;
   }
 
   .homepageSubs3rd{
@@ -849,6 +860,14 @@ a{
   .pageNames{
     font-size: 13px;
     color: black;
+  }
+
+  .EmpRev{
+    font-size: 20px;
+    padding-right:0;
+    text-align: center;
+    display: block;
+    margin: 21% auto 3% auto;
   }
 
   .empName{
