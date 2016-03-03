@@ -15,7 +15,7 @@ app.controller('StrengthsDevsController', ['$scope', '$http', '$location', 'Revi
         console.log('goNextStrengthDev function hit');
 
         if (ReviewService.subsections.currentStrengthDev < 12) {
-            ReviewService.subsections.currentStrengthDev += 1;
+            $scope.setCurrentStrengthDev(2);
             console.log('current strength/dev:', ReviewService.subsections.currentStrengthDev);
         } else {
             $location.path('/final-rating');
