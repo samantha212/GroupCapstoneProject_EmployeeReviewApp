@@ -79,7 +79,7 @@
       <tr ng-if="statuses.leaderSixPlus">
         <td><b>Retail Sales $</b></td>
         <td>{{financeData.RS_Actual | currency}}</td>
-        <td>{{financeData.RS_Target | currenc}}</td>
+        <td>{{financeData.RS_Target | currency}}</td>
         <td>{{makeVariance(financeData.RS_Actual, financeData.RS_Target) | currency}}</td>
         <td>{{makePercentage(financeData.RS_Actual, financeData.RS_Target)}}%</td>
         <td></td>
