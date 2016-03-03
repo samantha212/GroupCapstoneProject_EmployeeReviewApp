@@ -6,10 +6,10 @@
       <span class="h5">Regis ID:<span>  <span class="FinapageNames">{{currentReview.empInfo.RegisId}}</span>
   </div>
     <hr>
-  <div>
+
       <!--These are the table headers. First column header is empty.-->
-  </div>
-  <table class="table table-bordered" id="table">
+<!-- <div class="panel panel-default"> -->
+  <table class="table responsive-table table-bordered">
     <thead><tr><th></th><th>Actual</th><th>Target</th><th>Variance</th><th>% Target</th><th ng-if="statuses.empFivePlus">Rating</th></tr></thead>
     <tbody>
       <tr ng-if="ReviewService.role.emp">
@@ -149,6 +149,9 @@
       </tr>
     </tbody>
   </table>
+<!-- </div> -->
+
+<div class="clearfix"></div
   <div ng-if="statuses.leaderThreeFourFive" style="float:right;">
     <p>Overall Financial Performance Rating:
       <select class="well" ng-model="financeData.OverallRating">

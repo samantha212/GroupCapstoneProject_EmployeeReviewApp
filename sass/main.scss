@@ -325,7 +325,7 @@ a{
   background-color: rgb(255,255,255);
   display: inline-block;
   // margin: 0 auto;
-  width: 8%;
+  width: 100%;
 }
 
 
@@ -483,6 +483,10 @@ a{
   .container{
     padding-bottom: 4%;
   }
+
+  // .table{
+  //   width: 45%;
+  // }
 
   .pageNames{
     font-size: 22px;
@@ -988,5 +992,62 @@ display: none;
     display: block;
     margin: -9% 89% -4% -3%;
   }
+ //
+ //  .responsive-table {
+ //        border-top: 1px solid #ccc;
+ //    }
+ //
+ //  .responsive-table th,
+ //  .responsive-table thead{
+ //      display: none;
+ //  }
+ //
+ //  .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
+ //       display: block;
+ //   }
+ //
+ // .responsive-table tr {
+ //      border-bottom: 1px solid #ccc;
+ //  }
+ //  .responsive-table td {
+ //      /* important to override bootstrap */
+ //      padding-left: 50% !important;
+ //      border-top: 0 !important;
+ //      text-align: left;
+ //      position: relative;
+ //      border-bottom: 0;
+ //  }
+ //
+ //  /* Now like a table header */
+ //    .responsive-table td:before {
+ //        font-weight: bold;
+ //        font-size: 12px;
+ //        color: black;
+ //        position: absolute;
+ //        margin-left: -50%;
+ //        width: 50%;
+ //        white-space: nowrap;
+ //        content: attr(data-content);
+ //    }
+ //
+ //    .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
+ //        display: block;
+ //        margin-left: -50%;
+ //        width: 50%;
+ //    }
+ //    .responsive-table td:before {
+ //        font-weight: bold;
+ //        font-size: 12px;
+ //        color: black;
+ //        position: absolute;
+ //        margin-left: -50%;
+ //        width: 50%;
+ //        white-space: nowrap;
+ //        // content: attr(data-content);
+ //    }
 
+ // td, tr, th{
+ //   width: 100%;
+ //   display: block;
+ // }
 }

@@ -266,7 +266,7 @@ a {
 .financialInput {
   background-color: white;
   display: inline-block;
-  width: 8%; }
+  width: 100%; }
 
 .customCheckBox {
   width: 34px;
