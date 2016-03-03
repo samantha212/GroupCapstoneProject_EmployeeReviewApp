@@ -7,7 +7,6 @@
   </div>
     <hr>
 
-      <!--These are the table headers. First column header is empty.-->
 <!-- <div class="panel panel-default"> -->
   <table class="table responsive-table table-bordered">
     <thead><tr><th></th><th>Actual</th><th>Target</th><th>Variance</th><th>% Target</th><th ng-if="statuses.empFivePlus">Rating</th></tr></thead>
@@ -149,7 +148,6 @@
       </tr>
     </tbody>
   </table>
-<!-- </div> -->
 
 <div class="clearfix"></div
   <div ng-if="statuses.leaderThreeFourFive" style="float:right;">
@@ -173,65 +171,13 @@
   </div>
   <div class="clearfix"></div>
 
-  <!-- ** Employee View ** -->
-
-  <!--Each of these divs is a row.-->
-  <!-- <div ng-if="ReviewService.role.emp">
-      <p>Service Sales $</p>
-      <p>{{financeData.SS_Actual | currency}}</p>
-      <p>{{financeData.SS_Target | currency}}</p>
-      <p>{{makeVariance(financeData.SS_Actual, financeData.SS_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.SS_Actual, financeData.SS_Target) | currency}}%</p>
-      <p ng-if="statuses.empFivePlus"> </p>
-  </div>
-
-  <div ng-if="ReviewService.role.emp">
-      <p>Retail Sales $</p>
-      <p>{{financeData.RS_Actual | currency}}</p>
-      <p>{{financeData.RS_Target | currency}}</p>
-      <p>{{makeVariance(financeData.RS_Actual, financeData.RS_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.RS_Actual, financeData.RS_Target) | currency}}%</p>
-      <p ng-if="statuses.empFivePlus"> </p>
-  </div>
-
-  <div ng-if="ReviewService.role.emp">
-      <p>Total Sales $</p>
-      <p>{{financeData.TS_Actual | currency}}</p>
-      <p>{{financeData.TS_Target | currency}}</p>
-      <p>{{makeVariance(financeData.TS_Actual, financeData.TS_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.TS_Actual, financeData.TS_Target) | currency}}%</p>
-      <p ng-if="statuses.empFivePlus">{{financeData.TS_Rating}}</p>
-  </div>
-
-  <div ng-if="ReviewService.role.emp">
-      <p>Contribution $</p>
-      <p>{{financeData.C_Actual | currency}}</p>
-      <p>{{financeData.C_Target | currency}}</p>
-      <p>{{makeVariance(financeData.C_Actual, financeData.C_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.C_Actual, financeData.C_Target) | currency}}%</p>
-      <p ng-if="statuses.empFivePlus">{{financeData.C_Rating}} </p>
-  </div>
-
-  <div ng-if="ReviewService.role.emp">
-      <p>Service Guest Count</p>
-      <p>{{financeData.SGC_Actual}}</p>
-      <p>{{financeData.SGC_Target}}</p>
-      <p>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target) | currency}}%</p>
-      <p ng-if="statuses.empFivePlus">{{financeData.SGC_Rating}}</p>
-  </div>
-
-    <!--Need to update this rating -- not in the returned object yet. -->
-  <!-- <div ng-if="statuses.empFivePlus">
-      <p>Overall Financial Performance Rating:</p>
-      <p>{{financeData.OverallRating}}</p>
-  </div> -->
+  <!-- ** Employee View Buttons ** -->
 
   <div ng-if="statuses.empOneTwo">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure this function name matches what is on scope.-->
-        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoGoals()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
         <!--Make sure this function name matches what is on scope.-->
       </div>
   </div>
@@ -240,144 +186,21 @@
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure the name of this function matches what is on scope.-->
-        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goGoals()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
         <!--Make sure the name of this function matches what is on scope.-->
       </div>
   </div>
 
-  <!-- ** Leader Views ** -->
+  <!-- ** Leader Views Buttons ** -->
 
-  <!--Each of these divs is a row.-->
-  <!-- <div ng-if="statuses.leaderThreeFourFive">
-      <p>Service Sales $</p>
-      <input type="number" class="financialInput form-control" ng-model="financeData.SS_Actual">
-      <input type="number" class="financialInput form-control" ng-model="financeData.SS_Target">
-      <p>{{makeVariance(financeData.SS_Actual, financeData.SS_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.SS_Actual, financeData.SS_Target) | currency}}%</p>
-      <p> </p> -->
-      <!--No rating for Service Sales - empty-->
-  <!-- </div>
-
-  <div ng-if="statuses.leaderSixPlus">
-      <p>Service Sales $</p>
-      <p>{{financeData.SS_Actual}}</p>
-      <p>{{financeData.SS_Target}}</p>
-      <p>{{makeVariance(financeData.SS_Actual, financeData.SS_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.SS_Actual, financeData.SS_Target) | currency}}%</p>
-      <p> </p>
   </div>
-
-  <div ng-if="statuses.leaderThreeFourFive">
-      <p>Retail Sales $</p>
-      <input type="number" class="financialInput form-control" ng-model="financeData.RS_Actual">
-      <input type="number" class="financialInput form-control" ng-model="financeData.RS_Target">
-      <p>{{makeVariance(financeData.RS_Actual, financeData.RS_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.RS_Actual, financeData.RS_Target) | currency}}</p>
-      <p> </p> -->
-      <!--No rating for Retail Sales - empty-->
-  <!-- </div>
-
-  <div ng-if="statuses.leaderSixPlus">
-      <p>Retail Sales $</p>
-      <p>{{financeData.RS_Actual}}</p>
-      <p>{{financeData.RS_Target}}</p>
-      <p>{{makeVariance(financeData.RS_Actual, financeData.RS_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.RS_Actual, financeData.RS_Target) | currency}}%</p>
-      <p> </p> -->
-      <!--No rating for Service Sales - empty-->
-  <!-- </div> -->
-
-  <!-- <div ng-if="statuses.leaderThreeFourFive">
-      <p>Total Sales $</p>
-      <input type="number" class="financialInput form-control"  ng-model="financeData.TS_Actual">
-      <input type="number" class="financialInput form-control" ng-model="financeData.TS_Target">
-      <p>{{makeVariance(financeData.TS_Actual, financeData.TS_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.TS_Actual, financeData.TS_Target) | currency}}</p>
-      <select class="well" ng-model="financeData.TS_Rating">
-        <option value="0">--- Please Select A Rating ---</option>
-        <option value="3">Exceeds Expectations = 101.5% and Above</option>
-        <option value="2">Meets Expectations = 98.5% - 101.4%</option>
-        <option value="1">Does Not Meet Expectations = Below 98.5%</option>
-      </select>
-  </div>
-
-  <div ng-if="statuses.leaderSixPlus">
-      <p>Total Sales $</p>
-      <p>{{financeData.TS_Actual}}</p>
-      <p>{{financeData.TS_Target}}</p>
-      <p>{{makeVariance(financeData.TS_Actual, financeData.TS_Target) | currency)}}</p>
-      <p>{{makePercentage(financeData.TS_Actual, financeData.TS_Target) | currency}}%</p>
-      <p>{{financeData.TS_Rating}}</p>
-  </div>
-
-  <div ng-if="statuses.leaderThreeFourFive">
-      <p>Contribution $</p>
-      <input type="number" class="financialInput form-control" ng-model="financeData.C_Actual">
-      <input type="number" class="financialInput form-control" ng-model="financeData.C_Target">
-      <p>{{makeVariance(financeData.C_Actual, financeData.C_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.C_Actual, financeData.C_Target) | currency}}</p>
-      <select class="well" ng-model="financeData.C_Rating">
-        <option value="0">--- Please Select A Rating ---</option>
-        <option value="3">Exceeds Expectations = 101.5% and Above</option>
-        <option value="2">Meets Expectations = 98.5% - 101.4%</option>
-        <option value="1">Does Not Meet Expectations = Below 98.5%</option>
-      </select>
-  </div>
-
-  <div ng-if="statuses.leaderSixPlus">
-      <p>Contribution $</p>
-      <p>{{financeData.C_Actual}}</p>
-      <p>{{financeData.C_Target}}</p>
-      <p>{{makeVariance(financeData.C_Actual, financeData.C_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.C_Actual, financeData.C_Target) | currency}}%</p>
-      <p>{{financeData.C_Rating}}</p>
-  </div>
-
-  <div ng-if="statuses.leaderThreeFourFive">
-      <p>Service Guest Count</p>
-      <input type="number" class="financialInput form-control" ng-model="financeData.SGC_Actual">
-      <input type="number" class="financialInput form-control" ng-model="financeData.SGC_Actual">
-      <p>This is the test of the SCG Rating {{financeData.SGC_Rating}}</p>
-      <p>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target) | currency}}%</p>
-      <select class="well" ng-model="financeData.SGC_Rating">
-        <option value="0">--- Please Select A Rating ---</option>
-        <option value="3">Exceeds Expectations = 101.5% and Above</option>
-        <option value="2">Meets Expectations = 98.5% - 101.4%</option>
-        <option value="1">Does Not Meet Expectations = Below 98.5%</option>
-      </select>
-  </div>
-
-  <div ng-if="statuses.leaderSixPlus">
-      <p>Service Guest Count</p>
-      <p>{{financeData.SGC_Actual}}</p>
-      <p>{{financeData.SGC_Actual}}</p>
-      <p>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target) | currency}}</p>
-      <p>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target) | currency}}%</p>
-      <p ng-if="statuses.empFivePlus">{{financeData.SGC_Rating}}</p>
-  </div>
-
-    <div ng-if="statuses.leaderThreeFourFive">
-      <p>Overall Financial Performance Rating:</p>
-      <select class="well" ng-model="financeData.OverallRating">
-        <option value="0">--- Please Select A Rating ---</option>
-        <option value="3">Exceeds Expectations = 101.5% and Above</option>
-        <option value="2">Meets Expectations = 98.5% - 101.4%</option>
-        <option value="1">Does Not Meet Expectations = Below 98.5%</option>
-      </select>
-  </div>
-
-    <div ng-if="statuses.leaderSixPlus">
-      <p>Overall Financial Performance Rating:</p>
-      <p>{{financeData.OverallRating}}</p>
-  </div> -->
 
   <div ng-if="statuses.leaderThreeFourFive">
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">
             <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure this function name matches what is on scope.-->
-        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNext()">
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoGoals()">
             <span class="glyphicon glyphicon-ok"></span> DONE</button>
         <!--Make sure this function name matches what is on scope.-->
       </div>
@@ -388,7 +211,7 @@
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
             <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure the name of this function matches what is on scope.-->
-        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNext()">
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goGoals()">
             <span class="glyphicon glyphicon-ok"></span> DONE</button>
         <!--Make sure the name of this function matches what is on scope.-->
       </div>
