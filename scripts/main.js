@@ -173,16 +173,6 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     leaderSixPlus: true
   };
 
-    var checkStatus = {
-        empChecked: true,
-        leaderChecked: true,
-    };
-
-    var submitStatus = {
-        empCannotSubmit: !checkStatus.empChecked,
-        leaderCannotSubmit: (checkStatus.leaderChecked == false)
-    };
-
   //Happens on home page load.
   var loadHomePageInfo = function(){
     //gets the users token, change the number from 1-5 to get different users
@@ -231,15 +221,6 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     });
   };
 
-  //var goToMySignaturePage = function(){
-    //Will need to getReview;
-    //Then re-route to signature page.
-  //};
-
-    //var emailPDF = function() {
-    //    PUT call to API;
-    //};
-
     var putAndGoMap = function(){
         console.log('putAndGoMap function hit');
         //put that subsection to the DB;
@@ -259,8 +240,6 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
       statuses: statuses,
       role: role,
       type: type,
-      checkStatus: checkStatus,
-      submitStatus: submitStatus,
       putAndGoMap: putAndGoMap
   };
 
