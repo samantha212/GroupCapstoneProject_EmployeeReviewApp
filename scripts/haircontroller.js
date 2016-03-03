@@ -1,4 +1,4 @@
-app.controller('HairController', ['$scope', '$http', '$location', 'ReviewService',function($scope, $http, $location, ReviewService){
+app.controller('HairController', ['$scope', '$http', '$location', '$anchorScroll', 'ReviewService',function($scope, $http, $location, $anchorScroll, ReviewService){
   $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
   $scope.hairData = ReviewService.currentReview.subsections;
   $scope.subsections = ReviewService.subsections;
@@ -40,6 +40,7 @@ app.controller('HairController', ['$scope', '$http', '$location', 'ReviewService
     console.log('GoNextHAIR function hit');
     if (ReviewService.subsections.currentHAIR < 9) {
       ReviewService.subsections.currentHAIR += 1;
+      $anchorScroll('top');
     } else {
       $location.path('/hair-rating');
     }

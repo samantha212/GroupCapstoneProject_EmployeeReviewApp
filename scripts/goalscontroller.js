@@ -1,4 +1,4 @@
-app.controller('GoalsController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
+app.controller('GoalsController', ['$scope', '$http', '$location', '$anchorScroll', 'ReviewService', function($scope, $http, $location, $anchorScroll, ReviewService){
     $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
     $scope.goalData = ReviewService.currentReview.subsections;
     var role = ReviewService.role;
@@ -38,6 +38,7 @@ app.controller('GoalsController', ['$scope', '$http', '$location', 'ReviewServic
         if (ReviewService.subsections.currentGoal < 5) {
             var newGoal = ReviewService.subsections.currentGoal + 1;
             $scope.setCurrentGoal(newGoal);
+            $anchorScroll('top');
         } else {
             console.log('current goal', ReviewService.subsections.currentGoal);
             $scope.setCurrentHAIR(1);
