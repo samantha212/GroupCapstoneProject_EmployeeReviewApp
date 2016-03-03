@@ -3,7 +3,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var pg = require('pg');
 
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/regiscorp';
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/regis-reviews';
 
 router.post('/', function(request, response){
   console.log("post route hit");
