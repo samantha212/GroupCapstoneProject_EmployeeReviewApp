@@ -148,6 +148,14 @@ a {
   width: 80%;
   height: 300px; }
 
+.legal {
+  background-color: white;
+  display: block;
+  margin: -1% auto 8% 22%;
+  padding: 1% 1% 1% 1%;
+  width: 47%;
+  height: 165px; }
+
 .hairRatingbox {
   background-color: white;
   display: block;
@@ -245,8 +253,8 @@ a {
 .initialInput {
   background-color: white;
   display: block;
-  margin: 0 auto;
-  width: 8%; }
+  margin: 3% 50% 5% auto;
+  width: 9%; }
 
 .financialInput {
   background-color: white;
@@ -255,7 +263,10 @@ a {
 
 .checkMe {
   display: block;
-  font-size: 24px; }
+  margin: -2% 81% -2% 19%; }
+
+checkbox {
+  font-size: 40px; }
 
 .sidebarLeft {
   margin-left: -250px;
@@ -562,7 +573,13 @@ fieldset[disabled] .grey.active {
   .alignButton {
     margin: 1% 0 0 auto;
     text-align: center;
-    padding-bottom: 1%; } }
+    padding-bottom: 1%; }
+
+  .initialInput {
+    background-color: white;
+    display: block;
+    margin: 5% 41% 5% auto;
+    width: 16%; } }
 @media only screen and (max-width: 767px) {
   body {
     font-family: Helvetica Neue, Verdana;
@@ -748,6 +765,12 @@ fieldset[disabled] .grey.active {
   .alignButton {
     margin: 1% 0 0 auto;
     text-align: center;
-    padding-bottom: 1%; } }
+    padding-bottom: 1%; }
+
+  .initialInput {
+    background-color: white;
+    display: block;
+    margin: 10% 29% 10% auto;
+    width: 38%; } }
 
 /*# sourceMappingURL=stylesheet.css.map */

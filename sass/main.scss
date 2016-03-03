@@ -181,6 +181,15 @@ a{
   height: 300px;
 }
 
+.legal{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: -1% auto 8% 22%;
+  padding: 1% 1% 1% 1%;
+  width: 47%;
+  height: 165px;
+}
+
 .hairRatingbox{
   background-color: rgb(255,255,255);
   display: block;
@@ -298,8 +307,8 @@ a{
 .initialInput{
   background-color: rgb(255,255,255);
   display: block;
-  margin: 0 auto;
-  width: 8%;
+  margin: 3% 50% 5% auto;
+  width: 9%;
 
 }
 
@@ -312,7 +321,11 @@ a{
 
 .checkMe{
   display: block;
-  font-size: 24px;
+  margin: -2% 81% -2% 19%;
+}
+
+checkbox{
+  font-size: 40px;
 }
 
 .sidebarLeft{
@@ -684,6 +697,14 @@ a{
     padding-bottom: 1%;
   }
 
+  .initialInput{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 5% 41% 5% auto;
+    width: 16%;
+
+  }
+
 
 }
 
@@ -924,6 +945,14 @@ display: none;
   margin: 1% 0 0 auto;
   text-align: center;
   padding-bottom: 1%;
+}
+
+.initialInput{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 10% 29% 10% auto;
+  width: 38%;
+
 }
 
 }
