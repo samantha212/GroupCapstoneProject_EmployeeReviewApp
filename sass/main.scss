@@ -154,6 +154,14 @@ a{
   height: 300px;
 }
 
+.lasttextAreabox{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 4% auto 8% 6%;
+  width: 82.5%;
+  height: 300px;
+}
+
 
 .ReadboxProperties{
   background-color: rgb(255,255,255);
@@ -235,7 +243,7 @@ a{
   background-color: rgb(255,255,255);
   display: block;
   width: 15%;
-  height: 24px;
+  height: 32px;
   display: block;
   margin: 4% 47% 10% auto;
 }
@@ -465,6 +473,14 @@ a{
     height: 300px;
   }
 
+  .lasttextAreabox{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 8% 6%;
+    width: 90%;
+    height: 300px;
+  }
+
 
   .ReadboxProperties{
     background-color: rgb(255,255,255);
@@ -526,13 +542,14 @@ a{
     width: 40%;
     display: block;
     margin: 3% auto 15% auto;
+    height: 34px;
   }
 
   .goalselectDrop{
     background-color: rgb(255,255,255);
     display: block;
     width: 22%;
-    height: 24px;
+    height: 32px;
     display: block;
     margin: 4% 39% 10% auto;
   }
@@ -544,6 +561,7 @@ a{
     width: 30%;
     display: block;
     margin:3% auto 0 -2%;
+    height: 34px;
   }
 
   .h1 {
@@ -571,28 +589,28 @@ a{
   }
 
   .orange{
-    font-size: 100%;
+    font-size: 160%;
   }
 
   .homeOrange{
-    font-size: 100%;
+    font-size: 130%;
     margin-right: 0;
   }
 
   .grey{
-    font-size: 100%;
+    font-size: 160%;
   }
 
   .green{
-    font-size: 100%;
+    font-size: 160%;
   }
 
   .darkBlue{
-    font-size: 100%;
+    font-size: 160%;
   }
 
   .review{
-    font-size: 100%;
+    font-size: 160%;
   }
 
   .hairImages{
@@ -676,15 +694,23 @@ a{
     background-color: rgb(255,255,255);
     display: block;
     margin: 4% auto 8% 0;
-    width: 97%;
+    width: 95%;
     height: 300px;
   }
 
   .textAreaboxProperties{
     background-color: rgb(255,255,255);
     display: block;
+    margin: 4% auto 8% -2%;
+    width: 108%;
+    height: 300px;
+  }
+
+  .lasttextAreabox{
+    background-color: rgb(255,255,255);
+    display: block;
     margin: 4% auto 8% 0;
-    width: 105%;
+    width: 106%;
     height: 300px;
   }
 
@@ -723,7 +749,7 @@ a{
     background-color: rgb(255,255,255);
     display: block;
     width: 40%;
-    height: 24px;
+    height: 28px;
     display: block;
     margin: 12% auto 15% auto;
   }
@@ -732,7 +758,7 @@ a{
     background-color: rgb(255,255,255);
     display: block;
     width: 53%;
-    height: 24px;
+    height: 31px;
     display: block;
     margin: 4% 23% 10% auto;
   }
@@ -786,29 +812,29 @@ a{
   }
 
   .orange{
-    font-size: 75%;
+    font-size: 115%;
   }
 
   .homeOrange{
-    font-size: 50%;
+    font-size: 70%;
     margin-top: 1%;
     margin-right: 0;
   }
 
   .grey{
-    font-size: 75%;
+    font-size: 115%;
   }
 
   .green{
-    font-size: 75%;
+    font-size: 115%;
   }
 
   .darkBlue{
-    font-size: 75%;
+    font-size: 115%;
   }
 
   .review{
-    font-size: 75%;
+    font-size: 115%;
   }
 
   .hairImages{
