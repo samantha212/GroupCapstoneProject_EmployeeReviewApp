@@ -1,5 +1,5 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <span class="h1">Rating</span>
+  <span class="h1">Final Rating</span>
 
   <div class="employeeInfo">
       <span class="h5">Review for:</span>  <span class="pageNames">{{currentReviewEmpInfo.EmployeeName}}</span><br/>
@@ -9,6 +9,7 @@
   <!--Employee View divs-->
   <div ng-if="statuses.empOneTwo">
     <h4>Employee Rating:</h4>
+    <form name="empfinal" id="empfinal">
       <select class="selectDrop well" ng-model="finalData[13].EmployeeFinalRating">
         <!--Come back and make sure this value matches current subsection thisEmpFinalRating.-->
         <option>3</option>
@@ -18,16 +19,17 @@
       </select>
     <h4>Employee Comments:</h4>
     <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <textarea class="boxProperties well" ng-model="finalData[13].EmployeeResponse">Come back and make sure this text links to EmpFinalComment.</textarea>
+      <textarea class="boxProperties well" ng-model="finalData[13].EmployeeResponse" ng-minlength="10" required>Come back and make sure this text links to EmpFinalComment.</textarea>
     </div>
 
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure this function name matches what is on scope.-->
-        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoMap()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoMap()" ng-disabled="empfinal.$invalid"><span class="glyphicon glyphicon-ok"></span> DONE</button>
         <!--Make sure this function name matches what is on scope.-->
       </div>
   </div>
+</form>
 
   <div ng-if="statuses.empThreePlus">
     <h4>Employee Rating:</h4>
@@ -63,6 +65,7 @@
   </div>
 
   <div ng-if="statuses.leaderThreeFourFive">
+    <form name="leaderfinal" id="leaderfinal">
     <h4>Leader Rating:</h4>
     <select class="selectDrop well" ng-model="finalData[13].LeaderFinalRating">
         <!--Come BACK and make sure this value matches current subsection LeaderFinalRating.-->
@@ -73,15 +76,16 @@
     </select>
     <h4>Leader Comments:</h4>
     <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <textarea class="boxProperties well" ng-model="finalData[13].LeaderResponse"></textarea>
+      <textarea class="boxProperties well" ng-model="finalData[13].LeaderResponse" ng-minlength="10" required></textarea>
     </div>
 
       <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
       <!--Make sure this function name matches what is on scope.-->
-      <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoMap()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+      <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoMap()" ng-disabled="leaderfinal.$invalid"><span class="glyphicon glyphicon-ok"></span> DONE</button>
       <!--Make sure this function name matches what is on scope.-->
       </div>
+    </form>
   </div>
 
   <div ng-if="statuses.leaderSixPlus">
