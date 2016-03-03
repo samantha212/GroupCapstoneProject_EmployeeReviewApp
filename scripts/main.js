@@ -94,22 +94,6 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
         $location.path('/map');
     };
 
-
-    $scope.putCompleteAndGoNextHAIR = function() {
-        console.log('putAndGoNextHAIR function hit');
-        //put that subsection to the DB;
-        $scope.goNextHAIR();
-    };
-
-    $scope.goNextHAIR = function() {
-        console.log('GoNextHAIR function hit');
-        if (ReviewService.subsections.currentHAIR < 9) {
-            ReviewService.subsections.currentHAIR += 1;
-        } else {
-            $location.path('/hair-rating');
-        }
-    };
-
 }]);
 
 
