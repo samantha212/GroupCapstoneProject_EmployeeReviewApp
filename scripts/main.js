@@ -94,23 +94,6 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
         $location.path('/map');
     };
 
-    $scope.putCompleteAndGoNextGoal = function() {
-        console.log('putCompleteAndGoNextGoal function hit');
-        //put that subsection to the DB;
-        //Mark subsection as complete.
-        $scope.goNextGoal();
-    };
-
-    $scope.goNextGoal = function() {
-        if (ReviewService.subsections.currentGoal < 5) {
-            var newGoal = ReviewService.subsections.currentGoal + 1;
-            $scope.setCurrentGoal(newGoal);
-        } else {
-            console.log('current goal', ReviewService.subsections.currentGoal);
-            $scope.setCurrentHAIR(1);
-            $location.path('/hair');
-        }
-    };
 
     $scope.putCompleteAndGoNextHAIR = function() {
         console.log('putAndGoNextHAIR function hit');
