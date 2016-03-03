@@ -47,7 +47,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
   $scope.statuses = ReviewService.statuses;
   $scope.ReviewService = ReviewService;
-  $scope.putAndGoMap = ReviewService.putAndGoMap;
 
   //$scope.typeField = ReviewService.type.typeField;
   //$scope.typeSalon = ReviewService.type.typeSalon;
@@ -70,6 +69,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
   //$scope.currentStrengthDev = 10;
   $scope.strengths = false;
   $scope.development = false;
+
   $scope.setCurrentStrengthDev = function(number) {
     //This sets the currentStrengthDev number to the correct index in the subsections array.
       ReviewService.subsections.currentStrengthDev = number + 10;
@@ -83,19 +83,30 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
       }
   };
 
+    $scope.putAndGoMap = function() {
+        console.log('putAndGoMap function hit');
+        //put that subsection to the DB;
+        $scope.goMap();
+    };
+
+    $scope.goMap = function() {
+        console.log('goMap function hit');
+        $location.path('/map');
+    };
+
     $scope.putCompleteAndGoNextGoal = function() {
         console.log('putCompleteAndGoNextGoal function hit');
         //put that subsection to the DB;
         //Mark subsection as complete.
-        $scope.GoNextGoal();
+        $scope.goNextGoal();
     };
 
-    $scope.GoNextGoal = function() {
+    $scope.goNextGoal = function() {
         if (ReviewService.subsections.currentGoal < 5) {
             var newGoal = ReviewService.subsections.currentGoal + 1;
             $scope.setCurrentGoal(newGoal);
         } else {
-            console.log('current goal', ReviewService.subsectinpmons.currentGoal);
+            console.log('current goal', ReviewService.subsections.currentGoal);
             $scope.setCurrentHAIR(1);
             $location.path('/hair');
         }
@@ -104,6 +115,11 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
     $scope.putCompleteAndGoNextHAIR = function() {
         console.log('putAndGoNextHAIR function hit');
         //put that subsection to the DB;
+        $scope.goNextHAIR();
+    };
+
+    $scope.goNextHAIR = function() {
+        console.log('GoNextHAIR function hit');
         if (ReviewService.subsections.currentHAIR < 9) {
             ReviewService.subsections.currentHAIR += 1;
         } else {
@@ -126,13 +142,6 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
 
 
 app.factory('ReviewService', ['$http', '$location', function($http, $location) {
-
-  //var reviews = {
-  //  thisUser: {},
-  //  myReview: {},
-  //  teamReviews: {},
-  //  currentReview: {}
-  //};
 
     var thisUser = {};
     var myReview = {};
@@ -221,13 +230,6 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     });
   };
 
-    var putAndGoMap = function(){
-        console.log('putAndGoMap function hit');
-        //put that subsection to the DB;
-        $location.path('/map');
-    };
-
-
   return {
       loadHomePageInfo: loadHomePageInfo,
       getReview: getReview,
@@ -239,8 +241,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
       subsections: subsections,
       statuses: statuses,
       role: role,
-      type: type,
-      putAndGoMap: putAndGoMap
+      type: type
   };
 
 
