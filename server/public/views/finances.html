@@ -8,18 +8,172 @@
     <hr>
   <div>
       <!--These are the table headers. First column header is empty.-->
-      <p>  </p>
-      <p>Actual</p>
-      <p>Target</p>
-      <p>Variance +/-</p>
-      <p>% of Target</p>
-      <p ng-if="statuses.empFivePlus">Leader Rating</p>
   </div>
+  <table class="table table-bordered" id="table">
+    <thead><tr><th></th><th>Actual</th><th>Target</th><th>Variance</th><th>% Target</th><th ng-if="statuses.empFivePlus">Rating</th></tr></thead>
+    <tbody>
+      <tr ng-if="ReviewService.role.emp">
+        <td><b>Service Sales $</b></td>
+        <td>{{financeData.SS_Actual | currency}}</td>
+        <td>{{financeData.SS_Target | currency}}</td>
+        <td>{{makeVariance(financeData.SS_Actual, financeData.SS_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.SS_Actual, financeData.SS_Target)}}%</td>
+        <td ng-if="statuses.empFivePlus"></td>
+      </tr>
+      <tr ng-if="ReviewService.role.emp">
+        <td><b>Retail Sales $</b></td>
+        <td>{{financeData.RS_Actual | currency}}</td>
+        <td>{{financeData.RS_Target | currency}}</td>
+        <td>{{makeVariance(financeData.RS_Actual, financeData.RS_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.SS_Actual, financeData.SS_Target)}}%</td>
+        <td ng-if="statuses.empFivePlus"></td>
+      </tr>
+      <tr ng-if="ReviewService.role.emp">
+        <td><b>Total Sales $</b></td>
+        <td>{{financeData.TS_Actual | currency}}</td>
+        <td>{{financeData.TS_Target | currency}}</td>
+        <td>{{makeVariance(financeData.TS_Actual, financeData.TS_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.TS_Actual, financeData.TS_Target)}}%</td>
+        <td ng-if="statuses.empFivePlus">{{financeData.TS_Rating}}</td>
+      </tr>
+      <tr ng-if="ReviewService.role.emp">
+        <td><b>Contribution $</b></td>
+        <td>{{financeData.C_Actual | currency}}</td>
+        <td>{{financeData.C_Target | currency}}</td>
+        <td>{{makeVariance(financeData.C_Actual, financeData.C_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.C_Actual, financeData.C_Target)}}%</td>
+        <td ng-if="statuses.empFivePlus">{{financeData.C_Rating}}</td>
+      </tr>
+      <tr ng-if="ReviewService.role.emp">
+        <td><b>Service Guest Count</b></td>
+        <td>{{financeData.SGC_Actual | currency}}</td>
+        <td>{{financeData.SGC_Target | currency}}</td>
+        <td>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target)}}%</td>
+        <td ng-if="statuses.empFivePlus">{{financeData.SGC_Rating}}</td>
+      </tr>
+      <tr ng-if="statuses.leaderThreeFourFive">
+        <td><b>Service Sales $</b></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.SS_Actual"></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.SS_Target"></td>
+        <td>{{makeVariance(financeData.SS_Actual, financeData.SS_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.SS_Actual, financeData.SS_Target)}}%</td>
+        <td></td>
+      </tr>
+      <tr ng-if="statuses.leaderSixPlus">
+        <td><b>Service Sales $</b></td>
+        <td>{{financeData.SS_Actual | currency}}</td>
+        <td>{{financeData.SS_Target | currency}}</td>
+        <td>{{makeVariance(financeData.SS_Actual, financeData.SS_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.SS_Actual, financeData.SS_Target)}}%</td>
+        <td></td>
+      </tr>
+      <tr ng-if="statuses.leaderThreeFourFive">
+        <td><b>Retail Sales $</b></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.RS_Actual"></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.RS_Target"></td>
+        <td>{{makeVariance(financeData.RS_Actual, financeData.RS_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.RS_Actual, financeData.RS_Target)}}%</td>
+        <td></td>
+      </tr>
+      <tr ng-if="statuses.leaderSixPlus">
+        <td><b>Retail Sales $</b></td>
+        <td>{{financeData.RS_Actual | currency}}</td>
+        <td>{{financeData.RS_Target | currenc}}</td>
+        <td>{{makeVariance(financeData.RS_Actual, financeData.RS_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.RS_Actual, financeData.RS_Target)}}%</td>
+        <td></td>
+      </tr>
+      <tr ng-if="statuses.leaderThreeFourFive">
+        <td><b>Total Sales $</b></td>
+        <td><input type="number" class="financialInput form-control"  ng-model="financeData.TS_Actual"></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.TS_Target"></td>
+        <td>{{makeVariance(financeData.TS_Actual, financeData.TS_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.TS_Actual, financeData.TS_Target)}}%</td>
+        <td><select class="well" ng-model="financeData.TS_Rating">
+          <option value="0">--- Please Select A Rating ---</option>
+          <option value="3">Exceeds Expectations = 101.5% and Above</option>
+          <option value="2">Meets Expectations = 98.5% - 101.4%</option>
+          <option value="1">Does Not Meet Expectations = Below 98.5%</option>
+        </select></td>
+      </tr>
+      <tr ng-if="statuses.leaderSixPlus">
+        <td><b>Total Sales $</b></td>
+        <td>{{financeData.TS_Actual}}</td>
+        <td>{{financeData.TS_Target}}</td>
+        <td>{{makeVariance(financeData.TS_Actual, financeData.TS_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.TS_Actual, financeData.TS_Target)}}%</td>
+        <td>{{financeData.TS_Rating}}</td>
+      </tr>
+      <tr ng-if="statuses.leaderThreeFourFive">
+        <td><b>Contribution $</b></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.C_Actual"></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.C_Target"></td>
+        <td>{{makeVariance(financeData.C_Actual, financeData.C_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.C_Actual, financeData.C_Target)}}%</td>
+        <td>  <select class="well" ng-model="financeData.C_Rating">
+            <option value="0">--- Please Select A Rating ---</option>
+            <option value="3">Exceeds Expectations = 101.5% and Above</option>
+            <option value="2">Meets Expectations = 98.5% - 101.4%</option>
+            <option value="1">Does Not Meet Expectations = Below 98.5%</option>
+          </select></td>
+      </tr>
+      <tr ng-if="statuses.leaderSixPlus">
+        <td><b>Contribution $</b></td>
+        <td>{{financeData.C_Actual}}</td>
+        <td>{{financeData.C_Target}}</td>
+        <td>{{makeVariance(financeData.C_Actual, financeData.C_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.C_Actual, financeData.C_Target)}}%</td>
+        <td>{{financeData.C_Rating}}</td>
+      </tr>
+      <tr ng-if="statuses.leaderThreeFourFive">
+        <td><b>Service Guest Count</b></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.SGC_Actual"></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.SGC_Actual"></td>
+        <td>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target)}}%</td>
+        <td><select class="well" ng-model="financeData.SGC_Rating">
+          <option value="0">--- Please Select A Rating ---</option>
+          <option value="3">Exceeds Expectations = 101.5% and Above</option>
+          <option value="2">Meets Expectations = 98.5% - 101.4%</option>
+          <option value="1">Does Not Meet Expectations = Below 98.5%</option>
+        </select></td>
+      </tr>
+      <tr ng-if="statuses.leaderSixPlus">
+        <td><b>Service Guest Count</b></td>
+        <td>{{financeData.SGC_Actual}}</td>
+        <td>{{financeData.SGC_Actual}}</td>
+        <td>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target) | currency}}</td>
+        <td>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target)}}%</td>
+        <td>{{financeData.SGC_Rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div ng-if="statuses.leaderThreeFourFive" style="float:right;">
+    <p>Overall Financial Performance Rating:
+      <select class="well" ng-model="financeData.OverallRating">
+        <option value="0">--- Please Select A Rating ---</option>
+        <option value="3">Exceeds Expectations = 101.5% and Above</option>
+        <option value="2">Meets Expectations = 98.5% - 101.4%</option>
+        <option value="1">Does Not Meet Expectations = Below 98.5%</option>
+      </select>
+    <p>
+
+    </p>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div ng-if="statuses.empFivePlus" ng-if="statuses.leaderSixPlus" style="float:right;">
+    <p>Overall Financial Performance Rating: {{financeData.OverallRating}}</p>
+
+  </div>
+  <div class="clearfix"></div>
 
   <!-- ** Employee View ** -->
 
   <!--Each of these divs is a row.-->
-  <div ng-if="ReviewService.role.emp">
+  <!-- <div ng-if="ReviewService.role.emp">
       <p>Service Sales $</p>
       <p>{{financeData.SS_Actual | currency}}</p>
       <p>{{financeData.SS_Target | currency}}</p>
@@ -65,10 +219,10 @@
   </div>
 
     <!--Need to update this rating -- not in the returned object yet. -->
-  <div ng-if="statuses.empFivePlus">
+  <!-- <div ng-if="statuses.empFivePlus">
       <p>Overall Financial Performance Rating:</p>
       <p>{{financeData.OverallRating}}</p>
-  </div>
+  </div> -->
 
   <div ng-if="statuses.empOneTwo">
       <div class="alignButton">
@@ -91,15 +245,15 @@
   <!-- ** Leader Views ** -->
 
   <!--Each of these divs is a row.-->
-  <div ng-if="statuses.leaderThreeFourFive">
+  <!-- <div ng-if="statuses.leaderThreeFourFive">
       <p>Service Sales $</p>
       <input type="number" class="financialInput form-control" ng-model="financeData.SS_Actual">
       <input type="number" class="financialInput form-control" ng-model="financeData.SS_Target">
       <p>{{makeVariance(financeData.SS_Actual, financeData.SS_Target) | currency}}</p>
       <p>{{makePercentage(financeData.SS_Actual, financeData.SS_Target) | currency}}%</p>
-      <p> </p>
+      <p> </p> -->
       <!--No rating for Service Sales - empty-->
-  </div>
+  <!-- </div>
 
   <div ng-if="statuses.leaderSixPlus">
       <p>Service Sales $</p>
@@ -116,9 +270,9 @@
       <input type="number" class="financialInput form-control" ng-model="financeData.RS_Target">
       <p>{{makeVariance(financeData.RS_Actual, financeData.RS_Target) | currency}}</p>
       <p>{{makePercentage(financeData.RS_Actual, financeData.RS_Target) | currency}}</p>
-      <p> </p>
+      <p> </p> -->
       <!--No rating for Retail Sales - empty-->
-  </div>
+  <!-- </div>
 
   <div ng-if="statuses.leaderSixPlus">
       <p>Retail Sales $</p>
@@ -126,11 +280,11 @@
       <p>{{financeData.RS_Target}}</p>
       <p>{{makeVariance(financeData.RS_Actual, financeData.RS_Target) | currency}}</p>
       <p>{{makePercentage(financeData.RS_Actual, financeData.RS_Target) | currency}}%</p>
-      <p> </p>
+      <p> </p> -->
       <!--No rating for Service Sales - empty-->
-  </div>
+  <!-- </div> -->
 
-  <div ng-if="statuses.leaderThreeFourFive">
+  <!-- <div ng-if="statuses.leaderThreeFourFive">
       <p>Total Sales $</p>
       <input type="number" class="financialInput form-control"  ng-model="financeData.TS_Actual">
       <input type="number" class="financialInput form-control" ng-model="financeData.TS_Target">
@@ -148,7 +302,7 @@
       <p>Total Sales $</p>
       <p>{{financeData.TS_Actual}}</p>
       <p>{{financeData.TS_Target}}</p>
-      <p>{{makeVariance(financeData.TS_Actual, financeData.TS_Target | currency)}}</p>
+      <p>{{makeVariance(financeData.TS_Actual, financeData.TS_Target) | currency)}}</p>
       <p>{{makePercentage(financeData.TS_Actual, financeData.TS_Target) | currency}}%</p>
       <p>{{financeData.TS_Rating}}</p>
   </div>
@@ -194,7 +348,7 @@
   <div ng-if="statuses.leaderSixPlus">
       <p>Service Guest Count</p>
       <p>{{financeData.SGC_Actual}}</p>
-      <p>{{financeData.SGC_Target}}</p>
+      <p>{{financeData.SGC_Actual}}</p>
       <p>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target) | currency}}</p>
       <p>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target) | currency}}%</p>
       <p ng-if="statuses.empFivePlus">{{financeData.SGC_Rating}}</p>
@@ -213,7 +367,7 @@
     <div ng-if="statuses.leaderSixPlus">
       <p>Overall Financial Performance Rating:</p>
       <p>{{financeData.OverallRating}}</p>
-  </div>
+  </div> -->
 
   <div ng-if="statuses.leaderThreeFourFive">
       <div class="alignButton">
