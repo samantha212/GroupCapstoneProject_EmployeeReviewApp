@@ -1,4 +1,4 @@
-app.controller('StrengthsDevsController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
+app.controller('StrengthsDevsController', ['$scope', '$http', '$location', '$anchorScroll', 'ReviewService', function($scope, $http, $location, $anchorScroll, ReviewService){
     $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
     $scope.strengthDevData = ReviewService.currentReview.subsections;
     var role = ReviewService.role;
@@ -40,9 +40,11 @@ app.controller('StrengthsDevsController', ['$scope', '$http', '$location', 'Revi
         if (ReviewService.subsections.currentStrengthDev < 12) {
             $scope.setCurrentStrengthDev(2);
             console.log('current strength/dev:', ReviewService.subsections.currentStrengthDev);
+            $anchorScroll('top');
         } else {
             $location.path('/final-rating');
         }
+
     };
 
 

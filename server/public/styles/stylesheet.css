@@ -123,6 +123,23 @@ a {
   width: 80%;
   height: 300px; }
 
+.financesBox {
+  background-color: white;
+  display: block;
+  margin: 2% auto -3% 0%;
+  width: 50%;
+  height: 64px; }
+
+.secondfinancesBox {
+  background-color: white;
+  display: block;
+  margin: 4% auto -1% 0%;
+  width: 50%;
+  height: 62px; }
+
+.overallRating {
+  font-weight: bold; }
+
 .goalboxProperties {
   background-color: white;
   display: block;
@@ -414,6 +431,13 @@ fieldset[disabled] .grey.active {
     margin: 4% auto 8% 7%;
     width: 86%;
     height: 300px; }
+
+  .financesBox {
+    background-color: white;
+    display: block;
+    margin: 2% auto -3% 0%;
+    width: 96%;
+    height: 64px; }
 
   .goalboxProperties {
     background-color: white;
@@ -806,6 +830,29 @@ fieldset[disabled] .grey.active {
 
   .checkMe {
     display: block;
-    margin: -9% 89% -4% -3%; } }
+    margin: -9% 89% -4% -3%; }
+
+  .clearSpace {
+    margin-bottom: 40%; }
+
+  .secondfinancesBox {
+    background-color: white;
+    display: block;
+    margin: 4% auto 3% 1%;
+    padding: 5% 1% 0% 3%;
+    width: 100%;
+    height: 57px; }
+
+  .financesBox {
+    background-color: white;
+    display: block;
+    margin: 4% auto 3% 1%;
+    padding: 5% 1% 0% 3%;
+    width: 100%;
+    height: 74px; }
+
+  .finanwell {
+    font-size: 12px;
+    height: 24px; } }
 
 /*# sourceMappingURL=stylesheet.css.map */
