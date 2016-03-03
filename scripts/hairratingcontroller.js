@@ -1,8 +1,19 @@
-app.controller('HairRatingController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+app.controller('HairRatingController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
   $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
   $scope.hairRatingData = ReviewService.currentReview.subsections;
   $scope.subsections = ReviewService.subsections;
 
-  //$scope.hairRatingData = ReviewService.reviews.currentReview[1][10];
-  //$scope.currentReviewEmpInfo = ReviewService.reviews.currentReview[0][0];
+  $scope.putCompleteAndGoStrengths = function() {
+    console.log('putCompleteAndGoStrengths function hit');
+    //put that subsection to the DB;
+    //Mark subsection as complete.
+    $scope.goStrengths();
+
+  };
+
+  $scope.goStrengths = function() {
+    console.log('current strength/dev:', ReviewService.subsections.currentGoal);
+    $scope.setCurrentStrengthDev(1);
+    $location.path('/strengths-devs');
+  }
 }]);
