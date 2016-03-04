@@ -5,10 +5,6 @@ body {
   padding-bottom: 4%;
   color: black; }
 
-.table {
-  width: 90%;
-  margin-top: 3%; }
-
 textarea {
   resize: none; }
 
@@ -130,7 +126,7 @@ a {
   display: block;
   margin: 2% auto -3% 0%;
   width: 50%;
-  height: 82px; }
+  height: 68px; }
 
 .secondfinancesBox {
   background-color: white;
@@ -284,8 +280,10 @@ a {
 
 .financialInput {
   background-color: white;
-  display: inline-block;
-  width: 100%; }
+  display: block;
+  margin: 1% 0 1% 0;
+  width: 100%;
+  height: 28px; }
 
 .customCheckBox {
   width: 34px;
@@ -400,6 +398,10 @@ fieldset[disabled] .grey.active {
 .clearSpace {
   margin-bottom: 8%; }
 
+.table {
+  width: 90%;
+  margin-top: 3%; }
+
 @media only screen and (max-width: 900px) {
   body {
     font-family: Helvetica Neue, Verdana;
@@ -419,6 +421,9 @@ fieldset[disabled] .grey.active {
 
   .container {
     padding-bottom: 4%; }
+
+  .table {
+    width: 96%; }
 
   .pageNames {
     font-size: 22px; }
@@ -628,7 +633,14 @@ fieldset[disabled] .grey.active {
 
   .checkMe {
     display: block;
-    margin: 7% 101% -17% 8%; } }
+    margin: 7% 101% -17% 8%; }
+
+  .financialInput {
+    background-color: white;
+    display: block;
+    margin: 0% 0% 1% -7%;
+    width: 116%;
+    height: 28px; } }
 @media only screen and (max-width: 767px) {
   body {
     font-family: Helvetica Neue, Verdana;
@@ -840,7 +852,7 @@ fieldset[disabled] .grey.active {
   .secondfinancesBox {
     background-color: white;
     display: block;
-    margin: 4% auto 3% 1%;
+    margin: 4% auto 3% -2%;
     padding: 5% 1% 0% 3%;
     width: 100%;
     height: 57px; }
@@ -848,18 +860,78 @@ fieldset[disabled] .grey.active {
   .financesBox {
     background-color: white;
     display: block;
-    margin: 4% auto 3% 1%;
+    margin: 4% auto 3% -2%;
     padding: 5% 1% 0% 3%;
     width: 100%;
     height: 74px; }
 
   .finanwell {
     font-size: 12px;
+    height: 24px;
+    font-size: 12px;
+    width: 100%; }
+
+  .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 20px; }
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block; }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; }
+
+  tr {
+    border: 1px solid #ccc; }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%; }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap; }
+
+  /*
+Label the data
+*/
+  td:nth-of-type(1):before {
+    content: ""; }
+
+  td:nth-of-type(2):before {
+    content: "Actual"; }
+
+  td:nth-of-type(3):before {
+    content: "Target"; }
+
+  td:nth-of-type(4):before {
+    content: "Variance"; }
+
+  td:nth-of-type(5):before {
+    content: "% Target"; }
+
+  .financialInput {
+    margin: 7% 0% 1% -5%;
+    width: 107%; }
+
+  select {
+    width: 100%;
+    font-size: 12px;
     height: 24px; }
 
-  .table > tbody > tr > td {
-    vertical-align: middle;
-    margin-top: 3%;
-    overflow-y: auto; } }
+  .table {
+    width: 95%; } }
 
 /*# sourceMappingURL=stylesheet.css.map */
