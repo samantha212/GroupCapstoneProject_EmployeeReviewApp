@@ -8,10 +8,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     })
     .when('/map', {
       templateUrl: 'views/map.html',
-      controller: 'MapController',
-      //resolve: {
-      //  currentReview: ReviewService.reviews.currentReview
-      //}
+      controller: 'MapController'
     })
     .when('/finances', {
       templateUrl: 'views/finances.html',
@@ -54,24 +51,51 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
   $scope.leader = true;
   $scope.emp = false;
 
-  //$scope.currentGoal = 1;
+    $scope.hairSubsectionH = true;
+    $scope.hairSubsectionA = false;
+    $scope.hairSubsectionI = false;
+    $scope.hairSubsectionR = false;
+
+
   $scope.setCurrentGoal = function(number) {
     ReviewService.subsections.currentGoal = number;
     console.log('Current goal is', ReviewService.subsections.currentGoal);
   };
 
-  //$scope.currentHAIR = 5;
   $scope.setCurrentHAIR = function(number) {
-    ReviewService.subsections.currentHAIR = number + 5;
-    console.log('Current HAIR is', ReviewService.subsections.currentHAIR);
+      ReviewService.subsections.currentHAIR = number + 5;
+      console.log('Current HAIR is', ReviewService.subsections.currentHAIR);
+      $scope.setImgHAIR();
   };
 
-  //$scope.currentStrengthDev = 10;
+    $scope.setImgHAIR = function() {
+        if (ReviewService.subsections.currentHAIR == 6) {
+            $scope.hairSubsectionH = true;
+            $scope.hairSubsectionA  = false;
+            $scope.hairSubsectionI  = false;
+            $scope.hairSubsectionR  = false;
+        } else if (ReviewService.subsections.currentHAIR == 7) {
+            $scope.hairSubsectionH = false;
+            $scope.hairSubsectionA  = true;
+            $scope.hairSubsectionI  = false;
+            $scope.hairSubsectionR  = false;
+        } else if (ReviewService.subsections.currentHAIR == 8) {
+            $scope.hairSubsectionH = false;
+            $scope.hairSubsectionA = false;
+            $scope.hairSubsectionI = true;
+            $scope.hairSubsectionR = false;
+        } else {
+            $scope.hairSubsectionH  = false;
+            $scope.hairSubsectionA  = false;
+            $scope.hairSubsectionI  = false;
+            $scope.hairSubsectionR  = true;
+        }
+    }
+
   $scope.strengths = false;
   $scope.development = false;
 
   $scope.setCurrentStrengthDev = function(number) {
-    //This sets the currentStrengthDev number to the correct index in the subsections array.
       ReviewService.subsections.currentStrengthDev = number + 10;
       console.log('Current strength/dev is', ReviewService.subsections.currentStrengthDev);
       if(number == 1) {
@@ -120,6 +144,13 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
         currentHAIR: 5,
         currentStrengthDev: 10
     };
+
+    var imgHAIR = {
+        hairSubsectionH: false,
+        hairSubsectionA: false,
+        hairSubsectionI: false,
+        hairSubsectionR: false
+    }
 
   //These are currently set all to true for view/stying purposes.
   //default all these vars to false before deploying\\
@@ -206,6 +237,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
       teamReviews: teamReviews,
       thisUser: thisUser,
       subsections: subsections,
+      imgHAIR: imgHAIR,
       statuses: statuses,
       role: role,
       type: type
