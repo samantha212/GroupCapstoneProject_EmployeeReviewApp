@@ -137,7 +137,7 @@
       <tr ng-if="statuses.leaderThreeFourFive">
         <td><b>Service Guest Count</b></td>
         <td><input type="number" class="financialInput form-control" ng-model="financeData.SGC_Actual"></td>
-        <td><input type="number" class="financialInput form-control" ng-model="financeData.SGC_Actual"></td>
+        <td><input type="number" class="financialInput form-control" ng-model="financeData.SGC_Target"></td>
         <td>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target) | currency}}</td>
         <td>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target)}}%</td>
         <td><select ng-model="financeData.SGC_Rating">

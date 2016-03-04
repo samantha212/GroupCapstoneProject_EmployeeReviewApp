@@ -1,11 +1,14 @@
-app.controller('SignatureController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+app.controller('SignatureController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
 
     $scope.currentReview = ReviewService.currentReview;
-    $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
-    $scope.finalData = ReviewService.currentReview.subsections;
     $scope.subsections = ReviewService.subsections;
 
     $scope.putAndGoHome = function(){
-        console.log("sign Button clicked!")
+        console.log("sign Button clicked!");
+    //  ***  Charlie needs to add put function to this button.
+    //    Add form validation to ensure initials entered.
+    //    Button is already disabled --  enabled when box is checked.
+        $location.path('/map');
+
     };
 }]);
