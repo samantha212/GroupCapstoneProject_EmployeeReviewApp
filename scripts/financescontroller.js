@@ -12,17 +12,15 @@ app.controller('FinancesController', ['$scope', '$http', '$location', 'ReviewSer
        }
     };
 
-    $scope.putCompleteAndGoGoals = function() {
+    $scope.putCompleteAndGoHAIR= function() {
         console.log('putCompleteAndGoGoals function hit');
         //put that subsection to the DB;
-        $scope.goGoals();
+        $scope.goHAIR();
     };
 
-    $scope.goGoals = function() {
-        console.log('goGoals function hit');
-        ReviewService.subsections.currentGoal = 1;
-        $location.path('/goals');
-    };
-
+    $scope.goHAIR = function() {
+        $scope.setCurrentHAIR(1);
+        $location.path('/hair');
+    }
 
 }]);

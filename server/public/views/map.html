@@ -17,31 +17,31 @@
             <p ng-hide="currentReview.subsections[0].isCompleted;"><img src="/assets/images/checkboxUnchecked.png">  <a href="/finances">Finances</a></p>
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[1].isCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/goals" ng-click="setCurrentGoal(1)">Goal 1</a></p>
             <p ng-hide="currentReview.subsections[1].isCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(1)">Goal 1</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[2].isCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/goals" ng-click="setCurrentGoal(2)">Goal 2</a></p>
             <p ng-hide="currentReview.subsections[2].isCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(2)">Goal 2</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[3].isCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/goals" ng-click="setCurrentGoal(3)">Goal 3</a></p>
             <p ng-hide="currentReview.subsections[3].isCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(3)">Goal 3</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[4].isCompleted"><img src="/assets/images/checkboxChecked.png"><a href="/goals" ng-click="setCurrentGoal(4)">Goal 4</a></p>
             <p ng-hide="currentReview.subsections[4].isCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(4)">Goal 4</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[5].isCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/goals" ng-click="setCurrentGoal(5)">Goal 5</a></p>
             <p ng-hide="currentReview.subsections[5].isCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(5)">Goal 5</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
@@ -112,31 +112,31 @@
             <p ng-hide="currentReview.subsections[0].isLeaderCompleted;"><img src="/assets/images/checkboxUnchecked.png">  <a href="/finances">Finances</a></p>
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[1].isLeaderCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/goals" ng-click="setCurrentGoal(1)">Goal 1</a></p>
             <p ng-hide="currentReview.subsections[1].isLeaderCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(1)">Goal 1</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[2].isLeaderCompleted"><img src="/assets/images/checkboxChecked.png"><a href="/goals" ng-click="setCurrentGoal(2)">Goal 2</a></p>
             <p ng-hide="currentReview.subsections[2].isLeaderCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(2)">Goal 2</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[3].isLeaderCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/goals" ng-click="setCurrentGoal(3)">Goal 3</a></p>
             <p ng-hide="currentReview.subsections[3].isLeaderCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(3)">Goal 3</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[4].isLeaderCompleted"><img src="/assets/images/checkboxChecked.png" ng-click="setCurrentGoal(4)"><a href="/goals">Goal 4</a></p>
             <p ng-hide="currentReview.subsections[4].isLeaderCompleted"><img src="/assets/images/checkboxUnchecked.png" ng-click="setCurrentGoal(4)"> <a href="/goals">Goal 4</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
         </div>
 
-        <div>
+        <div ng-if="type.typeSalon">
             <p ng-show="currentReview.subsections[5].isLeaderCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/goals" ng-click="setCurrentGoal(5)">Goal 5</a></p>
             <p ng-hide="currentReview.subsections[5].isLeaderCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/goals" ng-click="setCurrentGoal(5)">Goal 5</a></p>
             <!--Add a function to take in the Goal Number, change "currentSubsection" to that goal, and reroute to goals.html.-->
