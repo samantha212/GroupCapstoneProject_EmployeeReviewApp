@@ -152,6 +152,26 @@ a{
   height: 300px;
 }
 
+.financesBox{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 2% auto -3% 0%;
+  width: 50%;
+  height: 64px;
+}
+
+.secondfinancesBox{
+  background-color: rgb(255,255,255);
+  display: block;
+  margin: 4% auto -1% 0%;
+  width: 50%;
+  height: 62px;
+}
+
+.overallRating{
+  font-weight: bold;
+}
+
 .goalboxProperties{
   background-color: rgb(255,255,255);
   display: block;
@@ -511,6 +531,15 @@ a{
     margin: 4% auto 8% 7%;
     width: 86%;
     height: 300px;
+  }
+
+
+  .financesBox{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 2% auto -3% 0%;
+    width: 96%;
+    height: 64px;
   }
 
   .goalboxProperties{
@@ -1000,14 +1029,43 @@ display: none;
     display: block;
     margin: -9% 89% -4% -3%;
   }
- //
- //  .responsive-table {
+
+  .clearSpace{
+    margin-bottom: 40%;
+  }
+
+  .secondfinancesBox{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 3% 1%;
+    padding: 5% 1% 0% 3%;
+    width: 100%;
+    height: 57px;
+  }
+
+  .financesBox{
+    background-color: rgb(255,255,255);
+    display: block;
+    margin: 4% auto 3% 1%;
+    padding: 5% 1% 0% 3%;
+    width: 100%;
+    height: 74px;
+  }
+
+  .finanwell{
+    // width:100%;
+    font-size: 12px;
+    height:24px;
+  }
+
+
+  //.responsive-table {
  //        border-top: 1px solid #ccc;
  //    }
  //
  //  .responsive-table th,
  //  .responsive-table thead{
- //      display: none;
+ //      // display: none;
  //  }
  //
  //  .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
@@ -1051,8 +1109,8 @@ display: none;
  //        margin-left: -50%;
  //        width: 50%;
  //        white-space: nowrap;
- //        // content: attr(data-content);
- //    }
+ //        content: attr(data-content);
+  //  }//
 
  // td, tr, th{
  //   width: 100%;

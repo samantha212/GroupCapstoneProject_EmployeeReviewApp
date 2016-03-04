@@ -42,4 +42,20 @@ router.post('/', function(request, response){
   });
 });
 
+
+router.post('/changeState', function(request, response){
+  var regisId = request.body.regisId;
+  var state = request.body.ReviewStatus;
+
+  pg.connect(connectionString, function(err, client, done){
+    var query = client.query('UPDATE "employeeData" SET "ReviewStatus" = $1 WHERE "RegisId" = $2', [state, regisId]);
+
+    query.on('end', function(){
+      response.sendStatus(200);
+      client.end();
+    });
+    if(err){response.send('error from server')};
+  });
+});
+
 module.exports = router;
