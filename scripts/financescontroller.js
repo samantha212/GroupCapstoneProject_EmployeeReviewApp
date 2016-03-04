@@ -6,7 +6,10 @@ app.controller('FinancesController', ['$scope', '$http', '$location', 'ReviewSer
       return firstValue - secondValue;
     };
      $scope.makePercentage = function(firstValue, secondValue){
-      return ((firstValue / secondValue) * 100).toFixed(1);
+       var makePercent = ((firstValue / secondValue) * 100).toFixed(1);
+       if(makePercent != 'NaN'){
+         return ((firstValue / secondValue) * 100).toFixed(1) + '%';
+       }
     };
 
     $scope.putCompleteAndGoGoals = function() {
