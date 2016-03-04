@@ -90,10 +90,10 @@
         <span class="goalboxProperties well"><p>{{goalData[subsections.currentGoal].Goal}}</p></span>
      </div>
 
-        <div class="employeeRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <h4>Employee Rating:</h4>
-          <p class="goalemployeeRatingBox well">{{goalData[subsections.currentGoal].EmployeeGoalRating}}</p>
-        </div>
+      <div ng-if="statuses.leaderThreePlus" class="employeeRatingAlign row col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <h4>Employee Rating:</h4>
+        <p class="goalemployeeRatingBox well">{{goalData[subsections.currentGoal].EmployeeGoalRating}}</p>
+      </div>
 
 
     <div class="leaderRatingAlignDrop row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="statuses.leaderThreeFourFive">

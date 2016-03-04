@@ -128,6 +128,8 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
     $scope.type = ReviewService.type;
     $scope.getReview = ReviewService.getReview;
     $scope.thisUser = ReviewService.thisUser;
+    $scope.myReviewStatuses = ReviewService.myReviewStatuses;
+    $scope.signOwnReview = ReviewService.signOwnReview;
 }]);
 
 
@@ -155,8 +157,8 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
   //These are currently set all to true for view/stying purposes.
   //default all these vars to false before deploying\\
   var role = {
-    leader: true,
-    emp: true
+    leader: false,
+    emp: false
   };
 
   var type = {
@@ -164,20 +166,29 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     typeSalon: true
   };
 
+    var myReviewStatuses = {
+        empOneTwo: false,
+        empOneToFive: false,
+        empThreePlus: false,
+        empFivePlus: false,
+        empSix: false,
+        empSixAndNoEmpSignature: false,
+        empSeven: false,
+    }
   var statuses = {
-    empOneTwo: true,
-    empOneToFive: true,
-    empThreePlus: true,
-    empFivePlus: true,
-    empSix: true,
-    empSixAndNoEmpSignature: true,
-    empSeven: true,
-    leaderThreePlus: true,
-    leaderThreeFour: true,
-    leaderThreeFourFive: true,
-    leaderFive: true,
-    leaderSix: true,
-    leaderSixPlus: true
+    empOneTwo: false,
+    empOneToFive: false,
+    empThreePlus: false,
+    empFivePlus: false,
+    empSix: false,
+    empSixAndNoEmpSignature: false,
+    empSeven: false,
+    leaderThreePlus: false,
+    leaderThreeFour: false,
+    leaderThreeFourFive: false,
+    leaderFive: false,
+    leaderSix: false,
+    leaderSixPlus: false
   };
 
   //Happens on home page load.
@@ -199,24 +210,27 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
   var getMyReview = function(user) {
     $http.post('/employeeData', user).then(function (response) {
         console.log(response.data);
-      //reviews.myReview = response.data;
+        //reviews.myReview = response.data;
         myReview.empInfo = response.data[0][0];
         myReview.subsections = response.data[1];
-      console.log('My Review', myReview);
+        console.log('My Review', myReview);
+        updateMyReviewStatuses();
+        console.log('myReviewStatuses', myReviewStatuses);
     });
   };
 
   var getReview = function(employee){
       console.log("employee being passed in", employee);
-    var thisEmployee = {regisId: employee};
-    console.log("getReview hit, using thisEmployee:", thisEmployee);
-    $http.post('/employeeData', thisEmployee).then(function (response) {
-      //console.log("response", response);
-      //reviews.currentReview = response.data;
-      currentReview.empInfo = response.data[0][0];
-      currentReview.subsections = response.data[1];
-      console.log('Current Review', currentReview);
-    });
+      var thisEmployee = {regisId: employee};
+      console.log("getReview hit, using thisEmployee:", thisEmployee);
+      $http.post('/employeeData', thisEmployee).then(function (response) {
+          currentReview.empInfo = response.data[0][0];
+          currentReview.subsections = response.data[1];
+          console.log('Current Review', currentReview);
+          updateRoleAndViewStatuses();
+          console.log('Role object:', role);
+          console.log('Statuses object:', statuses);
+      });
   };
 
   var getTeamReviews = function(user){
@@ -228,97 +242,141 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     });
   };
 
-  return {
-      loadHomePageInfo: loadHomePageInfo,
-      getReview: getReview,
-      //reviews: reviews,
-      myReview: myReview,
-      currentReview: currentReview,
-      teamReviews: teamReviews,
-      thisUser: thisUser,
-      subsections: subsections,
-      imgHAIR: imgHAIR,
-      statuses: statuses,
-      role: role,
-      type: type
-  };
+    var signOwnReview = function() {
+        console.log("signOwnReview hit");
+        getReview(myReview.empInfo.RegisId);
+        $location.path('/signature');
+    };
 
+    var updateMyReviewStatuses = function() {
+        if (myReview.empInfo.ReviewStatus==1 || myReview.empInfo.ReviewStatus==2) {
+            myReviewStatuses.empOneTwo = true;
+            myReviewStatuses.empOneToFive = true;
+        } else if (myReview.empInfo.ReviewStatus==3 || myReview.empInfo.ReviewStatus==4) {
+            myReviewStatuses.empOneToFive = true;
+            myReviewStatuses.empThreePlus = true;
+        } else if (myReview.empInfo.ReviewStatus==5) {
+            myReviewStatuses.empOneToFive = true;
+            myReviewStatuses.empThreePlus = true;
+            myReviewStatuses.empFivePlus = true;
+        } else if (myReview.empInfo.ReviewStatus==6) {
+            myReviewStatuses.empThreePlus = true;
+            myReviewStatuses.empFivePlus = true;
+            myReviewStatuses.empSix = true;
+            if (myReview.empInfo.EmployeeSignature == null) {
+                myReviewStatuses.empSixAndNoEmpSignature = true;
+            } else {
+                myReviewStatuses.empSixAndNoEmpSignature = false;
+            }
+        } else if (myReview.empInfo.ReviewStatus==7) {
+            myReviewStatuses.empThreePlus = true;
+            myReviewStatuses.empFivePlus = true;
+            myReviewStatuses.empSeven = true;
+        } else {
+            myReviewStatuses.empOneTwo = false;
+            myReviewStatuses.empOneToFive = false;
+            myReviewStatuses.empThreePlus = false;
+            myReviewStatuses.empFivePlus = false;
+            myReviewStatuses.empSix = false;
+            myReviewStatuses.empSixAndNoEmpSignature = false;
+            myReviewStatuses.empSeven = false;
+        }
+    }
+      var updateRoleAndViewStatuses = function() {
+        if (thisUser.regisId == currentReview.empInfo.RegisId) {
+            role.emp = true;
+        } else if (thisUser.regisId == currentReview.empInfo.LeaderRegisId) {
+            role.leader = true;
+        } else {
+            console.log("Error.  User is neither employee nor leader for this review.")
+        }
+        if (role.leader==true) {
+            statuses.empOneTwo = false;
+            statuses.empOneToFive = false;
+            statuses.empThreePlus = false;
+            statuses.empFivePlus = false;
+            statuses.empSix = false;
+            statuses.empSixAndNoEmpSignature = false;
+            statuses.empSeven = false;
+          if (currentReview.empInfo.ReviewStatus==3 || currentReview.empInfo.ReviewStatus==4) {
+              statuses.leaderThreePlus = true;
+              statuses.leaderThreeFour = true;
+              statuses.leaderThreeFourFive = true;
+          } else if (currentReview.empInfo.ReviewStatus==5) {
+              statuses.leaderThreePlus = true;
+              statuses.leaderThreeFourFive = true;
+              statuses.leaderFive = true;
+          } else if (currentReview.empInfo.ReviewStatus==6) {
+              statuses.leaderThreePlus = true;
+              statuses.leaderSix = true;
+              statuses.leaderSixPlus = true;
+          } else if (currentReview.empInfo.ReviewStatus==7) {
+              statuses.leaderThreePlus = true;
+              statuses.leaderSixPlus = true;
+          } else {
+              statuses.leaderThreePlus = false;
+              statuses.leaderThreeFour = false;
+              statuses.leaderThreeFourFive = false;
+              statuses.leaderFive = false;
+              statuses.leaderSix = false;
+              statuses.leaderSixPlus = false;
+          }
+        } else {
+            statuses.leaderThreePlus = false;
+            statuses.leaderThreeFour = false;
+            statuses.leaderThreeFourFive = false;
+            statuses.leaderFive = false;
+            statuses.leaderSix = false;
+            statuses.leaderSixPlus = false;
+            if (currentReview.empInfo.ReviewStatus==1 || currentReview.empInfo.ReviewStatus==2) {
+                statuses.empOneTwo = true;
+                statuses.empOneToFive = true;
+            } else if (currentReview.empInfo.ReviewStatus==3 || currentReview.empInfo.ReviewStatus==4) {
+                statuses.empOneToFive = true;
+                statuses.empThreePlus = true;
+            } else if (currentReview.empInfo.ReviewStatus==5) {
+                statuses.empOneToFive = true;
+                statuses.empThreePlus = true;
+                statuses.empFivePlus = true;
+            } else if (currentReview.empInfo.ReviewStatus==6) {
+                statuses.empThreePlus = true;
+                statuses.empFivePlus = true;
+                statuses.empSix = true;
+                if (currentReview.empInfo.ReviewStatus==6 && currentReview.empInfo.EmployeeSignature==null) {
+                    statuses.empSixAndNoEmpSignature = false;
+                } else {
+                    statuses.empSixAndNoEmpSignature = true;
+                }
+            } else if (currentReview.empInfo.ReviewStatus==7) {
+                statuses.empThreePlus = true;
+                statuses.empFivePlus = true;
+                statuses.empSeven = true;
+            } else {
+                statuses.empOneTwo = true;
+                statuses.empOneToFive = true;
+                statuses.empThreePlus = true;
+                statuses.empFivePlus = true;
+                statuses.empSix = true;
+                statuses.empSixAndNoEmpSignature = true;
+                statuses.empSeven = true;
+            }
+        }
+      };
 
-  // PUT subsection;
-      // PUT print;
-      // PUT sign;
+    return {
+        loadHomePageInfo: loadHomePageInfo,
+        getReview: getReview,
+        signOwnReview: signOwnReview,
+        myReview: myReview,
+        currentReview: currentReview,
+        teamReviews: teamReviews,
+        thisUser: thisUser,
+        subsections: subsections,
+        imgHAIR: imgHAIR,
+        statuses: statuses,
+        myReviewStatuses: myReviewStatuses,
+        role: role,
+        type: type
+    };
 
-      //var updateViewStatuses = function() {
-      //  if (leader==true) {
-      //    empOneTwo = false;
-      //    empOneToFive = false;
-      //    empThreePlus = false;
-      //    empFivePlus = false;
-      //    empSix = false;
-      //    empSixAndNoEmpSignature = false;
-      //    empSeven = false;
-      //    if (currentReview.ReviewStatus==3 || currentReview.ReviewStatus==4) {
-      //      leaderThreePlus = true;
-      //      leaderThreeFour = true;
-      //      leaderThreeFourFive = true;
-      //    } else if (currentReview.ReviewStatus==5) {
-      //      leaderThreePlus = true;
-      //      leaderThreeFourFive = true;
-      //      leaderFive = true;
-      //    } else if (currentReview.ReviewStatus==6) {
-      //      leaderThreePlus = true;
-      //      leaderSix = true;
-      //      leaderSixPlus = true;
-      //    } else if (currentReview.ReviewStatus==7) {
-      //      leaderThreePlus = true;
-      //      leaderSixPlus = true;
-      //    } else {
-      //      leaderThreePlus = false;
-      //      leaderThreeFour = false;
-      //      leaderThreeFourFive = false;
-      //      leaderFive = false;
-      //      leaderSix = false;
-      //      leaderSixPlus = false;
-      //    }
-      //  } else {
-      //    leaderThreePlus = false;
-      //    leaderThreeFour = false;
-      //    leaderThreeFourFive = false;
-      //    leaderFive = false;
-      //    leaderSix = false;
-      //    leaderSixPlus = false;
-      //    if (currentReview.ReviewStatus==1 || currentReview.ReviewStatus==2) {
-      //      empOneTwo = true;
-      //      empOneToFive = true;
-      //    } else if (currentReview.ReviewStatus==3 || currentReview.ReviewStatus==4) {
-      //      empOneToFive = true;
-      //      empThreePlus = true;
-      //    } else if (currentReview.ReviewStatus==5) {
-      //      empOneToFive = true;
-      //      empThreePlus = true;
-      //      empFivePlus = true;
-      //    } else if (currentReview.ReviewStatus==6) {
-      //      empThreePlus = true;
-      //      empFivePlus = true;
-      //      empSix = true;
-      //      if (currentReview.ReviewStatus==6 && currentReview.EmployeeSignature==null) {
-      //        empSixAndNoEmpSignature = false;
-      //      } else {
-      //        empSixAndNoEmpSignature = true;
-      //      }
-      //    } else if (currentReview.ReviewStatus==7) {
-      //      empThreePlus = true;
-      //      empFivePlus = true;
-      //      empSeven = true;
-      //    } else {
-      //      empOneTwo = true;
-      //      empOneToFive = true;
-      //      empThreePlus = true;
-      //      empFivePlus = true;
-      //      empSix = true;
-      //      empSixAndNoEmpSignature = true;
-      //      empSeven = true;
-      //    }
-      //  }
-      //};
 }]);
