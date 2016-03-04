@@ -8,7 +8,7 @@
 
 
 <!-- <div class="panel panel-default"> -->
-  <table class="table table-reflow table-bordered">
+  <table class="table table-bordered">
     <thead class="thead-inverse">
       <tr>
         <th></th>
@@ -98,7 +98,7 @@
         <td><input type="number" class="financialInput form-control" ng-model="financeData.TS_Target"></td>
         <td>{{makeVariance(financeData.TS_Actual, financeData.TS_Target) | currency}}</td>
         <td>{{makePercentage(financeData.TS_Actual, financeData.TS_Target)}}%</td>
-        <td><select class="well" ng-model="financeData.TS_Rating">
+        <td><select ng-model="financeData.TS_Rating">
           <option value="0">--- Please Select A Rating ---</option>
           <option value="3">Exceeds Expectations = 101.5% and Above</option>
           <option value="2">Meets Expectations = 98.5% - 101.4%</option>
@@ -119,7 +119,7 @@
         <td><input type="number" class="financialInput form-control" ng-model="financeData.C_Target"></td>
         <td>{{makeVariance(financeData.C_Actual, financeData.C_Target) | currency}}</td>
         <td>{{makePercentage(financeData.C_Actual, financeData.C_Target)}}%</td>
-        <td>  <select class="well" ng-model="financeData.C_Rating">
+        <td>  <select ng-model="financeData.C_Rating">
             <option value="0">--- Please Select A Rating ---</option>
             <option value="3">Exceeds Expectations = 101.5% and Above</option>
             <option value="2">Meets Expectations = 98.5% - 101.4%</option>
@@ -140,7 +140,7 @@
         <td><input type="number" class="financialInput form-control" ng-model="financeData.SGC_Target"></td>
         <td>{{makeVariance(financeData.SGC_Actual, financeData.SGC_Target) | currency}}</td>
         <td>{{makePercentage(financeData.SGC_Actual, financeData.SGC_Target)}}%</td>
-        <td><select class="well" ng-model="financeData.SGC_Rating">
+        <td><select ng-model="financeData.SGC_Rating">
           <option value="0">--- Please Select A Rating ---</option>
           <option value="3">Exceeds Expectations = 101.5% and Above</option>
           <option value="2">Meets Expectations = 98.5% - 101.4%</option>
@@ -161,7 +161,7 @@
 <div class="clearfix"></div>
   <div class="financesParagraph" ng-if="statuses.leaderThreeFourFive">
     <p class="financesBox well">Overall Financial Performance Rating:
-      <select class="finanwell well" ng-model="financeData.OverallRating">
+      <select class="financesDrop" ng-model="financeData.OverallRating">
         <option value="0">--- Please Select A Rating ---</option>
         <option value="3">Exceeds Expectations = 101.5% and Above</option>
         <option value="2">Meets Expectations = 98.5% - 101.4%</option>

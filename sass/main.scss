@@ -6,10 +6,7 @@ body{
   color: black;
 }
 
-.table{
-  width: 90%;
-  margin-top: 3%;
-}
+
 
 textarea {
    resize: none;
@@ -159,7 +156,7 @@ a{
   display: block;
   margin: 2% auto -3% 0%;
   width: 50%;
-  height: 82px;
+  height: 68px;
 }
 
 .secondfinancesBox{
@@ -345,9 +342,10 @@ a{
 
 .financialInput{
   background-color: rgb(255,255,255);
-  display: inline-block;
-  // margin: 0 auto;
+  display:block;
+  margin: 1% 0 1% 0;
   width: 100%;
+  height: 28px;
 }
 
 
@@ -486,6 +484,15 @@ a{
   margin-bottom: 8%;
 }
 
+.table{
+  width: 90%;
+  margin-top: 3%;
+}
+
+// .table>tbody>tr>td{
+//   padding: 20px;
+// }
+
 //[][][][][][][]][][][][][][][][][][][][][][][][]][]]][][][][][][][][][][][][][][][][][]][][][][][][][]][][][][][][][][][][][][][]
 //[][][][][][][]][][][][][][][][][][][][][][][][]][]]][ TABLET ][][][][][][][][][][][][][][][][]][][][][][][][]][][][][][][][][][]
 
@@ -514,9 +521,9 @@ a{
     padding-bottom: 4%;
   }
 
-  // .table{
-  //   width: 45%;
-  // }
+  .table{
+    width: 96%;
+  }
 
   .pageNames{
     font-size: 22px;
@@ -766,6 +773,14 @@ a{
   .checkMe{
     display: block;
     margin: 7% 101% -17% 8%;
+  }
+
+  .financialInput{
+    background-color: rgb(255,255,255);
+    display:block;
+    margin: 0% 0% 1% -7%;
+    width: 116%;
+    height: 28px;
   }
 
 }
@@ -1039,7 +1054,7 @@ display: none;
   .secondfinancesBox{
     background-color: rgb(255,255,255);
     display: block;
-    margin: 4% auto 3% 1%;
+    margin: 4% auto 3% -2%;
     padding: 5% 1% 0% 3%;
     width: 100%;
     height: 57px;
@@ -1048,79 +1063,83 @@ display: none;
   .financesBox{
     background-color: rgb(255,255,255);
     display: block;
-    margin: 4% auto 3% 1%;
+    margin:4% auto 3% -2%;
     padding: 5% 1% 0% 3%;
     width: 100%;
     height: 74px;
   }
 
   .finanwell{
-    // width:100%;
     font-size: 12px;
     height:24px;
+    font-size: 12px;
+    width: 100%;
   }
 
 
-  //.responsive-table {
- //        border-top: 1px solid #ccc;
- //    }
- //
- //  .responsive-table th,
- //  .responsive-table thead{
- //      // display: none;
- //  }
- //
- //  .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
- //       display: block;
- //   }
- //
- // .responsive-table tr {
- //      border-bottom: 1px solid #ccc;
- //  }
- //  .responsive-table td {
- //      /* important to override bootstrap */
- //      padding-left: 50% !important;
- //      border-top: 0 !important;
- //      text-align: left;
- //      position: relative;
- //      border-bottom: 0;
- //  }
- //
- //  /* Now like a table header */
- //    .responsive-table td:before {
- //        font-weight: bold;
- //        font-size: 12px;
- //        color: black;
- //        position: absolute;
- //        margin-left: -50%;
- //        width: 50%;
- //        white-space: nowrap;
- //        content: attr(data-content);
- //    }
- //
- //    .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
- //        display: block;
- //        margin-left: -50%;
- //        width: 50%;
- //    }
- //    .responsive-table td:before {
- //        font-weight: bold;
- //        font-size: 12px;
- //        color: black;
- //        position: absolute;
- //        margin-left: -50%;
- //        width: 50%;
- //        white-space: nowrap;
- //        content: attr(data-content);
-  //  }//
+  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 20px;
+  }
 
- // td, tr, th{
- //   width: 100%;
- //   display: block;
- // }
- .table > tbody > tr > td {
-    vertical-align: middle;
-    margin-top: 3%;
-    overflow-y: auto;
-}
+ /* Force table to not be like tables anymore */
+ table, thead, tbody, th, td, tr {
+   display: block;
+ }
+
+
+ /* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+  tr { border: 1px solid #ccc; }
+
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+
+  td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+  /*
+Label the data
+*/
+td:nth-of-type(1):before { content: ""; }
+td:nth-of-type(2):before { content: "Actual"; }
+td:nth-of-type(3):before { content: "Target"; }
+td:nth-of-type(4):before { content: "Variance"; }
+td:nth-of-type(5):before { content: "% Target"; }
+
+
+
+  .financialInput{
+    margin: 7% 0% 1% -5%;
+    width: 107%;
+  }
+
+  select{
+    width: 100%;
+    font-size: 12px;
+    height: 24px;
+  }
+
+  .table{
+    width: 95%;
+  }
+
+
 }
