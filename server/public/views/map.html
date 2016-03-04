@@ -12,7 +12,7 @@
     <hr>
     <!--Employee View-->
     <div ng-if="ReviewService.role.emp">
-        <div>
+        <div ng-if="type.typeField">
             <p ng-show="currentReview.subsections[0].isCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/finances">Finances</a></p>
             <p ng-hide="currentReview.subsections[0].isCompleted;"><img src="/assets/images/checkboxUnchecked.png">  <a href="/finances">Finances</a></p>
         </div>
@@ -107,7 +107,7 @@
 
     <!--Leader View-->
     <div ng-if="ReviewService.role.leader">
-        <div>
+        <div ng-if="type.typeField">
             <p ng-show="currentReview.subsections[0].isLeaderCompleted"><img src="/assets/images/checkboxChecked.png"> <a href="/finances">Finances</a></p>
             <p ng-hide="currentReview.subsections[0].isLeaderCompleted;"><img src="/assets/images/checkboxUnchecked.png">  <a href="/finances">Finances</a></p>
         </div>

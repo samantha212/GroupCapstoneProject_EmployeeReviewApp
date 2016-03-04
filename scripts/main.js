@@ -160,7 +160,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     leader: false,
     emp: false
   };
-
+  //fix this
   var type = {
     typeField: true,
     typeSalon: true
@@ -227,9 +227,11 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
           currentReview.empInfo = response.data[0][0];
           currentReview.subsections = response.data[1];
           console.log('Current Review', currentReview);
+          updateCurrentReviewType();
           updateRoleAndViewStatuses();
           console.log('Role object:', role);
           console.log('Statuses object:', statuses);
+          //console.log('Type object:', type);
       });
   };
 
@@ -247,6 +249,17 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
         getReview(myReview.empInfo.RegisId);
         $location.path('/signature');
     };
+
+    var updateCurrentReviewType = function() {
+        if (currentReview.empInfo.ReviewType == "FS"){
+            type.typeField = true;
+            type.typeSalon = false;
+        } else {
+            type.typeField = false;
+            type.typeSalon = true;
+        }
+        console.log("type object", type);
+    }
 
     var updateMyReviewStatuses = function() {
         if (myReview.empInfo.ReviewStatus==1 || myReview.empInfo.ReviewStatus==2) {
