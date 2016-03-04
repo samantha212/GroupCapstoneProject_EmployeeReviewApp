@@ -1,13 +1,8 @@
 app.controller('HairController', ['$scope', '$http', '$location', '$anchorScroll', 'ReviewService',function($scope, $http, $location, $anchorScroll, ReviewService){
   $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
-  $scope.hairData = ReviewService.currentReview.subsections;
+  $scope.hairData = ReviewService.currentReview;
   $scope.subsections = ReviewService.subsections;
   var role = ReviewService.role;
-
-  $scope.hairSubsectionH = ReviewService.subsections.currentHAIR == 6;
-  $scope.hairSubsectionA = ReviewService.subsections.currentHAIR == 7;
-  $scope.hairSubsectionI = ReviewService.subsections.currentHAIR == 8;
-  $scope.hairSubsectionR = ReviewService.subsections.currentHAIR == 9;
 
   $scope.putCompleteAndGoNextHAIR = function() {
     var leaderIsComp = false;
@@ -18,7 +13,17 @@ app.controller('HairController', ['$scope', '$http', '$location', '$anchorScroll
     }else{
       empIsComp = true;
     }
-    var contentToSend = {regisId: $scope.currentReviewEmpInfo.RegisId, SectionId: 3, SubsectionId: ReviewService.subsections.currentHAIR-5, data: {EmployeeResponse: $scope.hairData[ReviewService.subsections.currentHAIR].EmployeeResponse, LeaderResponse: $scope.hairData[ReviewService.subsections.currentHAIR].LeaderResponse, isCompleted: empIsComp, isLeaderCompleted: leaderIsComp}};
+    var contentToSend = {
+      regisId: $scope.currentReviewEmpInfo.RegisId,
+      SectionId: 3,
+      SubsectionId: ReviewService.subsections.currentHAIR-5,
+      data: {
+        EmployeeResponse: $scope.hairData.subsections[$scope.subsections.currentHAIR].EmployeeResponse,
+        LeaderResponse: $scope.hairData.subsections[$scope.subsections.currentHAIR].LeaderResponse,
+        isCompleted: empIsComp,
+        isLeaderCompleted: leaderIsComp
+      }
+    };
     $http.post('/updateData', contentToSend).then(function(response){
       if(response.status == 200){
         $scope.goNextHAIR();
@@ -27,7 +32,15 @@ app.controller('HairController', ['$scope', '$http', '$location', '$anchorScroll
   };
 
   $scope.putAndGoMap = function() {
-    var contentToSend = {regisId: $scope.currentReviewEmpInfo.RegisId, SectionId: 3, SubsectionId: ReviewService.subsections.currentHAIR-5, data: {EmployeeResponse: $scope.hairData[ReviewService.subsections.currentHAIR].EmployeeResponse, LeaderResponse: $scope.hairData[ReviewService.subsections.currentHAIR].LeaderResponse}};
+    var contentToSend = {
+      regisId: $scope.currentReviewEmpInfo.RegisId,
+      SectionId: 3,
+      SubsectionId: ReviewService.subsections.currentHAIR-5,
+      data: {
+        EmployeeResponse: $scope.hairData.subsections[$scope.subsections.currentHAIR].EmployeeResponse,
+        LeaderResponse: $scope.hairData.subsections[$scope.subsections.currentHAIR].LeaderResponse
+      }
+    };
     $http.post('/updateData', contentToSend).then(function(response){
       if(response.status == 200){
         ReviewService.getReview($scope.currentReviewEmpInfo.RegisId);
@@ -37,14 +50,24 @@ app.controller('HairController', ['$scope', '$http', '$location', '$anchorScroll
   };
 
   $scope.goNextHAIR = function() {
-    console.log('GoNextHAIR function hit');
-    if (ReviewService.subsections.currentHAIR < 9) {
-      ReviewService.subsections.currentHAIR += 1;
-      $anchorScroll('top');
-    } else {
-      $location.path('/hair-rating');
-    }
+      console.log('GoNextHAIR function hit');
+      if (ReviewService.subsections.currentHAIR < 9) {
+        if (ReviewService.subsections.currentHAIR == 6) {
+          console.log("6");
+          $scope.setCurrentHAIR(2);
+        } else if (ReviewService.subsections.currentHAIR == 7) {
+          $scope.setCurrentHAIR(3);
+        } else {
+          $scope.setCurrentHAIR(4);
+        }
+          $anchorScroll('top');
+      } else {
+          $location.path('/hair-rating');
+      }
   };
+
+
+
 
 
 }]);
