@@ -5,6 +5,9 @@ body {
   padding-bottom: 4%;
   color: black; }
 
+html, body {
+  overflow: auto; }
+
 textarea {
   resize: none; }
 
@@ -402,7 +405,7 @@ fieldset[disabled] .grey.active {
   width: 90%;
   margin-top: 3%; }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   body {
     font-family: Helvetica Neue, Verdana;
     background-color: whitesmoke;
