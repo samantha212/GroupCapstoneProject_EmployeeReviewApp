@@ -8,7 +8,10 @@ app.controller('FinancesController', ['$scope', '$http', '$location', 'ReviewSer
      $scope.makePercentage = function(firstValue, secondValue){
        var makePercent = ((firstValue / secondValue) * 100).toFixed(1);
        if(makePercent != 'NaN'){
-         return ((firstValue / secondValue) * 100).toFixed(1) + '%';
+           var percent = ((firstValue / secondValue) * 100).toFixed(1);
+           if (percent != 'Infinity') {
+               return percent + '%';
+           }
        }
     };
 
