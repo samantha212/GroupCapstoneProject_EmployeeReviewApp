@@ -412,6 +412,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
                 statuses.empOneTwo = true;
                 statuses.empOneToFive = true;
             } else if (currentReview.empInfo.ReviewStatus==3 || currentReview.empInfo.ReviewStatus==4) {
+                statuses.empOneTwo = false;
                 statuses.empOneToFive = true;
                 statuses.empThreePlus = true;
             } else if (currentReview.empInfo.ReviewStatus==5) {
