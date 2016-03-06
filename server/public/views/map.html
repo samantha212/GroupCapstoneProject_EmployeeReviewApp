@@ -99,7 +99,7 @@
               <button type="button" ng-disabled="!submitStatus.empReadyToSubmit" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT</button>
               <!--This button should only be active when all required sections are complete.  Will change to State 3.-->
             </div>
-             <div ng-if="statuses.empSix">
+             <div ng-if="statuses.empSixAndNoEmpSignature">
               <a href="/signature"><button type="button" class="orange btn btn-warning btn-responsive"><span class="glyphicon glyphicon-pencil"></span> SIGN REVIEW</button></a>
               <!--This button should be active only in State 6.  Will bring to signature page.-->
             </div>
@@ -198,7 +198,7 @@
             <!--This button should be active only in State 5.  Will change to State 6.-->
         </div>
 
-        <div ng-if="statuses.leaderSix">
+        <div ng-if="statuses.leaderSixAndNoLeaderSignature">
             <a href="/signature"><button type="button" class="orange btn btn-warning btn-responsive"><span class="glyphicon glyphicon-pencil"></span> SIGN REVIEW</button></a>
             <!--This button should be active only in State 6.  Will route to Signature page-->
         </div>

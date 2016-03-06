@@ -48,7 +48,8 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
   //$scope.typeField = ReviewService.type.typeField;
   //$scope.typeSalon = ReviewService.type.typeSalon;
 
-  $scope.leader = true;
+  //$scope.leader = true;
+  $scope.leader = false;
   $scope.emp = false;
 
     $scope.hairSubsectionH = true;
@@ -188,6 +189,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     leaderThreeFourFive: false,
     leaderFive: false,
     leaderSix: false,
+      leaderSixAndNoLeaderSignature: false,
     leaderSixPlus: false
   };
 
@@ -291,10 +293,9 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
 
   var getTeamReviews = function(user){
     $http.post('/employeeData/leaderReviews', user).then(function(response) {
-      console.log('My team\'s reviews:', response);
-      //teamReviews.data = response.data;
-      //reviews.teamReviews.data = response.data;
       teamReviews.data = response.data;
+        console.log('My team\'s reviews:', teamReviews);
+
     });
   };
 
@@ -330,10 +331,10 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
             myReviewStatuses.empThreePlus = true;
             myReviewStatuses.empFivePlus = true;
             myReviewStatuses.empSix = true;
-            if (myReview.empInfo.EmployeeSignature == null) {
-                myReviewStatuses.empSixAndNoEmpSignature = true;
-            } else {
+            if (myReview.empInfo.EmployeeSignature != null) {
                 myReviewStatuses.empSixAndNoEmpSignature = false;
+            } else {
+                myReviewStatuses.empSixAndNoEmpSignature = true;
             }
         } else if (myReview.empInfo.ReviewStatus==7) {
             myReviewStatuses.empThreePlus = true;
@@ -380,6 +381,11 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
               statuses.leaderThreePlus = true;
               statuses.leaderSix = true;
               statuses.leaderSixPlus = true;
+              if (currentReview.empInfo.ReviewStatus==6 && currentReview.empInfo.LeaderSignature != null) {
+                  statuses.leaderSixAndNoLeaderSignature = false;
+              } else {
+                  statuses.leaderSixAndNoLeaderSignature = true;
+              }
           } else if (currentReview.empInfo.ReviewStatus==7) {
               statuses.leaderThreePlus = true;
               statuses.leaderSixPlus = true;
@@ -412,7 +418,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
                 statuses.empThreePlus = true;
                 statuses.empFivePlus = true;
                 statuses.empSix = true;
-                if (currentReview.empInfo.ReviewStatus==6 && currentReview.empInfo.EmployeeSignature==null) {
+                if (currentReview.empInfo.ReviewStatus==6 && currentReview.empInfo.EmployeeSignature != null) {
                     statuses.empSixAndNoEmpSignature = false;
                 } else {
                     statuses.empSixAndNoEmpSignature = true;

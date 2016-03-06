@@ -9,8 +9,9 @@ router.post('/', function(request, response){
   var empId = [];
 
   pg.connect(connectionString, function(err, client, done){
-    var signData = {isLeader: request.body.isLeader, regisId: request.body.regisId, EmployeeSignature: request.body.EmployeeSignature};
-
+    var signData = {isLeader: request.body.isLeader, regisId: request.body.regisId, EmployeeSignature: request.body.EmployeeSignature, LeaderSignature: request.body.LeaderSignature};
+    console.log("request", request);
+    console.log("signData", signData);
     var findEmpId = client.query('SELECT "Id" FROM "employeeData" WHERE "RegisId" = $1', [signData.regisId]);
 
     findEmpId.on('row', function(row){
@@ -18,9 +19,9 @@ router.post('/', function(request, response){
     });
 
     findEmpId.on('end', function(){
-      var query
+      var query;
       if(signData.isLeader == true){
-        query = client.query('UPDATE "employeeData" SET "LeaderSignature" = $1 WHERE "Id" = $2', [signData.EmployeeSignature, empId[0].Id]);
+        query = client.query('UPDATE "employeeData" SET "LeaderSignature" = $1 WHERE "Id" = $2', [signData.LeaderSignature, empId[0].Id]);
       }else{
         query = client.query('UPDATE "employeeData" SET "EmployeeSignature" = $1 WHERE "Id" = $2', [signData.EmployeeSignature, empId[0].Id]);
       }
@@ -36,15 +37,16 @@ router.post('/', function(request, response){
         checkIfDone.on('end', function(){
           if(compareData[0].EmployeeSignature && compareData[0].LeaderSignature != null){
             response.send(true);
-            var updateStage =client.query('UPDATE "employeeData" SET "ReviewStatus" = 7 WHERE "Id" = $1', [empId[0].Id]);
+            var updateStage = client.query('UPDATE "employeeData" SET "ReviewStatus" = 7 WHERE "Id" = $1', [empId[0].Id]);
+
+            updateStage.on('end', function(){
+              client.end();
+            });
           }else{
             response.send(false);
             client.end();
           }
 
-          updateStage.on('end', function(){
-            client.end();
-          });
         });
       });
     });
