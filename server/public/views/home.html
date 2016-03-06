@@ -47,7 +47,7 @@
 
       <div class="homePageEmpButtons">
         <a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="person.ReviewStatus == 3" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
-        <a href="/map"><button class="orange btn btn-warning btn-responsive" ng-if="person.ReviewStatus == 4"><span class="glyphicon glyphicon-pencil" ng-click="ReviewService.getReview(person.RegisId)"></span> EDIT</button></a>
+        <a href="/map"><button type="button" class="orange btn btn-warning btn-responsive" ng-if="person.ReviewStatus == 4" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> EDIT</button></a>
         <a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 5" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button></a>
         <a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive" ng-if="person.ReviewStatus == 6" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button></a>
         <a href="/map"><button type="button" class="grey btn btn-secondary btn-responsive" ng-if="person.ReviewStatus == 7" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> READ</button></a>
