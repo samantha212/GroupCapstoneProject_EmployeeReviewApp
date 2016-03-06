@@ -185,12 +185,12 @@
       <div class="Mapbuttons">
         <div ng-if="statuses.leaderThreeFour">
             <p ng-hide="submitStatus.empReadyToSubmit">Please complete all sections above in order to submit and make your responses visible to the employee.</p>
-            <button type="button" class="darkBlue btn btn-primary btn-responsive" ng-disabled="!submitStatus.leaderReadyToSubmit"><span class="glyphicon glyphicon-upload"></span> SUBMIT & SEND TO EMPLOYEE</button>
+            <button type="button" class="darkBlue btn btn-primary btn-responsive" ng-disabled="!submitStatus.leaderReadyToSubmit" ng-click="leaderSubmitSendToEmp()"><span class="glyphicon glyphicon-upload"></span> SUBMIT & SEND TO EMPLOYEE</button>
             <!--This button should be active only be active when all required sections are complete.  Will change to State 5.-->
         </div>
 
         <div ng-if="statuses.leaderFive">
-            <button type="button" class="green btn btn-success btn-responsive"><span class="glyphicon glyphicon-ok"></span> FINALIZE & GET SIGNATURES</button>
+            <button type="button" class="green btn btn-success btn-responsive" ng-click="leaderSubmitForSignatures()"><span class="glyphicon glyphicon-ok"></span> FINALIZE & GET SIGNATURES</button>
             <!--This button should be active only in State 5.  Will change to State 6.-->
         </div>
 
