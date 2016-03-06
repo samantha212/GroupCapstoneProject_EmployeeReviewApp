@@ -270,6 +270,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
         myReview.subsections = response.data[1];
         console.log('My Review', myReview);
         updateMyReviewStatuses();
+        updateCurrentReviewType(myReview.empInfo.ReviewType);
         console.log('myReviewStatuses', myReviewStatuses);
     });
   };
@@ -282,7 +283,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
           currentReview.empInfo = response.data[0][0];
           currentReview.subsections = response.data[1];
           console.log('Current Review', currentReview);
-          updateCurrentReviewType();
+          updateCurrentReviewType(currentReview.empInfo.ReviewType);
           updateRoleAndViewStatuses();
           updateSubmitStatus();
           console.log('Role object:', role);
@@ -305,16 +306,17 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
         $location.path('/signature');
     };
 
-    var updateCurrentReviewType = function() {
-        if (currentReview.empInfo.ReviewType == "FS"){
+    var updateCurrentReviewType = function(data) {
+        //if (currentReview.empInfo.ReviewType == "FS"){
+        if (data == "FS"){
             type.typeField = true;
             type.typeSalon = false;
         } else {
             type.typeField = false;
             type.typeSalon = true;
         }
-        console.log("type object", type);
-    }
+        console.log("type object", data);
+    };
 
     var updateMyReviewStatuses = function() {
         if (myReview.empInfo.ReviewStatus==1 || myReview.empInfo.ReviewStatus==2) {
