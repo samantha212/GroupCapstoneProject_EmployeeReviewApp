@@ -108,14 +108,15 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
       }
   };
 
-    $scope.putAndGoMap = function() {
-        console.log('putAndGoMap function hit');
-        //put that subsection to the DB;
-        $scope.goMap();
-    };
+    //$scope.putAndGoMap = function() {
+    //    console.log('putAndGoMap function hit');
+    //    //put that subsection to the DB;
+    //    $scope.goMap();
+    //};
 
     $scope.goMap = function() {
         console.log('goMap function hit');
+        ReviewService.getReview($scope.currentReviewEmpInfo.RegisId);
         $location.path('/map');
     };
 
