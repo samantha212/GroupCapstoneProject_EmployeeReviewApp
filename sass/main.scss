@@ -6,6 +6,10 @@ body{
   color: black;
 }
 
+html, body {
+    overflow: auto;
+}
+
 
 
 textarea {
@@ -361,6 +365,7 @@ a{
  background: rgb(86,86,91);
  position: fixed;
  height: 100%;
+ // margin-bottom: -500%;
  overflow-y: auto;
  z-index: 1000;
 }
@@ -496,7 +501,9 @@ a{
 //[][][][][][][]][][][][][][][][][][][][][][][][]][]]][][][][][][][][][][][][][][][][][]][][][][][][][]][][][][][][][][][][][][][]
 //[][][][][][][]][][][][][][][][][][][][][][][][]][]]][ TABLET ][][][][][][][][][][][][][][][][]][][][][][][][]][][][][][][][][][]
 
-@media only screen and (max-width: 900px) {
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
   body{
     font-family: Helvetica Neue, Verdana;
     background-color:whitesmoke;
