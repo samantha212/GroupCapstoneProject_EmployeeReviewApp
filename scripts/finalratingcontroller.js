@@ -1,6 +1,6 @@
-app.controller('FinalRatingController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+app.controller('FinalRatingController', ['$scope', '$http', 'ReviewService', '$location', function($scope, $http, ReviewService, $location){
     ReviewService.checkIfLoggedIn();
-    
+
     $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
     $scope.finalData = ReviewService.currentReview.subsections;
     $scope.subsections = ReviewService.subsections;
@@ -20,7 +20,7 @@ app.controller('FinalRatingController', ['$scope', '$http', 'ReviewService', fun
       $http.post('/updateData', contentToSend).then(function(response){
         if(response.status == 200){
           ReviewService.getReview($scope.currentReviewEmpInfo.RegisId);
-          $scope.goMap();
+          $location.path('/map');
         }
       });
     };
@@ -31,7 +31,7 @@ app.controller('FinalRatingController', ['$scope', '$http', 'ReviewService', fun
       $http.post('/updateData', contentToSend).then(function(response){
         if(response.status == 200){
           ReviewService.getReview($scope.currentReviewEmpInfo.RegisId);
-          $scope.goMap();
+          $location.path('/map');
         }
       });
     };
