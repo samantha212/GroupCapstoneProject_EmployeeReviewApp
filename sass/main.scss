@@ -1,6 +1,7 @@
 body{
   font-family:'Helvetica Neue', Helvetica, 'Times New Roman';
-  background-color:whitesmoke;
+  // background-color:whitesmoke;
+  background-color: rgb(255,255,255);
   padding-left: 9%;
   padding-bottom: 4%;
   color: black;
@@ -148,7 +149,8 @@ a{
 }
 
 .boxProperties{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 4% auto 8% 6%;
   width: 80%;
@@ -156,7 +158,8 @@ a{
 }
 
 .financesBox{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 2% auto -3% 0%;
   width: 50%;
@@ -164,7 +167,8 @@ a{
 }
 
 .secondfinancesBox{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 4% auto -1% 0%;
   width: 50%;
@@ -176,7 +180,8 @@ a{
 }
 
 .goalboxProperties{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 4% auto 8% 6%;
   width: 80%;
@@ -184,7 +189,8 @@ a{
 }
 
 .textAreaboxProperties{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 4% auto 8% 5%;
   width: 80%;
@@ -192,7 +198,8 @@ a{
 }
 
 .lasttextAreabox{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 4% auto 8% 6%;
   width: 82.5%;
@@ -201,7 +208,8 @@ a{
 
 
 .ReadboxProperties{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 4% auto 8% 5%;
   width: 80%;
@@ -209,7 +217,8 @@ a{
 }
 
 .legal{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 13% auto 8% 22%;
   padding: 1% 1% 1% 1%;
@@ -223,7 +232,8 @@ a{
 }
 
 .hairRatingbox{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 5% 49% 8% auto;
   width: 11%;
@@ -234,7 +244,8 @@ a{
 
 
 .employeeRatingBox {
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display:block;
   margin: 2.5% 0 0 26%;
   width: 41%;
@@ -244,7 +255,8 @@ a{
 }
 
 .goalemployeeRatingBox {
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display:block;
   margin: 2.5% 0 0 26%;
   width: 41%;
@@ -254,7 +266,9 @@ a{
 }
 
 .leaderRatingBox {
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
+
   display: block;
   margin: 3% 0 0 27%;
   width: 41%;
@@ -263,7 +277,8 @@ a{
 }
 
 .secondleaderRatingBox{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 3% 0 0 26%;
   width: 41%;
@@ -291,7 +306,8 @@ a{
 
 
 .selectDrop{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   width: 15%;
   height: 32px;
@@ -300,7 +316,8 @@ a{
 }
 
 .goalselectDrop{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   width: 15%;
   height: 24px;
@@ -317,7 +334,8 @@ a{
 }
 
 .secondGoalSelectDrop{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   width: 30%;
   display: block;
@@ -325,19 +343,22 @@ a{
 }
 
 .FinancesSelectDrop{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   width: 24%;
   height: 24px;
 }
 
 .lastFinancesSelectDrop{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   width: 14%;
   height: 24px;
 }
 
 .initialInput{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 3% 50% 5% auto;
   width: 9%;
@@ -345,7 +366,8 @@ a{
 }
 
 .financialInput{
-  background-color: rgb(255,255,255);
+  // //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display:block;
   margin: 1% 0 1% 0;
   width: 100%;
@@ -362,7 +384,8 @@ a{
  margin-left: -250px;
  left: 250px;
  width: 8%;
- background: rgb(86,86,91);
+ // background: rgb(86,86,91);
+ background-color: black;
  position: fixed;
  height: 100%;
  // margin-bottom: -500%;
@@ -374,7 +397,8 @@ a{
  margin-right: -250px;
  right: 250px;
  width: 8%;
- background: rgb(86,86,91);
+ // background: rgb(86,86,91);
+ background-color: black;
  position: fixed;
  height: 100%;
  overflow-y: auto;
@@ -506,7 +530,8 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) {
   body{
     font-family: Helvetica Neue, Verdana;
-    background-color:whitesmoke;
+    // background-color:whitesmoke;
+    background-color: rgb(255,255,255);
     padding-left: 4%;
   }
 
@@ -542,7 +567,8 @@ and (max-device-width : 1024px) {
   }
 
   .boxProperties{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 4% auto 8% 7%;
     width: 86%;
@@ -551,7 +577,8 @@ and (max-device-width : 1024px) {
 
 
   .financesBox{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 2% auto -3% 0%;
     width: 96%;
@@ -559,7 +586,8 @@ and (max-device-width : 1024px) {
   }
 
   .goalboxProperties{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 4% auto 8% 6%;
     width: 86%;
@@ -567,7 +595,8 @@ and (max-device-width : 1024px) {
   }
 
   .textAreaboxProperties{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 4% auto 8% 5%;
     width: 90%;
@@ -575,7 +604,8 @@ and (max-device-width : 1024px) {
   }
 
   .lasttextAreabox{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 4% auto 8% 6%;
     width: 90%;
@@ -584,7 +614,8 @@ and (max-device-width : 1024px) {
 
 
   .ReadboxProperties{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 4% auto 8% 7%;
     width: 84%;
@@ -592,7 +623,8 @@ and (max-device-width : 1024px) {
   }
 
   .hairRatingbox{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 8% auto 10% auto;
     width: 20%;
@@ -602,7 +634,8 @@ and (max-device-width : 1024px) {
   }
 
   .leaderRatingBox {
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 3% 0 0 29%;
     width: 41%;
@@ -611,7 +644,8 @@ and (max-device-width : 1024px) {
   }
 
   .secondleaderRatingBox{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 3% 0 0 29%;
     width: 41%;
@@ -620,7 +654,8 @@ and (max-device-width : 1024px) {
   }
 
   .goalemployeeRatingBox {
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display:block;
     margin: 2.5% 0 0 29%;
     width: 41%;
@@ -638,7 +673,8 @@ and (max-device-width : 1024px) {
     font-weight: bold;
   }
   .selectDrop{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     width: 40%;
     display: block;
@@ -647,7 +683,8 @@ and (max-device-width : 1024px) {
   }
 
   .goalselectDrop{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     width: 22%;
     height: 32px;
@@ -657,7 +694,8 @@ and (max-device-width : 1024px) {
 
 
   .secondGoalSelectDrop{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     width: 30%;
     display: block;
@@ -748,7 +786,8 @@ and (max-device-width : 1024px) {
   }
 
   .initialBox{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 0 auto;
     width: 25%;
@@ -761,7 +800,8 @@ and (max-device-width : 1024px) {
   }
 
   .initialInput{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 5% 42% 5% auto;
     width: 16%;
@@ -769,7 +809,8 @@ and (max-device-width : 1024px) {
   }
 
   .legal{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 12% 0% 15% 15%;
     padding:3% 3% 5% 4%;
@@ -783,7 +824,8 @@ and (max-device-width : 1024px) {
   }
 
   .financialInput{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display:block;
     margin: 0% 0% 1% -7%;
     width: 116%;
@@ -809,7 +851,8 @@ and (max-device-width : 1024px) {
 
   body{
     font-family: Helvetica Neue, Verdana;
-    background-color:whitesmoke;
+    // background-color:whitesmoke;
+    background-color: rgb(255,255,255);
     padding-left: 4%;
   }
 
@@ -852,7 +895,8 @@ and (max-device-width : 1024px) {
   }
 
   .goalboxProperties{
-    background-color: rgb(255,255,255);
+    // //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 4% auto 8% 0;
     width: 95%;
@@ -860,7 +904,8 @@ and (max-device-width : 1024px) {
   }
 
   .textAreaboxProperties{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 4% auto 8% -2%;
     width: 108%;
@@ -868,7 +913,8 @@ and (max-device-width : 1024px) {
   }
 
   .lasttextAreabox{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 4% auto 8% 0;
     width: 106%;
@@ -881,7 +927,8 @@ and (max-device-width : 1024px) {
   }
 
   .hairRatingbox{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 12% auto 10% auto;
     width: 30%;
@@ -907,7 +954,8 @@ and (max-device-width : 1024px) {
     }
 
   .selectDrop{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     width: 40%;
     height: 28px;
@@ -916,7 +964,8 @@ and (max-device-width : 1024px) {
   }
 
   .goalselectDrop{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     width: 53%;
     height: 31px;
@@ -925,7 +974,8 @@ and (max-device-width : 1024px) {
   }
 
   .secondGoalSelectDrop{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     width: 53%;
     height: 24px;
@@ -1019,7 +1069,8 @@ and (max-device-width : 1024px) {
 display: none;
 }
   .initialBox{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 0 auto;
     width: 25%;
@@ -1032,7 +1083,8 @@ display: none;
 }
 
 .initialInput{
-  background-color: rgb(255,255,255);
+  //background-color: rgb(255,255,255);
+  background-color:whitesmoke;
   display: block;
   margin: 10% 29% 10% auto;
   width: 38%;
@@ -1040,7 +1092,8 @@ display: none;
 }
 
   .legal{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 0% auto 22% 4%;
     padding: 4% 4% 4% 4%;
@@ -1059,7 +1112,8 @@ display: none;
   }
 
   .secondfinancesBox{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin: 4% auto 3% -2%;
     padding: 5% 1% 0% 3%;
@@ -1068,7 +1122,8 @@ display: none;
   }
 
   .financesBox{
-    background-color: rgb(255,255,255);
+    //background-color: rgb(255,255,255);
+    background-color:whitesmoke;
     display: block;
     margin:4% auto 3% -2%;
     padding: 5% 1% 0% 3%;

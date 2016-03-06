@@ -1,6 +1,6 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, 'Times New Roman';
-  background-color: whitesmoke;
+  background-color: white;
   padding-left: 9%;
   padding-bottom: 4%;
   color: black; }
@@ -118,21 +118,21 @@ a {
     text-decoration: none; }
 
 .boxProperties {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 4% auto 8% 6%;
   width: 80%;
   height: 300px; }
 
 .financesBox {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 2% auto -3% 0%;
   width: 50%;
   height: 68px; }
 
 .secondfinancesBox {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 4% auto -1% 0%;
   width: 50%;
@@ -142,35 +142,35 @@ a {
   font-weight: bold; }
 
 .goalboxProperties {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 4% auto 8% 6%;
   width: 80%;
   height: 300px; }
 
 .textAreaboxProperties {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 4% auto 8% 5%;
   width: 80%;
   height: 300px; }
 
 .lasttextAreabox {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 4% auto 8% 6%;
   width: 82.5%;
   height: 300px; }
 
 .ReadboxProperties {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 4% auto 8% 5%;
   width: 80%;
   height: 300px; }
 
 .legal {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 13% auto 8% 22%;
   padding: 1% 1% 1% 1%;
@@ -182,7 +182,7 @@ a {
   margin: 5% 91% -15% 19%; }
 
 .hairRatingbox {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 5% 49% 8% auto;
   width: 11%;
@@ -191,7 +191,7 @@ a {
   padding-left: 8px; }
 
 .employeeRatingBox {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 2.5% 0 0 26%;
   width: 41%;
@@ -199,7 +199,7 @@ a {
   padding-bottom: 1%; }
 
 .goalemployeeRatingBox {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 2.5% 0 0 26%;
   width: 41%;
@@ -207,7 +207,7 @@ a {
   padding-bottom: 1%; }
 
 .leaderRatingBox {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 3% 0 0 27%;
   width: 41%;
@@ -215,7 +215,7 @@ a {
   padding-bottom: 1%; }
 
 .secondleaderRatingBox {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 3% 0 0 26%;
   width: 41%;
@@ -236,7 +236,7 @@ a {
   padding-bottom: 3%; }
 
 .selectDrop {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   width: 15%;
   height: 32px;
@@ -244,7 +244,7 @@ a {
   margin: 4% 47% 10% auto; }
 
 .goalselectDrop {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   width: 15%;
   height: 24px;
@@ -259,30 +259,30 @@ a {
   margin: 11% 11% 3% auto; }
 
 .secondGoalSelectDrop {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   width: 30%;
   display: block;
   margin: 1% auto 0 3%; }
 
 .FinancesSelectDrop {
-  background-color: white;
+  background-color: whitesmoke;
   width: 24%;
   height: 24px; }
 
 .lastFinancesSelectDrop {
-  background-color: white;
+  background-color: whitesmoke;
   width: 14%;
   height: 24px; }
 
 .initialInput {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 3% 50% 5% auto;
   width: 9%; }
 
 .financialInput {
-  background-color: white;
+  background-color: whitesmoke;
   display: block;
   margin: 1% 0 1% 0;
   width: 100%;
@@ -296,7 +296,7 @@ a {
   margin-left: -250px;
   left: 250px;
   width: 8%;
-  background: #56565b;
+  background-color: black;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -306,7 +306,7 @@ a {
   margin-right: -250px;
   right: 250px;
   width: 8%;
-  background: #56565b;
+  background-color: black;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -408,7 +408,7 @@ fieldset[disabled] .grey.active {
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   body {
     font-family: Helvetica Neue, Verdana;
-    background-color: whitesmoke;
+    background-color: white;
     padding-left: 4%; }
 
   a {
@@ -436,49 +436,49 @@ fieldset[disabled] .grey.active {
     margin-top: 0; }
 
   .boxProperties {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 8% 7%;
     width: 86%;
     height: 300px; }
 
   .financesBox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 2% auto -3% 0%;
     width: 96%;
     height: 64px; }
 
   .goalboxProperties {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 8% 6%;
     width: 86%;
     height: 300px; }
 
   .textAreaboxProperties {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 8% 5%;
     width: 90%;
     height: 300px; }
 
   .lasttextAreabox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 8% 6%;
     width: 90%;
     height: 300px; }
 
   .ReadboxProperties {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 8% 7%;
     width: 84%;
     height: 300px; }
 
   .hairRatingbox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 8% auto 10% auto;
     width: 20%;
@@ -487,7 +487,7 @@ fieldset[disabled] .grey.active {
     padding-left: 8px; }
 
   .leaderRatingBox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 3% 0 0 29%;
     width: 41%;
@@ -495,7 +495,7 @@ fieldset[disabled] .grey.active {
     padding-bottom: 1%; }
 
   .secondleaderRatingBox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 3% 0 0 29%;
     width: 41%;
@@ -503,7 +503,7 @@ fieldset[disabled] .grey.active {
     padding-bottom: 1%; }
 
   .goalemployeeRatingBox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 2.5% 0 0 29%;
     width: 41%;
@@ -519,7 +519,7 @@ fieldset[disabled] .grey.active {
     font-weight: bold; }
 
   .selectDrop {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     width: 40%;
     display: block;
@@ -527,7 +527,7 @@ fieldset[disabled] .grey.active {
     height: 34px; }
 
   .goalselectDrop {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     width: 22%;
     height: 32px;
@@ -535,7 +535,7 @@ fieldset[disabled] .grey.active {
     margin: 4% 39% 10% auto; }
 
   .secondGoalSelectDrop {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     width: 30%;
     display: block;
@@ -610,7 +610,7 @@ fieldset[disabled] .grey.active {
     display: none; }
 
   .initialBox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 0 auto;
     width: 25%; }
@@ -621,13 +621,13 @@ fieldset[disabled] .grey.active {
     padding-bottom: 1%; }
 
   .initialInput {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 5% 42% 5% auto;
     width: 16%; }
 
   .legal {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 12% 0% 15% 15%;
     padding: 3% 3% 5% 4%;
@@ -639,7 +639,7 @@ fieldset[disabled] .grey.active {
     margin: 7% 101% -17% 8%; }
 
   .financialInput {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 0% 0% 1% -7%;
     width: 116%;
@@ -647,7 +647,7 @@ fieldset[disabled] .grey.active {
 @media only screen and (max-width: 767px) {
   body {
     font-family: Helvetica Neue, Verdana;
-    background-color: whitesmoke;
+    background-color: white;
     padding-left: 4%; }
 
   .logo {
@@ -681,21 +681,21 @@ fieldset[disabled] .grey.active {
     width: 106%; }
 
   .goalboxProperties {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 8% 0;
     width: 95%;
     height: 300px; }
 
   .textAreaboxProperties {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 8% -2%;
     width: 108%;
     height: 300px; }
 
   .lasttextAreabox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 8% 0;
     width: 106%;
@@ -706,7 +706,7 @@ fieldset[disabled] .grey.active {
     width: 100%; }
 
   .hairRatingbox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 12% auto 10% auto;
     width: 30%;
@@ -727,7 +727,7 @@ fieldset[disabled] .grey.active {
     font-weight: normal; }
 
   .selectDrop {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     width: 40%;
     height: 28px;
@@ -735,7 +735,7 @@ fieldset[disabled] .grey.active {
     margin: 12% auto 15% auto; }
 
   .goalselectDrop {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     width: 53%;
     height: 31px;
@@ -743,7 +743,7 @@ fieldset[disabled] .grey.active {
     margin: 4% 23% 10% auto; }
 
   .secondGoalSelectDrop {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     width: 53%;
     height: 24px;
@@ -821,7 +821,7 @@ fieldset[disabled] .grey.active {
     display: none; }
 
   .initialBox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 0 auto;
     width: 25%; }
@@ -832,13 +832,13 @@ fieldset[disabled] .grey.active {
     padding-bottom: 1%; }
 
   .initialInput {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 10% 29% 10% auto;
     width: 38%; }
 
   .legal {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 0% auto 22% 4%;
     padding: 4% 4% 4% 4%;
@@ -853,7 +853,7 @@ fieldset[disabled] .grey.active {
     margin-bottom: 40%; }
 
   .secondfinancesBox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 3% -2%;
     padding: 5% 1% 0% 3%;
@@ -861,7 +861,7 @@ fieldset[disabled] .grey.active {
     height: 57px; }
 
   .financesBox {
-    background-color: white;
+    background-color: whitesmoke;
     display: block;
     margin: 4% auto 3% -2%;
     padding: 5% 1% 0% 3%;
