@@ -1,4 +1,6 @@
 app.controller('HairController', ['$scope', '$http', '$location', '$anchorScroll', 'ReviewService',function($scope, $http, $location, $anchorScroll, ReviewService){
+  ReviewService.checkIfLoggedIn();
+  
   $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
   $scope.hairData = ReviewService.currentReview;
   $scope.subsections = ReviewService.subsections;

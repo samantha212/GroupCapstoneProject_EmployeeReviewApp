@@ -443,6 +443,11 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
         }
       };
 
+      function checkIfLoggedIn(){
+        try{if(currentReview.empInfo.RegisId == undefined){console.log('send err')}}
+        catch(err){$location.path('/')};
+      }
+
     return {
         loadHomePageInfo: loadHomePageInfo,
         getReview: getReview,
@@ -458,7 +463,8 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
         submitStatus: submitStatus,
         myReviewStatuses: myReviewStatuses,
         role: role,
-        type: type
+        type: type,
+        checkIfLoggedIn: checkIfLoggedIn
     };
 
 }]);

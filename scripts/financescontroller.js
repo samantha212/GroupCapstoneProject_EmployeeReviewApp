@@ -1,4 +1,6 @@
 app.controller('FinancesController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
+    ReviewService.checkIfLoggedIn();
+    
     $scope.currentReview = ReviewService.currentReview;
     $scope.financeData = ReviewService.currentReview.subsections[0];
 

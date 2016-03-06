@@ -1,4 +1,6 @@
 app.controller('StrengthsDevsController', ['$scope', '$http', '$location', '$anchorScroll', 'ReviewService', function($scope, $http, $location, $anchorScroll, ReviewService){
+    ReviewService.checkIfLoggedIn();
+    
     $scope.currentReviewEmpInfo = ReviewService.currentReview.empInfo;
     $scope.strengthDevData = ReviewService.currentReview.subsections;
     var role = ReviewService.role;
