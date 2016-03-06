@@ -1,4 +1,6 @@
 app.controller('MapController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
+    ReviewService.checkIfLoggedIn();
+
     $scope.currentReview = ReviewService.currentReview;
     $scope.type = ReviewService.type;
     $scope.submitStatus = ReviewService.submitStatus;

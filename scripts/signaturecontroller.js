@@ -1,5 +1,6 @@
 app.controller('SignatureController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
-
+    ReviewService.checkIfLoggedIn();
+    
     $scope.currentReview = ReviewService.currentReview;
     $scope.subsections = ReviewService.subsections;
 
