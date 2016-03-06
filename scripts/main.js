@@ -191,6 +191,59 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     leaderSixPlus: false
   };
 
+    var submitStatus = {
+        empReadyToSubmit: false,
+        leaderReadyToSubmit: false
+    };
+
+    var updateSubmitStatus = function() {
+        if (role.emp == true) {
+            if (type.typeField == true) {
+                if (currentReview.subsections[0].isCompleted == false) {
+                    submitStatus.empReadyToSubmit = false;
+                } else {
+                    var status = true;
+                    for (var i = 6; i < 14; i++){
+                        if (currentReview.subsections[i].isCompleted == false) {
+                            status = false;
+                        }
+                    }
+                    submitStatus.empReadyToSubmit = status;
+                }
+            } else {
+                var status = true;
+                for (var i = 1; i < 14; i++){
+                    if (currentReview.subsections[i].isCompleted == false) {
+                        status = false;
+                    }
+                }
+                submitStatus.empReadyToSubmit = status;
+                }
+        } else {
+            if (type.typeField == true) {
+                if (currentReview.subsections[0].isLeaderCompleted == false) {
+                    submitStatus.leaderReadyToSubmit = false;
+                } else {
+                    var status = true;
+                    for (var i = 6; i < 14; i++){
+                        if (currentReview.subsections[i].isLeaderCompleted == false) {
+                            status = false;
+                        }
+                    }
+                    submitStatus.leaderReadyToSubmit = status;
+                }
+            } else {
+                var status = true;
+                for (var i = 1; i < 14; i++){
+                    if (currentReview.subsections[i].isLeaderCompleted == false) {
+                        status = false;
+                    }
+                }
+                submitStatus.leaderReadyToSubmit = status;
+            }
+        }
+    };
+
   //Happens on home page load.
   var loadHomePageInfo = function(){
     //gets the users token, change the number from 1-5 to get different users
@@ -229,6 +282,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
           console.log('Current Review', currentReview);
           updateCurrentReviewType();
           updateRoleAndViewStatuses();
+          updateSubmitStatus();
           console.log('Role object:', role);
           console.log('Statuses object:', statuses);
           //console.log('Type object:', type);
@@ -298,12 +352,15 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
       var updateRoleAndViewStatuses = function() {
         if (thisUser.regisId == currentReview.empInfo.RegisId) {
             role.emp = true;
+            role.leader = false;
         } else if (thisUser.regisId == currentReview.empInfo.LeaderRegisId) {
+            role.emp = false;
             role.leader = true;
         } else {
             console.log("Error.  User is neither employee nor leader for this review.")
         }
-        if (role.leader==true) {
+
+          if (role.leader==true) {
             statuses.empOneTwo = false;
             statuses.empOneToFive = false;
             statuses.empThreePlus = false;
@@ -387,6 +444,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
         subsections: subsections,
         imgHAIR: imgHAIR,
         statuses: statuses,
+        submitStatus: submitStatus,
         myReviewStatuses: myReviewStatuses,
         role: role,
         type: type

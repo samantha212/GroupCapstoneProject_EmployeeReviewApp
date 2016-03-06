@@ -95,7 +95,8 @@
             <!--<div ng-if="2 < 0">-->
         <div class="Mapbuttons">
             <div ng-if="statuses.empOneTwo">
-              <button type="button" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT</button>
+                <p ng-hide="submitStatus.empReadyToSubmit">Please complete all sections above in order to submit your review to your leader.</p>
+              <button type="button" ng-disabled="!submitStatus.empReadyToSubmit" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT</button>
               <!--This button should only be active when all required sections are complete.  Will change to State 3.-->
             </div>
              <div ng-if="statuses.empSix">
@@ -187,7 +188,8 @@
         </div>
       <div class="Mapbuttons">
         <div ng-if="statuses.leaderThreeFour">
-            <button type="button" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT & SEND TO EMPLOYEE</button>
+            <p ng-hide="submitStatus.empReadyToSubmit">Please complete all sections above in order to submit and make your responses visible to the employee.</p>
+            <button type="button" class="darkBlue btn btn-primary btn-responsive" ng-disabled="!submitStatus.leaderReadyToSubmit"><span class="glyphicon glyphicon-upload"></span> SUBMIT & SEND TO EMPLOYEE</button>
             <!--This button should be active only be active when all required sections are complete.  Will change to State 5.-->
         </div>
 
