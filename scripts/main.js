@@ -266,7 +266,6 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
   var getMyReview = function(user) {
     $http.post('/employeeData', user).then(function (response) {
         console.log(response.data);
-        //reviews.myReview = response.data;
         myReview.empInfo = response.data[0][0];
         myReview.subsections = response.data[1];
         console.log('My Review', myReview);
@@ -324,6 +323,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
             myReviewStatuses.empOneTwo = true;
             myReviewStatuses.empOneToFive = true;
         } else if (myReview.empInfo.ReviewStatus==3 || myReview.empInfo.ReviewStatus==4) {
+            myReviewStatuses.empOneTwo = false;
             myReviewStatuses.empOneToFive = true;
             myReviewStatuses.empThreePlus = true;
         } else if (myReview.empInfo.ReviewStatus==5) {
@@ -331,6 +331,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
             myReviewStatuses.empThreePlus = true;
             myReviewStatuses.empFivePlus = true;
         } else if (myReview.empInfo.ReviewStatus==6) {
+            myReviewStatuses.empOneToFive = false;
             myReviewStatuses.empThreePlus = true;
             myReviewStatuses.empFivePlus = true;
             myReviewStatuses.empSix = true;
@@ -445,7 +446,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     return {
         loadHomePageInfo: loadHomePageInfo,
         getReview: getReview,
-        getMyReview: getMyReview,
+        updateMyReviewStatuses: updateMyReviewStatuses,
         signOwnReview: signOwnReview,
         myReview: myReview,
         currentReview: currentReview,

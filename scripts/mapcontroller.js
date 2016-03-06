@@ -15,7 +15,7 @@ app.controller('MapController', ['$scope', '$http', '$location', 'ReviewService'
         console.log("stateToSend", stateToSend);
         $http.post('/updateData/changeState', stateToSend).then(function(response){
             if(response.status == 200){
-                ReviewService.getMyReview($scope.currentReview.empInfo.RegisId);
+                ReviewService.updateMyReviewStatuses();
                 $location.path('/');
             }
         });
