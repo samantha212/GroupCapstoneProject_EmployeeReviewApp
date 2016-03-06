@@ -445,6 +445,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
     return {
         loadHomePageInfo: loadHomePageInfo,
         getReview: getReview,
+        getMyReview: getMyReview,
         signOwnReview: signOwnReview,
         myReview: myReview,
         currentReview: currentReview,

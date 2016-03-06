@@ -44,6 +44,7 @@ router.post('/', function(request, response){
 
 
 router.post('/changeState', function(request, response){
+  console.log("changeState route hit.");
   var regisId = request.body.regisId;
   var state = request.body.ReviewStatus;
 

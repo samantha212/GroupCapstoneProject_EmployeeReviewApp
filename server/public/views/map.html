@@ -91,17 +91,13 @@
             <p ng-hide="currentReview.subsections[13].isCompleted"><img src="/assets/images/checkboxUnchecked.png"> <a href="/final-rating">Final Comments and Rating</a></p>
         </div>
 
-
-            <!--<div ng-if="2 < 0">-->
         <div class="Mapbuttons">
             <div ng-if="statuses.empOneTwo">
                 <p ng-hide="submitStatus.empReadyToSubmit">Please complete all sections above in order to submit your review to your leader.</p>
-              <button type="button" ng-disabled="!submitStatus.empReadyToSubmit" class="darkBlue btn btn-primary btn-responsive"><span class="glyphicon glyphicon-upload"></span> SUBMIT</button>
-              <!--This button should only be active when all required sections are complete.  Will change to State 3.-->
+              <button type="button" ng-disabled="!submitStatus.empReadyToSubmit" class="darkBlue btn btn-primary btn-responsive" ng-click="empSubmit()"><span class="glyphicon glyphicon-upload"></span> SUBMIT</button>
             </div>
              <div ng-if="statuses.empSixAndNoEmpSignature">
               <a href="/signature"><button type="button" class="orange btn btn-warning btn-responsive"><span class="glyphicon glyphicon-pencil"></span> SIGN REVIEW</button></a>
-              <!--This button should be active only in State 6.  Will bring to signature page.-->
             </div>
         </div>
       </div>
