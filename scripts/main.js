@@ -123,7 +123,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
 }]);
 
 
-app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($scope, $http, ReviewService){
+app.controller('HomeController', ['$scope', '$http', '$location', 'ReviewService', function($scope, $http, $location, ReviewService){
     $scope.myReview = ReviewService.myReview;
     $scope.teamReviews = ReviewService.teamReviews;
     $scope.loadHomePageInfo = ReviewService.loadHomePageInfo;
@@ -132,6 +132,11 @@ app.controller('HomeController', ['$scope', '$http', 'ReviewService', function($
     $scope.thisUser = ReviewService.thisUser;
     $scope.myReviewStatuses = ReviewService.myReviewStatuses;
     $scope.signOwnReview = ReviewService.signOwnReview;
+
+    $scope.reviewUpdate = function(person) {
+        $scope.getReview(person);
+        //$location.path('/map');
+    }
 }]);
 
 
@@ -289,6 +294,7 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
           console.log('Role object:', role);
           console.log('Statuses object:', statuses);
           //console.log('Type object:', type);
+          $location.path('/map');
       });
   };
 
@@ -377,11 +383,23 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
               statuses.leaderThreePlus = true;
               statuses.leaderThreeFour = true;
               statuses.leaderThreeFourFive = true;
+              statuses.leaderFive = false;
+              statuses.leaderSix = false;
+              statuses.leaderSixPlus = false;
+              statuses.leaderSixAndNoLeaderSignature = false;
           } else if (currentReview.empInfo.ReviewStatus==5) {
               statuses.leaderThreePlus = true;
+              statuses.leaderThreeFour = false;
               statuses.leaderThreeFourFive = true;
               statuses.leaderFive = true;
+              statuses.leaderSix = false;
+              statuses.leaderSixPlus = false;
+              statuses.leaderSixAndNoLeaderSignature = false;
           } else if (currentReview.empInfo.ReviewStatus==6) {
+              statuses.leaderThreePlus = true;
+              statuses.leaderThreeFour = false;
+              statuses.leaderThreeFourFive = false;
+              statuses.leaderFive = false;
               statuses.leaderThreePlus = true;
               statuses.leaderSix = true;
               statuses.leaderSixPlus = true;
@@ -392,7 +410,12 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
               }
           } else if (currentReview.empInfo.ReviewStatus==7) {
               statuses.leaderThreePlus = true;
+              statuses.leaderThreeFour = false;
+              statuses.leaderThreeFourFive = false;
+              statuses.leaderFive = false;
+              statuses.leaderSix = false;
               statuses.leaderSixPlus = true;
+              statuses.leaderSixAndNoLeaderSignature = false;
           } else {
               statuses.leaderThreePlus = false;
               statuses.leaderThreeFour = false;
@@ -400,6 +423,8 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
               statuses.leaderFive = false;
               statuses.leaderSix = false;
               statuses.leaderSixPlus = false;
+              statuses.leaderSixAndNoLeaderSignature = false;
+
           }
         } else {
             statuses.leaderThreePlus = false;

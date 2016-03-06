@@ -22,4 +22,37 @@ app.controller('MapController', ['$scope', '$http', '$location', 'ReviewService'
             }
         });
     }
+
+    $scope.leaderSubmitSendToEmp = function() {
+        console.log("leaderSubmitSendToEmp function hit");
+
+        var stateToSend = {
+            regisId: $scope.currentReview.empInfo.RegisId,
+            ReviewStatus: 5
+        };
+
+        console.log("stateToSend", stateToSend);
+        $http.post('/updateData/changeState', stateToSend).then(function(response){
+            if(response.status == 200){
+                $location.path('/');
+            }
+        });
+    }
+
+    $scope.leaderSubmitForSignatures = function() {
+        console.log("leaderSubmitForSignatures function hit");
+
+        var stateToSend = {
+            regisId: $scope.currentReview.empInfo.RegisId,
+            ReviewStatus: 6
+        };
+
+        console.log("stateToSend", stateToSend);
+        $http.post('/updateData/changeState', stateToSend).then(function(response){
+            if(response.status == 200){
+                $location.path('/');
+            }
+        });
+    }
+
 }]);
