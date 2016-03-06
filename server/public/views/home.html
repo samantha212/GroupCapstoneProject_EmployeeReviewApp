@@ -37,11 +37,11 @@
       </div>
 
       <div class="homePageEmpButtons">
-        <a href="/map" ng-if="person.ReviewStatus == 3" ><button type="button" class="green btn btn-success btn-md btn-responsive" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
-        <a href="/map" ng-if="person.ReviewStatus == 4"><button type="button" class="orange btn btn-warning btn-responsive" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> EDIT</button></a>
-        <a href="/map" ng-if="person.ReviewStatus == 5"><button type="button" class="review btn btn-info btn-md btn-responsive" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button></a>
-        <a href="/map" ng-if="person.ReviewStatus == 6 && !person.LeaderSignature"><button type="button" class="review btn btn-info btn-md btn-responsive" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button></a>
-        <a href="/map" ng-if="person.ReviewStatus == 7 || person.LeaderSignature"><button type="button" class="grey btn btn-secondary btn-responsive" ng-click="ReviewService.getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> READ</button></a>
+        <button type="button" ng-if="person.ReviewStatus == 3" class="green btn btn-success btn-md btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
+        <button type="button" ng-if="person.ReviewStatus == 4" class="orange btn btn-warning btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> EDIT</button></a>
+        <button type="button" ng-if="person.ReviewStatus == 5" class="review btn btn-info btn-md btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button></a>
+        <button type="button" ng-if="person.ReviewStatus == 6 && !person.LeaderSignature" class="review btn btn-info btn-md btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button></a>
+        <button type="button" ng-if="person.ReviewStatus == 7 || person.LeaderSignature" class="grey btn btn-secondary btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> READ</button></a>
       </div>
 
     </div>
