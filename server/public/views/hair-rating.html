@@ -48,10 +48,10 @@
     <h4>Employee Overall HAIR Rating:</h4>
     <span class="hairRatingbox well">{{hairRatingData[10].EmployeeHairRating}}</span>
   </div>
-
+  <form name="leaderval">
   <div ng-if="statuses.leaderThreeFourFive">
     <h4>Leader Overall HAIR Rating:</h4>
-    <select class="selectDrop well" ng-model="hairRatingData[10].LeaderHairRating">
+    <select class="selectDrop well" ng-model="hairRatingData[10].LeaderHairRating" required>
       <!--Come back and make sure this value matches current subsection thisLeaderHairRating.-->
       <option>3</option>
       <option>2</option>
@@ -61,7 +61,8 @@
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">  <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure this function name matches what is on scope.-->
-        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoStrengths()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoStrengths()" ng-disabled="leaderval.$invalid"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+      </form>
         <!--Make sure this function name matches what is on scope.-->
       </div>
   </div>

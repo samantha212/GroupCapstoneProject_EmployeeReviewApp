@@ -6,9 +6,7 @@ var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/regis-reviews';
 
 router.post('/', function(request, response){
-  console.log("post route hit");
   var regisId = request.body.regisId;
-  console.log("regis id", regisId);
   var employeeBaseData = [];
 
   pg.connect(connectionString, function(err, client, done){
@@ -83,7 +81,7 @@ router.post('/leaderReviews', function(request, response){
     var findReviewsId;
     var reviewResults = [];
 
-    findReviewsId = client.query('SELECT * FROM "employeeData" WHERE "LeaderRegisId" = $1', [regisId]);
+    findReviewsId = client.query('SELECT * FROM "employeeData" WHERE "LeaderRegisId" = $1 ORDER BY "Id" ASC', [regisId]);
     findReviewsId.on('row', function(row){
       reviewResults.push(row);
     });

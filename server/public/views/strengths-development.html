@@ -52,14 +52,16 @@
       <span class="ReadboxProperties well">{{strengthDevData[subsections.currentStrengthDev].EmployeeResponse}}</span>
 
       <h4>Leader Comments:</h4>
+      <form name="leaderval">
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <textarea class="boxProperties well" ng-model="strengthDevData[subsections.currentStrengthDev].LeaderResponse"></textarea>
+          <textarea class="boxProperties well" ng-model="strengthDevData[subsections.currentStrengthDev].LeaderResponse" ng-minlength="10"></textarea>
       </div>
 
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
         <!--Make sure this function name matches what is on scope.-->
-        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNextStrengthDev()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNextStrengthDev()" ng-disabled="leaderval.$invalid"><span class="glyphicon glyphicon-ok"></span> DONE</button>
+      </form>
         <!--Make sure this function name matches what is on scope.-->
      </div>
   </div>

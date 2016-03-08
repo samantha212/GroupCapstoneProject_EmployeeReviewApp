@@ -1,6 +1,5 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="employeeInfo" id="top">
-    <!--<h1 class="title">Goal {{currentGoal}}</h1>-->
       <span class="h1">Goal {{subsections.currentGoal}}</span>
     <span class="h5">Review for:</span>  <span class="pageNames ">{{currentReviewEmpInfo.EmployeeName}}</span></br>
     <span class="h5">Regis ID:</span>  <span class="pageNames ">{{currentReviewEmpInfo.RegisId}}</span>
@@ -18,7 +17,6 @@
 
         <div>
           <h4>Employee Rating:</h4>
-          <!--Come BACK and make sure this dropdown displays what is already in the DB.-->
           <select class="selectDrop well" ng-model="goalData[subsections.currentGoal].EmployeeGoalRating">
             <option>3</option>
             <option>2</option>
@@ -77,11 +75,9 @@
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
           <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-        <!--Make sure the name of this function matches what is on scope.-->
         <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNextGoal()">
           <span class="glyphicon glyphicon-ok"></span> DONE</button>
         </div>
-    <!--Make sure the name of this function matches what is on scope.-->
     </div>
 
 <!--Leader View Divs-->
@@ -95,12 +91,11 @@
         <p class="goalemployeeRatingBox well">{{goalData[subsections.currentGoal].EmployeeGoalRating}}</p>
       </div>
 
-
+  <form name="leaderval" id="leaderval">
     <div class="leaderRatingAlignDrop row col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="statuses.leaderThreeFourFive">
       <h4>Leader Rating:</h4>
       <div class="row col-xs-5 col-sm-5 col-md-4 col-lg-4"></div>
-      <select class="secondGoalSelectDrop well row col-xs-2 col-sm-2 col-md-4 col-lg-4" ng-model="goalData[subsections.currentGoal].LeaderGoalRating">
-          <!--Come BACK and make sure this value matches current subsection LeaderGoalRating.-->
+      <select class="secondGoalSelectDrop well row col-xs-2 col-sm-2 col-md-4 col-lg-4" ng-model="goalData[subsections.currentGoal].LeaderGoalRating" required>
           <option>3</option>
           <option>2</option>
           <option>1</option>
@@ -122,8 +117,9 @@
 
     <div ng-if="statuses.leaderThreeFourFive">
       <h4>Leader Comments:</h4>
+
       <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <textarea class="lasttextAreabox well" ng-model="goalData[subsections.currentGoal].LeaderResponse"></textarea>
+          <textarea class="lasttextAreabox well" ng-model="goalData[subsections.currentGoal].LeaderResponse" ng-minlength="10" required></textarea>
       </div>
     </div>
     <br>
@@ -140,24 +136,19 @@
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">
           <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-        <!--Make sure this function name matches what is on scope.-->
-        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNextGoal()">
+        <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNextGoal()" ng-disabled="leaderval.$invalid">
           <span class="glyphicon glyphicon-ok"></span> DONE</button>
-        <!--Make sure this function name matches what is on scope.-->
       </div>
+      </form>
     </div>
 
     <div ng-if="statuses.leaderSixPlus">
       <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()">
         <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-      <!--Make sure the name of this function matches what is on scope.-->
       <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNextGoal()">
         <span class="glyphicon glyphicon-ok"></span> DONE</button>
 
-    <!--Make sure the name of this function matches what is on scope.-->
       </div>
     </div>
-
-<!-- container div -->
 </div>
