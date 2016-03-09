@@ -25,7 +25,7 @@
     <a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="myReviewStatuses.empOneTwo" ng-click="getReview(myReview.empInfo.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
     <a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive"  ng-if="myReviewStatuses.empThreePlus" ng-click="getReview(myReview.empInfo.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW</button></a>
     <button type="button" class="orange btn btn-warning btn-responsive" ng-if="myReviewStatuses.empSixAndNoEmpSignature" ng-click="signOwnReview()">  <span class="glyphicon glyphicon-pencil"></span> SIGN</button></a>
-    <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="myReviewStatuses.empSeven"><span class="glyphicon glyphicon-send"></span> EMAIL PDF</button></a>
+    <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="myReviewStatuses.empSeven"  ng-click="emailMyPDF()"><span class="glyphicon glyphicon-send"></span> EMAIL PDF</button></a>
     <hr>
   </div>
 
@@ -37,11 +37,12 @@
       </div>
 
       <div class="homePageEmpButtons">
-        <button type="button" ng-if="person.ReviewStatus == 3" class="green btn btn-success btn-md btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
-        <button type="button" ng-if="person.ReviewStatus == 4" class="orange btn btn-warning btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> EDIT</button></a>
-        <button type="button" ng-if="person.ReviewStatus == 5" class="review btn btn-info btn-md btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button></a>
-        <button type="button" ng-if="person.ReviewStatus == 6 && !person.LeaderSignature" class="review btn btn-info btn-md btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button></a>
-        <button type="button" ng-if="person.ReviewStatus == 7 || person.LeaderSignature" class="grey btn btn-secondary btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> READ</button></a>
+        <button type="button" ng-if="person.ReviewStatus == 3" class="green btn btn-success btn-md btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button>
+        <button type="button" ng-if="person.ReviewStatus == 4" class="orange btn btn-warning btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
+        <button type="button" ng-if="person.ReviewStatus == 5" class="review btn btn-info btn-md btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW & UPDATE</button>
+        <button type="button" ng-if="person.ReviewStatus == 6 && !person.LeaderSignature" class="review btn btn-info btn-md btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-pencil"></span> REVIEW & SIGN</button>
+        <button type="button" ng-if="person.ReviewStatus == 7 || person.LeaderSignature" class="grey btn btn-secondary btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> READ</button>
+        <button type="button" ng-if="person.ReviewStatus == 7 || person.LeaderSignature" class="grey btn btn-secondary btn-responsive" ng-click="emailEmpPDF(person.RegisId)"><span class="glyphicon glyphicon-send"></span> EMAIL PDF</button>
       </div>
 
     </div>

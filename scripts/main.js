@@ -135,8 +135,19 @@ app.controller('HomeController', ['$scope', '$http', '$location', 'ReviewService
 
     $scope.reviewUpdate = function(person) {
         $scope.getReview(person);
-        //$location.path('/map');
-    }
+    };
+
+    $scope.emailMyPDF = function() {
+    //    Regis Corp to use this function to link to their system for emailing PDFs.
+    //    This function will email employee's personal PDF to the employee.
+        console.log("This will email me my own review as a PDF.");
+    };
+
+    $scope.emailEmpPDF = function(person) {
+        //    Regis Corp to use this function to link to their system for emailing PDFs.
+        //    This function will email the particular team member's PDF to the leader.
+        console.log("This will email me ", person, "'s review as a PDF.");
+    };
 }]);
 
 
