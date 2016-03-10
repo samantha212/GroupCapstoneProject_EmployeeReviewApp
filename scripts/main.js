@@ -263,19 +263,31 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
         }
     };
 
+  //Variable will hold the token during th entire users session once it is grabbed.
+  //var token
+
   //Happens on home page load.
   var loadHomePageInfo = function(){
-    //gets the users token, change the number from 1-5 to get different users
-    //TO DO *** Revisit this to make it dynamic.
     $http.get('token/1').then(function(response) {
-      console.log(response.data);
-      //reviews.thisUser = {regisId: response.data.regisId};
       thisUser = {regisId: response.data.regisId};
         console.log('thisUser', thisUser);
       getMyReview({regisId: response.data.regisId});
       getTeamReviews({regisId: response.data.regisId});
     });
   };
+
+  //Call to get the token using the Regis API
+  // var loadHomePageInfo = function(){
+  // $http({
+  //   method: 'GET',
+  //   url: Regis Api Get Token Call URL,
+  // }).then(function(response){
+  //   thisUser = {regisId: response.data.regisId};
+  //   token = response.data.token;
+  //   getMyReview({regisId: response.data.regisId});
+  //   getTeamReviews({regisId: response.data.regisId});
+  // });
+  //};
 
     //gives you the user's own review and information
     //Used both to load the home page
@@ -290,6 +302,19 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
         console.log('myReviewStatuses', myReviewStatuses);
     });
   };
+
+  // var getMyReview = function(user){
+  // $http({
+  //   method: 'GET',
+  //   url: Regis Api Get Single Employees Information URL,
+  //   headers: {'Regis-HRR-Corp', token}
+  // }).then(function(response){
+  //   myReview.empInfo = response.data[0][0];
+  //   myReview.subsections = response.data[1];
+  //   updateMyReviewStatuses();
+  //   updateCurrentReviewType(myReview.empInfo.ReviewType);
+  // });
+  //}
 
   var getReview = function(employee){
       console.log("employee being passed in", employee);
@@ -309,13 +334,43 @@ app.factory('ReviewService', ['$http', '$location', function($http, $location) {
       });
   };
 
+  // var getReview(employee){
+  // var thisEmployee = {regisId: employee};
+  // $http({
+  //   method: 'GET',
+  //   url: Regis Api Get Single Employees Information URL,
+  //   headers: {'Regis-HRR-Corp', token}
+  // }).then(function(response){
+  //   currentReview.empInfo = response.data[0][0];
+  //  currentReview.subsections = response.data[1];
+  //  console.log('Current Review', currentReview);
+  //  updateCurrentReviewType(currentReview.empInfo.ReviewType);
+  //  updateRoleAndViewStatuses();
+  //  updateSubmitStatus();
+  //  console.log('Role object:', role);
+  //  console.log('Statuses object:', statuses);
+  // console.log('Type object:', type);
+  // $location.path('/map');
+  // });
+  //};
+
   var getTeamReviews = function(user){
     $http.post('/employeeData/leaderReviews', user).then(function(response) {
       teamReviews.data = response.data;
-        console.log('My team\'s reviews:', teamReviews);
-
+      console.log('My team\'s reviews:', teamReviews);
     });
   };
+
+  // var getTeamReviews = function(user){
+  //   $http({
+  //     method: 'GET',
+  //     url: Regis Api get leaders team reviews,
+  //      headers: {'Regis-HRR-Corp', token}
+  // .then(function(response) {
+  //     teamReviews.data = response.data;
+  //     console.log('My team\'s reviews:', teamReviews);
+  //   });
+  // };
 
     var signOwnReview = function() {
         console.log("signOwnReview hit");
