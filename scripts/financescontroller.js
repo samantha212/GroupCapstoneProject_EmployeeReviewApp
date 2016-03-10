@@ -3,6 +3,7 @@ app.controller('FinancesController', ['$scope', '$http', '$location', 'ReviewSer
 
     $scope.currentReview = ReviewService.currentReview;
     $scope.financeData = ReviewService.currentReview.subsections[0];
+
     var role = ReviewService.role;
 
     $scope.makeVariance = function(firstValue, secondValue){

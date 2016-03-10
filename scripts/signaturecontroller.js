@@ -17,16 +17,11 @@ app.controller('SignatureController', ['$scope', '$http', '$location', 'ReviewSe
         console.log(contentToSend);
         $http.post('/sign', contentToSend).then(function(response) {
             if(response.status == 200){
-                console.log($scope.currentReview.empInfo.RegisId);
                 ReviewService.getReview($scope.currentReview.empInfo.RegisId);
                 $location.path('/map');
             }
         });
-
-    //    Add form validation to ensure initials entered.
-    //    Button is already disabled --  enabled when box is checked.
     };
 
-    //var signData = {isLeader: request.body.isLeader, regisId: request.body.regisId, EmployeeSignature: request.body.EmployeeSignature, LeaderSignature: request.body.LeaderSignature};
 
 }]);
