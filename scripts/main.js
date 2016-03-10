@@ -115,8 +115,8 @@ app.controller('MainController', ['$scope', '$http', '$location', 'ReviewService
     //};
 
     $scope.goMap = function() {
-        console.log('goMap function hit');
-        ReviewService.getReview($scope.currentReviewEmpInfo.RegisId);
+        var currentReviewEmpInfo = ReviewService.currentReview.empInfo;
+        ReviewService.getReview(currentReviewEmpInfo.RegisId);
         $location.path('/map');
     };
 

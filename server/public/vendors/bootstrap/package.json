@@ -2,7 +2,7 @@
   "_args": [
     [
       "bootstrap@~3.3.6",
-      "/Users/acoelho/Documents/DEV/Prime Academy/Team Regis/Team-Regis-"
+      "/Users/abrooksnagel/Documents/Team-Regis-"
     ]
   ],
   "_from": "bootstrap@>=3.3.6 <3.4.0",
@@ -32,7 +32,7 @@
   "_shasum": "8de8f749dc8a743f2ac5b510d988371e3daa6589",
   "_shrinkwrap": null,
   "_spec": "bootstrap@~3.3.6",
-  "_where": "/Users/acoelho/Documents/DEV/Prime Academy/Team Regis/Team-Regis-",
+  "_where": "/Users/abrooksnagel/Documents/Team-Regis-",
   "author": {
     "name": "Twitter, Inc."
   },

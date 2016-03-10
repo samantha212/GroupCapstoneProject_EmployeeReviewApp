@@ -9,7 +9,7 @@ router.get('/1', function(request, response){
 });
 
 router.get('/2', function(request, response){
-  var sendToken = {regisId: 'Doj2', token: 'dnPjjnGkmaX8qOJYs1Q7nvzYCnpeNKE72gndZBwfGgyCFvcW0Z8XrDGSQ/LF4MRgeq5Hm3oNXdw8Xw1y2KnAaqed5xKnMjQLkWPTFeqJOho='};
+  var sendToken = {regisId: 'BUTL02', token: 'dnPjjnGkmaX8qOJYs1Q7nvzYCnpeNKE72gndZBwfGgyCFvcW0Z8XrDGSQ/LF4MRgeq5Hm3oNXdw8Xw1y2KnAaqed5xKnMjQLkWPTFeqJOho='};
   response.send(sendToken);
 });
 
