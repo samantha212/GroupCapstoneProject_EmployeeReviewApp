@@ -1,7 +1,4 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-init="loadHomePageInfo()">
-  <!--<a href="/map" ng-click="ReviewService.getReview('JASTA1')">Go to Map Page</a>-->
-  <!--<p>Leaving this link for reference.  Eventually will remove once Home Page fully functional.</p>-->
-  <!--<br>-->
 
   <div class="h1Home">
   <span>Employee Review Home Page</span>
@@ -20,7 +17,6 @@
   </div>
   <div class="clearfix"></div>
 
-
   <div class="homePageLeadButtons">
     <a href="/map"><button type="button" class="green btn btn-success btn-md btn-responsive" ng-if="myReviewStatuses.empOneTwo" ng-click="getReview(myReview.empInfo.RegisId)"><span class="glyphicon glyphicon-play"></span> START</button></a>
     <a href="/map"><button type="button" class="review btn btn-info btn-md btn-responsive"  ng-if="myReviewStatuses.empThreePlus" ng-click="getReview(myReview.empInfo.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> REVIEW</button></a>
@@ -28,7 +24,6 @@
     <button type="button" class="grey btn btn-secondary btn-responsive" ng-if="myReviewStatuses.empSeven"  ng-click="emailMyPDF()"><span class="glyphicon glyphicon-send"></span> EMAIL PDF</button></a>
     <hr>
   </div>
-
 
     <div ng-repeat="person in teamReviews.data">
 
@@ -44,7 +39,5 @@
         <button type="button" ng-if="person.ReviewStatus == 7 || person.LeaderSignature" class="grey btn btn-secondary btn-responsive" ng-click="getReview(person.RegisId)"><span class="glyphicon glyphicon-eye-open"></span> READ</button>
         <button type="button" ng-if="person.ReviewStatus == 7 || person.LeaderSignature" class="grey btn btn-secondary btn-responsive" ng-click="emailEmpPDF(person.RegisId)"><span class="glyphicon glyphicon-send"></span> EMAIL PDF</button>
       </div>
-
     </div>
-
 </div>

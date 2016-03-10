@@ -28,5 +28,4 @@ router.get('/5', function(request, response){
   response.send(sendToken);
 });
 
-
 module.exports = router;

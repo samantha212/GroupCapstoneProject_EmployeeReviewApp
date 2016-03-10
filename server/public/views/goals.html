@@ -5,7 +5,6 @@
     <span class="h5">Regis ID:</span>  <span class="pageNames ">{{currentReviewEmpInfo.RegisId}}</span>
   </div>
 
-
 <!--Employee View Divs-->
     <div ng-if="statuses.empOneTwo">
       <form name="goal1" id="goal1">
@@ -25,24 +24,19 @@
           </select>
         </div>
 
-
         <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <h4>Employee Comments:</h4>
           <textarea class="textAreaboxProperties well" ng-model="goalData[subsections.currentGoal].EmployeeResponse" ng-minlength="10" required></textarea>
         </div>
 
-
           <div class="alignButton">
             <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
             <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNextGoal()" ng-disabled="goal1.$invalid"><span class="glyphicon glyphicon-ok">
-
 
             </span> DONE</button>
           </div>
         </form>
       </div>
-
-
 
     <div ng-if="statuses.empThreePlus">
       <h4>Goal:</h4>

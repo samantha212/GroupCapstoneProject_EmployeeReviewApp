@@ -6,7 +6,6 @@ var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/regis-reviews';
 
 router.post('/', function(request, response){
-  // var reviewMapId = request.body.Id;
   var regisId = request.body.regisId;
 
   var results = [];
@@ -32,7 +31,6 @@ router.post('/', function(request, response){
       });
     });
   });
-
 
 });
 

@@ -1,7 +1,6 @@
 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
   <!--HAIR images-->
-  <!-- ***** STYLING NOTE *****  I copied the H1 tags into the ng-ifs below, so they show up conditionally depending on the subsection.-->
   <div ng-if="hairSubsectionH">
       <img class="hairImages" src="assets/images/H2.png" alt="H honest"/>
     <div class="hairDescription">
@@ -46,11 +45,8 @@
       </div>
     <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()">  <span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-      <!--Make sure this function name matches what is on scope.-->
       <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNextHAIR()" ng-disabled="hairform.$invalid"><span class="glyphicon glyphicon-ok"></span> DONE</button>
-      <!--Make sure this function name matches what is on scope.-->
     </div>
-
   </form>
   </div>
 
@@ -67,12 +63,9 @@
   <div ng-if="statuses.empThreePlus">
     <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-      <!--Make sure the name of this function matches what is on scope.-->
       <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNextHAIR()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
-      <!--Make sure the name of this function matches what is on scope.-->
     </div>
   </div>
-
 
   <!--Leader View divs-->
   <div ng-if="statuses.leaderThreePlus">
@@ -89,9 +82,7 @@
 
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-        <!--Make sure this function name matches what is on scope.-->
         <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoNextHAIR()" ng-disabled="leaderhair.$invalid"><span class="glyphicon glyphicon-ok"></span> DONE</button>
-        <!--Make sure this function name matches what is on scope.-->
       </div>
     </form>
   </div>
@@ -102,10 +93,7 @@
 
     <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-        <!--Make sure the name of this function matches what is on scope.-->
         <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goNextHAIR()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
-        <!--Make sure the name of this function matches what is on scope.-->
     </div>
   </div>
-<!-- container div -->
 </div>

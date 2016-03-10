@@ -11,7 +11,6 @@
     <h4>Employee Rating:</h4>
     <form name="empfinal" id="empfinal">
       <select class="selectDrop well" ng-model="finalData[13].EmployeeFinalRating">
-        <!--Come back and make sure this value matches current subsection thisEmpFinalRating.-->
         <option>3</option>
         <option>2</option>
         <option>1</option>
@@ -24,9 +23,7 @@
 
       <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-        <!--Make sure this function name matches what is on scope.-->
         <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoMap()" ng-disabled="empfinal.$invalid"><span class="glyphicon glyphicon-ok"></span> DONE</button>
-        <!--Make sure this function name matches what is on scope.-->
       </div>
   </div>
 </form>
@@ -40,7 +37,7 @@
 
     <div ng-if="statuses.empFivePlus">
         <h4>Leader Rating:</h4>
-        <span class="hairRatingbox well">{{finalData[13].LeaderFinalRating}}</span> <!--Make sure object contains this after Charlie updates.-->
+        <span class="hairRatingbox well">{{finalData[13].LeaderFinalRating}}</span>
         <h4>Leader Comments:</h4>
         <span class="ReadboxProperties well">{{finalData[13].LeaderResponse}}</span>
     </div>
@@ -49,9 +46,7 @@
 
     <div class="alignButton">
         <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-        <!--Make sure the name of this function matches what is on scope.-->
         <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
-        <!--Make sure the name of this function matches what is on scope.-->
     </div>
 
   </div>
@@ -68,7 +63,6 @@
     <form name="leaderfinal" id="leaderfinal">
     <h4>Leader Rating:</h4>
     <select class="selectDrop well" ng-model="finalData[13].LeaderFinalRating">
-        <!--Come BACK and make sure this value matches current subsection LeaderFinalRating.-->
         <option>3</option>
         <option>2</option>
         <option>1</option>
@@ -81,26 +75,20 @@
 
       <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="putAndGoMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-      <!--Make sure this function name matches what is on scope.-->
       <button type="button" class="orange btn btn-warning btn-responsive" ng-click="putCompleteAndGoMap()" ng-disabled="leaderfinal.$invalid"><span class="glyphicon glyphicon-ok"></span> DONE</button>
-      <!--Make sure this function name matches what is on scope.-->
       </div>
     </form>
   </div>
 
   <div ng-if="statuses.leaderSixPlus">
     <h4>Leader Rating:</h4>
-    <span class="hairRatingbox well">{{finalData[13].LeaderFinalRating}}</span> <!--Make sure object contains this after Charlie updates.-->
+    <span class="hairRatingbox well">{{finalData[13].LeaderFinalRating}}</span>
     <h4>Leader Comments:</h4>
     <span class="ReadboxProperties well">{{finalData[13].LeaderResponse}}</span>
 
       <div class="alignButton">
       <button type="button" class="grey btn btn-secondary btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-step-backward"></span> BACK</button>
-      <!--Make sure the name of this function matches what is on scope.-->
       <button type="button" class="orange btn btn-warning btn-responsive" ng-click="goMap()"><span class="glyphicon glyphicon-ok"></span> DONE</button>
-      <!--Make sure the name of this function matches what is on scope.-->
       </div>
   </div>
-
-<!-- container div -->
 </div>
